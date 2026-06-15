@@ -27,14 +27,13 @@ namespace FinderQuest
             labelPlayer.Visible = false;
             labelTimer.Visible = false;
             panelGame.Visible = false;
+            panelTalkArea.Visible = false;
 
             pauseToolStripMenuItem.Enabled = false;
             timerTime.Interval = 1000;
 
             this.KeyPreview = true;
             this.DoubleBuffered = true;
-
-            panelTalkArea.Visible = false;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,6 +76,8 @@ namespace FinderQuest
         {
             panelGame.Visible = true;
             labelTimer.Visible = true;
+            labelPlayer.Visible= true;
+            labelArea.Visible= true;
 
             pauseToolStripMenuItem.Enabled = true;
             startToolStripMenuItem.Enabled = false;
@@ -84,9 +85,10 @@ namespace FinderQuest
             pauseToolStripMenuItem.Text = "Pause Game";
 
             time = new Time(0, 1, 0);
+            labelTimer.Text = time.DisplayData();
             timerTime.Start();
 
-            player = new Player("John", Properties.Resources.player_right, new Size(50, 80), new Point(10, 370), time);
+            player = new Player("John", Properties.Resources.player_right, new Size(50, 80), new Point(10, 200), time);
 
             labelPlayer.Text = player.DisplayData();
             player.DisplayPicture(this);
@@ -103,9 +105,9 @@ namespace FinderQuest
 
             if(e.KeyCode == Keys.Right)
             {
-                if(player.Picture.Location.X + distance > this.Width)
+                if(player.Picture.Location.X + distance > this.Width - 50)
                 {
-                    distance = this.Width - player.Picture.Location.X;
+                    distance = 0;
                 }
 
                 player.MoveRight(distance);
@@ -117,7 +119,11 @@ namespace FinderQuest
                 {
                     distance = player.Picture.Location.X;
                 }
+
+                player.MoveLeft(distance);
             }
+
+            player.DisplayPicture(this);
         }
     }
 }
