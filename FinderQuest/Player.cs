@@ -12,7 +12,7 @@ namespace FinderQuest
     {
         #region fields
         private string name;
-        private PictureBox picture;
+        private PictureBox sprite;
         private int score;
         private Time time;
         #endregion
@@ -23,10 +23,10 @@ namespace FinderQuest
             this.Name = name;
             this.Score = 0;
             this.Time = playTime;
-            this.Picture = new PictureBox();
-            this.Picture.Image = picture;
-            this.Picture.Size = size;
-            this.Picture.Location = location;
+            this.Sprite = new PictureBox();
+            this.Sprite.Image = picture;
+            this.Sprite.Size = size;
+            this.Sprite.Location = location;
         }
         #endregion
 
@@ -46,7 +46,7 @@ namespace FinderQuest
                 }
             } 
         }
-        public PictureBox Picture { get => this.picture; set => this.picture = value; }
+        public PictureBox Sprite { get => this.sprite; set => this.sprite = value; }
         public int Score 
         { 
             get => this.score;
@@ -73,10 +73,10 @@ namespace FinderQuest
 
         public void DisplayPicture(Control container)
         {
-            this.Picture.Parent = container;
-            this.Picture.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.Picture.BackColor = Color.Transparent;
-            this.Picture.BringToFront();
+            this.Sprite.Parent = container;
+            this.Sprite.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Sprite.BackColor = Color.Transparent;
+            this.Sprite.BringToFront();
         }
 
         public void AddScore(int amount)
@@ -86,14 +86,14 @@ namespace FinderQuest
 
         public void MoveRight(int distance)
         {
-            this.Picture.Location = new Point(this.Picture.Location.X + distance, this.Picture.Location.Y);
-            this.Picture.Image = Properties.Resources.player_right;
+            this.Sprite.Location = new Point(this.Sprite.Location.X + distance, this.Sprite.Location.Y);
+            this.Sprite.Image = Properties.Resources.player_right;
         }
 
         public void MoveLeft(int distance)
         {           
-            this.Picture.Location = new Point(this.Picture.Location.X - distance, this.Picture.Location.Y);
-            this.Picture.Image = Properties.Resources.player_left;
+            this.Sprite.Location = new Point(this.Sprite.Location.X - distance, this.Sprite.Location.Y);
+            this.Sprite.Image = Properties.Resources.player_left;
         }
         #endregion
 

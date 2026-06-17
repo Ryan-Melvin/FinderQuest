@@ -105,7 +105,7 @@ namespace FinderQuest
 
             if(e.KeyCode == Keys.Right)
             {
-                if(player.Picture.Location.X + distance > this.Width - 50)
+                if(player.Sprite.Location.X + distance > this.Width - 50)
                 {
                     distance = 0;
                 }
@@ -115,9 +115,9 @@ namespace FinderQuest
 
             else if(e.KeyCode == Keys.Left)
             {
-                if (player.Picture.Location.X - distance < 0)
+                if (player.Sprite.Location.X - distance < 0)
                 {
-                    distance = player.Picture.Location.X;
+                    distance = player.Sprite.Location.X;
                 }
 
                 player.MoveLeft(distance);
