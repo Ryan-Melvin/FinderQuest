@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TimeApplication.Time" Collapsed="true">
-    <Position X="2.75" Y="1.5" Width="1.5" />
+  <Class Name="TimeApplication.Time">
+    <Position X="3.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAgAAAAMAAAAAASIAAAAiAAAAAAA=</HashCode>
       <FileName>Time.cs</FileName>
@@ -10,9 +10,12 @@
   <Class Name="FinderQuest.Player">
     <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABgAAAAIAAAAgAAAAIAAQAAAAEAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAhgAAAAIAAAAgAAAAIAAQAAAAEAAAJQAAAAAAAAQA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Time" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="FinderQuest.WalkArea">
     <Position X="5.25" Y="1.75" Width="1.5" />

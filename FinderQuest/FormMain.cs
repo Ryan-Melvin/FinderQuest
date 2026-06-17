@@ -123,6 +123,20 @@ namespace FinderQuest
                 player.MoveLeft(distance);
             }
 
+            else if(e.KeyCode == Keys.Enter)
+            {
+
+            }
+
+            else if(e.KeyCode == Keys.Escape)
+            {
+
+            } 
+            else if(e.KeyCode == Keys.Y)
+            {
+
+            }
+
             player.DisplayPicture(this);
         }
     }
