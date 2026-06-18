@@ -101,12 +101,12 @@ namespace FinderQuest.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] person3 {
+        internal static System.Drawing.Bitmap person3 {
             get {
                 object obj = ResourceManager.GetObject("person3", resourceCulture);
-                return ((byte[])(obj));
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
