@@ -24,6 +24,7 @@ namespace FinderQuest
         public Person activePerson;
         Point activePersonLocation;
         bool enterTalkArea = false;
+        bool gameStarted = false;
 
         public FormMain()
         {
@@ -74,8 +75,14 @@ namespace FinderQuest
             timerTime.Stop();
 
             panelGame.Visible = false;
-
+            
             startToolStripMenuItem.Enabled = true;
+
+            gameStarted = false;
+
+            startToolStripMenuItem.Text = "Start new game";
+            player.Sprite.Dispose();
+            this.BackgroundImage = Properties.Resources.background;
         }
 
         private void StartGame()
@@ -84,7 +91,8 @@ namespace FinderQuest
             paused = false;
 
             pauseToolStripMenuItem.Enabled = true;
-            startToolStripMenuItem.Enabled = false;
+            startToolStripMenuItem.Text = "Stop Game";
+            gameStarted = true;
 
             pauseToolStripMenuItem.Text = "Pause Game";
 
@@ -92,7 +100,7 @@ namespace FinderQuest
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
 
-            player = new Player("John", Properties.Resources.player_right, new Size(50, 80), new Point(10, 360), time);
+            player = new Player("John", Properties.Resources.Test_Idle_Sprite, new Size(110, 110), new Point(10, 340), time);
 
             labelPlayer.Text = player.DisplayData();
             player.DisplayPicture(this);
@@ -107,37 +115,55 @@ namespace FinderQuest
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartGame();
+            if (!gameStarted)
+            {
+                StartGame();
+            }
+            else
+            {
+                GameOver();
+            }
         }
 
         private void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
             int distance = 30;
+
             if (!paused)
             {
-                if (e.KeyCode == Keys.Right)
+                if (e.KeyCode == Keys.Right && currWalkArea != null)
                 {
-                    if (player.Sprite.Location.X + distance > this.Width - 50)
+                    if (!currWalkArea.FinishedAllQuestions())
+                    {
+                        if (player.Sprite.Location.X + distance > this.Width - 50)
+                        {
+                            distance = 0;
+                        }
+                    }
+
+                    player.MoveRight(distance);
+                    player.SetState("walk-right");
+                }
+
+                else if (e.KeyCode == Keys.Left && currWalkArea != null)
+                {
+                    
+                    if (player.Sprite.Location.X - distance < 0)
                     {
                         distance = 0;
                     }
 
-                    player.MoveRight(distance);
-                }
-
-                else if (e.KeyCode == Keys.Left)
-                {
-                    if (player.Sprite.Location.X - distance < 0)
-                    {
-                        distance = player.Sprite.Location.X;
-                    }
-
                     player.MoveLeft(distance);
+                    player.SetState("walk-left");
                 }
 
                 else if (e.KeyCode == Keys.Enter)
                 {
-                    if(currWalkArea.CheckTouchPerson(player, out Person touchPerson))
+                    if (!gameStarted)
+                    {
+                        StartGame();
+                    }
+                    else if(currWalkArea.CheckTouchPerson(player, out Person touchPerson))
                     {
                         enterTalkArea = true;
                         activePerson = touchPerson;
@@ -163,9 +189,29 @@ namespace FinderQuest
                     form.ShowDialog();
                 }
             }
-            player.DisplayPicture(this);
+            if(player != null)
+            {
+                player.DisplayPicture(this);
+            }
+            
         }
 
+        private void FormMain_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!paused)
+            {
+                if (e.KeyCode == Keys.Right && currWalkArea != null)
+                {
+                    player.SetState("idle-right");
+                }
+
+                else if (e.KeyCode == Keys.Left && currWalkArea != null)
+                {
+                    player.SetState("idle-left");
+                    
+                }
+            }
+        }
         private void GeneratWalkArea()
         {
             if (currWalkArea == null)
@@ -173,8 +219,8 @@ namespace FinderQuest
                 currWalkArea = new WalkArea("The Barn", Properties.Resources.walkArea1, 1);
 
                 currWalkArea.AddPerson(1, "Anna", Properties.Resources.person1, new Size(60,90), new Point(100,350), "I Hava a question for you. Are you ready? \n");
-                currWalkArea.AddPerson(2, "Andy", Properties.Resources.person2, new Size(60, 90), new Point(270, 350), "can you answer my question? Lets go! \n");
-                currWalkArea.AddPerson(3, "Bobby", Properties.Resources.person3, new Size(60, 90), new Point(420, 350), "Just answer my question please..\n");
+                currWalkArea.AddPerson(2, "Andy", Properties.Resources.person2, new Size(60, 90), new Point(370, 350), "can you answer my question? Lets go! \n");
+                currWalkArea.AddPerson(3, "Bobby", Properties.Resources.person3, new Size(60, 90), new Point(620, 350), "Just answer my question please..\n");
             }
             else if (currWalkArea.AreaNum == 2)
             {
@@ -254,7 +300,7 @@ namespace FinderQuest
             panelTalkArea.Visible = true;
 
             activePerson.Sprite.Size = new Size(200, 300);
-            activePerson.Sprite.Location = new Point(300, 100);
+            activePerson.Sprite.Location = new Point(300, 130);
             activePerson.DisplayPicture(panelTalkArea);
 
             if (activePerson.Solved)
@@ -274,6 +320,7 @@ namespace FinderQuest
             activePerson.Sprite.Size = new Size(60, 90);
             activePerson.Sprite.Location = activePersonLocation;
             activePerson.DisplayPicture(this);
+            activePerson.RemoveDialog();
         }
 
         private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -282,11 +329,15 @@ namespace FinderQuest
             {
                 pauseToolStripMenuItem.Text = "Pause";
                 paused = false;
+                timerTime.Start();
+                player.Sprite.Enabled = true;
             }
             else
             {
                 pauseToolStripMenuItem.Text = "Continue";
                 paused = true;
+                timerTime.Stop();
+                player.Sprite.Enabled = false;
             }
         }
     }

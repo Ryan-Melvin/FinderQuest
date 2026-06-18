@@ -15,6 +15,7 @@ namespace FinderQuest
         private PictureBox sprite;
         private int score;
         private Time time;
+        private string currState;
         #endregion
 
         #region constructors
@@ -27,6 +28,7 @@ namespace FinderQuest
             this.Sprite.Image = picture;
             this.Sprite.Size = size;
             this.Sprite.Location = location;
+            this.CurrState = "idle";
         }
         #endregion
 
@@ -63,6 +65,7 @@ namespace FinderQuest
             } 
         }
         public Time Time { get => this.time; set => this.time = value; }
+        public string CurrState { get => currState; private set => currState = value; }
         #endregion
 
         #region methods
@@ -87,13 +90,39 @@ namespace FinderQuest
         public void MoveRight(int distance)
         {
             this.Sprite.Location = new Point(this.Sprite.Location.X + distance, this.Sprite.Location.Y);
-            this.Sprite.Image = Properties.Resources.player_right;
+            //this.Sprite.Image = Properties.Resources.Test_PlayerWalking_Right;
         }
 
         public void MoveLeft(int distance)
         {           
             this.Sprite.Location = new Point(this.Sprite.Location.X - distance, this.Sprite.Location.Y);
-            this.Sprite.Image = Properties.Resources.player_left;
+            //this.Sprite.Image = Properties.Resources.player_left;
+        }
+
+        public void SetState(string newState)
+        {
+            if(newState == this.CurrState)
+            {
+                return;
+            }
+            this.CurrState = newState;
+
+            if(this.CurrState == "idle-right")
+            {
+                this.Sprite.Image = Properties.Resources.Test_Idle_Sprite;
+            }
+            else if(this.CurrState == "walk-right")
+            {
+                this.Sprite.Image = Properties.Resources.Test_PlayerWalking_Right;
+            }
+            else if (this.CurrState == "walk-left")
+            {
+                this.Sprite.Image = Properties.Resources.Test_PlayerWalking_Left;
+            }
+            else if (this.CurrState == "idle-left")
+            {
+                this.Sprite.Image = Properties.Resources.Test_Idle_Sprite_Left;
+            }
         }
         #endregion
 

@@ -70,7 +70,7 @@ namespace FinderQuest
             return false;
         }
 
-        public bool CheckFinishedAllQuestions()
+        public bool FinishedAllQuestions()
         {
             int solvedCounter = 0;
             foreach(Person person in this.People)

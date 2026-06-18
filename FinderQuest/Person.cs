@@ -17,6 +17,7 @@ namespace FinderQuest
         private string dialog;
         private Question question;
         private bool solved;
+        private Label labelDialog;
         #endregion
 
         #region constructors
@@ -68,6 +69,7 @@ namespace FinderQuest
         public string Dialog { get => dialog; set => dialog = value; }
         public Question Question { get => question; set => question = value; }
         public bool Solved { get => solved; private set => solved = value; }
+        public Label LabelDialog { get => labelDialog; set => labelDialog = value; }
         #endregion
 
         #region methods
@@ -86,18 +88,27 @@ namespace FinderQuest
 
         public void DisplayDialog(Control container)
         {
-            Label labelDialog = new Label();
+
+            labelDialog = new Label();
+            labelDialog.AutoSize = true;
             labelDialog.Parent = container;
-            labelDialog.Size = new Size(500, 90);
-            labelDialog.Text = this.DisplayData();
+            labelDialog.MaximumSize = new Size(container.Width - 40, 0);
+           
             labelDialog.Font = new Font("Arial", 18);
             labelDialog.TextAlign = ContentAlignment.TopCenter;
-
-            labelDialog.Location = new Point(this.Sprite.Location.X - 150, 10);
+            labelDialog.Padding = new Padding(10, 10, 10, 10);
             labelDialog.BackColor = Color.LightYellow;
             labelDialog.BorderStyle = BorderStyle.FixedSingle;
+
+            labelDialog.Text = this.DisplayData();
+            labelDialog.Location = new Point((container.Width - labelDialog.Width) / 2, 10);
             labelDialog.Visible = true;
             labelDialog.BringToFront();
+        }
+
+        public void RemoveDialog()
+        {
+            labelDialog.Dispose();
         }
 
         public void AddQuestion(string question, string answer, int score)
