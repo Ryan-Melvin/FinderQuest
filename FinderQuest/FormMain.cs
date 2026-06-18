@@ -83,6 +83,8 @@ namespace FinderQuest
             startToolStripMenuItem.Text = "Start new game";
             player.Sprite.Dispose();
             this.BackgroundImage = Properties.Resources.background;
+            currWalkArea.RemovePeople();
+            currWalkArea = null;
         }
 
         private void StartGame()
@@ -143,6 +145,11 @@ namespace FinderQuest
 
                     player.MoveRight(distance);
                     player.SetState("walk-right");
+
+                    if (player.Sprite.Location.X >= this.Width - 50)
+                    {
+                        GeneratWalkArea();
+                    }
                 }
 
                 else if (e.KeyCode == Keys.Left && currWalkArea != null)
@@ -222,7 +229,7 @@ namespace FinderQuest
                 currWalkArea.AddPerson(2, "Andy", Properties.Resources.person2, new Size(60, 90), new Point(370, 350), "can you answer my question? Lets go! \n");
                 currWalkArea.AddPerson(3, "Bobby", Properties.Resources.person3, new Size(60, 90), new Point(620, 350), "Just answer my question please..\n");
             }
-            else if (currWalkArea.AreaNum == 2)
+            else if (currWalkArea.AreaNum == 1)
             {
                 currWalkArea.RemovePeople();
 
@@ -231,7 +238,7 @@ namespace FinderQuest
                 currWalkArea.AddPerson(4, "Rima", Properties.Resources.person4, new Size(60, 90), new Point(100, 350), "I'm sure you can answer my question.\n");
                 currWalkArea.AddPerson(5, "Tommy", Properties.Resources.person5, new Size(60, 90), new Point(400, 350), "You look smart, can you asnwer my question? \n");
             }
-            else if (currWalkArea.AreaNum == 3)
+            else if (currWalkArea.AreaNum == 2)
             {
                 currWalkArea.RemovePeople();
 
