@@ -83,6 +83,46 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ForestRanger_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("ForestRanger_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ForestRanger_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("ForestRanger_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ForestRanger_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("ForestRanger_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ForestRanger_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("ForestRanger_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap person1 {
             get {
                 object obj = ResourceManager.GetObject("person1", resourceCulture);
@@ -256,46 +296,6 @@ namespace FinderQuest.Properties {
         internal static System.Drawing.Bitmap talkArea7 {
             get {
                 object obj = ResourceManager.GetObject("talkArea7", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Test_Idle_Sprite {
-            get {
-                object obj = ResourceManager.GetObject("Test_Idle_Sprite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Test_Idle_Sprite_Left {
-            get {
-                object obj = ResourceManager.GetObject("Test_Idle_Sprite_Left", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Test_PlayerWalking_Left {
-            get {
-                object obj = ResourceManager.GetObject("Test_PlayerWalking_Left", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Test_PlayerWalking_Right {
-            get {
-                object obj = ResourceManager.GetObject("Test_PlayerWalking_Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

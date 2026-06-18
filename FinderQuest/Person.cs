@@ -13,22 +13,27 @@ namespace FinderQuest
         #region fields
         private int personNum;
         private string name;
-        private PictureBox sprite;
+        //private PictureBox sprite;
         private string dialog;
         private Question question;
         private bool solved;
         private Label labelDialog;
+        private int x;
+        private int y;
+        private Image sprite;
+        private Size size;
         #endregion
 
         #region constructors
-        public Person(int personNum, string name, Image image, Size size, Point location, string dialog)
+        public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y)
         {
             this.PersonNum = personNum;
             this.Name = name;
-            this.Sprite = new PictureBox();
-            this.Sprite.Image = image;
-            this.Sprite.Size = size;
-            this.Sprite.Location = location;
+            //this.Sprite = new PictureBox();
+            this.Sprite = image;
+            this.Size = size;
+            this.X = x;
+            this.y = y;
             this.Dialog = dialog;
             this.Solved = false;
         }
@@ -65,11 +70,15 @@ namespace FinderQuest
                 }
             }
         }
-        public PictureBox Sprite { get => sprite; set => sprite = value; }
+        //public PictureBox Sprite { get => Sprite1; set => Sprite1 = value; }
         public string Dialog { get => dialog; set => dialog = value; }
         public Question Question { get => question; set => question = value; }
         public bool Solved { get => solved; private set => solved = value; }
         public Label LabelDialog { get => labelDialog; set => labelDialog = value; }
+        public int X { get => x; set => x = value; }
+        public int Y { get => y; set => y = value; }
+        public Image Sprite { get => sprite; set => sprite = value; }
+        public Size Size { get => size; set => size = value; }
         #endregion
 
         #region methods
@@ -78,13 +87,13 @@ namespace FinderQuest
             return "Hi.. I'm " + this.Name + ".\n" + this.Dialog + "Press 'y' to continue";
         }
 
-        public void DisplayPicture(Control container)
-        {
-            this.Sprite.Parent = container;
-            this.Sprite.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.Sprite.BackColor = Color.Transparent;
-            this.Sprite.BringToFront();
-        }
+        //public void DisplayPicture(Control container)
+        //{
+        //    this.Sprite.Parent = container;
+        //    this.Sprite.SizeMode = PictureBoxSizeMode.StretchImage;
+        //    this.Sprite.BackColor = Color.Transparent;
+        //    this.Sprite.BringToFront();
+        //}
 
         public void DisplayDialog(Control container)
         {

@@ -12,23 +12,33 @@ namespace FinderQuest
     {
         #region fields
         private string name;
-        private PictureBox sprite;
+        //private PictureBox sprite;
         private int score;
         private Time time;
         private string currState;
+        private int x;
+        private int y;
+        private Image sprite;
+        private Size size;
+        bool isVisible;
         #endregion
 
         #region constructors
-        public Player(string name, Image picture, Size size, Point location, Time playTime)
+        public Player(string name, Image picture, Size size, Time playTime, int x, int y)
         {
             this.Name = name;
             this.Score = 0;
+            this.X = x;
+            this.Y = y;
             this.Time = playTime;
-            this.Sprite = new PictureBox();
-            this.Sprite.Image = picture;
-            this.Sprite.Size = size;
-            this.Sprite.Location = location;
+            this.Sprite = picture;
             this.CurrState = "idle";
+            this.IsVisible = true;
+            this.Size = size;
+            //this.Sprite = new PictureBox();
+            //this.Sprite.Image = picture;
+            //this.Sprite.Size = size;
+            //this.Sprite.Location = location;
         }
         #endregion
 
@@ -48,7 +58,7 @@ namespace FinderQuest
                 }
             } 
         }
-        public PictureBox Sprite { get => this.sprite; set => this.sprite = value; }
+        //public Image Sprite { get => this.Sprite; set => this.Sprite = value; }
         public int Score 
         { 
             get => this.score;
@@ -66,6 +76,11 @@ namespace FinderQuest
         }
         public Time Time { get => this.time; set => this.time = value; }
         public string CurrState { get => currState; private set => currState = value; }
+        public int X { get => x; set => x = value; }
+        public int Y { get => y; set => y = value; }
+        public Image Sprite { get => sprite; set => sprite = value; }
+        public Size Size { get => size; set => size = value; }
+        public bool IsVisible { get => isVisible; set => isVisible = value; }
         #endregion
 
         #region methods
@@ -74,13 +89,13 @@ namespace FinderQuest
             return "Name : " + this.Name + "\nScore: " + this.Score + "\nPlay Time : " + this.Time.DisplayData();
         }
 
-        public void DisplayPicture(Control container)
-        {
-            this.Sprite.Parent = container;
-            this.Sprite.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.Sprite.BackColor = Color.Transparent;
-            this.Sprite.BringToFront();
-        }
+        //public void DisplayPicture(Control container)
+        //{
+        //    this.Sprite.Parent = container;
+        //    this.Sprite.SizeMode = PictureBoxSizeMode.StretchImage;
+        //    this.Sprite.BackColor = Color.Transparent;
+        //    this.Sprite.BringToFront();
+        //}
 
         public void AddScore(int amount)
         {
@@ -89,14 +104,16 @@ namespace FinderQuest
 
         public void MoveRight(int distance)
         {
-            this.Sprite.Location = new Point(this.Sprite.Location.X + distance, this.Sprite.Location.Y);
-            //this.Sprite.Image = Properties.Resources.Test_PlayerWalking_Right;
+            //this.Position = new Point(this.Position.X + distance, this.Position.Y);
+            this.X += distance;
+            
         }
 
         public void MoveLeft(int distance)
         {           
-            this.Sprite.Location = new Point(this.Sprite.Location.X - distance, this.Sprite.Location.Y);
-            //this.Sprite.Image = Properties.Resources.player_left;
+            //this.Position = new Point(this.Position.X - distance, this.Position.Y);
+            this.X -= distance;
+            
         }
 
         public void SetState(string newState)
@@ -109,19 +126,19 @@ namespace FinderQuest
 
             if(this.CurrState == "idle-right")
             {
-                this.Sprite.Image = Properties.Resources.Test_Idle_Sprite;
+                this.Sprite = Properties.Resources.ForestRanger_Idle_Right;
             }
             else if(this.CurrState == "walk-right")
             {
-                this.Sprite.Image = Properties.Resources.Test_PlayerWalking_Right;
+                this.Sprite = Properties.Resources.ForestRanger_Walking_Right;
             }
             else if (this.CurrState == "walk-left")
             {
-                this.Sprite.Image = Properties.Resources.Test_PlayerWalking_Left;
+                this.Sprite = Properties.Resources.ForestRanger_Walking_Left;
             }
             else if (this.CurrState == "idle-left")
             {
-                this.Sprite.Image = Properties.Resources.Test_Idle_Sprite_Left;
+                this.Sprite = Properties.Resources.ForestRanger_Idle_Left;
             }
         }
         #endregion
