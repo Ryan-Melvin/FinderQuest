@@ -14,8 +14,17 @@ namespace FinderQuest
     public partial class FormMain : Form
     {
         Time time;
+        bool paused;
+        int numOfWalkArea = 3;
+        WalkArea currWalkArea = null;
+        TalkArea currTalkArea = null;
 
         public Player player;
+
+        public Person activePerson;
+        Point activePersonLocation;
+        bool enterTalkArea = false;
+
         public FormMain()
         {
             InitializeComponent();
@@ -23,9 +32,9 @@ namespace FinderQuest
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            labelArea.Visible = false;
-            labelPlayer.Visible = false;
-            labelTimer.Visible = false;
+            labelArea.Parent = panelGame;
+            labelPlayer.Parent = panelGame;
+            labelTimer.Parent = panelGame;
             panelGame.Visible = false;
             panelTalkArea.Visible = false;
 
@@ -65,9 +74,6 @@ namespace FinderQuest
             timerTime.Stop();
 
             panelGame.Visible = false;
-            labelTimer.Visible = false;
-            labelArea.Visible = false;
-            labelPlayer.Visible = false;
 
             startToolStripMenuItem.Enabled = true;
         }
@@ -75,9 +81,7 @@ namespace FinderQuest
         private void StartGame()
         {
             panelGame.Visible = true;
-            labelTimer.Visible = true;
-            labelPlayer.Visible= true;
-            labelArea.Visible= true;
+            paused = false;
 
             pauseToolStripMenuItem.Enabled = true;
             startToolStripMenuItem.Enabled = false;
@@ -88,10 +92,17 @@ namespace FinderQuest
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
 
-            player = new Player("John", Properties.Resources.player_right, new Size(50, 80), new Point(10, 200), time);
+            player = new Player("John", Properties.Resources.player_right, new Size(50, 80), new Point(10, 360), time);
 
             labelPlayer.Text = player.DisplayData();
             player.DisplayPicture(this);
+
+            if(currWalkArea != null) 
+            {
+                currWalkArea.RemovePeople();
+            }
+            currWalkArea = null;
+            GeneratWalkArea();
         }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,42 +113,181 @@ namespace FinderQuest
         private void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
             int distance = 30;
-
-            if(e.KeyCode == Keys.Right)
+            if (!paused)
             {
-                if(player.Sprite.Location.X + distance > this.Width - 50)
+                if (e.KeyCode == Keys.Right)
                 {
-                    distance = 0;
+                    if (player.Sprite.Location.X + distance > this.Width - 50)
+                    {
+                        distance = 0;
+                    }
+
+                    player.MoveRight(distance);
                 }
 
-                player.MoveRight(distance);
-            }
-
-            else if(e.KeyCode == Keys.Left)
-            {
-                if (player.Sprite.Location.X - distance < 0)
+                else if (e.KeyCode == Keys.Left)
                 {
-                    distance = player.Sprite.Location.X;
+                    if (player.Sprite.Location.X - distance < 0)
+                    {
+                        distance = player.Sprite.Location.X;
+                    }
+
+                    player.MoveLeft(distance);
                 }
 
-                player.MoveLeft(distance);
+                else if (e.KeyCode == Keys.Enter)
+                {
+                    if(currWalkArea.CheckTouchPerson(player, out Person touchPerson))
+                    {
+                        enterTalkArea = true;
+                        activePerson = touchPerson;
+                        if (activePerson.Solved)
+                        {
+                            MessageBox.Show("Question Already Solved.");
+                        }
+                        else
+                        {
+                            EnterTalkArea();
+                        }
+                    }
+                }
+
+                else if (e.KeyCode == Keys.Escape)
+                {
+                    ExitTalkArea();
+                }
+                else if (e.KeyCode == Keys.Y && enterTalkArea)
+                {
+                    FormQuestion form = new FormQuestion();
+                    form.Owner = this;
+                    form.ShowDialog();
+                }
             }
-
-            else if(e.KeyCode == Keys.Enter)
-            {
-
-            }
-
-            else if(e.KeyCode == Keys.Escape)
-            {
-
-            } 
-            else if(e.KeyCode == Keys.Y)
-            {
-
-            }
-
             player.DisplayPicture(this);
+        }
+
+        private void GeneratWalkArea()
+        {
+            if (currWalkArea == null)
+            {
+                currWalkArea = new WalkArea("The Barn", Properties.Resources.walkArea1, 1);
+
+                currWalkArea.AddPerson(1, "Anna", Properties.Resources.person1, new Size(60,90), new Point(100,350), "I Hava a question for you. Are you ready? \n");
+                currWalkArea.AddPerson(2, "Andy", Properties.Resources.person2, new Size(60, 90), new Point(270, 350), "can you answer my question? Lets go! \n");
+                currWalkArea.AddPerson(3, "Bobby", Properties.Resources.person3, new Size(60, 90), new Point(420, 350), "Just answer my question please..\n");
+            }
+            else if (currWalkArea.AreaNum == 2)
+            {
+                currWalkArea.RemovePeople();
+
+                currWalkArea = new WalkArea("The Field", Properties.Resources.walkArea2, 2);
+
+                currWalkArea.AddPerson(4, "Rima", Properties.Resources.person4, new Size(60, 90), new Point(100, 350), "I'm sure you can answer my question.\n");
+                currWalkArea.AddPerson(5, "Tommy", Properties.Resources.person5, new Size(60, 90), new Point(400, 350), "You look smart, can you asnwer my question? \n");
+            }
+            else if (currWalkArea.AreaNum == 3)
+            {
+                currWalkArea.RemovePeople();
+
+                currWalkArea = new WalkArea("The Farm", Properties.Resources.walkArea3, 3);
+
+                currWalkArea.AddPerson(6, "Marrie", Properties.Resources.person6, new Size(60, 90), new Point(120, 350), "Answer my question carefully...\n");
+                currWalkArea.AddPerson(7, "Luke", Properties.Resources.person7, new Size(60, 90), new Point(420, 350), "I have a question for you. \n");
+            }
+
+            currWalkArea.DisplayPicture(this);
+            currWalkArea.DisplayPeople(this);
+            labelArea.Text = currWalkArea.DisplayData();
+
+            if(player != null)
+            {
+                player.Sprite.Location = new Point(0, player.Sprite.Location.Y);
+            }
+        }
+
+        private void GenerateTalkArea()
+        {
+            if(activePerson.PersonNum == 1)
+            {
+                currTalkArea = new TalkArea("Anna's House", Properties.Resources.talkArea1, activePerson);
+                activePerson.AddQuestion("Question", "Answer", 100);
+            }
+            else if(activePerson.PersonNum == 2)
+            {
+                currTalkArea = new TalkArea("Andy's Room", Properties.Resources.talkArea2, activePerson);
+                activePerson.AddQuestion("Question", "Answer", 100);
+            }
+            else if (activePerson.PersonNum == 3)
+            {
+                currTalkArea = new TalkArea("BObby's Office", Properties.Resources.talkArea3, activePerson);
+                activePerson.AddQuestion("Question", "Answer", 100);
+            }
+            else if (activePerson.PersonNum == 4)
+            {
+                currTalkArea = new TalkArea("Rina's Room", Properties.Resources.talkArea4, activePerson);
+                activePerson.AddQuestion("Question", "Answer", 100);
+            }
+            else if (activePerson.PersonNum == 5)
+            {
+                currTalkArea = new TalkArea("Tommy's Place", Properties.Resources.talkArea5, activePerson);
+                activePerson.AddQuestion("Question", "Answer", 100);
+            }
+            else if (activePerson.PersonNum == 6)
+            {
+                currTalkArea = new TalkArea("Marie's Place", Properties.Resources.talkArea6, activePerson);
+                activePerson.AddQuestion("Question", "Answer", 100);
+            }
+            else if (activePerson.PersonNum == 7)
+            {
+                currTalkArea = new TalkArea("Luke's House", Properties.Resources.talkArea7, activePerson);
+                activePerson.AddQuestion("Question", "Answer", 100);
+            }
+        }
+
+        public void EnterTalkArea()
+        {
+            GenerateTalkArea();
+            activePersonLocation = activePerson.Sprite.Location;
+            player.Sprite.Visible = false;
+            panelTalkArea.BackgroundImage = currTalkArea.Background;
+            panelTalkArea.BringToFront();
+            panelTalkArea.Visible = true;
+
+            activePerson.Sprite.Size = new Size(200, 300);
+            activePerson.Sprite.Location = new Point(300, 100);
+            activePerson.DisplayPicture(panelTalkArea);
+
+            if (activePerson.Solved)
+            {
+                activePerson.Dialog = "Congrats, you solved my question!";
+            }
+
+            activePerson.DisplayDialog(panelTalkArea);
+        }
+
+        public void ExitTalkArea()
+        {
+            player.Sprite.Visible = true;
+            enterTalkArea = false;
+
+            panelTalkArea.Visible = false;
+            activePerson.Sprite.Size = new Size(60, 90);
+            activePerson.Sprite.Location = activePersonLocation;
+            activePerson.DisplayPicture(this);
+        }
+
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (paused)
+            {
+                pauseToolStripMenuItem.Text = "Pause";
+                paused = false;
+            }
+            else
+            {
+                pauseToolStripMenuItem.Text = "Continue";
+                paused = true;
+            }
         }
     }
 }

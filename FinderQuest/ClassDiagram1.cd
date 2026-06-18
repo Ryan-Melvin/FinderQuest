@@ -18,30 +18,33 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FinderQuest.WalkArea">
-    <Position X="5.25" Y="1.75" Width="1.5" />
+    <Position X="5.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>JAAggAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAIACAAAEA=</HashCode>
       <FileName>WalkArea.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.TalkArea">
-    <Position X="5.25" Y="2.75" Width="1.5" />
+    <Position X="7.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>TalkArea.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="person" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="FinderQuest.Area">
-    <Position X="5.25" Y="0.75" Width="1.5" />
+    <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAgAAAAIAA=</HashCode>
       <FileName>Area.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.Person">
-    <Position X="9.75" Y="0.75" Width="1.5" />
+    <Position X="10.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAAAAAAQMABQUCAAUEAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAEAAAAAAAAAABCAAQMABQUCAAUEAAAAAAAAAA=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
