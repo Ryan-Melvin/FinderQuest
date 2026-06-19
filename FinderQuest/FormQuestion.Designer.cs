@@ -36,11 +36,12 @@
             // 
             // labelQuestion
             // 
+            this.labelQuestion.AutoSize = true;
             this.labelQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQuestion.Location = new System.Drawing.Point(47, 29);
+            this.labelQuestion.Location = new System.Drawing.Point(312, 140);
             this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(706, 215);
+            this.labelQuestion.Size = new System.Drawing.Size(153, 37);
             this.labelQuestion.TabIndex = 0;
             this.labelQuestion.Text = "Question";
             this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -76,6 +77,7 @@
             this.buttonSubmit.TabIndex = 3;
             this.buttonSubmit.Text = "SUBMIT";
             this.buttonSubmit.UseVisualStyleBackColor = false;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // FormQuestion
             // 
@@ -91,6 +93,7 @@
             this.DoubleBuffered = true;
             this.Name = "FormQuestion";
             this.Text = "Solve the Question";
+            this.Load += new System.EventHandler(this.FormQuestion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

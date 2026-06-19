@@ -131,7 +131,7 @@
     <value>..\Resources\person2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\person3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\person4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,6 +178,18 @@
   <data name="talkArea7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkArea7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ForestRanger_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForestRanger_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForestRanger_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_PlayerWalking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForestRanger_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_PlayerWalking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="walkArea1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\walkArea1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,5 +198,14 @@
   </data>
   <data name="walkArea3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\walkArea3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Goblin_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Goblin_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ogre_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ogre_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Orc_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orc_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
