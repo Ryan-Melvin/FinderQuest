@@ -28,6 +28,11 @@ namespace FinderQuest
         bool gameStarted = false;
         int savePersonX;
         int savePersonY;
+        Size savePersonSize;
+
+        private int smallNPC = 100;
+        private int mediumNPC = 120;
+        private int bigNPC = 150;
 
         public FormMain()
         {
@@ -242,11 +247,16 @@ namespace FinderQuest
         {
             if (currWalkArea == null)
             {
-                currWalkArea = new WalkArea("The Barn", Properties.Resources.walkArea1, 1);
+                currWalkArea = new WalkArea("Goblin Village", Properties.Resources.walkArea1, 1);
 
-                currWalkArea.AddPerson(1, "Anna", Properties.Resources.person1, new Size(60, 90), "I Hava a question for you. Are you ready? \n", 100, 350);
-                currWalkArea.AddPerson(2, "Andy", Properties.Resources.person2, new Size(60, 90), "can you answer my question? Lets go! \n", 370, 350);
-                currWalkArea.AddPerson(3, "Bobby", Properties.Resources.person3, new Size(60, 90), "Just answer my question please..\n", 620, 350);
+                currWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Hava a question for you. Are you ready? \n", 100, 360);
+                currWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "can you answer my question? Lets go! \n", 370, 343);
+                currWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", 620, 318);
+
+                foreach(Person person in currWalkArea.People)
+                {
+                    AnimatePerson(person);
+                }
             }
             else if (currWalkArea.AreaNum == 1)
             {
@@ -322,15 +332,16 @@ namespace FinderQuest
             GenerateTalkArea();
             savePersonX = activePerson.X;
             savePersonY = activePerson.Y;
+            savePersonSize = activePerson.Size;
 
             player.IsVisible = false;
             //panelTalkArea.BackgroundImage = currTalkArea.Background;
             panelTalkArea.BringToFront();
             panelTalkArea.Visible = true;
 
-            activePerson.Size = new Size(200, 300);
+            activePerson.Size = new Size(mediumNPC * 2, mediumNPC * 2);
             activePerson.X = 300;
-            activePerson.Y = 130;
+            activePerson.Y = 100;
             //activePerson.Sprite.Location = new Point(300, 130);
             //activePerson.DisplayPicture(panelTalkArea);
 
@@ -350,7 +361,7 @@ namespace FinderQuest
             enterTalkArea = false;
 
             panelTalkArea.Visible = false;
-            activePerson.Size = new Size(60, 90);
+            activePerson.Size = savePersonSize;
             activePerson.X = savePersonX;
             activePerson.Y = savePersonY;
             
@@ -411,6 +422,13 @@ namespace FinderQuest
             {
                 ImageAnimator.UpdateFrames(player.Sprite);
             }
+            if(currWalkArea != null)
+            {
+                foreach(Person person in currWalkArea.People)
+                {
+                    ImageAnimator.UpdateFrames(person.Sprite);
+                }
+            }
 
             if(currWalkArea != null && !enterTalkArea)
             {
@@ -442,6 +460,14 @@ namespace FinderQuest
             }
         }
 
+        private void AnimatePerson(Person person)
+        {
+            if (ImageAnimator.CanAnimate(person.Sprite))
+            {
+                ImageAnimator.Animate(person.Sprite, (s, e) => { });
+            }
+        }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
         }
@@ -453,7 +479,7 @@ namespace FinderQuest
             if (enterTalkArea)
             {
                 draw.DrawImage(currTalkArea.Background, 0, 0, this.ClientSize.Width, this.ClientSize.Height);
-                draw.DrawImage(activePerson.Sprite, 300, 130, activePerson.Size.Width, activePerson.Size.Height);
+                draw.DrawImage(activePerson.Sprite, 300, 120, activePerson.Size.Width, activePerson.Size.Height);
             }
         }
     }
