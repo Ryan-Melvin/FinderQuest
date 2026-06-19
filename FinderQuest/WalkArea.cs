@@ -30,7 +30,7 @@ namespace FinderQuest
         #region methods
         public override string DisplayData()
         {
-            return "No. Area : " + this.AreaNum + " - " + base.DisplayData();
+            return "Area " + this.AreaNum + "\n" + base.DisplayData();
         }
 
         public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y)
@@ -59,11 +59,11 @@ namespace FinderQuest
         public bool CheckTouchPerson(Player player, out Person touchPerson)
         {
 
-            Rectangle playerHitbox = new Rectangle(player.X, player.Y, player.Size.Width, player.Size.Height);
+            Rectangle playerHitbox = new Rectangle(player.X, player.Y, player.Size.Width -60, player.Size.Height-60);
 
             foreach(Person person in this.People)
             {
-                Rectangle personHitbox = new Rectangle(person.X, person.Y, person.Size.Width, person.Size.Height);
+                Rectangle personHitbox = new Rectangle(person.X, person.Y, person.Size.Width-60, person.Size.Height-60);
                 if (playerHitbox.IntersectsWith(personHitbox))
                 {
                     touchPerson = person;
