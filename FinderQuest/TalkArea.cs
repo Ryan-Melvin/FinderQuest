@@ -26,7 +26,7 @@ namespace FinderQuest
         #region methods
         public override string DisplayData()
         {
-            return this.Person.Name + "'s Talk Area - " + base.DisplayData();
+            return this.Person.Name + "'s Talk Area \n" + base.DisplayData();
         }
 
 

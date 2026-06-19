@@ -75,6 +75,11 @@ namespace FinderQuest
 
             labelTimer.Text = time.DisplayData();
 
+            if (enterTalkArea)
+            {
+                labelTimerTalk.Text = time.DisplayData();
+            }
+
             if (time.Hour == 0 && time.Minute == 0 && time.Second == 0)
             {
                 timerTime.Stop();
@@ -281,7 +286,9 @@ namespace FinderQuest
 
             currWalkArea.DisplayPicture(this);
             //currWalkArea.DisplayPeople(this);
+
             labelArea.Text = currWalkArea.DisplayData();
+           
 
             if (player != null)
             {
@@ -294,17 +301,17 @@ namespace FinderQuest
         {
             if (activePerson.PersonNum == 1)
             {
-                currTalkArea = new TalkArea("Anna's House", Properties.Resources.talkArea1, activePerson);
+                currTalkArea = new TalkArea("Anna's House", Properties.Resources.GoblinVillage_Back, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
             else if (activePerson.PersonNum == 2)
             {
-                currTalkArea = new TalkArea("Andy's Room", Properties.Resources.talkArea2, activePerson);
+                currTalkArea = new TalkArea("Andy's Room", Properties.Resources.GoblinVillage_Back, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
             else if (activePerson.PersonNum == 3)
             {
-                currTalkArea = new TalkArea("BObby's Office", Properties.Resources.talkArea3, activePerson);
+                currTalkArea = new TalkArea("BObby's Office", Properties.Resources.GoblinVillage_Back, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
             else if (activePerson.PersonNum == 4)
@@ -327,6 +334,11 @@ namespace FinderQuest
                 currTalkArea = new TalkArea("Luke's House", Properties.Resources.talkArea7, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
+
+  
+            labelAreaTalk.Text = currTalkArea.DisplayData();
+            labelAreaTalk.Location = new Point(10, panelTalkArea.Height - labelAreaTalk.Size.Height - 10);
+            
         }
 
         public void EnterTalkArea()
@@ -348,6 +360,7 @@ namespace FinderQuest
             //activePerson.DisplayPicture(panelTalkArea);
 
             enterTalkArea = true;
+            
 
             if (activePerson.Solved)
             {

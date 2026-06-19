@@ -117,7 +117,10 @@ namespace FinderQuest
 
         public void RemoveDialog()
         {
-            labelDialog.Dispose();
+            if(labelDialog != null)
+            {
+                labelDialog.Dispose();
+            }     
         }
 
         public void AddQuestion(string question, string answer, int score)
