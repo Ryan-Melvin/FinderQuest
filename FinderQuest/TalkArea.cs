@@ -6,6 +6,7 @@ using System.Text;
 
 namespace FinderQuest
 {
+    [Serializable]
     public class TalkArea : Area
     {
         #region fields

@@ -135,6 +135,7 @@
             // labelArea
             // 
             this.labelArea.AutoSize = true;
+            this.labelArea.BackColor = System.Drawing.Color.Black;
             this.labelArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelArea.ForeColor = System.Drawing.Color.White;
             this.labelArea.Location = new System.Drawing.Point(31, 24);

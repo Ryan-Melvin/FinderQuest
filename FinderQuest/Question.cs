@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FinderQuest
 {
+    [Serializable]
     public class Question
     {
         #region fields
