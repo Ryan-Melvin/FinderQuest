@@ -65,9 +65,11 @@ namespace FinderQuest
             this.KeyPreview = true;
             this.DoubleBuffered = true;
             this.BackgroundImage = Properties.Resources.Finder_Quest;
+            time = new Time(0, 1, 0);
+            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height - 110, "DarkLord");
+            player.IsVisible = true;
             timerGame.Start();
             AnimateMainMenu();
-            
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -128,12 +130,12 @@ namespace FinderQuest
 
             pauseToolStripMenuItem.Text = "Pause Game";
 
-            time = new Time(0, 1, 0);
+            
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
             timerGame.Start();
 
-            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, this.ClientSize.Height - 110);
+            
             AnimatePlayer();
             labelPlayer.Text = player.DisplayData();
 
