@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 using TimeApplication;
@@ -26,15 +27,16 @@ namespace FinderQuest
         #endregion
 
         #region constructors
-        public Player(string name, Image picture, Size size, Time playTime, int x, int y)
+        public Player(string name, Size size, Time playTime, int x, int y, string skin)
         {
             this.Name = name;
             this.Score = 0;
             this.X = x;
             this.Y = y;
             this.Time = playTime;
-            this.Sprite = picture;
-            this.CurrState = "idle";
+            this.SetSkin(skin);
+            this.CurrState = "";
+            this.SetState("idle-right");
             this.IsVisible = true;
             this.Size = size;
 
@@ -79,6 +81,7 @@ namespace FinderQuest
         public Image Sprite { get => sprite; set => sprite = value; }
         public Size Size { get => size; set => size = value; }
         public bool IsVisible { get => isVisible; set => isVisible = value; }
+        public string Skin { get => skin; private set => skin = value; }
         #endregion
 
         #region methods
@@ -113,23 +116,29 @@ namespace FinderQuest
                 return;
             }
             this.CurrState = newState;
+            var resourceManager = Properties.Resources.ResourceManager;
 
             if(this.CurrState == "idle-right")
             {
-                this.Sprite = Properties.Resources.ForestRanger_Idle_Right;
+                this.Sprite = (Image)resourceManager.GetObject($"{this.Skin}_Idle_Right");
             }
             else if(this.CurrState == "walk-right")
             {
-                this.Sprite = Properties.Resources.ForestRanger_Walking_Right;
+                this.Sprite = (Image)resourceManager.GetObject($"{this.Skin}_Walking_Right");
             }
             else if (this.CurrState == "walk-left")
             {
-                this.Sprite = Properties.Resources.ForestRanger_Walking_Left;
+                this.Sprite = (Image)resourceManager.GetObject($"{this.Skin}_Walking_Left");
             }
             else if (this.CurrState == "idle-left")
             {
-                this.Sprite = Properties.Resources.ForestRanger_Idle_Left;
+                this.Sprite = (Image)resourceManager.GetObject($"{this.Skin}_Idle_Left");
             }
+        }
+
+        public void SetSkin(string newSkin)
+        {
+            this.Skin = newSkin;
         }
         #endregion
 
