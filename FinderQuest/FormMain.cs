@@ -65,9 +65,11 @@ namespace FinderQuest
             this.KeyPreview = true;
             this.DoubleBuffered = true;
             this.BackgroundImage = Properties.Resources.Finder_Quest;
+            time = new Time(0, 1, 0);
+            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height - 110, "DarkLord");
+            player.IsVisible = true;
             timerGame.Start();
             AnimateMainMenu();
-            
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -128,12 +130,12 @@ namespace FinderQuest
 
             pauseToolStripMenuItem.Text = "Pause Game";
 
-            time = new Time(0, 1, 0);
+            
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
             timerGame.Start();
 
-            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, (int)(this.ClientSize.Height * 0.77));
+            
             AnimatePlayer();
             labelPlayer.Text = player.DisplayData();
 
@@ -267,7 +269,7 @@ namespace FinderQuest
         {
             if (currWalkArea == null)
             {
-                currWalkArea = new WalkArea("Goblin Forest", Properties.Resources.GoblinVillage_Back, 1);
+                currWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinVillage_Back, 1);
 
                 currWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Hava a question for you. Are you ready? \n", 100, this.ClientSize.Height - smallNPC);
                 currWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "can you answer my question? Lets go! \n", 370, this.ClientSize.Height - mediumNPC);
@@ -282,10 +284,15 @@ namespace FinderQuest
             {
                 currWalkArea.RemovePeople();
 
-                currWalkArea = new WalkArea("The Field", Properties.Resources.walkArea2, 2);
+                currWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.Mountain, 2);
 
-                currWalkArea.AddPerson(4, "Rima", Properties.Resources.person4, new Size(60, 90), "I'm sure you can answer my question.\n", 100, 350);
-                currWalkArea.AddPerson(5, "Tommy", Properties.Resources.person5, new Size(60, 90), "You look smart, can you asnwer my question? \n", 400, 350);
+                currWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "I'm sure you can answer my question.\n", 100, this.ClientSize.Height - bigNPC);
+                currWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You look smart, can you asnwer my question? \n", 400, this.ClientSize.Height - bigNPC);
+
+                foreach (Person person in currWalkArea.People)
+                {
+                    AnimatePerson(person);
+                }
             }
             else if (currWalkArea.AreaNum == 2)
             {
@@ -314,38 +321,38 @@ namespace FinderQuest
         {
             if (activePerson.PersonNum == 1)
             {
-                currTalkArea = new TalkArea("Anna's House", Properties.Resources.GoblinVillage_Back, activePerson);
-                activePerson.AddQuestion("Question", "Answer", 100);
+                currTalkArea = new TalkArea("The Forest", this.BackgroundImage, activePerson);
+                activePerson.AddQuestion("Question", "a", 100);
             }
             else if (activePerson.PersonNum == 2)
             {
-                currTalkArea = new TalkArea("Andy's Room", Properties.Resources.GoblinVillage_Back, activePerson);
-                activePerson.AddQuestion("Question", "Answer", 100);
+                currTalkArea = new TalkArea("The Forest", this.BackgroundImage, activePerson);
+                activePerson.AddQuestion("Question", "A", 100);
             }
             else if (activePerson.PersonNum == 3)
             {
-                currTalkArea = new TalkArea("BObby's Office", Properties.Resources.GoblinVillage_Back, activePerson);
-                activePerson.AddQuestion("Question", "Answer", 100);
+                currTalkArea = new TalkArea("The Forest", this.BackgroundImage, activePerson);
+                activePerson.AddQuestion("Question", "a", 100);
             }
             else if (activePerson.PersonNum == 4)
             {
-                currTalkArea = new TalkArea("Rina's Room", Properties.Resources.talkArea4, activePerson);
-                activePerson.AddQuestion("Question", "Answer", 100);
+                currTalkArea = new TalkArea("Mountains", this.BackgroundImage, activePerson);
+                activePerson.AddQuestion("Question", "a", 100);
             }
             else if (activePerson.PersonNum == 5)
             {
-                currTalkArea = new TalkArea("Tommy's Place", Properties.Resources.talkArea5, activePerson);
-                activePerson.AddQuestion("Question", "Answer", 100);
+                currTalkArea = new TalkArea("Mountains", this.BackgroundImage, activePerson);
+                activePerson.AddQuestion("Question", "A", 100);
             }
             else if (activePerson.PersonNum == 6)
             {
-                currTalkArea = new TalkArea("Marie's Place", Properties.Resources.talkArea6, activePerson);
-                activePerson.AddQuestion("Question", "Answer", 100);
+                currTalkArea = new TalkArea("Marie's Place", this.BackgroundImage, activePerson);
+                activePerson.AddQuestion("Question", "a", 100);
             }
             else if (activePerson.PersonNum == 7)
             {
-                currTalkArea = new TalkArea("Luke's House", Properties.Resources.talkArea7, activePerson);
-                activePerson.AddQuestion("Question", "Answer", 100);
+                currTalkArea = new TalkArea("Luke's House", this.BackgroundImage, activePerson);
+                activePerson.AddQuestion("Question", "a", 100);
             }
 
   
@@ -452,7 +459,7 @@ namespace FinderQuest
                 {
                     ImageAnimator.UpdateFrames(player.Sprite);
                 }
-                if (currWalkArea != null)
+                if (currWalkArea != null && !paused)
                 {
                     foreach (Person person in currWalkArea.People)
                     {
