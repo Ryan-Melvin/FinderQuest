@@ -153,6 +153,46 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Golem_Mountains {
+            get {
+                object obj = ResourceManager.GetObject("Golem_Mountains", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LavaGolem_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("LavaGolem_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MossGolem_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("MossGolem_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mountain {
+            get {
+                object obj = ResourceManager.GetObject("Mountain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ogre_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("Ogre_Idle_Left", resourceCulture);
@@ -276,6 +316,16 @@ namespace FinderQuest.Properties {
         internal static System.Drawing.Bitmap player_right {
             get {
                 object obj = ResourceManager.GetObject("player_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RockGolem_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("RockGolem_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
