@@ -249,7 +249,7 @@ namespace FinderQuest
         {
             if (currWalkArea == null)
             {
-                currWalkArea = new WalkArea("Goblin Village", Properties.Resources.walkArea1, 1);
+                currWalkArea = new WalkArea("Goblin Forest", Properties.Resources.GoblinVillage_Back, 1);
 
                 currWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Hava a question for you. Are you ready? \n", 100, this.ClientSize.Height - smallNPC);
                 currWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "can you answer my question? Lets go! \n", 370, this.ClientSize.Height - mediumNPC);
