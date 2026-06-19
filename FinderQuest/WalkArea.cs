@@ -58,6 +58,18 @@ namespace FinderQuest
 
         public bool CheckTouchPerson(Player player, out Person touchPerson)
         {
+
+            Rectangle playerHitbox = new Rectangle(player.X, player.Y, player.Size.Width, player.Size.Height);
+
+            foreach(Person person in this.People)
+            {
+                Rectangle personHitbox = new Rectangle(person.X, person.Y, person.Size.Width, person.Size.Height);
+                if (playerHitbox.IntersectsWith(personHitbox))
+                {
+                    touchPerson = person;
+                    return true;
+                }
+            }
             //foreach(Person person in this.People)
             //{
             //    if (player.Sprite.Bounds.IntersectsWith(person.Sprite.Bounds))

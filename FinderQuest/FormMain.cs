@@ -24,17 +24,17 @@ namespace FinderQuest
         public Player player;
 
         public Person activePerson;
-        int activePersonX;
-        int activePersonY;
         bool enterTalkArea = false;
         bool gameStarted = false;
+        int savePersonX;
+        int savePersonY;
 
         public FormMain()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
-            this.UpdateStyles();
+
+            typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelTalkArea, new object[] { true });
         }
 
 
@@ -81,19 +81,17 @@ namespace FinderQuest
         private void GameOver()
         {
             timerTime.Stop();
-            timerAnimation.Stop();
-
+            timerGame.Stop();
             panelGame.Visible = false;
-
             startToolStripMenuItem.Enabled = true;
-
             gameStarted = false;
-
+            enterTalkArea = false;
             startToolStripMenuItem.Text = "Start new game";
             player.Sprite.Dispose();
             this.BackgroundImage = Properties.Resources.background;
             currWalkArea.RemovePeople();
             currWalkArea = null;
+            currTalkArea = null;
         }
 
         private void StartGame()
@@ -110,12 +108,11 @@ namespace FinderQuest
             time = new Time(0, 1, 0);
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
-            timerAnimation.Start();
+            timerGame.Start();
 
-            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, 340);
+            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, 350);
             AnimatePlayer();
             labelPlayer.Text = player.DisplayData();
-            //player.DisplayPicture(this);
 
             if (currWalkArea != null)
             {
@@ -145,7 +142,7 @@ namespace FinderQuest
 
             if (!paused)
             {
-                if (e.KeyCode == Keys.Right && currWalkArea != null)
+                if (e.KeyCode == Keys.Right && currWalkArea != null && currTalkArea == null)
                 {
                     if (!currWalkArea.FinishedAllQuestions())
                     {
@@ -169,7 +166,7 @@ namespace FinderQuest
                     }
                 }
 
-                else if (e.KeyCode == Keys.Left && currWalkArea != null)
+                else if (e.KeyCode == Keys.Left && currWalkArea != null && currTalkArea == null)
                 {
 
                     if (player.X - distance < 0)
@@ -193,10 +190,8 @@ namespace FinderQuest
                     {
                         StartGame();
                     }
-                    else if (currWalkArea.CheckTouchPerson(player, out Person touchPerson))
+                    else if (activePerson != null)
                     {
-                        enterTalkArea = true;
-                        activePerson = touchPerson;
                         if (activePerson.Solved)
                         {
                             MessageBox.Show("Question Already Solved.");
@@ -221,7 +216,6 @@ namespace FinderQuest
             }
             if (player != null)
             {
-                //player.DisplayPicture(this);
                 this.Invalidate();
             }
 
@@ -326,10 +320,11 @@ namespace FinderQuest
         public void EnterTalkArea()
         {
             GenerateTalkArea();
-            activePersonX = 300;
-            activePersonY = 100;
+            savePersonX = activePerson.X;
+            savePersonY = activePerson.Y;
+
             player.IsVisible = false;
-            panelTalkArea.BackgroundImage = currTalkArea.Background;
+            //panelTalkArea.BackgroundImage = currTalkArea.Background;
             panelTalkArea.BringToFront();
             panelTalkArea.Visible = true;
 
@@ -338,6 +333,8 @@ namespace FinderQuest
             activePerson.Y = 130;
             //activePerson.Sprite.Location = new Point(300, 130);
             //activePerson.DisplayPicture(panelTalkArea);
+
+            enterTalkArea = true;
 
             if (activePerson.Solved)
             {
@@ -354,11 +351,13 @@ namespace FinderQuest
 
             panelTalkArea.Visible = false;
             activePerson.Size = new Size(60, 90);
-            activePerson.X = activePerson.X;
-            activePerson.Y = activePerson.Y;
+            activePerson.X = savePersonX;
+            activePerson.Y = savePersonY;
+            
             //activePerson.Sprite.Location = activePersonLocation;
             //activePerson.DisplayPicture(this);
             activePerson.RemoveDialog();
+            currTalkArea = null;
         }
 
         private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -379,6 +378,8 @@ namespace FinderQuest
             }
         }
 
+       
+        
         private void FormMain_Paint(object sender, PaintEventArgs e)
         {
             Graphics draw = e.Graphics;
@@ -404,31 +405,56 @@ namespace FinderQuest
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerGame_Tick(object sender, EventArgs e)
         {
-            if (player.Sprite != null)
+            if (player.Sprite != null && !paused)
             {
                 ImageAnimator.UpdateFrames(player.Sprite);
             }
 
+            if(currWalkArea != null && !enterTalkArea)
+            {
+                currWalkArea.CheckTouchPerson(player, out activePerson);
+            }
+
+            if(currTalkArea != null)
+            {
+                panelTalkArea.Invalidate();
+            }
             this.Invalidate();
+
+            if(currWalkArea.AreaNum == numOfWalkArea && currWalkArea.FinishedAllQuestions() && !enterTalkArea)
+            {
+                GameOver();
+                MessageBox.Show("You Win! ");        
+            }
         }
 
-        private void OnFrameChanged(object sender, EventArgs e)
-        {
-        }
+        //private void OnFrameChanged(object sender, EventArgs e)
+        //{
+        //}
 
         private void AnimatePlayer()
         {
             if (ImageAnimator.CanAnimate(player.Sprite))
             {
-
-                ImageAnimator.Animate(player.Sprite, new EventHandler(this.OnFrameChanged));
+                ImageAnimator.Animate(player.Sprite, (s, e) => { });
             }
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
         {
+        }
+
+        private void panelTalkArea_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics draw = e.Graphics;
+
+            if (enterTalkArea)
+            {
+                draw.DrawImage(currTalkArea.Background, 0, 0, this.ClientSize.Width, this.ClientSize.Height);
+                draw.DrawImage(activePerson.Sprite, 300, 130, activePerson.Size.Width, activePerson.Size.Height);
+            }
         }
     }
 }

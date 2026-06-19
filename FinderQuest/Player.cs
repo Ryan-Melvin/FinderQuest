@@ -21,6 +21,7 @@ namespace FinderQuest
         private Image sprite;
         private Size size;
         bool isVisible;
+        private string skin;
         #endregion
 
         #region constructors
@@ -35,10 +36,7 @@ namespace FinderQuest
             this.CurrState = "idle";
             this.IsVisible = true;
             this.Size = size;
-            //this.Sprite = new PictureBox();
-            //this.Sprite.Image = picture;
-            //this.Sprite.Size = size;
-            //this.Sprite.Location = location;
+
         }
         #endregion
 
@@ -58,7 +56,6 @@ namespace FinderQuest
                 }
             } 
         }
-        //public Image Sprite { get => this.Sprite; set => this.Sprite = value; }
         public int Score 
         { 
             get => this.score;
@@ -89,14 +86,6 @@ namespace FinderQuest
             return "Name : " + this.Name + "\nScore: " + this.Score + "\nPlay Time : " + this.Time.DisplayData();
         }
 
-        //public void DisplayPicture(Control container)
-        //{
-        //    this.Sprite.Parent = container;
-        //    this.Sprite.SizeMode = PictureBoxSizeMode.StretchImage;
-        //    this.Sprite.BackColor = Color.Transparent;
-        //    this.Sprite.BringToFront();
-        //}
-
         public void AddScore(int amount)
         {
             this.Score += amount;
@@ -104,14 +93,14 @@ namespace FinderQuest
 
         public void MoveRight(int distance)
         {
-            //this.Position = new Point(this.Position.X + distance, this.Position.Y);
+            
             this.X += distance;
             
         }
 
         public void MoveLeft(int distance)
         {           
-            //this.Position = new Point(this.Position.X - distance, this.Position.Y);
+           
             this.X -= distance;
             
         }

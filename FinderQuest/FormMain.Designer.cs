@@ -41,7 +41,7 @@
             this.labelArea = new System.Windows.Forms.Label();
             this.panelTalkArea = new System.Windows.Forms.Panel();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
-            this.timerAnimation = new System.Windows.Forms.Timer(this.components);
+            this.timerGame = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.SuspendLayout();
@@ -146,15 +146,16 @@
             this.panelTalkArea.Name = "panelTalkArea";
             this.panelTalkArea.Size = new System.Drawing.Size(800, 327);
             this.panelTalkArea.TabIndex = 2;
+            this.panelTalkArea.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTalkArea_Paint);
             // 
             // timerTime
             // 
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
             // 
-            // timerAnimation
+            // timerGame
             // 
-            this.timerAnimation.Interval = 20;
-            this.timerAnimation.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerGame.Interval = 20;
+            this.timerGame.Tick += new System.EventHandler(this.timerGame_Tick);
             // 
             // FormMain
             // 
@@ -198,7 +199,7 @@
         private System.Windows.Forms.Panel panelTalkArea;
         private System.Windows.Forms.Timer timerTime;
         public System.Windows.Forms.Label labelPlayer;
-        private System.Windows.Forms.Timer timerAnimation;
+        private System.Windows.Forms.Timer timerGame;
     }
 }
 
