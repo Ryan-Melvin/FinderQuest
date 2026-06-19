@@ -145,6 +145,7 @@ namespace FinderQuest
         {
             int distance = 5;
 
+
             if (!paused)
             {
                 if (e.KeyCode == Keys.Right && currWalkArea != null && currTalkArea == null)
