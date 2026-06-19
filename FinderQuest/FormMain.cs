@@ -115,7 +115,7 @@ namespace FinderQuest
             timerTime.Start();
             timerGame.Start();
 
-            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, this.ClientSize.Height - 110);
+            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, (int)(this.ClientSize.Height * 0.77));
             AnimatePlayer();
             labelPlayer.Text = player.DisplayData();
 
