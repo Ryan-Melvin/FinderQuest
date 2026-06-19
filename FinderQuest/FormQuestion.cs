@@ -23,6 +23,9 @@ namespace FinderQuest
         {
             game = (FormMain)this.Owner;
             labelQuestion.Text = game.activePerson.Question.TheQuestion;
+            this.BackgroundImage = game.BackgroundImage;
+            labelAnswer.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelAnswer.ForeColor = Color.White;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)

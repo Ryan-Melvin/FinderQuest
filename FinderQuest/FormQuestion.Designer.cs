@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelQuestion = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelAnswer = new System.Windows.Forms.Label();
             this.textBoxAnswer = new System.Windows.Forms.TextBox();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -46,16 +46,16 @@
             this.labelQuestion.Text = "Question";
             this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // labelAnswer
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 268);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Answer: ";
+            this.labelAnswer.AutoSize = true;
+            this.labelAnswer.BackColor = System.Drawing.Color.Transparent;
+            this.labelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnswer.Location = new System.Drawing.Point(128, 268);
+            this.labelAnswer.Name = "labelAnswer";
+            this.labelAnswer.Size = new System.Drawing.Size(113, 29);
+            this.labelAnswer.TabIndex = 1;
+            this.labelAnswer.Text = "Answer: ";
             // 
             // textBoxAnswer
             // 
@@ -88,7 +88,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.textBoxAnswer);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelAnswer);
             this.Controls.Add(this.labelQuestion);
             this.DoubleBuffered = true;
             this.Name = "FormQuestion";
@@ -102,7 +102,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelQuestion;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAnswer;
         private System.Windows.Forms.TextBox textBoxAnswer;
         private System.Windows.Forms.Button buttonSubmit;
     }

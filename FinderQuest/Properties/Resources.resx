@@ -214,4 +214,19 @@
   <data name="Finder_Quest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Finder_Quest.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MossGolem_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MossGolem_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RockGolem_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockGolem_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LavaGolem_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LavaGolem_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Golem_Mountains" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRE_ORIG_SIZE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mointain1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
