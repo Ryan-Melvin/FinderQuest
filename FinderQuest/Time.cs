@@ -5,6 +5,7 @@ using System.Text;
 
 namespace TimeApplication
 {
+    [Serializable]
     public class Time
     {
         private int hour;

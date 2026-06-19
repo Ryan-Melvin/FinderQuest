@@ -47,6 +47,14 @@ namespace FinderQuest
         {
             labelArea.Parent = panelGame;
             labelPlayer.Parent = panelGame;
+            labelArea.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelArea.ForeColor = Color.White;
+            labelPlayer.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelTimer.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelTimerTalk.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelPlayer.ForeColor = Color.White;
+            labelAreaTalk.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelAreaTalk.ForeColor = Color.White;
             labelTimer.Parent = panelGame;
             panelGame.Visible = false;
             panelTalkArea.Visible = false;
@@ -56,6 +64,9 @@ namespace FinderQuest
 
             this.KeyPreview = true;
             this.DoubleBuffered = true;
+            this.BackgroundImage = Properties.Resources.Finder_Quest;
+            timerGame.Start();
+            AnimateMainMenu();
             
         }
 
@@ -75,6 +86,11 @@ namespace FinderQuest
 
             labelTimer.Text = time.DisplayData();
 
+            if (enterTalkArea)
+            {
+                labelTimerTalk.Text = time.DisplayData();
+            }
+
             if (time.Hour == 0 && time.Minute == 0 && time.Second == 0)
             {
                 timerTime.Stop();
@@ -86,7 +102,7 @@ namespace FinderQuest
         private void GameOver()
         {
             timerTime.Stop();
-            timerGame.Stop();
+            //timerGame.Stop();
             panelGame.Visible = false;
             startToolStripMenuItem.Enabled = true;
             gameStarted = false;
@@ -97,6 +113,8 @@ namespace FinderQuest
             currWalkArea.RemovePeople();
             currWalkArea = null;
             currTalkArea = null;
+            this.BackgroundImage = Properties.Resources.Finder_Quest;
+            AnimateMainMenu();
         }
 
         private void StartGame()
@@ -210,7 +228,7 @@ namespace FinderQuest
                     }
                 }
 
-                else if (e.KeyCode == Keys.Escape)
+                else if (e.KeyCode == Keys.Escape && enterTalkArea)
                 {
                     ExitTalkArea();
                 }
@@ -281,7 +299,9 @@ namespace FinderQuest
 
             currWalkArea.DisplayPicture(this);
             //currWalkArea.DisplayPeople(this);
+
             labelArea.Text = currWalkArea.DisplayData();
+           
 
             if (player != null)
             {
@@ -294,17 +314,17 @@ namespace FinderQuest
         {
             if (activePerson.PersonNum == 1)
             {
-                currTalkArea = new TalkArea("Anna's House", Properties.Resources.talkArea1, activePerson);
+                currTalkArea = new TalkArea("Anna's House", Properties.Resources.GoblinVillage_Back, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
             else if (activePerson.PersonNum == 2)
             {
-                currTalkArea = new TalkArea("Andy's Room", Properties.Resources.talkArea2, activePerson);
+                currTalkArea = new TalkArea("Andy's Room", Properties.Resources.GoblinVillage_Back, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
             else if (activePerson.PersonNum == 3)
             {
-                currTalkArea = new TalkArea("BObby's Office", Properties.Resources.talkArea3, activePerson);
+                currTalkArea = new TalkArea("BObby's Office", Properties.Resources.GoblinVillage_Back, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
             else if (activePerson.PersonNum == 4)
@@ -327,6 +347,11 @@ namespace FinderQuest
                 currTalkArea = new TalkArea("Luke's House", Properties.Resources.talkArea7, activePerson);
                 activePerson.AddQuestion("Question", "Answer", 100);
             }
+
+  
+            labelAreaTalk.Text = currTalkArea.DisplayData();
+            labelAreaTalk.Location = new Point(10, panelTalkArea.Height - labelAreaTalk.Size.Height - 10);
+            
         }
 
         public void EnterTalkArea()
@@ -348,6 +373,7 @@ namespace FinderQuest
             //activePerson.DisplayPicture(panelTalkArea);
 
             enterTalkArea = true;
+            
 
             if (activePerson.Solved)
             {
@@ -399,7 +425,7 @@ namespace FinderQuest
 
             if (currWalkArea == null)
             {
-                draw.DrawImage(Properties.Resources.background, 0, 0, this.ClientSize.Width, this.ClientSize.Height);
+                draw.DrawImage(this.BackgroundImage, 0, 0, this.ClientSize.Width, this.ClientSize.Height);
             }
 
             else
@@ -420,33 +446,41 @@ namespace FinderQuest
 
         private void timerGame_Tick(object sender, EventArgs e)
         {
-            if (player.Sprite != null && !paused)
+            if (gameStarted)
             {
-                ImageAnimator.UpdateFrames(player.Sprite);
-            }
-            if(currWalkArea != null)
-            {
-                foreach(Person person in currWalkArea.People)
+                if (player.Sprite != null && !paused)
                 {
-                    ImageAnimator.UpdateFrames(person.Sprite);
+                    ImageAnimator.UpdateFrames(player.Sprite);
+                }
+                if (currWalkArea != null)
+                {
+                    foreach (Person person in currWalkArea.People)
+                    {
+                        ImageAnimator.UpdateFrames(person.Sprite);
+                    }
+                }
+
+                if (currWalkArea != null && !enterTalkArea)
+                {
+                    currWalkArea.CheckTouchPerson(player, out activePerson);
+                }
+
+                if (currTalkArea != null)
+                {
+                    panelTalkArea.Invalidate();
+                }
+                this.Invalidate();
+
+                if (currWalkArea.AreaNum == numOfWalkArea && currWalkArea.FinishedAllQuestions() && !enterTalkArea)
+                {
+                    GameOver();
+                    MessageBox.Show("You Win! ");
                 }
             }
-
-            if(currWalkArea != null && !enterTalkArea)
+            else
             {
-                currWalkArea.CheckTouchPerson(player, out activePerson);
-            }
-
-            if(currTalkArea != null)
-            {
-                panelTalkArea.Invalidate();
-            }
-            this.Invalidate();
-
-            if(currWalkArea.AreaNum == numOfWalkArea && currWalkArea.FinishedAllQuestions() && !enterTalkArea)
-            {
-                GameOver();
-                MessageBox.Show("You Win! ");        
+                ImageAnimator.UpdateFrames(this.BackgroundImage);
+                this.Invalidate();
             }
         }
 
@@ -467,6 +501,14 @@ namespace FinderQuest
             if (ImageAnimator.CanAnimate(person.Sprite))
             {
                 ImageAnimator.Animate(person.Sprite, (s, e) => { });
+            }
+        }
+
+        private void AnimateMainMenu()
+        {
+            if (ImageAnimator.CanAnimate(this.BackgroundImage))
+            {
+                ImageAnimator.Animate(this.BackgroundImage, (s, e) => { });
             }
         }
 

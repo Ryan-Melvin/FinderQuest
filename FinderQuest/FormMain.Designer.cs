@@ -42,13 +42,15 @@
             this.panelTalkArea = new System.Windows.Forms.Panel();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.timerGame = new System.Windows.Forms.Timer(this.components);
+            this.labelAreaTalk = new System.Windows.Forms.Label();
+            this.labelTimerTalk = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panelGame.SuspendLayout();
+            this.panelTalkArea.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
@@ -105,13 +107,13 @@
             this.panelGame.Controls.Add(this.labelArea);
             this.panelGame.Location = new System.Drawing.Point(0, 36);
             this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(800, 81);
+            this.panelGame.Size = new System.Drawing.Size(800, 108);
             this.panelGame.TabIndex = 1;
             // 
             // labelPlayer
             // 
             this.labelPlayer.AutoSize = true;
-            this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.labelPlayer.ForeColor = System.Drawing.Color.White;
             this.labelPlayer.Location = new System.Drawing.Point(619, 21);
             this.labelPlayer.Name = "labelPlayer";
@@ -133,20 +135,23 @@
             // labelArea
             // 
             this.labelArea.AutoSize = true;
-            this.labelArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelArea.BackColor = System.Drawing.Color.Black;
+            this.labelArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelArea.ForeColor = System.Drawing.Color.White;
             this.labelArea.Location = new System.Drawing.Point(31, 24);
             this.labelArea.Name = "labelArea";
-            this.labelArea.Size = new System.Drawing.Size(85, 20);
+            this.labelArea.Size = new System.Drawing.Size(104, 25);
             this.labelArea.TabIndex = 0;
             this.labelArea.Text = "labelArea";
             // 
             // panelTalkArea
             // 
             this.panelTalkArea.BackColor = System.Drawing.Color.Transparent;
-            this.panelTalkArea.Location = new System.Drawing.Point(0, 123);
+            this.panelTalkArea.Controls.Add(this.labelTimerTalk);
+            this.panelTalkArea.Controls.Add(this.labelAreaTalk);
+            this.panelTalkArea.Location = new System.Drawing.Point(0, 36);
             this.panelTalkArea.Name = "panelTalkArea";
-            this.panelTalkArea.Size = new System.Drawing.Size(800, 327);
+            this.panelTalkArea.Size = new System.Drawing.Size(800, 414);
             this.panelTalkArea.TabIndex = 2;
             this.panelTalkArea.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTalkArea_Paint);
             // 
@@ -158,6 +163,28 @@
             // 
             this.timerGame.Interval = 20;
             this.timerGame.Tick += new System.EventHandler(this.timerGame_Tick);
+            // 
+            // labelAreaTalk
+            // 
+            this.labelAreaTalk.AutoSize = true;
+            this.labelAreaTalk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAreaTalk.ForeColor = System.Drawing.Color.White;
+            this.labelAreaTalk.Location = new System.Drawing.Point(31, 357);
+            this.labelAreaTalk.Name = "labelAreaTalk";
+            this.labelAreaTalk.Size = new System.Drawing.Size(70, 25);
+            this.labelAreaTalk.TabIndex = 3;
+            this.labelAreaTalk.Text = "label1";
+            // 
+            // labelTimerTalk
+            // 
+            this.labelTimerTalk.AutoSize = true;
+            this.labelTimerTalk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimerTalk.ForeColor = System.Drawing.Color.Red;
+            this.labelTimerTalk.Location = new System.Drawing.Point(637, 351);
+            this.labelTimerTalk.Name = "labelTimerTalk";
+            this.labelTimerTalk.Size = new System.Drawing.Size(141, 36);
+            this.labelTimerTalk.TabIndex = 3;
+            this.labelTimerTalk.Text = "00:00:00";
             // 
             // FormMain
             // 
@@ -182,6 +209,8 @@
             this.menuStrip1.PerformLayout();
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
+            this.panelTalkArea.ResumeLayout(false);
+            this.panelTalkArea.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,6 +231,8 @@
         private System.Windows.Forms.Timer timerTime;
         public System.Windows.Forms.Label labelPlayer;
         private System.Windows.Forms.Timer timerGame;
+        private System.Windows.Forms.Label labelTimerTalk;
+        private System.Windows.Forms.Label labelAreaTalk;
     }
 }
 
