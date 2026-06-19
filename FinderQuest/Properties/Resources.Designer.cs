@@ -133,6 +133,16 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GoblinVillage_Back {
+            get {
+                object obj = ResourceManager.GetObject("GoblinVillage_Back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ogre_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("Ogre_Idle_Left", resourceCulture);

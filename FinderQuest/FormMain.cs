@@ -115,7 +115,7 @@ namespace FinderQuest
             timerTime.Start();
             timerGame.Start();
 
-            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, 350);
+            player = new Player("John", Properties.Resources.ForestRanger_Idle_Right, new Size(110, 110), time, 10, (int)(this.ClientSize.Height * 0.77));
             AnimatePlayer();
             labelPlayer.Text = player.DisplayData();
 
@@ -144,6 +144,7 @@ namespace FinderQuest
         private void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
             int distance = 5;
+
 
             if (!paused)
             {
@@ -194,6 +195,7 @@ namespace FinderQuest
                     if (!gameStarted)
                     {
                         StartGame();
+                        //MessageBox.Show("Width: " + this.ClientSize.Width + "\nHeight: " + this.ClientSize.Height);
                     }
                     else if (activePerson != null)
                     {
@@ -247,11 +249,11 @@ namespace FinderQuest
         {
             if (currWalkArea == null)
             {
-                currWalkArea = new WalkArea("Goblin Village", Properties.Resources.walkArea1, 1);
+                currWalkArea = new WalkArea("Goblin Forest", Properties.Resources.GoblinVillage_Back, 1);
 
-                currWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Hava a question for you. Are you ready? \n", 100, 360);
-                currWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "can you answer my question? Lets go! \n", 370, 343);
-                currWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", 620, 318);
+                currWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Hava a question for you. Are you ready? \n", 100, this.ClientSize.Height - smallNPC);
+                currWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "can you answer my question? Lets go! \n", 370, this.ClientSize.Height - mediumNPC);
+                currWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", 620, this.ClientSize.Height - bigNPC);
 
                 foreach(Person person in currWalkArea.People)
                 {
@@ -340,8 +342,8 @@ namespace FinderQuest
             panelTalkArea.Visible = true;
 
             activePerson.Size = new Size(mediumNPC * 2, mediumNPC * 2);
-            activePerson.X = 300;
-            activePerson.Y = 100;
+            activePerson.X = panelTalkArea.ClientSize.Width / 2;
+            activePerson.Y = panelTalkArea.ClientSize.Height - mediumNPC;
             //activePerson.Sprite.Location = new Point(300, 130);
             //activePerson.DisplayPicture(panelTalkArea);
 

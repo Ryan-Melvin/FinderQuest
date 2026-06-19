@@ -112,6 +112,7 @@
             // 
             this.labelPlayer.AutoSize = true;
             this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer.ForeColor = System.Drawing.Color.White;
             this.labelPlayer.Location = new System.Drawing.Point(619, 21);
             this.labelPlayer.Name = "labelPlayer";
             this.labelPlayer.Size = new System.Drawing.Size(96, 20);
@@ -133,6 +134,7 @@
             // 
             this.labelArea.AutoSize = true;
             this.labelArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelArea.ForeColor = System.Drawing.Color.White;
             this.labelArea.Location = new System.Drawing.Point(31, 24);
             this.labelArea.Name = "labelArea";
             this.labelArea.Size = new System.Drawing.Size(85, 20);
