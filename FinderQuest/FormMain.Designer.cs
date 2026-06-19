@@ -41,6 +41,7 @@
             this.labelArea = new System.Windows.Forms.Label();
             this.panelTalkArea = new System.Windows.Forms.Panel();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
+            this.timerGame = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.SuspendLayout();
@@ -71,14 +72,14 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.startToolStripMenuItem.Text = "Start new Game";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.pauseToolStripMenuItem.Text = "Pause/Play";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
@@ -111,7 +112,7 @@
             // 
             this.labelPlayer.AutoSize = true;
             this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayer.Location = new System.Drawing.Point(617, 21);
+            this.labelPlayer.Location = new System.Drawing.Point(619, 21);
             this.labelPlayer.Name = "labelPlayer";
             this.labelPlayer.Size = new System.Drawing.Size(96, 20);
             this.labelPlayer.TabIndex = 2;
@@ -132,7 +133,7 @@
             // 
             this.labelArea.AutoSize = true;
             this.labelArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelArea.Location = new System.Drawing.Point(34, 25);
+            this.labelArea.Location = new System.Drawing.Point(31, 24);
             this.labelArea.Name = "labelArea";
             this.labelArea.Size = new System.Drawing.Size(85, 20);
             this.labelArea.TabIndex = 0;
@@ -145,10 +146,16 @@
             this.panelTalkArea.Name = "panelTalkArea";
             this.panelTalkArea.Size = new System.Drawing.Size(800, 327);
             this.panelTalkArea.TabIndex = 2;
+            this.panelTalkArea.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTalkArea_Paint);
             // 
             // timerTime
             // 
             this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
+            // 
+            // timerGame
+            // 
+            this.timerGame.Interval = 20;
+            this.timerGame.Tick += new System.EventHandler(this.timerGame_Tick);
             // 
             // FormMain
             // 
@@ -166,7 +173,9 @@
             this.Name = "FormMain";
             this.Text = "Finder Quest Game";
             this.Load += new System.EventHandler(this.FormMain_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelGame.ResumeLayout(false);
@@ -190,6 +199,7 @@
         private System.Windows.Forms.Panel panelTalkArea;
         private System.Windows.Forms.Timer timerTime;
         public System.Windows.Forms.Label labelPlayer;
+        private System.Windows.Forms.Timer timerGame;
     }
 }
 

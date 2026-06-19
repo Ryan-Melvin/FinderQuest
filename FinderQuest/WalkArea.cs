@@ -33,19 +33,19 @@ namespace FinderQuest
             return "No. Area : " + this.AreaNum + " - " + base.DisplayData();
         }
 
-        public void AddPerson(int num, string name, Image sprite, Size size, Point location, string dialog)
+        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y)
         {
-            Person person = new Person(num, name, sprite, size, location, dialog);
+            Person person = new Person(num, name, sprite, size, dialog, x, y);
             this.People.Add(person);
         }
 
-        public void DisplayPeople(Control container)
-        {
-            foreach(Person person in this.People)
-            {
-                person.DisplayPicture(container);
-            }
-        }
+        //public void DisplayPeople(Control container)
+        //{
+        //    foreach(Person person in this.People)
+        //    {
+        //        person.DisplayPicture(container);
+        //    }
+        //}
 
         public void RemovePeople()
         {
@@ -58,19 +58,33 @@ namespace FinderQuest
 
         public bool CheckTouchPerson(Player player, out Person touchPerson)
         {
+
+            Rectangle playerHitbox = new Rectangle(player.X, player.Y, player.Size.Width, player.Size.Height);
+
             foreach(Person person in this.People)
             {
-                if (player.Sprite.Bounds.IntersectsWith(person.Sprite.Bounds))
+                Rectangle personHitbox = new Rectangle(person.X, person.Y, person.Size.Width, person.Size.Height);
+                if (playerHitbox.IntersectsWith(personHitbox))
                 {
                     touchPerson = person;
                     return true;
                 }
             }
+            //foreach(Person person in this.People)
+            //{
+            //    if (player.Sprite.Bounds.IntersectsWith(person.Sprite.Bounds))
+            //    {
+            //        touchPerson = person;
+            //        return true;
+            //    }
+            //}
+            //touchPerson = null;
             touchPerson = null;
             return false;
+            
         }
 
-        public bool CheckFinishedAllQuestions()
+        public bool FinishedAllQuestions()
         {
             int solvedCounter = 0;
             foreach(Person person in this.People)

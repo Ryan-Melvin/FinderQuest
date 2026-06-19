@@ -36,11 +36,12 @@
             // 
             // labelQuestion
             // 
+            this.labelQuestion.AutoSize = true;
             this.labelQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.labelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelQuestion.Location = new System.Drawing.Point(47, 29);
+            this.labelQuestion.Location = new System.Drawing.Point(312, 140);
             this.labelQuestion.Name = "labelQuestion";
-            this.labelQuestion.Size = new System.Drawing.Size(706, 215);
+            this.labelQuestion.Size = new System.Drawing.Size(153, 37);
             this.labelQuestion.TabIndex = 0;
             this.labelQuestion.Text = "Question";
             this.labelQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
