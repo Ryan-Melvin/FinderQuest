@@ -12,37 +12,44 @@ namespace FinderQuest
 {
     public partial class FormQuestion : Form
     {
+        // Reference to our main game window canvas frame interface
+        private FormMain mainForm;
+
         public FormQuestion()
         {
             InitializeComponent();
         }
 
-
-        FormMain game;
         private void FormQuestion_Load(object sender, EventArgs e)
         {
-            game = (FormMain)this.Owner;
-            labelQuestion.Text = game.activePerson.Question.TheQuestion;
-            this.BackgroundImage = game.BackgroundImage;
+            mainForm = (FormMain)this.Owner;
+
+            labelQuestion.Text = mainForm.game.ActivePerson.Question.TheQuestion;
+
+            this.BackgroundImage = mainForm.BackgroundImage;
             labelAnswer.BackColor = Color.FromArgb(120, 0, 0, 0);
             labelAnswer.ForeColor = Color.White;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            int score = game.activePerson.CheckAnswer(textBoxAnswer.Text);
+            // Evaluate the input string against the underlying data property
+            int score = mainForm.game.ActivePerson.CheckAnswer(textBoxAnswer.Text);
+
             if (score != 0)
             {
-                MessageBox.Show("Your Answer is correct! you get " + score + " points.");
-                game.player.AddScore(score);
-                game.labelPlayer.Text = game.player.DisplayData();
+                MessageBox.Show("Your answer is correct! you get " + score + " points.");
+
+                mainForm.player.AddScore(score);
+                mainForm.labelPlayer.Text = mainForm.player.DisplayData();
             }
             else
             {
                 MessageBox.Show("Sorry, your answer is incorrect! ");
             }
+
             this.Close();
-            game.ExitTalkArea();
+            mainForm.ExitTalkArea();
         }
     }
 }
