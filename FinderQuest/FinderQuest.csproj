@@ -75,7 +75,7 @@
       <DependentUpon>FormQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -97,6 +97,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Alchemist_Idle_Left.gif" />
+    <Resource Include="Resources\Alchemist_Idle_Right.gif" />
+    <Resource Include="Resources\Alchemist_Walking_Left.gif" />
+    <Resource Include="Resources\Alchemist_Walking_Right.gif" />
+    <Resource Include="Resources\Butcher_Idle_Left.gif" />
+    <None Include="Resources\Butcher_Idle_Right.gif" />
+    <Resource Include="Resources\Butcher_Walking_Left.gif" />
+    <Resource Include="Resources\Butcher_Walking_Right.gif" />
+    <Resource Include="Resources\DarkApprentice_Idle_Left.gif" />
+    <Resource Include="Resources\DarkApprentice_Idle_Right.gif" />
+    <Resource Include="Resources\DeathReaper_Idle_Left.gif" />
+    <Resource Include="Resources\DeathReaper_Idle_Right.gif" />
+    <Resource Include="Resources\FallenAngel_Idle_Left.gif" />
+    <Resource Include="Resources\FallenAngel_Idle_Right.gif" />
+    <Resource Include="Resources\FallenAngel_Walking_Left.gif" />
+    <Resource Include="Resources\FallenAngel_Walking_Right.gif" />
+    <Resource Include="Resources\ForestHunter_Idle_Left.gif" />
+    <Resource Include="Resources\ForestHunter_Idle_Right.gif" />
+    <Resource Include="Resources\ForestHunter_Walking_Left.gif" />
+    <Resource Include="Resources\ForestHunter_Walking_Right.gif" />
+    <Resource Include="Resources\FortuneTeller_Idle_Left.gif" />
+    <Resource Include="Resources\FortuneTeller_Idle_Right.gif" />
+    <Resource Include="Resources\FortuneTeller_Walking_Left.gif" />
+    <Resource Include="Resources\FortuneTeller_Walking_Right.gif" />
+    <Resource Include="Resources\Goblin_Idle_Right.gif" />
+    <Resource Include="Resources\Huntress_Idle_Left.gif" />
+    <Resource Include="Resources\Huntress_Idle_Right.gif" />
+    <Resource Include="Resources\Huntress_Walking_Left.gif" />
+    <Resource Include="Resources\Huntress_Walking_Right.gif" />
+    <Resource Include="Resources\Husk_Idle_Left.gif" />
+    <Resource Include="Resources\Husk_Idle_Right.gif" />
+    <Resource Include="Resources\IronClad_Idle_Left.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

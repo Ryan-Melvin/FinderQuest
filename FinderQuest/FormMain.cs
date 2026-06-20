@@ -33,6 +33,7 @@ namespace FinderQuest
         private int smallNPC = 100;
         private int mediumNPC = 120;
         private int bigNPC = 150;
+        private int bossSize = 220;
 
         public FormMain()
         {
@@ -66,7 +67,7 @@ namespace FinderQuest
             this.DoubleBuffered = true;
             this.BackgroundImage = Properties.Resources.Finder_Quest;
             time = new Time(0, 1, 0);
-            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height - 110, "DarkLord");
+            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height/2, "Alchemist");
             player.IsVisible = true;
             timerGame.Start();
             AnimateMainMenu();
@@ -241,10 +242,10 @@ namespace FinderQuest
                     form.ShowDialog();
                 }
             }
-            if (player != null)
-            {
-                this.Invalidate();
-            }
+            //if (player != null)
+            //{
+            //    this.Invalidate();
+            //}
 
         }
 
@@ -269,11 +270,11 @@ namespace FinderQuest
         {
             if (currWalkArea == null)
             {
-                currWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinVillage_Back, 1);
+                currWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 1);
 
-                currWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Hava a question for you. Are you ready? \n", 100, this.ClientSize.Height - smallNPC);
-                currWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "can you answer my question? Lets go! \n", 370, this.ClientSize.Height - mediumNPC);
-                currWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", 620, this.ClientSize.Height - bigNPC);
+                currWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Hava a question for you. Are you ready? \n", 100, this.ClientSize.Height/2);
+                currWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "can you answer my question? Lets go! \n", 370, this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height));
+                currWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", 620, this.ClientSize.Height / 2 - (bigNPC - player.Size.Height));
 
                 foreach(Person person in currWalkArea.People)
                 {
@@ -286,8 +287,8 @@ namespace FinderQuest
 
                 currWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.Mountain, 2);
 
-                currWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "I'm sure you can answer my question.\n", 100, this.ClientSize.Height - bigNPC);
-                currWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You look smart, can you asnwer my question? \n", 400, this.ClientSize.Height - bigNPC);
+                currWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "I'm sure you can answer my question.\n", 100, this.ClientSize.Height / 2 - (bigNPC - player.Size.Height));
+                currWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You look smart, can you asnwer my question? \n", 400, this.ClientSize.Height / 2 - (bigNPC - player.Size.Height));
 
                 foreach (Person person in currWalkArea.People)
                 {

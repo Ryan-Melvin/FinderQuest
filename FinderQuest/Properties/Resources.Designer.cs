@@ -22,7 +22,7 @@ namespace FinderQuest.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace FinderQuest.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FinderQuest.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace FinderQuest.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,9 +63,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background {
+        public static System.Drawing.Bitmap AbandonedVillage {
             get {
-                object obj = ResourceManager.GetObject("background", resourceCulture);
+                object obj = ResourceManager.GetObject("AbandonedVillage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap backgroundQuestion {
+        public static System.Drawing.Bitmap Alchemist_Idle_Left {
             get {
-                object obj = ResourceManager.GetObject("backgroundQuestion", resourceCulture);
+                object obj = ResourceManager.GetObject("Alchemist_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,7 +83,107 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DarkLord_Idle_Left {
+        public static System.Drawing.Bitmap Alchemist_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Alchemist_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Alchemist_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Alchemist_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Alchemist_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Alchemist_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Butcher_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Butcher_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Butcher_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Butcher_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Butcher_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Butcher_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Butcher_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Butcher_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap CastleEntrance {
+            get {
+                object obj = ResourceManager.GetObject("CastleEntrance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DarkApprentice_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("DarkApprentice_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DarkApprentice_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("DarkApprentice_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DarkLord_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("DarkLord_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +193,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DarkLord_Idle_Right {
+        public static System.Drawing.Bitmap DarkLord_Idle_Right {
             get {
                 object obj = ResourceManager.GetObject("DarkLord_Idle_Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +203,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DarkLord_Walking_Left {
+        public static System.Drawing.Bitmap DarkLord_Walking_Left {
             get {
                 object obj = ResourceManager.GetObject("DarkLord_Walking_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +213,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DarkLord_Walking_Right {
+        public static System.Drawing.Bitmap DarkLord_Walking_Right {
             get {
                 object obj = ResourceManager.GetObject("DarkLord_Walking_Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +223,67 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Finder_Quest {
+        public static System.Drawing.Bitmap DeathReaper_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("DeathReaper_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DeathReaper_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("DeathReaper_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FallenAngel_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("FallenAngel_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FallenAngel_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("FallenAngel_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FallenAngel_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("FallenAngel_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FallenAngel_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("FallenAngel_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Finder_Quest {
             get {
                 object obj = ResourceManager.GetObject("Finder_Quest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +293,47 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ForestRanger_Idle_Left {
+        public static System.Drawing.Bitmap ForestHunter_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("ForestHunter_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ForestHunter_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("ForestHunter_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ForestHunter_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("ForestHunter_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ForestHunter_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("ForestHunter_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ForestRanger_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("ForestRanger_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +343,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ForestRanger_Idle_Right {
+        public static System.Drawing.Bitmap ForestRanger_Idle_Right {
             get {
                 object obj = ResourceManager.GetObject("ForestRanger_Idle_Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +353,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ForestRanger_Walking_Left {
+        public static System.Drawing.Bitmap ForestRanger_Walking_Left {
             get {
                 object obj = ResourceManager.GetObject("ForestRanger_Walking_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +363,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ForestRanger_Walking_Right {
+        public static System.Drawing.Bitmap ForestRanger_Walking_Right {
             get {
                 object obj = ResourceManager.GetObject("ForestRanger_Walking_Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +373,47 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Goblin_Idle_Left {
+        public static System.Drawing.Bitmap FortuneTeller_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("FortuneTeller_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FortuneTeller_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("FortuneTeller_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FortuneTeller_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("FortuneTeller_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FortuneTeller_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("FortuneTeller_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Goblin_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("Goblin_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,9 +423,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap GoblinVillage_Back {
+        public static System.Drawing.Bitmap Goblin_Idle_Right {
             get {
-                object obj = ResourceManager.GetObject("GoblinVillage_Back", resourceCulture);
+                object obj = ResourceManager.GetObject("Goblin_Idle_Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +433,9 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Golem_Mountains {
+        public static System.Drawing.Bitmap GoblinForest {
             get {
-                object obj = ResourceManager.GetObject("Golem_Mountains", resourceCulture);
+                object obj = ResourceManager.GetObject("GoblinForest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,7 +443,147 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LavaGolem_Idle_Left {
+        public static System.Drawing.Bitmap GolemLands {
+            get {
+                object obj = ResourceManager.GetObject("GolemLands", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Graveyard {
+            get {
+                object obj = ResourceManager.GetObject("Graveyard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Huntress_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Huntress_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Huntress_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Huntress_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Huntress_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Huntress_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Huntress_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Huntress_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Husk_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Husk_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Husk_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Husk_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IronClad_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("IronClad_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IronClad_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("IronClad_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IronClad_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("IronClad_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IronClad_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("IronClad_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LarrryTheSkeleton_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("LarrryTheSkeleton_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LarrryTheSkeleton_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("LarrryTheSkeleton_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LavaGolem_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("LavaGolem_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +593,57 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MossGolem_Idle_Left {
+        public static System.Drawing.Bitmap LostBull_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("LostBull_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LostBull_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("LostBull_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Minotaur_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Minotaur_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Minotaur_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Minotaur_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MinotaurTerrace {
+            get {
+                object obj = ResourceManager.GetObject("MinotaurTerrace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MossGolem_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("MossGolem_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +653,17 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mountain {
+        public static System.Drawing.Bitmap MossGolem_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("MossGolem_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Mountain {
             get {
                 object obj = ResourceManager.GetObject("Mountain", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +673,47 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Ogre_Idle_Left {
+        public static System.Drawing.Bitmap Necro_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Necro_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Necro_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Necro_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap NecroLady_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("NecroLady_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap NecroLady_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("NecroLady_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Ogre_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("Ogre_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +723,17 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Orc_Idle_Left {
+        public static System.Drawing.Bitmap Ogre_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Ogre_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Orc_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("Orc_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -253,7 +743,17 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person1 {
+        public static System.Drawing.Bitmap Orc_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Orc_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap person1 {
             get {
                 object obj = ResourceManager.GetObject("person1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -263,7 +763,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person2 {
+        public static System.Drawing.Bitmap person2 {
             get {
                 object obj = ResourceManager.GetObject("person2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +773,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person3 {
+        public static System.Drawing.Bitmap person3 {
             get {
                 object obj = ResourceManager.GetObject("person3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +783,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person4 {
+        public static System.Drawing.Bitmap person4 {
             get {
                 object obj = ResourceManager.GetObject("person4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,7 +793,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person5 {
+        public static System.Drawing.Bitmap person5 {
             get {
                 object obj = ResourceManager.GetObject("person5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -303,7 +803,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person6 {
+        public static System.Drawing.Bitmap person6 {
             get {
                 object obj = ResourceManager.GetObject("person6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -313,7 +813,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap person7 {
+        public static System.Drawing.Bitmap person7 {
             get {
                 object obj = ResourceManager.GetObject("person7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -323,7 +823,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player_back {
+        public static System.Drawing.Bitmap player_back {
             get {
                 object obj = ResourceManager.GetObject("player_back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -333,7 +833,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player_front {
+        public static System.Drawing.Bitmap player_front {
             get {
                 object obj = ResourceManager.GetObject("player_front", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -343,7 +843,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player_left {
+        public static System.Drawing.Bitmap player_left {
             get {
                 object obj = ResourceManager.GetObject("player_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -353,7 +853,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player_right {
+        public static System.Drawing.Bitmap player_right {
             get {
                 object obj = ResourceManager.GetObject("player_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -363,7 +863,77 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RockGolem_Idle_Left {
+        public static System.Drawing.Bitmap Pyromancer_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Pyromancer_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Pyromancer_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Pyromancer_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Pyromancer_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Pyromancer_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Pyromancer_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Pyromancer_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Reaper_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Reaper_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Reaper_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Reaper_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ReaperHallway {
+            get {
+                object obj = ResourceManager.GetObject("ReaperHallway", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap RockGolem_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("RockGolem_Idle_Left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -373,7 +943,177 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea1 {
+        public static System.Drawing.Bitmap RockGolem_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("RockGolem_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Rogue_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Rogue_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Rogue_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Rogue_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Rogue_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Rogue_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Rogue_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Rogue_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Seer_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Seer_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Seer_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Seer_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Seer_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Seer_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Seer_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Seer_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SilentKing_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("SilentKing_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SilentKing_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("SilentKing_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SilentKing_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("SilentKing_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SilentKing_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("SilentKing_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SkeletonGuard_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("SkeletonGuard_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SkeletonGuard_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("SkeletonGuard_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SkeletonWarrior_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("SkeletonWarrior_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SkeletonWarrior_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("SkeletonWarrior_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap talkArea1 {
             get {
                 object obj = ResourceManager.GetObject("talkArea1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -383,7 +1123,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea2 {
+        public static System.Drawing.Bitmap talkArea2 {
             get {
                 object obj = ResourceManager.GetObject("talkArea2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,7 +1133,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea3 {
+        public static System.Drawing.Bitmap talkArea3 {
             get {
                 object obj = ResourceManager.GetObject("talkArea3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -403,7 +1143,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea4 {
+        public static System.Drawing.Bitmap talkArea4 {
             get {
                 object obj = ResourceManager.GetObject("talkArea4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -413,7 +1153,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea5 {
+        public static System.Drawing.Bitmap talkArea5 {
             get {
                 object obj = ResourceManager.GetObject("talkArea5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -423,7 +1163,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea6 {
+        public static System.Drawing.Bitmap talkArea6 {
             get {
                 object obj = ResourceManager.GetObject("talkArea6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -433,7 +1173,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap talkArea7 {
+        public static System.Drawing.Bitmap talkArea7 {
             get {
                 object obj = ResourceManager.GetObject("talkArea7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -443,7 +1183,157 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap walkArea1 {
+        public static System.Drawing.Bitmap Taurus_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Taurus_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Taurus_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Taurus_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap throne_room {
+            get {
+                object obj = ResourceManager.GetObject("throne room", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap TribeWarrior_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("TribeWarrior_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap TribeWarrior_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("TribeWarrior_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap TribeWarrior_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("TribeWarrior_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap TribeWarrior_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("TribeWarrior_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Valkyrie_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Valkyrie_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Valkyrie_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Valkyrie_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Valkyrie_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Valkyrie_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Valkyrie_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Valkyrie_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Viking_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Viking_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Viking_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Viking_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Viking_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Viking_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Viking_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Viking_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap walkArea1 {
             get {
                 object obj = ResourceManager.GetObject("walkArea1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -453,7 +1343,7 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap walkArea2 {
+        public static System.Drawing.Bitmap walkArea2 {
             get {
                 object obj = ResourceManager.GetObject("walkArea2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -463,9 +1353,89 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap walkArea3 {
+        public static System.Drawing.Bitmap walkArea3 {
             get {
                 object obj = ResourceManager.GetObject("walkArea3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wanderer_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Wanderer_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wanderer_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Wanderer_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wanderer_Walking_Left {
+            get {
+                object obj = ResourceManager.GetObject("Wanderer_Walking_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wanderer_Walking_Right {
+            get {
+                object obj = ResourceManager.GetObject("Wanderer_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Zombie_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("Zombie_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Zombie_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("Zombie_Idle_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ZombieVillager_Idle_Left {
+            get {
+                object obj = ResourceManager.GetObject("ZombieVillager_Idle_Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ZombieVillager_Idle_Right {
+            get {
+                object obj = ResourceManager.GetObject("ZombieVillager_Idle_Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
