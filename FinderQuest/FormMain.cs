@@ -111,8 +111,7 @@ namespace FinderQuest
             gameStarted = false;
             enterTalkArea = false;
             startToolStripMenuItem.Text = "Start new game";
-            player.Sprite.Dispose();
-            this.BackgroundImage = Properties.Resources.background;
+            this.BackgroundImage = Properties.Resources.Finder_Quest;
             currWalkArea.RemovePeople();
             currWalkArea = null;
             currTalkArea = null;
