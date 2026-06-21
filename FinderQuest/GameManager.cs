@@ -113,6 +113,10 @@ namespace FinderQuest
             return new Question("Failed to get question. Please enter 'exit' as the answer.", "exit", 0);
         }
 
+        public List<Question> GetOracleQuestions()
+        {
+            return questionPools[7];
+        }
         public async Task InitializeAllQuestionsAsync()
         {
             int[] areaNeeds = new int[] {3, 2, 3, 3, 3, 2, 2};
