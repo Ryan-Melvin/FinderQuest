@@ -244,6 +244,7 @@ namespace FinderQuest
                     else if (game.CurrWalkArea.AreaNum == 8)
                     {
                         //call method for oracle questions
+                        EnterTalkArea();
                     }
                 }
                 else if (e.KeyCode == Keys.Escape && enterTalkArea)
@@ -297,7 +298,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(1, 1));
                 game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "You better answer my question correctly..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(1, 2));
             }
-            else if (game.CurrWalkArea.AreaNum == 7) //change back to 1 later
+            else if (game.CurrWalkArea.AreaNum == 1)
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
@@ -348,15 +349,13 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(mediumNPC, mediumNPC), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 0));
                 game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "I do not just kill, I keep.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 1));
             }
-            else if (game.CurrWalkArea.AreaNum == 1) //changed to 1 to make testing easier
+            else if (game.CurrWalkArea.AreaNum == 7) 
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Oracle's Sanctum", Properties.Resources.throne_room, 8);
 
                 game.CurrWalkArea.AddPerson(19, "The Oracle", Properties.Resources.DarkApprentice_Idle_Left, new Size(bossSize, bossSize), "This is the final test, you will fail..\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (bossSize - player.Size.Height - 20), game.GetOracleQuestions());
             }
-            // Area 4 to 8 to be added, especially Area8 will be different (since the final boss is going to have 7 que
-            // stions, Oracle.Solved needs some tinkering
 
             foreach (Person person in game.CurrWalkArea.People)
             {

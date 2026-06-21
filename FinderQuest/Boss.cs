@@ -30,6 +30,10 @@ namespace FinderQuest
         {
             if (this.Questions[questionNum].Answer.ToLower().Contains(answer))
             {
+                if(questionNum == 6)
+                {
+                    this.Solved = true;
+                }
                 return this.Questions[questionNum].Score;
             }
             return 0;

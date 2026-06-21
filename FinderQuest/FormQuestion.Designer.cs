@@ -93,6 +93,7 @@
             this.Name = "FormQuestion";
             this.Text = "Solve the Question";
             this.Load += new System.EventHandler(this.FormQuestion_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormQuestion_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

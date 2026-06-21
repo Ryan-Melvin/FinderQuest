@@ -75,7 +75,7 @@ namespace FinderQuest
         //public PictureBox Sprite { get => Sprite1; set => Sprite1 = value; }
         public string Dialog { get => dialog; set => dialog = value; }
         public Question Question { get => question; set => question = value; }
-        public bool Solved { get => solved; private set => solved = value; }
+        public bool Solved { get => solved; protected set => solved = value; }
         public Label LabelDialog { get => labelDialog; set => labelDialog = value; }
         public int X { get => x; set => x = value; }
         public int Y { get => y; set => y = value; }
