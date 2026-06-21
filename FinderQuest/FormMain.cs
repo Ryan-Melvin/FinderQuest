@@ -28,7 +28,7 @@ namespace FinderQuest
         private int savePersonY;
         private Size savePersonSize;
 
-        private int smallNPC = 100;
+        private int smallNPC = 110;
         private int mediumNPC = 120;
         private int bigNPC = 150;
         private int bossSize = 220;
@@ -125,8 +125,8 @@ namespace FinderQuest
             gameStarted = false;
             enterTalkArea = false;
             startToolStripMenuItem.Text = "Start new game";
-            player.Sprite.Dispose();
-            this.BackgroundImage = Properties.Resources.background;
+            //player.Sprite.Dispose(); we no longer dispose the player spirte, we just tell paint to not draw it via setting currArea to null
+            this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             if (game.CurrWalkArea != null)
             {
@@ -286,29 +286,29 @@ namespace FinderQuest
             // First run
             if (game.CurrWalkArea == null)
             {
-                game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinVillage_Back, 1);
+                game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 1);
 
                 // Passes specific indexes from 2D questions matrix to each Person
-                game.CurrWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Have a question for you. Are you ready? \n", (int)(100 * scaleX), this.ClientSize.Height - smallNPC, game.GetQuestion(1, 0));
-                game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Can you answer my question? Let's go! \n", (int)(370 * scaleX), this.ClientSize.Height - mediumNPC, game.GetQuestion(1, 1));
-                game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", (int)(620 * scaleX), this.ClientSize.Height - bigNPC, game.GetQuestion(1, 2));
+                game.CurrWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Have a question for you. Are you ready? \n", (int)(100 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(1, 0));
+                game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Can you answer my question? Let's go! \n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(1, 1));
+                game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(1, 2));
             }
             else if (game.CurrWalkArea.AreaNum == 1)
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.Mountain, 2);
 
-                game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "I'm sure you can answer my question.\n", (int)(100 * scaleX), this.ClientSize.Height - bigNPC, game.GetQuestion(2, 0));
-                game.CurrWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You look smart, can you answer my question? \n", (int)(400 * scaleX), this.ClientSize.Height - bigNPC, game.GetQuestion(2, 1));
+                game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "I'm sure you can answer my question.\n", (int)(100 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 0));
+                game.CurrWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You look smart, can you answer my question? \n", (int)(400 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 1));
             }
             else if (game.CurrWalkArea.AreaNum == 2)
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.walkArea3, 3);
 
-                game.CurrWalkArea.AddPerson(6, "Zombie Stalker", Properties.Resources.person6, new Size(smallNPC, mediumNPC), "Brains... and knowledge! Answer carefully...\n", (int)(120 * scaleX), this.ClientSize.Height - mediumNPC, game.GetQuestion(3, 0));
-                game.CurrWalkArea.AddPerson(7, "Zombie Spitter", Properties.Resources.person7, new Size(smallNPC, mediumNPC), "I have a riddle deep in my lungs... \n", (int)(420 * scaleX), this.ClientSize.Height - mediumNPC, game.GetQuestion(3, 1));
-                game.CurrWalkArea.AddPerson(8, "Zombie Tank", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Stop right there traveler! \n", (int)(650 * scaleX), this.ClientSize.Height - bigNPC, game.GetQuestion(3, 2));
+                game.CurrWalkArea.AddPerson(6, "Zombie Stalker", Properties.Resources.Zombie_Idle_Left, new Size(smallNPC, smallNPC), "Brains... and knowledge! Answer carefully...\n", (int)(120 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(3, 0));
+                game.CurrWalkArea.AddPerson(7, "Zombie Spitter", Properties.Resources.ZombieVillager_Idle_Left, new Size(smallNPC, smallNPC), "I have a riddle deep in my lungs... \n", (int)(420 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(3, 1));
+                game.CurrWalkArea.AddPerson(8, "Zombie Tank", Properties.Resources.Husk_Idle_Left, new Size(bigNPC, bigNPC), "Stop right there traveler! \n", (int)(650 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(3, 2));
             }
             // Area 4 to 8 to be added, especially Area8 will be different (since the final boss is going to have 7 questions, Oracle.Solved needs some tinkering
 
