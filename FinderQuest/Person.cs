@@ -108,7 +108,8 @@ namespace FinderQuest
             labelDialog.Font = new Font("Arial", 18);
             labelDialog.TextAlign = ContentAlignment.TopCenter;
             labelDialog.Padding = new Padding(10, 10, 10, 10);
-            labelDialog.BackColor = Color.LightYellow;
+            labelDialog.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelDialog.ForeColor = Color.White;
             labelDialog.BorderStyle = BorderStyle.FixedSingle;
 
             labelDialog.Text = this.DisplayData();

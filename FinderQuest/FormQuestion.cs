@@ -29,6 +29,11 @@ namespace FinderQuest
             this.BackgroundImage = mainForm.BackgroundImage;
             labelAnswer.BackColor = Color.FromArgb(120, 0, 0, 0);
             labelAnswer.ForeColor = Color.White;
+
+            labelQuestion.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelQuestion.ForeColor = Color.White;
+            buttonSubmit.BackColor = Color.FromArgb(120, 0, 0, 0);
+            buttonSubmit.ForeColor = Color.White;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)

@@ -31,6 +31,7 @@ namespace FinderQuest
         private int smallNPC = 100;
         private int mediumNPC = 120;
         private int bigNPC = 150;
+        private int bossSize = 220;
         #endregion
 
         #region constructor
@@ -72,7 +73,7 @@ namespace FinderQuest
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             time = new Time(0, 1, 0);
-            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height - 110, "DarkLord");
+            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height/2, "Alchemist");
             player.IsVisible = true;
 
             // Wait until all 7 calls finish downloading
@@ -252,11 +253,11 @@ namespace FinderQuest
                     form.ShowDialog();
                 }
             }
+            //if (player != null)
+            //{
+            //    this.Invalidate();
+            //}
 
-            if (player != null)
-            {
-                this.Invalidate();
-            }
         }
 
         private void FormMain_KeyUp(object sender, KeyEventArgs e)
@@ -304,7 +305,6 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.walkArea3, 3);
-
 
                 game.CurrWalkArea.AddPerson(6, "Zombie Stalker", Properties.Resources.person6, new Size(smallNPC, mediumNPC), "Brains... and knowledge! Answer carefully...\n", (int)(120 * scaleX), this.ClientSize.Height - mediumNPC, game.GetQuestion(3, 0));
                 game.CurrWalkArea.AddPerson(7, "Zombie Spitter", Properties.Resources.person7, new Size(smallNPC, mediumNPC), "I have a riddle deep in my lungs... \n", (int)(420 * scaleX), this.ClientSize.Height - mediumNPC, game.GetQuestion(3, 1));
