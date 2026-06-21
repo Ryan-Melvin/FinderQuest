@@ -86,7 +86,7 @@ namespace FinderQuest
         #region methods
         public string DisplayData()
         {
-            return "Hi.. I'm " + this.Name + ".\n" + this.Dialog + "Press 'y' to continue";
+            return "Hello.. I'm " + this.Name + ".\n" + this.Dialog + "Press 'y' to continue";
         }
 
         //public void DisplayPicture(Control container)

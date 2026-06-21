@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Area.cs" />
+    <Compile Include="Boss.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +138,9 @@
     <Resource Include="Resources\Husk_Idle_Left.gif" />
     <Resource Include="Resources\Husk_Idle_Right.gif" />
     <Resource Include="Resources\IronClad_Idle_Left.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\throne room1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
