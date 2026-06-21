@@ -26,17 +26,18 @@ namespace FinderQuest
         #endregion
 
         #region constructors
-        public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y)
+        public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y, Question question)
         {
+            //this.Sprite = new PictureBox();
             this.PersonNum = personNum;
             this.Name = name;
-            //this.Sprite = new PictureBox();
             this.Sprite = image;
             this.Size = size;
             this.X = x;
-            this.y = y;
+            this.Y = y;
             this.Dialog = dialog;
             this.Solved = false;
+            this.Question = question;
         }
         #endregion
 
@@ -132,7 +133,7 @@ namespace FinderQuest
 
         public int CheckAnswer(string answer)
         {
-            if(answer.ToUpper() == this.Question.Answer.ToUpper())
+            if(this.Question.Answer.ToLower().Contains(answer.ToLower()))
             {
                 this.Solved = true;
                 return this.Question.Score;

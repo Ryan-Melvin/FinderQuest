@@ -33,9 +33,9 @@ namespace FinderQuest
             return "Area " + this.AreaNum + "\n" + base.DisplayData();
         }
 
-        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y)
+        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, Question question)
         {
-            Person person = new Person(num, name, sprite, size, dialog, x, y);
+            Person person = new Person(num, name, sprite, size, dialog, x, y, question);
             this.People.Add(person);
         }
 
