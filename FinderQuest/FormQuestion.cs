@@ -55,6 +55,7 @@ namespace FinderQuest
 
                 mainForm.player.AddScore(score);
                 mainForm.labelPlayer.Text = mainForm.player.DisplayData();
+                mainForm.time.AddWithSecond(30);
             }
             else
             {

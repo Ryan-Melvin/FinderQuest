@@ -16,7 +16,7 @@ namespace FinderQuest
         #region fields
         public GameManager game = new GameManager(); // Centralized game manager that handles logic
 
-        private Time time;
+        public Time time; 
         private bool paused;
         private int numOfWalkArea = 8; // 8 walk areas
 
