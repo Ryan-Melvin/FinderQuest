@@ -36,7 +36,7 @@ namespace FinderQuest
             {1, "The Needlewood Forest"},
             {2, "Titan's Ridge Mountains"},
             {3, "The Zombie Outpost"},
-            {4, "The Minotaur Labyrinth"},
+            {4, "The Minotaur's Terrace"},
             {5, "The Crypt of Skeletons"},
             {6, "The Necromancer Tower"},
             {7, "The Reaper's Domain"},
@@ -47,7 +47,7 @@ namespace FinderQuest
         private string[] apiEndpoints = new string[]
         {
             "categories=food_and_drink&difficulties=easy", // Area 1: Goblin
-            "tags=chemistry&difficulties=easy", // Area 2: Golem
+            "tags=chemistry&difficulties=easy,medium", // Area 2: Golem
             "tags=biology&difficulties=easy,medium", // Area 3: Zombie
             "categories=arts_and_literature&difficulties=easy", // Area 4: Minotaur
             "categories=music&difficulties=easy,medium", // Area 5: Skeleton

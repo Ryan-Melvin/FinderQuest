@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace FinderQuest
 {
@@ -25,15 +26,22 @@ namespace FinderQuest
             mainForm = (FormMain)this.Owner;
 
             labelQuestion.Text = mainForm.game.ActivePerson.Question.TheQuestion;
+            labelQuestion.AutoSize = true;
+            labelQuestion.MaximumSize = new Size(this.ClientSize.Width - 40, 0);
 
             this.BackgroundImage = mainForm.BackgroundImage;
             labelAnswer.BackColor = Color.FromArgb(120, 0, 0, 0);
             labelAnswer.ForeColor = Color.White;
 
-            labelQuestion.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelQuestion.BackColor = Color.FromArgb(180, 0, 0, 0);
             labelQuestion.ForeColor = Color.White;
             buttonSubmit.BackColor = Color.FromArgb(120, 0, 0, 0);
             buttonSubmit.ForeColor = Color.White;
+
+            labelQuestion.BorderStyle = BorderStyle.FixedSingle;
+            labelQuestion.Padding = new Padding(10, 10, 10, 10);
+            labelQuestion.Font = new Font("Plus Jakarta Sans", 16, FontStyle.Bold);
+            labelQuestion.Location = new Point((this.ClientSize.Width - labelQuestion.Width) / 2, 50);
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
@@ -47,6 +55,7 @@ namespace FinderQuest
 
                 mainForm.player.AddScore(score);
                 mainForm.labelPlayer.Text = mainForm.player.DisplayData();
+                mainForm.time.AddWithSecond(30);
             }
             else
             {
