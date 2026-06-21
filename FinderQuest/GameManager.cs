@@ -36,7 +36,7 @@ namespace FinderQuest
             {1, "The Needlewood Forest"},
             {2, "Titan's Ridge Mountains"},
             {3, "The Zombie Outpost"},
-            {4, "The Minotaur Labyrinth"},
+            {4, "The Minotaur's Terrace"},
             {5, "The Crypt of Skeletons"},
             {6, "The Necromancer Tower"},
             {7, "The Reaper's Domain"},

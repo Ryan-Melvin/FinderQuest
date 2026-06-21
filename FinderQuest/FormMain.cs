@@ -289,17 +289,17 @@ namespace FinderQuest
                 game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 1);
 
                 // Passes specific indexes from 2D questions matrix to each Person
-                game.CurrWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "I Have a question for you. Are you ready? \n", (int)(100 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(1, 0));
-                game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Can you answer my question? Let's go! \n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(1, 1));
-                game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "Just answer my question please..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(1, 2));
+                game.CurrWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "One little lie, and I call the whole pack. And we're hungry today...\n", (int)(100 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(1, 0));
+                game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(1, 1));
+                game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "You better answer my question correctly..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(1, 2));
             }
             else if (game.CurrWalkArea.AreaNum == 1)
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
 
-                game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "I'm sure you can answer my question.\n", (int)(100 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 0));
-                game.CurrWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You look smart, can you answer my question? \n", (int)(400 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 1));
+                game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "Who woke me up from my sleep?\n", (int)(100 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 0));
+                game.CurrWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You shall pay for waking me up! \n", (int)(400 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 1));
             }
             else if (game.CurrWalkArea.AreaNum == 2)
             {
@@ -310,7 +310,46 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(7, "Zombie Spitter", Properties.Resources.ZombieVillager_Idle_Left, new Size(smallNPC, smallNPC), "I have a riddle deep in my lungs... \n", (int)(420 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(3, 1));
                 game.CurrWalkArea.AddPerson(8, "Zombie Tank", Properties.Resources.Husk_Idle_Left, new Size(bigNPC, bigNPC), "Stop right there traveler! \n", (int)(650 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(3, 2));
             }
-            // Area 4 to 8 to be added, especially Area8 will be different (since the final boss is going to have 7 questions, Oracle.Solved needs some tinkering
+            else if (game.CurrWalkArea.AreaNum == 3)
+            {
+                game.CurrWalkArea.RemovePeople();
+                game.CurrWalkArea = new WalkArea("The Minotaur's Terrace", Properties.Resources.MinotaurTerrace, 4);
+
+                game.CurrWalkArea.AddPerson(9, "Minotaur", Properties.Resources.Minotaur_Idle_Left, new Size(mediumNPC, mediumNPC), "Myths... and memory! Answer carefully...\n", (int)(100 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(4, 0));
+                game.CurrWalkArea.AddPerson(10, "Taurus", Properties.Resources.Taurus_Idle_Left, new Size(mediumNPC, mediumNPC), "Axes... and arts! Answer carefully...\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(4, 1));
+                game.CurrWalkArea.AddPerson(11, "Lost Bull", Properties.Resources.LostBull_Idle_Left, new Size(bigNPC, bigNPC), "I'm the boss here, you shall not pass! \n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(4, 2));
+            }
+            else if (game.CurrWalkArea.AreaNum == 4)
+            {
+                game.CurrWalkArea.RemovePeople();
+                game.CurrWalkArea = new WalkArea("The Crypt of Skeletons", Properties.Resources.Graveyard, 5);
+
+                game.CurrWalkArea.AddPerson(12, "Larry", Properties.Resources.LarrryTheSkeleton_Idle_Left, new Size(smallNPC, smallNPC), "Marrow... and mind! Think before you speak...\n", (int)(100 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(5, 0));
+                game.CurrWalkArea.AddPerson(13, "Skeleton Guard", Properties.Resources.SkeletonGuard_Idle_Left, new Size(smallNPC, smallNPC), "Dust to dust, bone to bone.. give me an answer, or be left alone.\n", (int)(370 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(5, 1));
+                game.CurrWalkArea.AddPerson(14, "Skeleton Warrior", Properties.Resources.SkeletonWarrior_Idle_Left, new Size(smallNPC, smallNPC), "The grave forgets nothing. Tread lightly with your words.\n", (int)(620 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(5, 2));
+            }
+            else if (game.CurrWalkArea.AreaNum == 5)
+            {
+                game.CurrWalkArea.RemovePeople();
+                game.CurrWalkArea = new WalkArea("The Necromancer Tower", Properties.Resources.CastleEntrance, 6);
+
+                game.CurrWalkArea.AddPerson(15, "Necromancer", Properties.Resources.Necro_Idle_Left, new Size(mediumNPC, mediumNPC), "Your soul is a fragile thread. Do not make me snip it...\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(6, 0));
+                game.CurrWalkArea.AddPerson(16, "Soul Snatcher", Properties.Resources.NecroLady_Idle_Left, new Size(mediumNPC, mediumNPC), "Your heartbeat is a rhythm I can easily stop. Think before you answer.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(6, 1));
+            }
+            else if (game.CurrWalkArea.AreaNum == 6)
+            {
+                game.CurrWalkArea.RemovePeople();
+                game.CurrWalkArea = new WalkArea("The Necromancer Tower", Properties.Resources.CastleEntrance, 7);
+
+                game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(mediumNPC, mediumNPC), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 0));
+                game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "I do not just kill, I keep.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 1));
+            }
+            else if (game.CurrWalkArea.AreaNum == 7)
+            {
+
+            }
+            // Area 4 to 8 to be added, especially Area8 will be different (since the final boss is going to have 7 que
+            // stions, Oracle.Solved needs some tinkering
 
             foreach (Person person in game.CurrWalkArea.People)
             {
