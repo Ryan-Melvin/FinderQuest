@@ -50,10 +50,10 @@
             // 
             this.labelAnswer.AutoSize = true;
             this.labelAnswer.BackColor = System.Drawing.Color.Transparent;
-            this.labelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnswer.Font = new System.Drawing.Font("Plus Jakarta Sans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAnswer.Location = new System.Drawing.Point(128, 268);
             this.labelAnswer.Name = "labelAnswer";
-            this.labelAnswer.Size = new System.Drawing.Size(113, 29);
+            this.labelAnswer.Size = new System.Drawing.Size(118, 40);
             this.labelAnswer.TabIndex = 1;
             this.labelAnswer.Text = "Answer: ";
             // 
@@ -83,7 +83,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = global::FinderQuest.Properties.Resources.backgroundQuestion;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonSubmit);

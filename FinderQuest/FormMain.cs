@@ -296,7 +296,7 @@ namespace FinderQuest
             else if (game.CurrWalkArea.AreaNum == 1)
             {
                 game.CurrWalkArea.RemovePeople();
-                game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.Mountain, 2);
+                game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
 
                 game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "I'm sure you can answer my question.\n", (int)(100 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 0));
                 game.CurrWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You look smart, can you answer my question? \n", (int)(400 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 1));
@@ -304,7 +304,7 @@ namespace FinderQuest
             else if (game.CurrWalkArea.AreaNum == 2)
             {
                 game.CurrWalkArea.RemovePeople();
-                game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.walkArea3, 3);
+                game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.AbandonedVillage, 3);
 
                 game.CurrWalkArea.AddPerson(6, "Zombie Stalker", Properties.Resources.Zombie_Idle_Left, new Size(smallNPC, smallNPC), "Brains... and knowledge! Answer carefully...\n", (int)(120 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(3, 0));
                 game.CurrWalkArea.AddPerson(7, "Zombie Spitter", Properties.Resources.ZombieVillager_Idle_Left, new Size(smallNPC, smallNPC), "I have a riddle deep in my lungs... \n", (int)(420 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(3, 1));
