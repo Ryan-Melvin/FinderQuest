@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace FinderQuest
 {
@@ -14,6 +15,13 @@ namespace FinderQuest
         private WalkArea currWalkArea;
         private TalkArea currTalkArea;
         private Person activePerson;
+
+        private WindowsMediaPlayer player1 = new WindowsMediaPlayer();
+        private WindowsMediaPlayer player2 = new WindowsMediaPlayer();
+        private WindowsMediaPlayer activePlayer;
+        private WindowsMediaPlayer fadingPlayer;
+        private Timer fadeTimer;
+        private int fade = 4;
 
         private List<Question> area1Questions;
         private List<Question> area2Questions;
@@ -28,6 +36,8 @@ namespace FinderQuest
         private List<Question>[] questionPools;
 
         private HttpClient client = new HttpClient {Timeout = TimeSpan.FromSeconds(10)};
+
+        private int bossQuestionNum;
         #endregion
 
         #region lookups
@@ -76,6 +86,51 @@ namespace FinderQuest
             };
 
             LoadAllBackupQuestions();
+
+            player1.settings.volume = 0;
+            player2.settings.volume = 0;
+            player1.settings.setMode("loop", true);
+            player2.settings.setMode("loop", true);
+
+            fadeTimer = new Timer();
+            fadeTimer.Interval = 30;
+            fadeTimer.Tick += FadeTimer_Tick;
+
+            activePlayer = player1;
+            bossQuestionNum = 0;
+        }
+
+        private void FadeTimer_Tick(object sender, EventArgs e)
+        {
+            bool completeFadeIn = false;
+            bool completeFadeOut = false;
+
+            if(activePlayer.settings.volume < 100)
+            {
+                activePlayer.settings.volume = Math.Min(100, activePlayer.settings.volume + fade);
+            }
+            else
+            {
+                completeFadeIn = true;
+            }
+
+            if(fadingPlayer != null && fadingPlayer.settings.volume > 0)
+            {
+                fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - fade);
+            }
+            else
+            {
+                if(fadingPlayer == null)
+                {
+                    fadingPlayer.controls.stop();
+                    completeFadeOut = true;
+                }
+            }
+
+            if(completeFadeIn && completeFadeOut)
+            {
+                fadeTimer.Stop();
+            }
         }
         #endregion
 
@@ -91,6 +146,8 @@ namespace FinderQuest
         public List<Question> Area6Questions { get => area6Questions; private set => area6Questions = value; }
         public List<Question> Area7Questions { get => area7Questions; private set => area7Questions = value; }
         public List<Question> Area8Questions { get => area8Questions; private set => area8Questions = value; }
+        public int BossQuestionNum { get => bossQuestionNum; set => bossQuestionNum = value; }
+
         #endregion
 
         #region methods
@@ -206,7 +263,6 @@ namespace FinderQuest
             }
         }
 
-
         public void LoadAllBackupQuestions()
         {
             int[] requiredCounts = new int[] {3, 2, 3, 3, 3, 2, 2, 7};
@@ -219,6 +275,89 @@ namespace FinderQuest
                     questionPools[i].Add(new Question($"Offline Backup Question #{questionPools[i].Count + 1} for Area {i + 1}.", "Backup", 100));
                 }
             }
+        }
+
+        public void PlaySound(string soundName)
+        {
+            string fileName = "";
+            if(soundName == "main-menu")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicMainMenu.mp3";
+            }
+            else if(soundName == "area1")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3";;
+            }
+            else if (soundName == "area2")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea2.mp3";
+            }
+            else if (soundName == "area3")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea3.mp3";
+            }
+            else if (soundName == "area4")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea4.mp3";
+            }
+            else if (soundName == "area5")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea5.mp3";
+            }
+            else if (soundName == "area6")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";            
+            }
+            else if (soundName == "area7")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea7.mp3";
+            }
+            else if (soundName == "area8-Ambient")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Sanctum.mp3";
+            }
+            else if (soundName == "area8-Battle")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Battle.mp3";
+            }
+            else if (soundName == "lose")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicEndingLose.mp3";
+            }
+            else if (soundName == "win")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
+            }
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                return;
+            }
+
+            if(activePlayer.URL == fileName)
+            {
+                return;
+            }
+
+            fadingPlayer = activePlayer;
+
+            activePlayer = (activePlayer == player1) ? player2 : player1;
+
+            activePlayer.URL = fileName;
+            activePlayer.settings.volume = 0;
+            activePlayer.controls.play();
+
+            fadeTimer.Start();
+        }
+
+        public void ResumeMusic()
+        {
+            this.activePlayer.controls.play();
+        }
+
+        public void PauseMusic()
+        {
+            this.activePlayer.controls.pause();
         }
         #endregion
     }

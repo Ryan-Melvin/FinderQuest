@@ -3,7 +3,7 @@
   <Class Name="FinderQuest.GameManager">
     <Position X="7" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QABAAAEAQAABAAAoIAABiCSAIAJAggACAAMRFAAgEBQ=</HashCode>
+      <HashCode>QABAAAEAQAABAAAoIAEBiCSAIAJAggACAAMRFAAgEBQ=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.TriviaApiQuestionText">
-    <Position X="2.5" Y="4" Width="1.5" />
+    <Position X="4.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAA=</HashCode>
       <FileName>TriviaApiQuestionText.cs</FileName>

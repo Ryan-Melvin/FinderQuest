@@ -32,6 +32,7 @@ namespace FinderQuest
         private int mediumNPC = 120;
         private int bigNPC = 150;
         private int bossSize = 220;
+
         #endregion
 
         #region constructor
@@ -73,8 +74,10 @@ namespace FinderQuest
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             time = new Time(0, 1, 0);
-            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height/2, "Alchemist");
+            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height/2, "Pyromancer");
             player.IsVisible = true;
+
+            game.PlaySound("main-menu");
 
             // Wait until all 7 calls finish downloading
             await game.InitializeAllQuestionsAsync();
@@ -112,8 +115,14 @@ namespace FinderQuest
             if (time.Hour == 0 && time.Minute == 0 && time.Second == 0)
             {
                 timerTime.Stop();
-                MessageBox.Show("Game Over. Time is up.");
                 GameOver();
+                game.PlaySound("lose");
+                DialogResult result = MessageBox.Show("Game Over. Time is up.");
+                if(result == DialogResult.OK)
+                {
+                    game.PlaySound("main-menu");
+                }
+ 
             }
         }
 
@@ -136,6 +145,8 @@ namespace FinderQuest
             game.CurrTalkArea = null;
             this.BackgroundImage = Properties.Resources.Finder_Quest;
             AnimateMainMenu();
+
+            game.BossQuestionNum = 0;
         }
 
         private void StartGame()
@@ -167,15 +178,22 @@ namespace FinderQuest
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!gameStarted) StartGame();
-            else GameOver();
+            if (!gameStarted)
+            {
+                StartGame();
+            }
+            else
+            {
+                GameOver();
+                game.PlaySound("main-menu");
+            }
         }
         #endregion
 
         #region player input tracking mapping
         private void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
-            int distance = 5;
+            int distance = 8;
 
             if (!paused)
             {
@@ -230,7 +248,7 @@ namespace FinderQuest
                             MessageBox.Show("Still fetching questions, please wait a moment!");
                         }
                     }
-                    else if (game.ActivePerson != null && game.CurrWalkArea.AreaNum != 8)
+                    else if (game.ActivePerson != null)
                     {
                         if (game.ActivePerson.Solved)
                         {
@@ -240,11 +258,6 @@ namespace FinderQuest
                         {
                             EnterTalkArea();
                         }
-                    }
-                    else if (game.CurrWalkArea.AreaNum == 8)
-                    {
-                        //call method for oracle questions
-                        EnterTalkArea();
                     }
                 }
                 else if (e.KeyCode == Keys.Escape && enterTalkArea)
@@ -292,6 +305,7 @@ namespace FinderQuest
             if (game.CurrWalkArea == null)
             {
                 game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 1);
+                game.PlaySound("area1");
 
                 // Passes specific indexes from 2D questions matrix to each Person
                 game.CurrWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "One little lie, and I call the whole pack. And we're hungry today...\n", (int)(100 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(1, 0));
@@ -302,6 +316,7 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
+                game.PlaySound("area2");
 
                 game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Left, new Size(bigNPC, bigNPC), "Who woke me up from my sleep?\n", (int)(100 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 0));
                 game.CurrWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "You shall pay for waking me up! \n", (int)(400 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(2, 1));
@@ -310,6 +325,7 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.AbandonedVillage, 3);
+                game.PlaySound("area3");
 
                 game.CurrWalkArea.AddPerson(6, "Zombie Stalker", Properties.Resources.Zombie_Idle_Left, new Size(smallNPC, smallNPC), "Brains... and knowledge! Answer carefully...\n", (int)(120 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(3, 0));
                 game.CurrWalkArea.AddPerson(7, "Zombie Spitter", Properties.Resources.ZombieVillager_Idle_Left, new Size(smallNPC, smallNPC), "I have a riddle deep in my lungs... \n", (int)(420 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(3, 1));
@@ -319,6 +335,7 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Minotaur's Terrace", Properties.Resources.MinotaurTerrace, 4);
+                game.PlaySound("area4");
 
                 game.CurrWalkArea.AddPerson(9, "Minotaur", Properties.Resources.Minotaur_Idle_Left, new Size(mediumNPC, mediumNPC), "Myths... and memory! Answer carefully...\n", (int)(100 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(4, 0));
                 game.CurrWalkArea.AddPerson(10, "Taurus", Properties.Resources.Taurus_Idle_Left, new Size(mediumNPC, mediumNPC), "Axes... and arts! Answer carefully...\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(4, 1));
@@ -328,6 +345,7 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Crypt of Skeletons", Properties.Resources.Graveyard, 5);
+                game.PlaySound("area5");
 
                 game.CurrWalkArea.AddPerson(12, "Larry", Properties.Resources.LarrryTheSkeleton_Idle_Left, new Size(smallNPC, smallNPC), "Marrow... and mind! Think before you speak...\n", (int)(100 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(5, 0));
                 game.CurrWalkArea.AddPerson(13, "Skeleton Guard", Properties.Resources.SkeletonGuard_Idle_Left, new Size(smallNPC, smallNPC), "Dust to dust, bone to bone.. give me an answer, or be left alone.\n", (int)(370 * scaleX), this.ClientSize.Height / 2, game.GetQuestion(5, 1));
@@ -337,6 +355,7 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Necromancer Tower", Properties.Resources.CastleEntrance, 6);
+                game.PlaySound("area6");
 
                 game.CurrWalkArea.AddPerson(15, "Necromancer", Properties.Resources.Necro_Idle_Left, new Size(mediumNPC, mediumNPC), "Your soul is a fragile thread. Do not make me snip it...\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(6, 0));
                 game.CurrWalkArea.AddPerson(16, "Soul Snatcher", Properties.Resources.NecroLady_Idle_Left, new Size(mediumNPC, mediumNPC), "Your heartbeat is a rhythm I can easily stop. Think before you answer.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(6, 1));
@@ -344,7 +363,8 @@ namespace FinderQuest
             else if (game.CurrWalkArea.AreaNum == 6)
             {
                 game.CurrWalkArea.RemovePeople();
-                game.CurrWalkArea = new WalkArea("The Necromancer Tower", Properties.Resources.CastleEntrance, 7);
+                game.CurrWalkArea = new WalkArea("Reaper's Domain", Properties.Resources.ReaperHallway, 7);
+                game.PlaySound("area7");
 
                 game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(mediumNPC, mediumNPC), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 0));
                 game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "I do not just kill, I keep.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 1));
@@ -353,6 +373,7 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Oracle's Sanctum", Properties.Resources.throne_room, 8);
+                game.PlaySound("area8-Ambient");
 
                 game.CurrWalkArea.AddPerson(19, "The Oracle", Properties.Resources.DarkApprentice_Idle_Left, new Size(bossSize, bossSize), "This is the final test, you will fail..\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (bossSize - player.Size.Height - 20), game.GetOracleQuestions());
             }
@@ -418,6 +439,7 @@ namespace FinderQuest
 
             game.ActivePerson.RemoveDialog();
             game.CurrTalkArea = null;
+
         }
 
         private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -427,12 +449,14 @@ namespace FinderQuest
                 pauseToolStripMenuItem.Text = "Pause";
                 paused = false;
                 timerTime.Start();
+                game.ResumeMusic();
             }
             else
             {
                 pauseToolStripMenuItem.Text = "Continue";
                 paused = true;
                 timerTime.Stop();
+                game.PauseMusic();
             }
         }
         #endregion
@@ -505,7 +529,12 @@ namespace FinderQuest
                 if (game.CurrWalkArea.AreaNum == numOfWalkArea && game.CurrWalkArea.FinishedAllQuestions() && !enterTalkArea)
                 {
                     GameOver();
-                    MessageBox.Show("You Win! ");
+                    game.PlaySound("win");
+                    DialogResult result = MessageBox.Show("You Win! ");
+                    if(result == DialogResult.OK)
+                    {
+                        game.PlaySound("main-menu");
+                    }
                 }
             }
             else

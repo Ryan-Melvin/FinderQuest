@@ -92,6 +92,7 @@
             this.DoubleBuffered = true;
             this.Name = "FormQuestion";
             this.Text = "Solve the Question";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormQuestion_FormClosed);
             this.Load += new System.EventHandler(this.FormQuestion_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormQuestion_KeyDown);
             this.ResumeLayout(false);

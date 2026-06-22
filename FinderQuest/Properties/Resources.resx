@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Wanderer_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Wanderer_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Alchemist_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Alchemist_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pyromancer_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pyromancer_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Huntress_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Huntress_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Necro_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Necro_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ForestRanger_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Test_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,11 +133,17 @@
   <data name="ForestRanger_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Test_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Alchemist_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Alchemist_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ForestHunter_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ForestHunter_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TribeWarrior_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TribeWarrior_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="QuestionBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QuestionBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Necro_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Necro_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeathReaper_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeathReaper_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="talkArea3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkArea3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,11 +151,8 @@
   <data name="Wanderer_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wanderer_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wanderer_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Wanderer_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ForestHunter_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ForestHunter_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pyromancer_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pyromancer_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ZombieVillager_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ZombieVillager_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,11 +190,11 @@
   <data name="FortuneTeller_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FortuneTeller_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Huntress_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Huntress_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SilentKing_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SilentKing_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Seer_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seer_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Taurus_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Taurus_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Valkyrie_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Valkyrie_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,53 +202,41 @@
   <data name="talkArea4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkArea4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CastleEntrance" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CastleEntrance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Orc_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Orc_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Viking_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Viking_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="throne room1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\throne room1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pyromancer_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pyromancer_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FortuneTeller_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FortuneTeller_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rogue_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rogue_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Zombie_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zombie_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Taurus_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Taurus_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SilentKing_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SilentKing_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FortuneTeller_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FortuneTeller_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ForestHunter_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ForestHunter_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ForestHunter_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ForestHunter_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Minotaur_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Minotaur_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LostBull_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LostBull_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LavaGolem_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LavaGolem_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rogue_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rogue_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alchemist_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alchemist_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ReaperHallway" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ReaperHallway.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LostBull_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LostBull_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GolemLands" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GolemLands.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Viking_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Viking_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="player_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player_left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Orc_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Orc_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Rogue_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rogue_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="throne room" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\throne room.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,8 +244,8 @@
   <data name="talkArea2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkArea2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FallenAngel_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FallenAngel_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Minotaur_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minotaur_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="talkArea1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkArea1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,17 +253,20 @@
   <data name="Rogue_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rogue_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Butcher_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Butcher_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Goblin_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Goblin_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FallenAngel_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FallenAngel_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Wanderer_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wanderer_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TribeWarrior_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TribeWarrior_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GolemLands" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GolemLands.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\person7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Husk_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Husk_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="walkArea1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\walkArea1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,20 +277,20 @@
   <data name="IronClad_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IronClad_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TribeWarrior_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TribeWarrior_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FortuneTeller_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FortuneTeller_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Orc_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Orc_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ZombieVillager_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ZombieVillager_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Wanderer_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wanderer_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForestRanger_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Test_PlayerWalking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ogre_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ogre_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pyromancer_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pyromancer_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="talkArea7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkArea7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -304,20 +298,17 @@
   <data name="DarkLord_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DarkLord_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Viking_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Viking_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SilentKing_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SilentKing_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rogue_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rogue_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DarkLord_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DarkLord_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Graveyard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Graveyard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mointain1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Taurus_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Taurus_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Alchemist_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Alchemist_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ZombieVillager_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZombieVillager_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minotaur_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,8 +316,11 @@
   <data name="player_front" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player_front.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Zombie_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Zombie_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DarkLord_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DarkLord_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="walkArea3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\walkArea3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FortuneTeller_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FortuneTeller_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -337,53 +331,59 @@
   <data name="FallenAngel_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FallenAngel_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AbandonedVillage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AbandonedVillage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IronClad_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IronClad_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Huntress_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Huntress_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ogre_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ogre_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pyromancer_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pyromancer_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pyromancer_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pyromancer_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SkeletonWarrior_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SkeletonWarrior_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RockGolem_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RockGolem_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Rogue_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rogue_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Seer_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Seer_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NecroLady_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NecroLady_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ForestHunter_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ForestHunter_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Rogue_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rogue_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SkeletonWarrior_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SkeletonWarrior_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Reaper_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reaper_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="person4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\person4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="person1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\person1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Valkyrie_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Valkyrie_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FortuneTeller_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FortuneTeller_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TribeWarrior_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TribeWarrior_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TribeWarrior_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TribeWarrior_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="walkArea3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\walkArea3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FallenAngel_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FallenAngel_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Huntress_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Huntress_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Graveyard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Graveyard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Mountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mointain1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alchemist_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alchemist_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LarrryTheSkeleton_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LarrryTheSkeleton_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -400,32 +400,29 @@
   <data name="SilentKing_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SilentKing_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SilentKing_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SilentKing_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Viking_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Viking_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="talkArea5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkArea5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SilentKing_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SilentKing_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Viking_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Viking_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Wanderer_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wanderer_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GoblinForest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GoblinForest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Husk_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Husk_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TribeWarrior_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TribeWarrior_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DarkLord_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DarkLord_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AbandonedVillage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbandonedVillage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MinotaurTerrace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MinotaurTerrace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Butcher_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Butcher_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Zombie_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Zombie_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -442,62 +439,68 @@
   <data name="DeathReaper_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeathReaper_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RockGolem_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RockGolem_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IronClad_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IronClad_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DarkApprentice_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DarkApprentice_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ForestHunter_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ForestHunter_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DarkLord_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DarkLord_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pyromancer_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pyromancer_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="player_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player_back.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Necro_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Necro_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TribeWarrior_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TribeWarrior_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ForestHunter_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ForestHunter_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Viking_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Viking_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Husk_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Husk_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RockGolem_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockGolem_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DeathReaper_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeathReaper_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pyromancer_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pyromancer_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DarkApprentice_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DarkApprentice_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Valkyrie_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Valkyrie_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="person4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\person4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ReaperHallway" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReaperHallway.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MossGolem_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MossGolem_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Seer_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seer_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RockGolem_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RockGolem_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SkeletonGuard_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SkeletonGuard_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Wanderer_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Wanderer_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Alchemist_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alchemist_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IronClad_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IronClad_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Goblin_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Goblin_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Taurus_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Taurus_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\person3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LostBull_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LostBull_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LostBull_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LostBull_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DarkLord_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DarkLord_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Seer_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Seer_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Huntress_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Huntress_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Valkyrie_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Valkyrie_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -505,11 +508,14 @@
   <data name="Finder_Quest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Finder_Quest.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Alchemist_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Alchemist_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DarkLord_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DarkLord_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Reaper_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reaper_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FallenAngel_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FallenAngel_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CastleEntrance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CastleEntrance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NecroLady_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NecroLady_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -517,14 +523,14 @@
   <data name="Reaper_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reaper_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ForestRanger_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Test_PlayerWalking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Husk_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Husk_Idle_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Viking_Walking_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Viking_Walking_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Necro_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Necro_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SilentKing_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SilentKing_Idle_Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="player_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player_right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -532,7 +538,7 @@
   <data name="Seer_Walking_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Seer_Walking_Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="throne room1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\throne room1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="QuestionBackground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QuestionBackground1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
