@@ -16,9 +16,6 @@ namespace FinderQuest
         // Reference to our main game window canvas frame interface
         private FormMain mainForm;
 
-        //for boss question index
-        private int bossQuestionNum = 0;
-
         public FormQuestion()
         {
             InitializeComponent();
@@ -29,6 +26,10 @@ namespace FinderQuest
         {
             mainForm = (FormMain)this.Owner;
             GenerateQuestion();
+            if(mainForm.game.ActivePerson is Boss)
+            {
+                mainForm.game.PlaySound("area8-Battle");
+            }
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace FinderQuest
             int score = 0;
             if(mainForm.game.ActivePerson is Boss boss)
             {
-                score = boss.CheckAnswer(bossQuestionNum, textBoxAnswer.Text);
+                score = boss.CheckAnswer(mainForm.game.BossQuestionNum, textBoxAnswer.Text);
             }
             else
             {
@@ -57,11 +58,11 @@ namespace FinderQuest
             {
                 MessageBox.Show("Sorry, your answer is incorrect! ");
             }
-            if(mainForm.game.ActivePerson is Boss x && bossQuestionNum < x.Questions.Count - 1)
+            if(mainForm.game.ActivePerson is Boss x && mainForm.game.BossQuestionNum < x.Questions.Count - 1)
             {
                 if(score != 0)
                 {
-                    bossQuestionNum++;
+                    mainForm.game.BossQuestionNum++;
                 }
                 GenerateQuestion();
             }
@@ -76,7 +77,7 @@ namespace FinderQuest
         {
             if (mainForm.game.ActivePerson is Boss boss)
             {
-                labelQuestion.Text = boss.Questions[bossQuestionNum].TheQuestion;
+                labelQuestion.Text = boss.Questions[mainForm.game.BossQuestionNum].TheQuestion;
             }
             else
             {
@@ -106,6 +107,14 @@ namespace FinderQuest
             if(e.KeyCode == Keys.Enter)
             {
                 buttonSubmit_Click(sender, e);
+            }
+        }
+
+        private void FormQuestion_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(mainForm.game.ActivePerson is Boss)
+            {
+                mainForm.game.PlaySound("area8-Ambient");
             }
         }
     }
