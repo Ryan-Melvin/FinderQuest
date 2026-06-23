@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripGame = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,28 +40,30 @@
             this.labelTimer = new System.Windows.Forms.Label();
             this.labelArea = new System.Windows.Forms.Label();
             this.panelTalkArea = new System.Windows.Forms.Panel();
+            this.labelCutscene = new System.Windows.Forms.Label();
             this.labelTimerTalk = new System.Windows.Forms.Label();
             this.labelAreaTalk = new System.Windows.Forms.Label();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.timerGame = new System.Windows.Forms.Timer(this.components);
-            this.menuStrip1.SuspendLayout();
+            this.menuStripGame.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelTalkArea.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStripGame
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripGame.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStripGame.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStripGame.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStripGame.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
             this.exitToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(533, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripGame.Location = new System.Drawing.Point(0, 0);
+            this.menuStripGame.Name = "menuStripGame";
+            this.menuStripGame.Size = new System.Drawing.Size(800, 33);
+            this.menuStripGame.TabIndex = 0;
+            this.menuStripGame.Text = "menuStrip1";
             // 
             // gameToolStripMenuItem
             // 
@@ -69,34 +71,34 @@
             this.startToolStripMenuItem,
             this.pauseToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 22);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
             this.gameToolStripMenuItem.Text = "Game";
             // 
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.startToolStripMenuItem.Text = "Start new Game";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.pauseToolStripMenuItem.Text = "Pause/Play";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(55, 29);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
@@ -106,10 +108,9 @@
             this.panelGame.Controls.Add(this.labelPlayer);
             this.panelGame.Controls.Add(this.labelTimer);
             this.panelGame.Controls.Add(this.labelArea);
-            this.panelGame.Location = new System.Drawing.Point(0, 23);
-            this.panelGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelGame.Location = new System.Drawing.Point(0, 35);
             this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(533, 70);
+            this.panelGame.Size = new System.Drawing.Size(800, 108);
             this.panelGame.TabIndex = 1;
             // 
             // labelPlayer
@@ -117,10 +118,9 @@
             this.labelPlayer.AutoSize = true;
             this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.labelPlayer.ForeColor = System.Drawing.Color.White;
-            this.labelPlayer.Location = new System.Drawing.Point(413, 14);
-            this.labelPlayer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayer.Location = new System.Drawing.Point(620, 22);
             this.labelPlayer.Name = "labelPlayer";
-            this.labelPlayer.Size = new System.Drawing.Size(69, 13);
+            this.labelPlayer.Size = new System.Drawing.Size(96, 20);
             this.labelPlayer.TabIndex = 2;
             this.labelPlayer.Text = "labelPlayer";
             // 
@@ -129,10 +129,9 @@
             this.labelTimer.AutoSize = true;
             this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTimer.ForeColor = System.Drawing.Color.Red;
-            this.labelTimer.Location = new System.Drawing.Point(225, 14);
-            this.labelTimer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTimer.Location = new System.Drawing.Point(338, 22);
             this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Size = new System.Drawing.Size(98, 25);
+            this.labelTimer.Size = new System.Drawing.Size(141, 36);
             this.labelTimer.TabIndex = 1;
             this.labelTimer.Text = "00:00:00";
             // 
@@ -142,34 +141,41 @@
             this.labelArea.BackColor = System.Drawing.Color.Black;
             this.labelArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelArea.ForeColor = System.Drawing.Color.White;
-            this.labelArea.Location = new System.Drawing.Point(21, 16);
-            this.labelArea.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArea.Location = new System.Drawing.Point(32, 25);
             this.labelArea.Name = "labelArea";
-            this.labelArea.Size = new System.Drawing.Size(77, 17);
+            this.labelArea.Size = new System.Drawing.Size(104, 25);
             this.labelArea.TabIndex = 0;
             this.labelArea.Text = "labelArea";
             // 
             // panelTalkArea
             // 
             this.panelTalkArea.BackColor = System.Drawing.Color.Transparent;
+            this.panelTalkArea.Controls.Add(this.labelCutscene);
             this.panelTalkArea.Controls.Add(this.labelTimerTalk);
             this.panelTalkArea.Controls.Add(this.labelAreaTalk);
-            this.panelTalkArea.Location = new System.Drawing.Point(0, 23);
-            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTalkArea.Location = new System.Drawing.Point(0, 35);
             this.panelTalkArea.Name = "panelTalkArea";
-            this.panelTalkArea.Size = new System.Drawing.Size(533, 269);
+            this.panelTalkArea.Size = new System.Drawing.Size(800, 414);
             this.panelTalkArea.TabIndex = 2;
             this.panelTalkArea.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTalkArea_Paint);
+            // 
+            // labelCutscene
+            // 
+            this.labelCutscene.AutoSize = true;
+            this.labelCutscene.Location = new System.Drawing.Point(280, 174);
+            this.labelCutscene.Name = "labelCutscene";
+            this.labelCutscene.Size = new System.Drawing.Size(110, 20);
+            this.labelCutscene.TabIndex = 4;
+            this.labelCutscene.Text = "labelCutscene";
             // 
             // labelTimerTalk
             // 
             this.labelTimerTalk.AutoSize = true;
             this.labelTimerTalk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTimerTalk.ForeColor = System.Drawing.Color.Red;
-            this.labelTimerTalk.Location = new System.Drawing.Point(425, 228);
-            this.labelTimerTalk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTimerTalk.Location = new System.Drawing.Point(638, 351);
             this.labelTimerTalk.Name = "labelTimerTalk";
-            this.labelTimerTalk.Size = new System.Drawing.Size(98, 25);
+            this.labelTimerTalk.Size = new System.Drawing.Size(141, 36);
             this.labelTimerTalk.TabIndex = 3;
             this.labelTimerTalk.Text = "00:00:00";
             // 
@@ -178,10 +184,9 @@
             this.labelAreaTalk.AutoSize = true;
             this.labelAreaTalk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAreaTalk.ForeColor = System.Drawing.Color.White;
-            this.labelAreaTalk.Location = new System.Drawing.Point(21, 232);
-            this.labelAreaTalk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAreaTalk.Location = new System.Drawing.Point(32, 357);
             this.labelAreaTalk.Name = "labelAreaTalk";
-            this.labelAreaTalk.Size = new System.Drawing.Size(52, 17);
+            this.labelAreaTalk.Size = new System.Drawing.Size(70, 25);
             this.labelAreaTalk.TabIndex = 3;
             this.labelAreaTalk.Text = "label1";
             // 
@@ -196,26 +201,24 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = global::FinderQuest.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.panelTalkArea);
             this.Controls.Add(this.panelGame);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStripGame);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainMenuStrip = this.menuStripGame;
             this.Name = "FormMain";
             this.Text = "Finder Quest Game";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyUp);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripGame.ResumeLayout(false);
+            this.menuStripGame.PerformLayout();
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
             this.panelTalkArea.ResumeLayout(false);
@@ -227,7 +230,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripGame;
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
@@ -242,6 +245,7 @@
         private System.Windows.Forms.Timer timerGame;
         private System.Windows.Forms.Label labelTimerTalk;
         private System.Windows.Forms.Label labelAreaTalk;
+        private System.Windows.Forms.Label labelCutscene;
     }
 }
 

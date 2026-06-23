@@ -33,6 +33,7 @@ namespace FinderQuest
         private int bigNPC = 150;
         private int bossSize = 220;
 
+        private bool allowReturnMainMenu = false;
         #endregion
 
         #region constructor
@@ -63,6 +64,7 @@ namespace FinderQuest
             panelGame.Visible = false;
             panelTalkArea.Visible = false;
 
+
             // Lock the startup button 
             startToolStripMenuItem.Text = "Connecting to Trivia Servers...";
             startToolStripMenuItem.Enabled = false;
@@ -73,7 +75,7 @@ namespace FinderQuest
             this.DoubleBuffered = true;
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
-            time = new Time(0, 1, 0);
+            time = new Time(0, 0, 0);
             player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height/2, "Pyromancer");
             player.IsVisible = true;
 
@@ -88,6 +90,7 @@ namespace FinderQuest
 
             timerGame.Start();
             AnimateMainMenu();
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,7 +105,7 @@ namespace FinderQuest
         #endregion
 
         #region gameplay loop controllers
-        private void timerTime_Tick(object sender, EventArgs e)
+        private async void timerTime_Tick(object sender, EventArgs e)
         {
             time.AddWithSecond(-1);
             labelTimer.Text = time.DisplayData();
@@ -115,20 +118,21 @@ namespace FinderQuest
             if (time.Hour == 0 && time.Minute == 0 && time.Second == 0)
             {
                 timerTime.Stop();
-                GameOver();
+                //GameOver();
                 game.PlaySound("lose");
-                DialogResult result = MessageBox.Show("Game Over. Time is up.");
-                if(result == DialogResult.OK)
-                {
-                    game.PlaySound("main-menu");
-                }
- 
+                //DialogResult result = MessageBox.Show("Game Over. Time is up.");
+                //if(result == DialogResult.OK)
+                //{
+                //    game.PlaySound("main-menu");
+                //}
+                await PlayBadEnding();
             }
         }
 
         private void GameOver()
         {
             timerTime.Stop();
+            time.ResetTimer();
             panelGame.Visible = false;
             startToolStripMenuItem.Enabled = true;
             gameStarted = false;
@@ -159,6 +163,7 @@ namespace FinderQuest
             gameStarted = true;
             pauseToolStripMenuItem.Text = "Pause Game";
 
+            time.AddWithSecond(60);
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
             timerGame.Start();
@@ -173,7 +178,7 @@ namespace FinderQuest
             game.CurrWalkArea = null;
             GenerateWalkArea();
 
-            this.Invalidate();
+            this.Invalidate();         
         }
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
@@ -237,7 +242,7 @@ namespace FinderQuest
                 }
                 else if (e.KeyCode == Keys.Enter)
                 {
-                    if (!gameStarted)
+                    if (!gameStarted && !allowReturnMainMenu)
                     {
                         if (startToolStripMenuItem.Enabled)
                         {
@@ -248,7 +253,7 @@ namespace FinderQuest
                             MessageBox.Show("Still fetching questions, please wait a moment!");
                         }
                     }
-                    else if (game.ActivePerson != null)
+                    else if (game.ActivePerson != null && !allowReturnMainMenu)
                     {
                         if (game.ActivePerson.Solved)
                         {
@@ -258,6 +263,13 @@ namespace FinderQuest
                         {
                             EnterTalkArea();
                         }
+                    }
+                    else if (allowReturnMainMenu)
+                    {
+                        GameOver();
+                        game.PlaySound("main-menu");
+                        allowReturnMainMenu = false;
+                        game.Fade = 4;
                     }
                 }
                 else if (e.KeyCode == Keys.Escape && enterTalkArea)
@@ -312,7 +324,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(1, 1));
                 game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "You better answer my question correctly..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), game.GetQuestion(1, 2));
             }
-            else if (game.CurrWalkArea.AreaNum == 1)
+            else if (game.CurrWalkArea.AreaNum == 7)
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
@@ -369,7 +381,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(mediumNPC, mediumNPC), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 0));
                 game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "I do not just kill, I keep.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), game.GetQuestion(7, 1));
             }
-            else if (game.CurrWalkArea.AreaNum == 7) 
+            else if (game.CurrWalkArea.AreaNum == 1) 
             {
                 game.CurrWalkArea.RemovePeople();
                 game.CurrWalkArea = new WalkArea("The Oracle's Sanctum", Properties.Resources.throne_room, 8);
@@ -498,7 +510,7 @@ namespace FinderQuest
             }
         }
 
-        private void timerGame_Tick(object sender, EventArgs e)
+        private async void timerGame_Tick(object sender, EventArgs e)
         {
             if (gameStarted)
             {
@@ -528,13 +540,14 @@ namespace FinderQuest
 
                 if (game.CurrWalkArea.AreaNum == numOfWalkArea && game.CurrWalkArea.FinishedAllQuestions() && !enterTalkArea)
                 {
-                    GameOver();
+                    //GameOver();
                     game.PlaySound("win");
-                    DialogResult result = MessageBox.Show("You Win! ");
-                    if(result == DialogResult.OK)
-                    {
-                        game.PlaySound("main-menu");
-                    }
+                    //DialogResult result = MessageBox.Show("You Win! ");
+                    //if(result == DialogResult.OK)
+                    //{
+                    //    game.PlaySound("main-menu");
+                    //}
+                    await PlayGoodEnding();
                 }
             }
             else
@@ -573,6 +586,92 @@ namespace FinderQuest
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             // Leave blank to prevent Windows UI flicker anomaly
+        }
+
+        private async Task PlayGoodEnding()
+        {
+            game.Fade = 8;
+            this.BackgroundImage = Properties.Resources.BackgroundWin;    
+            this.game.CurrWalkArea.RemovePeople();
+            this.game.CurrWalkArea = null;
+            gameStarted = false;
+            panelGame.Visible = false;
+
+            labelCutscene.Text = "";
+            labelCutscene.Parent = this;
+            labelCutscene.BringToFront();
+            labelCutscene.Font = new Font("Plus Jakarta Sans", 16, FontStyle.Bold);
+            labelCutscene.ForeColor = Color.White;
+            labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
+            labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
+            labelCutscene.AutoSize = true;
+            labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
+
+            await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...");
+            await Task.Delay(2500);
+
+            await AnimateText("Warm, long-forgotten light cascaded over the valleys of the realm.");
+            await Task.Delay(4000);
+
+            await AnimateText("A broken crown rests on the altar, its curse lifted forevermore.");
+            await Task.Delay(4000);
+            labelCutscene.Text = "";
+
+            this.BackgroundImage = Properties.Resources.WinTextGoIn;
+            AnimateMainMenu();
+            await Task.Delay(2400);
+            this.BackgroundImage = Properties.Resources.WinEnterToReturn;
+            AnimateMainMenu();
+
+            allowReturnMainMenu = true;
+        }
+
+        private async Task PlayBadEnding()
+        {
+            game.Fade = 8;
+            this.BackgroundImage = Properties.Resources.BackgroundLose;
+            this.game.CurrWalkArea.RemovePeople();
+            this.game.CurrWalkArea = null;
+            gameStarted = false;
+            panelGame.Visible = false;
+
+            labelCutscene.Text = "";
+            labelCutscene.Parent = this;
+            labelCutscene.BringToFront();
+            labelCutscene.Font = new Font("Plus Jakarta Sans", 16, FontStyle.Bold);
+            labelCutscene.ForeColor = Color.White;
+            labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
+            labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
+            labelCutscene.AutoSize = true;
+            labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
+
+            await AnimateText("The walls of the sanctuary crumbled...");
+            await Task.Delay(3500);
+
+            await AnimateText("The hero fell to their knees as darkness swallowed the throne room.");
+            await Task.Delay(4000);
+            labelCutscene.Text = "";
+
+            this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
+            AnimateMainMenu();
+            await Task.Delay(2400);
+            this.BackgroundImage = Properties.Resources.GameOverEnterToReturn;
+            AnimateMainMenu();
+
+            allowReturnMainMenu = true;
+        }
+
+        private async Task AnimateText(string text)
+        {
+            labelCutscene.Text = "";
+
+            foreach (char c in text)
+            {
+                labelCutscene.Text += c;
+                labelCutscene.Location = new Point(this.ClientSize.Width / 2 - (labelCutscene.Width / 2), this.ClientSize.Height / 2 - (labelCutscene.Height / 2) + 15);
+
+                await Task.Delay(40);
+            }
         }
         #endregion
     }

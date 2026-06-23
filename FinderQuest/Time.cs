@@ -113,7 +113,12 @@ namespace TimeApplication
                           this.Second.ToString().PadLeft(2, '0');
             return data;
         }
-
+        public void ResetTimer()
+        {
+            this.minute = 0;
+            this.second = 0;
+            this.hour = 0;
+        }
         #endregion
     }
 }

@@ -113,6 +113,26 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap BackgroundLose {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundLose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap BackgroundWin {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundWin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Butcher_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("Butcher_Idle_Left", resourceCulture);
@@ -406,6 +426,26 @@ namespace FinderQuest.Properties {
         public static System.Drawing.Bitmap FortuneTeller_Walking_Right {
             get {
                 object obj = ResourceManager.GetObject("FortuneTeller_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap GameOverEnterToReturn {
+            get {
+                object obj = ResourceManager.GetObject("GameOverEnterToReturn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap GameOverTextGoIn {
+            get {
+                object obj = ResourceManager.GetObject("GameOverTextGoIn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1426,6 +1466,26 @@ namespace FinderQuest.Properties {
         public static System.Drawing.Bitmap Wanderer_Walking_Right {
             get {
                 object obj = ResourceManager.GetObject("Wanderer_Walking_Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WinEnterToReturn {
+            get {
+                object obj = ResourceManager.GetObject("WinEnterToReturn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WinTextGoIn {
+            get {
+                object obj = ResourceManager.GetObject("WinTextGoIn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

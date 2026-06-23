@@ -541,4 +541,22 @@
   <data name="QuestionBackground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\QuestionBackground1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BackgroundLose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundLose.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BackgroundWin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BackgroundWin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameOverEnterToReturn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GameOverEnterToReturn.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameOverTextGoIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GameOverTextGoIn.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WinTextGoIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WinTextGoIn.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WinEnterToReturn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WinEnterToReturn.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

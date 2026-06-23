@@ -107,7 +107,7 @@ namespace FinderQuest
 
             if(activePlayer.settings.volume < 100)
             {
-                activePlayer.settings.volume = Math.Min(100, activePlayer.settings.volume + fade);
+                activePlayer.settings.volume = Math.Min(100, activePlayer.settings.volume + Fade);
             }
             else
             {
@@ -116,7 +116,7 @@ namespace FinderQuest
 
             if(fadingPlayer != null && fadingPlayer.settings.volume > 0)
             {
-                fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - fade);
+                fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - Fade);
             }
             else
             {
@@ -147,6 +147,7 @@ namespace FinderQuest
         public List<Question> Area7Questions { get => area7Questions; private set => area7Questions = value; }
         public List<Question> Area8Questions { get => area8Questions; private set => area8Questions = value; }
         public int BossQuestionNum { get => bossQuestionNum; set => bossQuestionNum = value; }
+        public int Fade { get => fade; set => fade = value; }
 
         #endregion
 
@@ -277,7 +278,7 @@ namespace FinderQuest
             }
         }
 
-        public void PlaySound(string soundName)
+        public void PlaySound(string soundName) //sound player
         {
             string fileName = "";
             if(soundName == "main-menu")
@@ -359,6 +360,7 @@ namespace FinderQuest
         {
             this.activePlayer.controls.pause();
         }
+
         #endregion
     }
 }
