@@ -329,6 +329,10 @@ namespace FinderQuest
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
             }
+            else if (soundName == "opening")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\Opening.mp3";
+            }
 
             if (string.IsNullOrEmpty(fileName))
             {

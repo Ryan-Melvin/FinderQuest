@@ -773,6 +773,26 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap OnceUponATime {
+            get {
+                object obj = ResourceManager.GetObject("OnceUponATime", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Opening {
+            get {
+                object obj = ResourceManager.GetObject("Opening", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Orc_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("Orc_Idle_Left", resourceCulture);
