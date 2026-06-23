@@ -100,6 +100,7 @@ namespace FinderQuest
             labelQuestion.Padding = new Padding(10, 10, 10, 10);
             labelQuestion.Font = new Font("Plus Jakarta Sans", 16, FontStyle.Bold);
             labelQuestion.Location = new Point((this.ClientSize.Width - labelQuestion.Width) / 2, 50);
+            textBoxAnswer.Focus();
         }
 
         private void FormQuestion_KeyDown(object sender, KeyEventArgs e)
