@@ -33,15 +33,15 @@ namespace FinderQuest
             return "Area " + this.AreaNum + "\n" + base.DisplayData();
         }
 
-        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, Question question)
+        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, string greet, string death, Question question)
         {
-            Person person = new Person(num, name, sprite, size, dialog, x, y, question);
+            Person person = new Person(num, name, sprite, size, dialog, x, y, greet, death, question);
             this.People.Add(person);
         }
 
-        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, List<Question> questions)
+        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, string greet, string death, List<Question> questions)
         {
-            Person person = new Boss(num, name, sprite, size, dialog, x, y, questions);
+            Person person = new Boss(num, name, sprite, size, dialog, x, y, greet, death, questions);
             this.People.Add(person);
         }
         //public void DisplayPeople(Control container)

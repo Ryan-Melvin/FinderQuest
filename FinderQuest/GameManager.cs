@@ -23,6 +23,8 @@ namespace FinderQuest
         private Timer fadeTimer;
         private int fade = 4;
 
+        private WindowsMediaPlayer SFX = new WindowsMediaPlayer();
+
         private List<Question> area1Questions;
         private List<Question> area2Questions;
         private List<Question> area3Questions;
@@ -353,6 +355,21 @@ namespace FinderQuest
             activePlayer.controls.play();
 
             fadeTimer.Start();
+        }
+
+        public void PlaySFX(string soundName)
+        {
+            string url = Application.StartupPath + "\\Sounds\\SoundEffects\\" + soundName + ".mp3";
+
+            SFX.URL = url;
+            SFX.settings.volume = 90;
+
+            SFX.controls.play();
+        }
+
+        public void SetSFXVolume(int volume)
+        {
+            this.SFX.settings.volume = volume;
         }
 
         public void ResumeMusic()

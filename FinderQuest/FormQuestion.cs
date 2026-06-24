@@ -25,6 +25,7 @@ namespace FinderQuest
         private void FormQuestion_Load(object sender, EventArgs e)
         {
             mainForm = (FormMain)this.Owner;
+            textBoxAnswer.Text = "";
             GenerateQuestion();
             if(mainForm.game.ActivePerson is Boss)
             {
@@ -53,6 +54,14 @@ namespace FinderQuest
                 mainForm.player.AddScore(score);
                 mainForm.labelPlayer.Text = mainForm.player.DisplayData();
                 mainForm.time.AddWithSecond(30);
+                if(!(mainForm.game.ActivePerson is Boss))
+                {
+                    mainForm.PlayDeathSFX();
+                }
+                else if(mainForm.game.BossQuestionNum == 6)
+                {
+                    mainForm.PlayDeathSFX();
+                }
             }
             else
             {
@@ -64,10 +73,12 @@ namespace FinderQuest
                 {
                     mainForm.game.BossQuestionNum++;
                 }
+                this.textBoxAnswer.Text = "";
                 GenerateQuestion();
             }
             else
             {
+                textBoxAnswer.Text = "";
                 this.Close();
                 mainForm.ExitTalkArea();
             }     

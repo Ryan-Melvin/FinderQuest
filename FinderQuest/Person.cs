@@ -23,10 +23,12 @@ namespace FinderQuest
         private int y;
         private Image sprite;
         private Size size;
+        private string greetingSound;
+        private string deathSound;
         #endregion
 
         #region constructors
-        public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y, Question question)
+        public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y, string greeting, string death, Question question)
         {
             //this.Sprite = new PictureBox();
             this.PersonNum = personNum;
@@ -38,6 +40,8 @@ namespace FinderQuest
             this.Dialog = dialog;
             this.Solved = false;
             this.Question = question;
+            this.GreetingSound = greeting;
+            this.DeathSound = death;
         }
         #endregion
 
@@ -81,6 +85,8 @@ namespace FinderQuest
         public int Y { get => y; set => y = value; }
         public Image Sprite { get => sprite; set => sprite = value; }
         public Size Size { get => size; set => size = value; }
+        public string GreetingSound { get => greetingSound; set => greetingSound = value; }
+        public string DeathSound { get => deathSound; set => deathSound = value; }
         #endregion
 
         #region methods
