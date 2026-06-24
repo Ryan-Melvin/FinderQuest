@@ -45,6 +45,7 @@
             this.labelAreaTalk = new System.Windows.Forms.Label();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.timerGame = new System.Windows.Forms.Timer(this.components);
+            this.labelSkip = new System.Windows.Forms.Label();
             this.menuStripGame.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelTalkArea.SuspendLayout();
@@ -150,6 +151,7 @@
             // panelTalkArea
             // 
             this.panelTalkArea.BackColor = System.Drawing.Color.Transparent;
+            this.panelTalkArea.Controls.Add(this.labelSkip);
             this.panelTalkArea.Controls.Add(this.labelCutscene);
             this.panelTalkArea.Controls.Add(this.labelTimerTalk);
             this.panelTalkArea.Controls.Add(this.labelAreaTalk);
@@ -199,10 +201,20 @@
             this.timerGame.Interval = 20;
             this.timerGame.Tick += new System.EventHandler(this.timerGame_Tick);
             // 
+            // labelSkip
+            // 
+            this.labelSkip.AutoSize = true;
+            this.labelSkip.Location = new System.Drawing.Point(354, 364);
+            this.labelSkip.Name = "labelSkip";
+            this.labelSkip.Size = new System.Drawing.Size(51, 20);
+            this.labelSkip.TabIndex = 5;
+            this.labelSkip.Text = "label1";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FinderQuest.Properties.Resources.Finder_Quest;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.panelTalkArea);
@@ -246,6 +258,7 @@
         private System.Windows.Forms.Label labelTimerTalk;
         private System.Windows.Forms.Label labelAreaTalk;
         private System.Windows.Forms.Label labelCutscene;
+        private System.Windows.Forms.Label labelSkip;
     }
 }
 

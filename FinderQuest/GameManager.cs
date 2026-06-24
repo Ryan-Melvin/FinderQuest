@@ -94,9 +94,9 @@ namespace FinderQuest
 
             fadeTimer = new Timer();
             fadeTimer.Interval = 30;
-            fadeTimer.Tick += FadeTimer_Tick;
+            fadeTimer.Tick += FadeTimer_Tick; //adds the method to fadeTimer.Tick
 
-            activePlayer = player1;
+            activePlayer = player1; //media player
             bossQuestionNum = 0;
         }
 
