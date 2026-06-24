@@ -13,7 +13,7 @@ namespace FinderQuest
         #endregion
 
         #region constructors
-        public Boss(int num, string name, Image image, Size size, string dialog, int x, int y, List<Question> questions) : base(num, name, image, size, dialog, x, y, null)
+        public Boss(int num, string name, Image image, Size size, string dialog, int x, int y, string greet, string death, List<Question> questions) : base(num, name, image, size, dialog, x, y, greet, death, null)
         {
             this.Questions = questions;
         }
