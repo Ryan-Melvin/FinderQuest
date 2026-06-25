@@ -135,7 +135,8 @@ namespace FinderQuest
                 timerTime.Stop();
                 game.PlaySound("lose");
                 game.PlaySFX("LoseTaunt");
-                await PlayBadEnding();
+                skip = new CancellationTokenSource();
+                await PlayBadEnding(skip.Token);
             }
         }
 
@@ -305,10 +306,6 @@ namespace FinderQuest
             {
                 SkipCutscene();
             }
-            //if (player != null)
-            //{
-            //    this.Invalidate();
-            //}
 
         }
 
@@ -573,7 +570,8 @@ namespace FinderQuest
                 if (game.CurrWalkArea.AreaNum == numOfWalkArea && game.CurrWalkArea.FinishedAllQuestions() && !enterTalkArea)
                 {
                     game.PlaySound("win");
-                    await PlayGoodEnding();
+                    skip = new CancellationTokenSource();
+                    await PlayGoodEnding(skip.Token);
                 }
             }
             else if (!inCutscene) //main menu
@@ -630,79 +628,116 @@ namespace FinderQuest
             // Leave blank to prevent Windows UI flicker anomaly
         }
 
-        private async Task PlayGoodEnding()
+        private async Task PlayGoodEnding(CancellationToken skip)
         {
-            this.inCutscene = true;
-            game.Fade = 8;
-            this.BackgroundImage = Properties.Resources.BackgroundWin;
-            this.game.CurrWalkArea.RemovePeople();
-            this.game.CurrWalkArea = null;
-            gameStarted = false;
-            panelGame.Visible = false;
+            try
+            {
+                this.inCutscene = true;
+                game.Fade = 8;
+                this.BackgroundImage = Properties.Resources.BackgroundWin;
+                this.game.CurrWalkArea.RemovePeople();
+                this.game.CurrWalkArea = null;
+                gameStarted = false;
+                panelGame.Visible = false;
 
-            labelCutscene.Text = "";
-            labelCutscene.Parent = this;
-            labelCutscene.BringToFront();
-            labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
-            labelCutscene.ForeColor = Color.White;
-            labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-            labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
-            labelCutscene.AutoSize = true;
-            labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
+                labelCutscene.Text = "";
+                labelCutscene.Parent = this;
+                labelCutscene.BringToFront();
+                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
+                labelCutscene.ForeColor = Color.White;
+                labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
+                labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
+                labelCutscene.AutoSize = true;
+                labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-            await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...");
-            await Task.Delay(2500);
+                await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...");
+                await Task.Delay(2500);
 
-            await AnimateText("Warm, long-forgotten light cascaded over the valleys of the realm.");
-            await Task.Delay(4000);
+                allowSkipCutscene = true;
+                labelSkip.Parent = this;
+                labelSkip.Text = "Press Enter to Skip";
+                labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
+                labelSkip.Font = new Font("Garamond", 12);
+                labelSkip.ForeColor = Color.White;
+                labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
+                labelSkip.Visible = true;
+                labelSkip.BringToFront();
 
-            await AnimateText("A broken crown rests on the altar, its curse lifted forevermore.");
-            await Task.Delay(4000);
-            labelCutscene.Text = "";
+                await AnimateText("Warm, long-forgotten light cascaded over the valleys of the realm.", skip);
+                await Task.Delay(4000, skip);
 
-            this.BackgroundImage = Properties.Resources.WinTextGoIn;
-            AnimateMainMenu();
-            await Task.Delay(2400);
-            this.BackgroundImage = Properties.Resources.WinEnterToReturn;
-            AnimateMainMenu();
+                await AnimateText("A broken crown rests on the altar, its curse lifted forevermore.", skip);
+                await Task.Delay(4000, skip);
+                
+            }
+            catch (OperationCanceledException)
+            {
 
-            allowReturnMainMenu = true;
+            }
+            finally
+            {
+                labelSkip.Visible = false;
+                labelCutscene.Text = "";
+                this.BackgroundImage = Properties.Resources.WinTextGoIn;
+                AnimateMainMenu();
+                await Task.Delay(2400);
+                this.BackgroundImage = Properties.Resources.WinEnterToReturn;
+                AnimateMainMenu();
+                allowReturnMainMenu = true;
+            }
+
         }
 
-        private async Task PlayBadEnding()
+        private async Task PlayBadEnding(CancellationToken skip)
         {
-            this.inCutscene = true;
-            game.Fade = 8;
-            this.BackgroundImage = Properties.Resources.BackgroundLose;
-            this.game.CurrWalkArea.RemovePeople();
-            this.game.CurrWalkArea = null;
-            gameStarted = false;
-            panelGame.Visible = false;
+            try
+            {
+                this.inCutscene = true;
+                game.Fade = 8;
+                this.BackgroundImage = Properties.Resources.BackgroundLose;
+                this.game.CurrWalkArea.RemovePeople();
+                this.game.CurrWalkArea = null;
+                gameStarted = false;
+                panelGame.Visible = false;
 
-            labelCutscene.Text = "";
-            labelCutscene.Parent = this;
-            labelCutscene.BringToFront();
-            labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
-            labelCutscene.ForeColor = Color.White;
-            labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-            labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
-            labelCutscene.AutoSize = true;
-            labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
+                labelCutscene.Text = "";
+                labelCutscene.Parent = this;
+                labelCutscene.BringToFront();
+                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
+                labelCutscene.ForeColor = Color.White;
+                labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
+                labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
+                labelCutscene.AutoSize = true;
+                labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-            await AnimateText("The walls of the sanctuary crumbled...");
-            await Task.Delay(3500);
+                await AnimateText("The walls of the sanctuary crumbled...");
+                await Task.Delay(3500);
 
-            await AnimateText("The hero fell to their knees as darkness swallowed the throne room.");
-            await Task.Delay(4000);
-            labelCutscene.Text = "";
+                allowSkipCutscene = true;
+                labelSkip.Parent = this;
+                labelSkip.Text = "Press Enter to Skip";
+                labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
+                labelSkip.Font = new Font("Garamond", 12);
+                labelSkip.ForeColor = Color.White;
+                labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
+                labelSkip.Visible = true;
+                labelSkip.BringToFront();
 
-            this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
-            AnimateMainMenu();
-            await Task.Delay(2400);
-            this.BackgroundImage = Properties.Resources.GameOverEnterToReturn;
-            AnimateMainMenu();
+                await AnimateText("The hero fell to their knees as darkness swallowed the throne room.", skip);
+                await Task.Delay(4000, skip);
+            }
+            catch (OperationCanceledException)
+            {
+                labelCutscene.Text = "";
+                labelSkip.Visible= false;
+                this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
+                AnimateMainMenu();
+                await Task.Delay(2400);
+                this.BackgroundImage = Properties.Resources.GameOverEnterToReturn;
+                AnimateMainMenu();
 
-            allowReturnMainMenu = true;
+                allowReturnMainMenu = true;
+            }  
         }
 
         private async Task PlayOpeningCutscene(CancellationToken skip)
