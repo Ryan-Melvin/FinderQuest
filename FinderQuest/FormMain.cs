@@ -38,7 +38,7 @@ namespace FinderQuest
         private bool allowReturnMainMenu = false;
         private bool inCutscene = false;
         private bool allowSkipCutscene = false;
-        private CancellationTokenSource skip;
+        private CancellationTokenSource skip; //for signaling to the cutscene method to skip the cutscene
 
         #endregion
 
@@ -82,7 +82,7 @@ namespace FinderQuest
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             time = new Time(0, 0, 0);
-            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height / 2, "Pyromancer");
+            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height / 2, "DarkLord");
             player.IsVisible = false;
 
             game.PlaySound("main-menu");
@@ -343,7 +343,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "OrcGreeting", "OrcDeath", game.GetQuestion(1, 1));
                 game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "You better answer my question correctly..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), "OgreGreeting", "OgreDeath", game.GetQuestion(1, 2));
             }
-            else if (game.CurrWalkArea.AreaNum == 7)
+            else if (game.CurrWalkArea.AreaNum == 1)
             {
                 game.SetSFXVolume(40);
                 game.CurrWalkArea.RemovePeople();
@@ -403,7 +403,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(mediumNPC, mediumNPC), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "ReaperGreeting", "ReaperDeath", game.GetQuestion(7, 0));
                 game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "I do not just kill, I keep.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "ReaperGreeting", "ReaperDeath", game.GetQuestion(7, 1));
             }
-            else if (game.CurrWalkArea.AreaNum == 1)
+            else if (game.CurrWalkArea.AreaNum == 7)
             {
                 game.SetSFXVolume(90);
                 game.CurrWalkArea.RemovePeople();
@@ -729,7 +729,7 @@ namespace FinderQuest
             catch (OperationCanceledException)
             {
                 labelCutscene.Text = "";
-                labelSkip.Visible= false;
+                labelSkip.Visible = false;
                 this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
                 AnimateMainMenu();
                 await Task.Delay(2400);
