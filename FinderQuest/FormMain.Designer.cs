@@ -45,10 +45,13 @@
             this.labelAreaTalk = new System.Windows.Forms.Label();
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.timerGame = new System.Windows.Forms.Timer(this.components);
+            this.panelPaused = new System.Windows.Forms.Panel();
+            this.labelPaused = new System.Windows.Forms.Label();
             this.labelSkip = new System.Windows.Forms.Label();
             this.menuStripGame.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelTalkArea.SuspendLayout();
+            this.panelPaused.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripGame
@@ -62,7 +65,7 @@
             this.helpToolStripMenuItem});
             this.menuStripGame.Location = new System.Drawing.Point(0, 0);
             this.menuStripGame.Name = "menuStripGame";
-            this.menuStripGame.Size = new System.Drawing.Size(800, 33);
+            this.menuStripGame.Size = new System.Drawing.Size(800, 36);
             this.menuStripGame.TabIndex = 0;
             this.menuStripGame.Text = "menuStrip1";
             // 
@@ -72,7 +75,7 @@
             this.startToolStripMenuItem,
             this.pauseToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 30);
             this.gameToolStripMenuItem.Text = "Game";
             // 
             // startToolStripMenuItem
@@ -92,14 +95,14 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(55, 29);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(55, 30);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 30);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
@@ -201,14 +204,32 @@
             this.timerGame.Interval = 20;
             this.timerGame.Tick += new System.EventHandler(this.timerGame_Tick);
             // 
+            // panelPaused
+            // 
+            this.panelPaused.Controls.Add(this.labelPaused);
+            this.panelPaused.Location = new System.Drawing.Point(0, 35);
+            this.panelPaused.Name = "panelPaused";
+            this.panelPaused.Size = new System.Drawing.Size(800, 414);
+            this.panelPaused.TabIndex = 5;
+            this.panelPaused.Visible = false;
+            // 
+            // labelPaused
+            // 
+            this.labelPaused.AutoSize = true;
+            this.labelPaused.Location = new System.Drawing.Point(315, 198);
+            this.labelPaused.Name = "labelPaused";
+            this.labelPaused.Size = new System.Drawing.Size(63, 20);
+            this.labelPaused.TabIndex = 0;
+            this.labelPaused.Text = "Paused";
+            // 
             // labelSkip
             // 
             this.labelSkip.AutoSize = true;
-            this.labelSkip.Location = new System.Drawing.Point(354, 364);
+            this.labelSkip.Location = new System.Drawing.Point(367, 333);
             this.labelSkip.Name = "labelSkip";
-            this.labelSkip.Size = new System.Drawing.Size(51, 20);
+            this.labelSkip.Size = new System.Drawing.Size(40, 20);
             this.labelSkip.TabIndex = 5;
-            this.labelSkip.Text = "label1";
+            this.labelSkip.Text = "Skip";
             // 
             // FormMain
             // 
@@ -218,6 +239,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.panelTalkArea);
+            this.Controls.Add(this.panelPaused);
             this.Controls.Add(this.panelGame);
             this.Controls.Add(this.menuStripGame);
             this.DoubleBuffered = true;
@@ -235,6 +257,8 @@
             this.panelGame.PerformLayout();
             this.panelTalkArea.ResumeLayout(false);
             this.panelTalkArea.PerformLayout();
+            this.panelPaused.ResumeLayout(false);
+            this.panelPaused.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,6 +282,8 @@
         private System.Windows.Forms.Label labelTimerTalk;
         private System.Windows.Forms.Label labelAreaTalk;
         private System.Windows.Forms.Label labelCutscene;
+        private System.Windows.Forms.Panel panelPaused;
+        private System.Windows.Forms.Label labelPaused;
         private System.Windows.Forms.Label labelSkip;
     }
 }

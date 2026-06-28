@@ -38,7 +38,7 @@ namespace FinderQuest
         private bool allowReturnMainMenu = false;
         private bool inCutscene = false;
         private bool allowSkipCutscene = false;
-        private CancellationTokenSource skip;
+        private CancellationTokenSource skip; //for signaling to the cutscene method to skip the cutscene
 
         #endregion
 
@@ -71,6 +71,13 @@ namespace FinderQuest
             panelTalkArea.Visible = false;
             labelSkip.Visible = false;
 
+            panelPaused.Visible = false;
+            panelPaused.BackColor = Color.FromArgb(180, 0, 0, 0);
+            labelPaused.ForeColor = Color.White;
+            labelPaused.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelPaused.Font = new Font("Garamond", 20, FontStyle.Bold);
+            labelPaused.Location = new Point(this.ClientSize.Width / 2 - (labelPaused.Size.Width / 2), this.ClientSize.Height / 2 - (labelPaused.Size.Height));
+
             // Lock the startup button 
             startToolStripMenuItem.Text = "Connecting to Trivia Servers...";
             startToolStripMenuItem.Enabled = false;
@@ -82,7 +89,7 @@ namespace FinderQuest
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             time = new Time(0, 0, 0);
-            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height / 2, "Pyromancer");
+            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height / 2, "DarkLord");
             player.IsVisible = false;
 
             game.PlaySound("main-menu");
@@ -164,6 +171,7 @@ namespace FinderQuest
 
             game.BossQuestionNum = 0;
             player.IsVisible = true;
+            labelPaused.Visible = false;
         }
 
         private void StartGame()
@@ -343,7 +351,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "OrcGreeting", "OrcDeath", game.GetQuestion(1, 1));
                 game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "You better answer my question correctly..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), "OgreGreeting", "OgreDeath", game.GetQuestion(1, 2));
             }
-            else if (game.CurrWalkArea.AreaNum == 7)
+            else if (game.CurrWalkArea.AreaNum == 1)
             {
                 game.SetSFXVolume(40);
                 game.CurrWalkArea.RemovePeople();
@@ -403,7 +411,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(mediumNPC, mediumNPC), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "ReaperGreeting", "ReaperDeath", game.GetQuestion(7, 0));
                 game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "I do not just kill, I keep.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "ReaperGreeting", "ReaperDeath", game.GetQuestion(7, 1));
             }
-            else if (game.CurrWalkArea.AreaNum == 1)
+            else if (game.CurrWalkArea.AreaNum == 7)
             {
                 game.SetSFXVolume(90);
                 game.CurrWalkArea.RemovePeople();
@@ -489,14 +497,20 @@ namespace FinderQuest
                 pauseToolStripMenuItem.Text = "Pause";
                 paused = false;
                 timerTime.Start();
+                timerGame.Start();
                 game.ResumeMusic();
+                panelPaused.Visible = false;
+                panelPaused.SendToBack();
             }
             else
             {
                 pauseToolStripMenuItem.Text = "Continue";
                 paused = true;
                 timerTime.Stop();
+                timerGame.Stop();
                 game.PauseMusic();
+                panelPaused.Visible = true;
+                panelPaused.BringToFront();
             }
         }
         #endregion
@@ -630,6 +644,9 @@ namespace FinderQuest
 
         private async Task PlayGoodEnding(CancellationToken skip)
         {
+            allowSkipCutscene = false;
+            pauseToolStripMenuItem.Enabled = false;
+            startToolStripMenuItem.Enabled = false;
             try
             {
                 this.inCutscene = true;
@@ -650,8 +667,8 @@ namespace FinderQuest
                 labelCutscene.AutoSize = true;
                 labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...");
-                await Task.Delay(2500);
+                await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...", skip);
+                await Task.Delay(2500, skip);
 
                 allowSkipCutscene = true;
                 labelSkip.Parent = this;
@@ -676,6 +693,8 @@ namespace FinderQuest
             }
             finally
             {
+                allowSkipCutscene = false;
+                startToolStripMenuItem.Enabled = true;
                 labelSkip.Visible = false;
                 labelCutscene.Text = "";
                 this.BackgroundImage = Properties.Resources.WinTextGoIn;
@@ -690,6 +709,9 @@ namespace FinderQuest
 
         private async Task PlayBadEnding(CancellationToken skip)
         {
+            allowSkipCutscene = true;
+            pauseToolStripMenuItem.Enabled = false;
+            startToolStripMenuItem.Enabled = false;
             try
             {
                 this.inCutscene = true;
@@ -710,10 +732,10 @@ namespace FinderQuest
                 labelCutscene.AutoSize = true;
                 labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                await AnimateText("The walls of the sanctuary crumbled...");
-                await Task.Delay(3500);
+                await AnimateText("The walls of the sanctuary crumbled...", skip);
+                await Task.Delay(3500, skip);
 
-                allowSkipCutscene = true;
+                //allowSkipCutscene = true;
                 labelSkip.Parent = this;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
@@ -728,8 +750,14 @@ namespace FinderQuest
             }
             catch (OperationCanceledException)
             {
+                
+            }
+            finally
+            {
+                allowSkipCutscene = false;
+                startToolStripMenuItem.Enabled = true;
                 labelCutscene.Text = "";
-                labelSkip.Visible= false;
+                labelSkip.Visible = false;
                 this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
                 AnimateMainMenu();
                 await Task.Delay(2400);
@@ -742,7 +770,8 @@ namespace FinderQuest
 
         private async Task PlayOpeningCutscene(CancellationToken skip)
         {
-            allowSkipCutscene = false;
+            allowSkipCutscene = true;
+            startToolStripMenuItem.Enabled = false;
             try
             {
                 inCutscene = true; //blocks player input
@@ -761,8 +790,8 @@ namespace FinderQuest
                 labelCutscene.AutoSize = true;
                 labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                await AnimateText("Once Upon A Time..");
-                await Task.Delay(2480);
+                await AnimateText("Once Upon A Time..", skip);
+                await Task.Delay(2480, skip);
 
                 labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
                 labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
@@ -771,7 +800,7 @@ namespace FinderQuest
                 await AnimateText("There was a kingdom hidden away in the valleys.", skip);
                 await Task.Delay(1000, skip);
 
-                allowSkipCutscene = true;
+                //allowSkipCutscene = true;
                 labelSkip.Parent = this;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
@@ -859,6 +888,7 @@ namespace FinderQuest
             }
             finally
             {
+                startToolStripMenuItem.Enabled = true;
                 labelCutscene.Text = "";
                 //remove panel allow skip cutscene
                 allowSkipCutscene = false;
