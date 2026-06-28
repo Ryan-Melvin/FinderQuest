@@ -71,6 +71,13 @@ namespace FinderQuest
             panelTalkArea.Visible = false;
             labelSkip.Visible = false;
 
+            panelPaused.Visible = false;
+            panelPaused.BackColor = Color.FromArgb(180, 0, 0, 0);
+            labelPaused.ForeColor = Color.White;
+            labelPaused.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelPaused.Font = new Font("Garamond", 20, FontStyle.Bold);
+            labelPaused.Location = new Point(this.ClientSize.Width / 2 - (labelPaused.Size.Width / 2), this.ClientSize.Height / 2 - (labelPaused.Size.Height));
+
             // Lock the startup button 
             startToolStripMenuItem.Text = "Connecting to Trivia Servers...";
             startToolStripMenuItem.Enabled = false;
@@ -164,6 +171,7 @@ namespace FinderQuest
 
             game.BossQuestionNum = 0;
             player.IsVisible = true;
+            labelPaused.Visible = false;
         }
 
         private void StartGame()
@@ -489,14 +497,20 @@ namespace FinderQuest
                 pauseToolStripMenuItem.Text = "Pause";
                 paused = false;
                 timerTime.Start();
+                timerGame.Start();
                 game.ResumeMusic();
+                panelPaused.Visible = false;
+                panelPaused.SendToBack();
             }
             else
             {
                 pauseToolStripMenuItem.Text = "Continue";
                 paused = true;
                 timerTime.Stop();
+                timerGame.Stop();
                 game.PauseMusic();
+                panelPaused.Visible = true;
+                panelPaused.BringToFront();
             }
         }
         #endregion
@@ -630,6 +644,9 @@ namespace FinderQuest
 
         private async Task PlayGoodEnding(CancellationToken skip)
         {
+            allowSkipCutscene = false;
+            pauseToolStripMenuItem.Enabled = false;
+            startToolStripMenuItem.Enabled = false;
             try
             {
                 this.inCutscene = true;
@@ -650,8 +667,8 @@ namespace FinderQuest
                 labelCutscene.AutoSize = true;
                 labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...");
-                await Task.Delay(2500);
+                await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...", skip);
+                await Task.Delay(2500, skip);
 
                 allowSkipCutscene = true;
                 labelSkip.Parent = this;
@@ -676,6 +693,8 @@ namespace FinderQuest
             }
             finally
             {
+                allowSkipCutscene = false;
+                startToolStripMenuItem.Enabled = true;
                 labelSkip.Visible = false;
                 labelCutscene.Text = "";
                 this.BackgroundImage = Properties.Resources.WinTextGoIn;
@@ -690,6 +709,9 @@ namespace FinderQuest
 
         private async Task PlayBadEnding(CancellationToken skip)
         {
+            allowSkipCutscene = true;
+            pauseToolStripMenuItem.Enabled = false;
+            startToolStripMenuItem.Enabled = false;
             try
             {
                 this.inCutscene = true;
@@ -710,10 +732,10 @@ namespace FinderQuest
                 labelCutscene.AutoSize = true;
                 labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                await AnimateText("The walls of the sanctuary crumbled...");
-                await Task.Delay(3500);
+                await AnimateText("The walls of the sanctuary crumbled...", skip);
+                await Task.Delay(3500, skip);
 
-                allowSkipCutscene = true;
+                //allowSkipCutscene = true;
                 labelSkip.Parent = this;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
@@ -728,6 +750,12 @@ namespace FinderQuest
             }
             catch (OperationCanceledException)
             {
+                
+            }
+            finally
+            {
+                allowSkipCutscene = false;
+                startToolStripMenuItem.Enabled = true;
                 labelCutscene.Text = "";
                 labelSkip.Visible = false;
                 this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
@@ -742,7 +770,8 @@ namespace FinderQuest
 
         private async Task PlayOpeningCutscene(CancellationToken skip)
         {
-            allowSkipCutscene = false;
+            allowSkipCutscene = true;
+            startToolStripMenuItem.Enabled = false;
             try
             {
                 inCutscene = true; //blocks player input
@@ -761,8 +790,8 @@ namespace FinderQuest
                 labelCutscene.AutoSize = true;
                 labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                await AnimateText("Once Upon A Time..");
-                await Task.Delay(2480);
+                await AnimateText("Once Upon A Time..", skip);
+                await Task.Delay(2480, skip);
 
                 labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
                 labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
@@ -771,7 +800,7 @@ namespace FinderQuest
                 await AnimateText("There was a kingdom hidden away in the valleys.", skip);
                 await Task.Delay(1000, skip);
 
-                allowSkipCutscene = true;
+                //allowSkipCutscene = true;
                 labelSkip.Parent = this;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
@@ -859,6 +888,7 @@ namespace FinderQuest
             }
             finally
             {
+                startToolStripMenuItem.Enabled = true;
                 labelCutscene.Text = "";
                 //remove panel allow skip cutscene
                 allowSkipCutscene = false;
