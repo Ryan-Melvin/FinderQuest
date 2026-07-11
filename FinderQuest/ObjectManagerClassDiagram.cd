@@ -17,7 +17,7 @@
   <Class Name="FinderQuest.SoundManager">
     <Position X="8.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>wABAAAAACAAAAASAwAAABGgAUAQAAJQAAAAAAAAAQIA=</HashCode>
+      <HashCode>wABAAAAACAQAAASAwAAABGgAUAQAAJQAAAAAAAAAQIA=</HashCode>
       <FileName>SoundManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,8 +31,22 @@
   <Class Name="FinderQuest.GameManager">
     <Position X="7" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QABBAAEAQQABAAAoIAEhjCSQIAJAwgACAAMRFSAgEBQ=</HashCode>
+      <HashCode>QABBAAEAQQABAAAoIAEhiCSQIAJAwgACAAMRFSAgEBQ=</HashCode>
       <FileName>GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinderQuest.WalkAreaManager">
+    <Position X="12.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WalkAreaManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinderQuest.TalkAreaManager">
+    <Position X="14" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TalkAreaManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

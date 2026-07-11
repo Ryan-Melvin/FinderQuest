@@ -68,7 +68,6 @@
             this.menuStripGame.Size = new System.Drawing.Size(533, 24);
             this.menuStripGame.TabIndex = 0;
             this.menuStripGame.Text = "menuStrip1";
-            this.menuStripGame.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripGame_ItemClicked);
             // 
             // gameToolStripMenuItem
             // 

@@ -35,15 +35,11 @@ namespace FinderQuest
 
             mainForm.game.RegisterFloatingLabel(indicator);
         }
-
-
-
         public FormQuestion()
         {
             InitializeComponent();
             this.KeyPreview = true;
         }
-
         private void FormQuestion_Load(object sender, EventArgs e)
         {
             labelTimerQuestion.BackColor = Color.FromArgb(120, 0, 0, 0);
@@ -69,7 +65,6 @@ namespace FinderQuest
             {
                 score = mainForm.game.ActivePerson.CheckAnswer(textBoxAnswer.Text);
             }
-            
 
             if (score > 0)
             {
@@ -81,11 +76,11 @@ namespace FinderQuest
                 MessageBox.Show("Your answer is correct! You get " + score + " points.");
                 if (!(mainForm.game.ActivePerson is Boss))
                 {
-                    mainForm.PlayDeathSFX();
+                    mainForm.sound.PlaySFX(mainForm.game.ActivePerson.DeathSound);
                 }
                 else if (mainForm.game.BossQuestionNum == 6)
                 {
-                    mainForm.PlayDeathSFX();
+                    mainForm.sound.PlaySFX(mainForm.game.ActivePerson.DeathSound);
                 }
             }
             else
@@ -111,7 +106,7 @@ namespace FinderQuest
             {
                 textBoxAnswer.Text = "";
                 this.Close();
-                mainForm.ExitTalkArea();
+                mainForm.talkArea.ExitTalkArea(mainForm);
             }     
         }
 

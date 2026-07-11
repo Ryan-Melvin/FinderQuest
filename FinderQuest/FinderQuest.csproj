@@ -72,10 +72,12 @@
     <Compile Include="Skin.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="TalkArea.cs" />
+    <Compile Include="TalkAreaManager.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="TriviaApiJsonObj.cs" />
     <Compile Include="TriviaApiQuestionText.cs" />
     <Compile Include="WalkArea.cs" />
+    <Compile Include="WalkAreaManager.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -135,10 +135,11 @@ namespace FinderQuest
             }
         }
 
-        public async Task PlayOpeningCutscene(FormMain form, ToolStripMenuItem start, Label labelCutscene, Label labelSkip, CancellationToken skip)
+        public async Task PlayOpeningCutscene(FormMain form, ToolStripMenuItem start, ToolStripMenuItem pause, Label labelCutscene, Label labelSkip, CancellationToken skip)
         {
             form.SetAllowSkipCutscene(true);
             start.Enabled = false;
+            pause.Enabled = false;
             try
             {
                 form.SetInCutscene(true); //blocks player input
