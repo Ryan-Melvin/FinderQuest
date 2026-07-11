@@ -110,6 +110,7 @@ namespace FinderQuest
         // Change to async function (pull trivia items immediately at Form Load)
         private async void FormMain_Load(object sender, EventArgs e)
         {
+            #region styling
             labelArea.Parent = panelGame;
             labelPlayer.Parent = panelGame;
             labelArea.BackColor = Color.FromArgb(120, 0, 0, 0);
@@ -131,6 +132,7 @@ namespace FinderQuest
             labelPaused.BackColor = Color.FromArgb(120, 0, 0, 0);
             labelPaused.Font = new Font("Garamond", 20, FontStyle.Bold);
             labelPaused.Location = new Point(this.ClientSize.Width / 2 - (labelPaused.Size.Width / 2), this.ClientSize.Height / 2 - (labelPaused.Size.Height));
+            #endregion
 
             // Lock the startup button 
             startToolStripMenuItem.Text = "Connecting to Trivia Servers...";
@@ -214,7 +216,6 @@ namespace FinderQuest
             enterTalkArea = false;
             inCutscene = false;
             startToolStripMenuItem.Text = "Start new game";
-            //player.Sprite.Dispose(); we no longer dispose the player spirte, we just tell paint to not draw it via setting currArea to null
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             if (game.CurrWalkArea != null)
@@ -233,6 +234,7 @@ namespace FinderQuest
 
             paused = true;
             pauseToolStripMenuItem.PerformClick();
+            paused = false;
 
             time.ResetTimer();
         }
@@ -271,7 +273,7 @@ namespace FinderQuest
             {
                 timerGame.Start();
                 skip = new CancellationTokenSource();
-                await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
+                await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                 StartGame();
             }
             else
@@ -282,7 +284,7 @@ namespace FinderQuest
         }
         private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (paused)
+            if (paused) //continue game
             {
                 pauseToolStripMenuItem.Text = "Pause";
                 paused = false;
@@ -292,7 +294,7 @@ namespace FinderQuest
                 panelPaused.Visible = false;
                 panelPaused.SendToBack();
             }
-            else
+            else //pause game
             {
                 pauseToolStripMenuItem.Text = "Continue";
                 paused = true;
@@ -308,7 +310,7 @@ namespace FinderQuest
 
         #endregion
 
-        #region player input tracking mapping
+        #region player input (Keybinds)
         private async void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
             int distance = 8;
@@ -353,7 +355,7 @@ namespace FinderQuest
                         AnimatePlayer();
                     }
                 }
-                else if (e.KeyCode == Keys.Enter)
+                else if (e.KeyCode == Keys.Enter) //starts game
                 {
                     if (!gameStarted && !allowReturnMainMenu)
                     {
@@ -361,7 +363,7 @@ namespace FinderQuest
                         {
                             timerGame.Start();
                             skip = new CancellationTokenSource();
-                            await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
+                            await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem,pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                             StartGame();
                         }
                         else
@@ -385,6 +387,10 @@ namespace FinderQuest
                 {
                     ExitTalkArea();
                 }
+                else if (e.KeyCode == Keys.Escape && pauseToolStripMenuItem.Enabled) //pause when not paused
+                {
+                    pauseToolStripMenuItem.PerformClick();
+                }
                 else if (e.KeyCode == Keys.Y && enterTalkArea)
                 {
                     form = new FormQuestion();
@@ -392,7 +398,7 @@ namespace FinderQuest
                     form.ShowDialog();
                 }
             }
-            else if (e.KeyCode == Keys.Enter && allowReturnMainMenu)
+            else if (e.KeyCode == Keys.Enter && allowReturnMainMenu) //return to main menu
             {
                 GameOver();
                 sound.PlaySound("main-menu");
@@ -402,6 +408,10 @@ namespace FinderQuest
             else if (e.KeyCode == Keys.Enter && allowSkipCutscene)
             {
                 SkipCutscene();
+            }
+            else if(e.KeyCode == Keys.Escape && pauseToolStripMenuItem.Enabled) //continue when paused
+            {
+                pauseToolStripMenuItem.PerformClick();
             }
 
         }
