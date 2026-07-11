@@ -280,107 +280,107 @@ namespace FinderQuest
             }
         }
 
-        public void PlaySound(string soundName) //sound player
-        {
-            string fileName = "";
-            if(soundName == "main-menu")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicMainMenu.mp3";
-            }
-            else if(soundName == "area1")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3";;
-            }
-            else if (soundName == "area2")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea2.mp3";
-            }
-            else if (soundName == "area3")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea3.mp3";
-            }
-            else if (soundName == "area4")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea4.mp3";
-            }
-            else if (soundName == "area5")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea5.mp3";
-            }
-            else if (soundName == "area6")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";            
-            }
-            else if (soundName == "area7")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea7.mp3";
-            }
-            else if (soundName == "area8-Ambient")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Sanctum.mp3";
-            }
-            else if (soundName == "area8-Battle")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Battle.mp3";
-            }
-            else if (soundName == "lose")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicEndingLose.mp3";
-            }
-            else if (soundName == "win")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
-            }
-            else if (soundName == "opening")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\Opening.mp3";
-            }
+        //public void PlaySound(string soundName) //sound player
+        //{
+        //    string fileName = "";
+        //    if(soundName == "main-menu")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicMainMenu.mp3";
+        //    }
+        //    else if(soundName == "area1")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3";;
+        //    }
+        //    else if (soundName == "area2")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea2.mp3";
+        //    }
+        //    else if (soundName == "area3")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea3.mp3";
+        //    }
+        //    else if (soundName == "area4")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea4.mp3";
+        //    }
+        //    else if (soundName == "area5")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea5.mp3";
+        //    }
+        //    else if (soundName == "area6")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";            
+        //    }
+        //    else if (soundName == "area7")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea7.mp3";
+        //    }
+        //    else if (soundName == "area8-Ambient")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea8Sanctum.mp3";
+        //    }
+        //    else if (soundName == "area8-Battle")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicArea8Battle.mp3";
+        //    }
+        //    else if (soundName == "lose")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicEndingLose.mp3";
+        //    }
+        //    else if (soundName == "win")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
+        //    }
+        //    else if (soundName == "opening")
+        //    {
+        //        fileName = Application.StartupPath + "\\Sounds\\Opening.mp3";
+        //    }
 
-            if (string.IsNullOrEmpty(fileName))
-            {
-                return;
-            }
+        //    if (string.IsNullOrEmpty(fileName))
+        //    {
+        //        return;
+        //    }
 
-            if(activePlayer.URL == fileName)
-            {
-                return;
-            }
+        //    if(activePlayer.URL == fileName)
+        //    {
+        //        return;
+        //    }
 
-            fadingPlayer = activePlayer;
+        //    fadingPlayer = activePlayer;
 
-            activePlayer = (activePlayer == player1) ? player2 : player1;
+        //    activePlayer = (activePlayer == player1) ? player2 : player1;
 
-            activePlayer.URL = fileName;
-            activePlayer.settings.volume = 0;
-            activePlayer.controls.play();
+        //    activePlayer.URL = fileName;
+        //    activePlayer.settings.volume = 0;
+        //    activePlayer.controls.play();
 
-            fadeTimer.Start();
-        }
+        //    fadeTimer.Start();
+        //}
 
-        public void PlaySFX(string soundName)
-        {
-            string url = Application.StartupPath + "\\Sounds\\SoundEffects\\" + soundName + ".mp3";
+        //public void PlaySFX(string soundName)
+        //{
+        //    string url = Application.StartupPath + "\\Sounds\\SoundEffects\\" + soundName + ".mp3";
 
-            SFX.URL = url;
-            SFX.settings.volume = 90;
+        //    SFX.URL = url;
+        //    SFX.settings.volume = 90;
 
-            SFX.controls.play();
-        }
+        //    SFX.controls.play();
+        //}
 
-        public void SetSFXVolume(int volume)
-        {
-            this.SFX.settings.volume = volume;
-        }
+        //public void SetSFXVolume(int volume)
+        //{
+        //    this.SFX.settings.volume = volume;
+        //}
 
-        public void ResumeMusic()
-        {
-            this.activePlayer.controls.play();
-        }
+        //public void ResumeMusic()
+        //{
+        //    this.activePlayer.controls.play();
+        //}
 
-        public void PauseMusic()
-        {
-            this.activePlayer.controls.pause();
-        }
+        //public void PauseMusic()
+        //{
+        //    this.activePlayer.controls.pause();
+        //}
 
         #endregion
     }

@@ -3,22 +3,29 @@
   <Class Name="FinderQuest.GameManager">
     <Position X="7" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QABAAAEAQAABAAAoIAEBiCSAIAJAggACAAMRFAAgEBQ=</HashCode>
+      <HashCode>wABBAAEAQQABAAAoIAEBjCSAMAZAgoQCAAMRFAAgEJQ=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.TriviaApiJsonObj">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+    <Position X="3.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAQAAAAAAAAAAAEQAAABEAAAIAAAACAA=</HashCode>
       <FileName>TriviaApiJsonObj.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.TriviaApiQuestionText">
-    <Position X="4.25" Y="2" Width="1.5" />
+    <Position X="5.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAA=</HashCode>
       <FileName>TriviaApiQuestionText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinderQuest.SoundManager">
+    <Position X="9.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAAAAAACAAAAAAAAAAAAGgAUAQAAAQAAAAAAAAAQIA=</HashCode>
+      <FileName>SoundManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

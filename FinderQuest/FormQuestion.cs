@@ -29,7 +29,7 @@ namespace FinderQuest
             GenerateQuestion();
             if(mainForm.game.ActivePerson is Boss)
             {
-                mainForm.game.PlaySound("area8-Battle");
+                mainForm.sound.PlaySound("area8-Battle");
             }
         }
 
@@ -126,7 +126,7 @@ namespace FinderQuest
         {
             if(mainForm.game.ActivePerson is Boss)
             {
-                mainForm.game.PlaySound("area8-Ambient");
+                mainForm.sound.PlaySound("area8-Ambient");
             }
         }
     }
