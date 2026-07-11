@@ -17,6 +17,7 @@ namespace FinderQuest
         #region fields
         public GameManager game = new GameManager(); // Centralized game manager that handles logic
         public SoundManager sound = new SoundManager(); //Centralized sound manager that handles music and SFX
+        public CutsceneManager cutscene = new CutsceneManager(); //Centralized cutscene manager that hanldles all cutscenes
 
         private FormQuestion form;
         public Time time;
@@ -39,7 +40,7 @@ namespace FinderQuest
         private bool allowReturnMainMenu = false;
         private bool inCutscene = false;
         private bool allowSkipCutscene = false;
-        private CancellationTokenSource skip; //for signaling to the cutscene method to skip the cutscene
+        public CancellationTokenSource skip; //for signaling to the cutscene method to skip the cutscene
 
         #endregion
 
@@ -50,6 +51,33 @@ namespace FinderQuest
             this.DoubleBuffered = true;
 
             typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelTalkArea, new object[] { true });
+        }
+        #endregion
+
+        #region helper methods
+        public void SetAllowSkipCutscene(bool value)
+        {
+            this.allowSkipCutscene = value;
+        }
+
+        public void SetGameStarted(bool value)
+        {
+            this.gameStarted = value;
+        }
+
+        public void SetAllowReturnMainMenu(bool value)
+        {
+            this.allowReturnMainMenu = value;
+        }
+
+        public void SetInCutscene(bool value)
+        {
+            this.inCutscene = value;
+        }
+
+        public Panel GetGamePanel()
+        {
+            return this.panelGame;
         }
         #endregion
 
@@ -144,7 +172,7 @@ namespace FinderQuest
                 sound.PlaySound("lose");
                 sound.PlaySFX("LoseTaunt");
                 skip = new CancellationTokenSource();
-                await PlayBadEnding(skip.Token);
+                await cutscene.PlayBadEnding(this, pauseToolStripMenuItem, startToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
             }
         }
 
@@ -352,7 +380,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "OrcGreeting", "OrcDeath", game.GetQuestion(1, 1));
                 game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "You better answer my question correctly..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), "OgreGreeting", "OgreDeath", game.GetQuestion(1, 2));
             }
-            else if (game.CurrWalkArea.AreaNum == 1)
+            else if (game.CurrWalkArea.AreaNum == 9)
             {
                 sound.SetSFXVolume(40);
                 game.CurrWalkArea.RemovePeople();
@@ -412,7 +440,7 @@ namespace FinderQuest
                 game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(mediumNPC, mediumNPC), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "ReaperGreeting", "ReaperDeath", game.GetQuestion(7, 0));
                 game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "I do not just kill, I keep.\n", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "ReaperGreeting", "ReaperDeath", game.GetQuestion(7, 1));
             }
-            else if (game.CurrWalkArea.AreaNum == 7)
+            else if (game.CurrWalkArea.AreaNum == 1)
             {
                 sound.SetSFXVolume(90);
                 game.CurrWalkArea.RemovePeople();
@@ -586,7 +614,7 @@ namespace FinderQuest
                 {
                     sound.PlaySound("win");
                     skip = new CancellationTokenSource();
-                    await PlayGoodEnding(skip.Token);
+                    await cutscene.PlayGoodEnding(this, pauseToolStripMenuItem, startToolStripMenuItem,labelCutscene, labelSkip, skip.Token);
                 }
             }
             else if (!inCutscene) //main menu
@@ -614,7 +642,7 @@ namespace FinderQuest
         #endregion
 
         #region animation utilities
-        private void AnimatePlayer()
+        public void AnimatePlayer()
         {
             if (ImageAnimator.CanAnimate(player.Sprite))
             {
@@ -622,7 +650,7 @@ namespace FinderQuest
             }
         }
 
-        private void AnimatePerson(Person person)
+        public void AnimatePerson(Person person)
         {
             if (ImageAnimator.CanAnimate(person.Sprite))
             {
@@ -630,7 +658,7 @@ namespace FinderQuest
             }
         }
 
-        private void AnimateMainMenu()
+        public void AnimateMainMenu()
         {
             if (ImageAnimator.CanAnimate(this.BackgroundImage))
             {
@@ -642,132 +670,132 @@ namespace FinderQuest
         {
             // Leave blank to prevent Windows UI flicker anomaly
         }
+        #region cutscenes
+        //private async Task PlayGoodEnding(CancellationToken skip)
+        //{
+        //    allowSkipCutscene = false;
+        //    pauseToolStripMenuItem.Enabled = false;
+        //    startToolStripMenuItem.Enabled = false;
+        //    try
+        //    {
+        //        this.inCutscene = true;
+        //        game.Fade = 8;
+        //        this.BackgroundImage = Properties.Resources.BackgroundWin;
+        //        this.game.CurrWalkArea.RemovePeople();
+        //        this.game.CurrWalkArea = null;
+        //        gameStarted = false;
+        //        panelGame.Visible = false;
 
-        private async Task PlayGoodEnding(CancellationToken skip)
-        {
-            allowSkipCutscene = false;
-            pauseToolStripMenuItem.Enabled = false;
-            startToolStripMenuItem.Enabled = false;
-            try
-            {
-                this.inCutscene = true;
-                game.Fade = 8;
-                this.BackgroundImage = Properties.Resources.BackgroundWin;
-                this.game.CurrWalkArea.RemovePeople();
-                this.game.CurrWalkArea = null;
-                gameStarted = false;
-                panelGame.Visible = false;
+        //        labelCutscene.Text = "";
+        //        labelCutscene.Parent = this;
+        //        labelCutscene.BringToFront();
+        //        labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
+        //        labelCutscene.ForeColor = Color.White;
+        //        labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
+        //        labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
+        //        labelCutscene.AutoSize = true;
+        //        labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                labelCutscene.Text = "";
-                labelCutscene.Parent = this;
-                labelCutscene.BringToFront();
-                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
-                labelCutscene.ForeColor = Color.White;
-                labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-                labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
-                labelCutscene.AutoSize = true;
-                labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
+        //        await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...", skip);
+        //        await Task.Delay(2500, skip);
 
-                await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...", skip);
-                await Task.Delay(2500, skip);
+        //        allowSkipCutscene = true;
+        //        labelSkip.Parent = this;
+        //        labelSkip.Text = "Press Enter to Skip";
+        //        labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
+        //        labelSkip.Font = new Font("Garamond", 12);
+        //        labelSkip.ForeColor = Color.White;
+        //        labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
+        //        labelSkip.Visible = true;
+        //        labelSkip.BringToFront();
 
-                allowSkipCutscene = true;
-                labelSkip.Parent = this;
-                labelSkip.Text = "Press Enter to Skip";
-                labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-                labelSkip.Font = new Font("Garamond", 12);
-                labelSkip.ForeColor = Color.White;
-                labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
-                labelSkip.Visible = true;
-                labelSkip.BringToFront();
+        //        await AnimateText("Warm, long-forgotten light cascaded over the valleys of the realm.", skip);
+        //        await Task.Delay(4000, skip);
 
-                await AnimateText("Warm, long-forgotten light cascaded over the valleys of the realm.", skip);
-                await Task.Delay(4000, skip);
-
-                await AnimateText("A broken crown rests on the altar, its curse lifted forevermore.", skip);
-                await Task.Delay(4000, skip);
+        //        await AnimateText("A broken crown rests on the altar, its curse lifted forevermore.", skip);
+        //        await Task.Delay(4000, skip);
                 
-            }
-            catch (OperationCanceledException)
-            {
+        //    }
+        //    catch (OperationCanceledException)
+        //    {
 
-            }
-            finally
-            {
-                allowSkipCutscene = false;
-                startToolStripMenuItem.Enabled = true;
-                labelSkip.Visible = false;
-                labelCutscene.Text = "";
-                this.BackgroundImage = Properties.Resources.WinTextGoIn;
-                AnimateMainMenu();
-                await Task.Delay(2400);
-                this.BackgroundImage = Properties.Resources.WinEnterToReturn;
-                AnimateMainMenu();
-                allowReturnMainMenu = true;
-            }
+        //    }
+        //    finally
+        //    {
+        //        allowSkipCutscene = false;
+        //        startToolStripMenuItem.Enabled = true;
+        //        labelSkip.Visible = false;
+        //        labelCutscene.Text = "";
+        //        this.BackgroundImage = Properties.Resources.WinTextGoIn;
+        //        AnimateMainMenu();
+        //        await Task.Delay(2400);
+        //        this.BackgroundImage = Properties.Resources.WinEnterToReturn;
+        //        AnimateMainMenu();
+        //        allowReturnMainMenu = true;
+        //    }
 
-        }
+        //}
 
-        private async Task PlayBadEnding(CancellationToken skip)
-        {
-            allowSkipCutscene = true;
-            pauseToolStripMenuItem.Enabled = false;
-            startToolStripMenuItem.Enabled = false;
-            try
-            {
-                this.inCutscene = true;
-                game.Fade = 8;
-                this.BackgroundImage = Properties.Resources.BackgroundLose;
-                this.game.CurrWalkArea.RemovePeople();
-                this.game.CurrWalkArea = null;
-                gameStarted = false;
-                panelGame.Visible = false;
+        //private async Task PlayBadEnding(CancellationToken skip)
+        //{
+        //    allowSkipCutscene = true;
+        //    pauseToolStripMenuItem.Enabled = false;
+        //    startToolStripMenuItem.Enabled = false;
+        //    try
+        //    {
+        //        this.inCutscene = true;
+        //        game.Fade = 8;
+        //        this.BackgroundImage = Properties.Resources.BackgroundLose;
+        //        this.game.CurrWalkArea.RemovePeople();
+        //        this.game.CurrWalkArea = null;
+        //        gameStarted = false;
+        //        panelGame.Visible = false;
 
-                labelCutscene.Text = "";
-                labelCutscene.Parent = this;
-                labelCutscene.BringToFront();
-                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
-                labelCutscene.ForeColor = Color.White;
-                labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-                labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
-                labelCutscene.AutoSize = true;
-                labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
+        //        labelCutscene.Text = "";
+        //        labelCutscene.Parent = this;
+        //        labelCutscene.BringToFront();
+        //        labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
+        //        labelCutscene.ForeColor = Color.White;
+        //        labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
+        //        labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
+        //        labelCutscene.AutoSize = true;
+        //        labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
 
-                await AnimateText("The walls of the sanctuary crumbled...", skip);
-                await Task.Delay(3500, skip);
+        //        await AnimateText("The walls of the sanctuary crumbled...", skip);
+        //        await Task.Delay(3500, skip);
 
-                //allowSkipCutscene = true;
-                labelSkip.Parent = this;
-                labelSkip.Text = "Press Enter to Skip";
-                labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-                labelSkip.Font = new Font("Garamond", 12);
-                labelSkip.ForeColor = Color.White;
-                labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
-                labelSkip.Visible = true;
-                labelSkip.BringToFront();
+        //        //allowSkipCutscene = true;
+        //        labelSkip.Parent = this;
+        //        labelSkip.Text = "Press Enter to Skip";
+        //        labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
+        //        labelSkip.Font = new Font("Garamond", 12);
+        //        labelSkip.ForeColor = Color.White;
+        //        labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
+        //        labelSkip.Visible = true;
+        //        labelSkip.BringToFront();
 
-                await AnimateText("The hero fell to their knees as darkness swallowed the throne room.", skip);
-                await Task.Delay(4000, skip);
-            }
-            catch (OperationCanceledException)
-            {
+        //        await AnimateText("The hero fell to their knees as darkness swallowed the throne room.", skip);
+        //        await Task.Delay(4000, skip);
+        //    }
+        //    catch (OperationCanceledException)
+        //    {
                 
-            }
-            finally
-            {
-                allowSkipCutscene = false;
-                startToolStripMenuItem.Enabled = true;
-                labelCutscene.Text = "";
-                labelSkip.Visible = false;
-                this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
-                AnimateMainMenu();
-                await Task.Delay(2400);
-                this.BackgroundImage = Properties.Resources.GameOverEnterToReturn;
-                AnimateMainMenu();
+        //    }
+        //    finally
+        //    {
+        //        allowSkipCutscene = false;
+        //        startToolStripMenuItem.Enabled = true;
+        //        labelCutscene.Text = "";
+        //        labelSkip.Visible = false;
+        //        this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
+        //        AnimateMainMenu();
+        //        await Task.Delay(2400);
+        //        this.BackgroundImage = Properties.Resources.GameOverEnterToReturn;
+        //        AnimateMainMenu();
 
-                allowReturnMainMenu = true;
-            }  
-        }
+        //        allowReturnMainMenu = true;
+        //    }  
+        //}
 
         private async Task PlayOpeningCutscene(CancellationToken skip)
         {
@@ -946,6 +974,7 @@ namespace FinderQuest
             
         }
 
+        #endregion
         public void PlayDeathSFX()
         {
             sound.PlaySFX(game.ActivePerson.DeathSound);

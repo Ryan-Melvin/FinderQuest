@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Boss.cs" />
+    <Compile Include="CutsceneManager.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

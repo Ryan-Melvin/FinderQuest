@@ -3,12 +3,12 @@
   <Class Name="FinderQuest.GameManager">
     <Position X="7" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>wABBAAEAQQABAAAoIAEBjCSAMAZAgoQCAAMRFAAgEJQ=</HashCode>
+      <HashCode>wABBAAEAQQABAAAoIAEBiCSAMAZAgoQCAAMRFAAgEJQ=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.TriviaApiJsonObj">
-    <Position X="3.25" Y="1" Width="1.5" />
+    <Position X="3.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAQAAAAAAAAAAAEQAAABEAAAIAAAACAA=</HashCode>
       <FileName>TriviaApiJsonObj.cs</FileName>
@@ -22,10 +22,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.SoundManager">
-    <Position X="9.25" Y="1" Width="1.5" />
+    <Position X="8.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>wAAAAAAACAAAAAAAAAAAAGgAUAQAAAQAAAAAAAAAQIA=</HashCode>
+      <HashCode>wABAAAAACAAAAASAwAAABGgAUAQAAJQAAAAAAAAAQIA=</HashCode>
       <FileName>SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinderQuest.CutsceneManager">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>CutsceneManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
