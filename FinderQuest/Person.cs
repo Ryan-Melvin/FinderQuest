@@ -137,14 +137,81 @@ namespace FinderQuest
             this.Question = new Question(question, answer, score);
         }
 
-        public int CheckAnswer(string answer)
+        // Sanitize text helper function for CheckAnswer
+        private string SanitizeText(string text)
         {
-            if(this.Question.Answer.ToLower().Contains(answer.ToLower()))
+            string sanitized = text.Trim().ToLower();
+
+            string[] punctuation = new string[] { ".", ",", "!", "?", "'", "\"", "-", "&" };
+
+            foreach (string p in punctuation)
+            {
+                sanitized = sanitized.Replace(p, "");
+            }
+
+            if (sanitized.StartsWith("the ")) sanitized = sanitized.Substring(4);
+            if (sanitized.StartsWith("an ")) sanitized = sanitized.Substring(3);
+            if (sanitized.StartsWith("a ")) sanitized = sanitized.Substring(2);
+            if (sanitized.EndsWith("s")) sanitized = sanitized.Substring(0, sanitized.Length - 1);
+
+            return sanitized.Trim();
+        }
+
+        public int CheckAnswer(Question questionToCheck, string answer) // Put question as parameter to enable CheckAnswer() from boss (avoid repeating code)
+            // The core CheckAnswer method now only returns the score due to differences in handling this.Solved for normal single-question NPC and Boss
+        {
+            // Check if data is broken or input is completely empty
+            if (questionToCheck == null || string.IsNullOrWhiteSpace(answer))
+            {
+                return 0;
+            }
+
+            // Sanitize both player answer and the correct answer
+            string sanitizedPlayerAnswer = SanitizeText(answer);
+            string sanitizedCorrectAnswer = SanitizeText(questionToCheck.Answer);
+
+            // DEMONSTRATION PURPOSES: "oop" as extra answer key
+            if (sanitizedPlayerAnswer == "oop")
+            {
+                return questionToCheck.Score;
+            }
+
+            // 1. Return score if they're exactly the same
+            if (sanitizedPlayerAnswer == sanitizedCorrectAnswer)
+            {
+                return questionToCheck.Score;
+            }
+
+            // 2. Return score answer is numeric and has the same numeric value (anticipating unit like "cm" in player answer or answer key
+            if (sanitizedPlayerAnswer.Length > 0 && char.IsDigit(sanitizedPlayerAnswer[0]) && sanitizedCorrectAnswer.StartsWith(sanitizedPlayerAnswer))
+            {
+                return questionToCheck.Score;
+            }
+
+            // 3. Return score if  player typed a significant portion of a multi-word or long answer
+            bool isSubstantialAnswer = sanitizedPlayerAnswer.Contains(" ") || sanitizedPlayerAnswer.Length > 5;
+
+            if (isSubstantialAnswer && sanitizedCorrectAnswer.Contains(sanitizedPlayerAnswer))
+            {
+                return questionToCheck.Score;
+            }
+
+            // Else the answer is completely wrong
+            return 0;
+        }
+
+        public int CheckAnswer(string answer) // method overloading 
+        {
+            // Call the core CheckAnswer method
+            int score = CheckAnswer(this.Question, answer);
+
+            // Solved logic for normal NPC (only one queestion)
+            if (score > 0)
             {
                 this.Solved = true;
-                return this.Question.Score;
             }
-            return 0;
+
+            return score;
         }
         #endregion
     }
