@@ -42,5 +42,12 @@
       <FileName>WalkAreaManager.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="FinderQuest.TalkAreaManager">
+    <Position X="14" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TalkAreaManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

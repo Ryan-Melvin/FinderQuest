@@ -72,6 +72,7 @@
     <Compile Include="Skin.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="TalkArea.cs" />
+    <Compile Include="TalkAreaManager.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="TriviaApiJsonObj.cs" />
     <Compile Include="TriviaApiQuestionText.cs" />

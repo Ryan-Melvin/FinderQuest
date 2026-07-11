@@ -19,6 +19,7 @@ namespace FinderQuest
         public SoundManager sound = new SoundManager(); //Centralized sound manager that handles music and SFX
         public CutsceneManager cutscene = new CutsceneManager(); //Centralized cutscene manager that hanldles all cutscenes
         public WalkAreaManager walkArea = new WalkAreaManager(); //Centralized walk area manager that handles all walk area logic
+        public TalkAreaManager talkArea = new TalkAreaManager(); //Centralized talk area manager that handles all talk area logic
 
         private FormQuestion form;
         public Time time;
@@ -81,6 +82,10 @@ namespace FinderQuest
             return this.panelGame;
         }
 
+        public Panel GetTalkAreaPanel()
+        {
+            return this.panelTalkArea;
+        }
         public int GetSize(string type)
         {
             if(type == "small")
@@ -104,6 +109,41 @@ namespace FinderQuest
         public Size GetPlayerSize()
         {
             return player.Size;
+        }
+
+        public void SavePeronX(int x)
+        {
+            this.savePersonX = x;
+        }
+
+        public int GetPersonX()
+        {
+            return this.savePersonX;   
+        }
+
+        public void SavePersonY(int y)
+        {
+            this.savePersonY = y;
+        }
+
+        public int GetPersonY()
+        {
+            return this.savePersonY;
+        }
+
+        public void SavePersonSize(Size size)
+        {
+            this.savePersonSize = size;
+        }
+
+        public Size GetPersonSize()
+        {
+            return this.savePersonSize;
+        }
+
+        public void SetEnterTalkArea(bool value)
+        {
+            this.enterTalkArea = value;
         }
         #endregion
 
@@ -194,11 +234,11 @@ namespace FinderQuest
                 if(this.form != null)
                 {
                     this.form.Close();
-                    ExitTalkArea();
+                    talkArea.ExitTalkArea(this);
                 }
                 if(game.CurrTalkArea != null)
                 {
-                    ExitTalkArea();
+                    talkArea.ExitTalkArea(this);
                 }
                 timerTime.Stop();
                 sound.PlaySound("lose");
@@ -208,6 +248,7 @@ namespace FinderQuest
             }
         }
 
+        // game over & start game
         private void GameOver()
         {
             timerTime.Stop();
@@ -268,6 +309,7 @@ namespace FinderQuest
             this.Invalidate();
         }
 
+        //start & pause
         private async void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!gameStarted)
@@ -380,13 +422,13 @@ namespace FinderQuest
                         }
                         else
                         {
-                            EnterTalkArea();
+                            talkArea.EnterTalkArea(this, labelAreaTalk);
                         }
                     }
                 }
                 else if (e.KeyCode == Keys.Escape && enterTalkArea)
                 {
-                    ExitTalkArea();
+                    talkArea.ExitTalkArea(this);
                 }
                 else if (e.KeyCode == Keys.Escape && pauseToolStripMenuItem.Enabled) //pause when not paused
                 {
@@ -432,64 +474,6 @@ namespace FinderQuest
                     AnimatePlayer();
                 }
             }
-        }
-        #endregion
-
-        #region world engine level generators
-
-        private void GenerateTalkArea()
-        {
-            string roomName = game.GetTalkAreaName(game.CurrWalkArea.AreaNum);
-
-            game.CurrTalkArea = new TalkArea(roomName, this.BackgroundImage, game.ActivePerson);
-
-            labelAreaTalk.Text = game.CurrTalkArea.DisplayData();
-            labelAreaTalk.Location = new Point(10, panelTalkArea.Height - labelAreaTalk.Size.Height - 10);
-        }
-
-        public void EnterTalkArea()
-        {
-            GenerateTalkArea();
-            sound.PlaySFX(game.ActivePerson.GreetingSound);
-            savePersonX = game.ActivePerson.X;
-            savePersonY = game.ActivePerson.Y;
-            savePersonSize = game.ActivePerson.Size;
-
-            player.IsVisible = false;
-            panelTalkArea.BringToFront();
-            panelTalkArea.Visible = true;
-
-            game.ActivePerson.Size = new Size(mediumNPC * 2, mediumNPC * 2);
-            game.ActivePerson.X = panelTalkArea.ClientSize.Width / 2;
-            game.ActivePerson.Y = panelTalkArea.ClientSize.Height - (mediumNPC * 2);
-
-            enterTalkArea = true;
-
-            if (game.ActivePerson.Solved) //did not run
-            {
-                game.ActivePerson.Dialog = "Congrats, you solved my question!";
-            }
-
-            game.ActivePerson.DisplayDialog(panelTalkArea);
-        }
-
-        public void ExitTalkArea()
-        {
-            player.IsVisible = true;
-            enterTalkArea = false;
-
-            panelTalkArea.Visible = false;
-            if (game.ActivePerson != null)
-            {
-                game.ActivePerson.Size = savePersonSize;
-                game.ActivePerson.X = savePersonX;
-                game.ActivePerson.Y = savePersonY;
-
-                game.ActivePerson.RemoveDialog();
-            }
-
-            game.CurrTalkArea = null;
-
         }
         #endregion
 
