@@ -81,11 +81,11 @@ namespace FinderQuest
                 MessageBox.Show("Your answer is correct! You get " + score + " points.");
                 if (!(mainForm.game.ActivePerson is Boss))
                 {
-                    mainForm.PlayDeathSFX();
+                    mainForm.sound.PlaySFX(mainForm.game.ActivePerson.DeathSound);
                 }
                 else if (mainForm.game.BossQuestionNum == 6)
                 {
-                    mainForm.PlayDeathSFX();
+                    mainForm.sound.PlaySFX(mainForm.game.ActivePerson.DeathSound);
                 }
             }
             else

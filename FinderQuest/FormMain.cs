@@ -174,7 +174,11 @@ namespace FinderQuest
         #region gameplay loop controllers
         private async void timerTime_Tick(object sender, EventArgs e)
         {
-            time.AddWithSecond(-1);
+            if(time.Second >= 1)
+            {
+                time.AddWithSecond(-1);
+            }
+
             labelTimer.Text = time.DisplayData();
 
             if (enterTalkArea)
@@ -182,7 +186,7 @@ namespace FinderQuest
                 labelTimerTalk.Text = time.DisplayData();
             }
 
-            if (time.Hour == 0 && time.Minute == 0 && time.Second == 0)
+            if (time.Hour == 0 && time.Minute == 0 && time.Second == 0 && gameStarted)
             {
                 if(this.form != null)
                 {
@@ -204,7 +208,6 @@ namespace FinderQuest
         private void GameOver()
         {
             timerTime.Stop();
-            time.ResetTimer();
             panelGame.Visible = false;
             startToolStripMenuItem.Enabled = true;
             gameStarted = false;
@@ -226,6 +229,12 @@ namespace FinderQuest
             game.BossQuestionNum = 0;
             player.IsVisible = true;
             labelPaused.Visible = false;
+            panelPaused.Visible = false;
+
+            paused = true;
+            pauseToolStripMenuItem.PerformClick();
+
+            time.ResetTimer();
         }
 
         private void StartGame()
@@ -271,6 +280,32 @@ namespace FinderQuest
                 sound.PlaySound("main-menu");
             }
         }
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (paused)
+            {
+                pauseToolStripMenuItem.Text = "Pause";
+                paused = false;
+                timerTime.Start();
+                timerGame.Start();
+                sound.ResumeMusic();
+                panelPaused.Visible = false;
+                panelPaused.SendToBack();
+            }
+            else
+            {
+                pauseToolStripMenuItem.Text = "Continue";
+                paused = true;
+                timerTime.Stop();
+                timerGame.Stop();
+                sound.PauseMusic();
+                panelPaused.Visible = true;
+                panelPaused.BringToFront();
+                labelPaused.Visible = true;
+                labelPaused.BringToFront();
+            }
+        }
+
         #endregion
 
         #region player input tracking mapping
@@ -543,30 +578,6 @@ namespace FinderQuest
             game.CurrTalkArea = null;
 
         }
-
-        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (paused)
-            {
-                pauseToolStripMenuItem.Text = "Pause";
-                paused = false;
-                timerTime.Start();
-                timerGame.Start();
-                sound.ResumeMusic();
-                panelPaused.Visible = false;
-                panelPaused.SendToBack();
-            }
-            else
-            {
-                pauseToolStripMenuItem.Text = "Continue";
-                paused = true;
-                timerTime.Stop();
-                timerGame.Stop();
-                sound.PauseMusic();
-                panelPaused.Visible = true;
-                panelPaused.BringToFront();
-            }
-        }
         #endregion
 
         #region graphics engine paint drivers
@@ -705,16 +716,6 @@ namespace FinderQuest
 
         #endregion
 
-        #region SFX utilities
-        public void PlayDeathSFX()
-        {
-            sound.PlaySFX(game.ActivePerson.DeathSound);
-        }
-        #endregion
 
-        private void menuStripGame_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
     }
 }
