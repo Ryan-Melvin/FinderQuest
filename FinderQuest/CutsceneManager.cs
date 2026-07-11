@@ -104,7 +104,6 @@ namespace FinderQuest
                 await AnimateText(form, labelCutscene, "The walls of the sanctuary crumbled...", skip);
                 await Task.Delay(3500, skip);
 
-                //allowSkipCutscene = true;
                 labelSkip.Parent = form;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
@@ -289,11 +288,6 @@ namespace FinderQuest
             {
 
             }
-        }
-
-        private void AnimationTimer_Click(object sender, EventArgs e)
-        {
-
         }
         #endregion
     }

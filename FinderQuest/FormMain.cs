@@ -609,7 +609,7 @@ namespace FinderQuest
 
         private async void timerGame_Tick(object sender, EventArgs e)
         {
-            if (gameStarted)
+            if (gameStarted) //in game
             {
                 if (player.Sprite != null && !paused)
                 {
@@ -693,11 +693,6 @@ namespace FinderQuest
             // Leave blank to prevent Windows UI flicker anomaly
         }
 
-        public void PlayDeathSFX()
-        {
-            sound.PlaySFX(game.ActivePerson.DeathSound);
-        }
-
         private void SkipCutscene()
         {
             if(this.skip != null)
@@ -706,6 +701,14 @@ namespace FinderQuest
                 this.skip.Dispose();
                 skip = null;
             }
+        }
+
+        #endregion
+
+        #region SFX utilities
+        public void PlayDeathSFX()
+        {
+            sound.PlaySFX(game.ActivePerson.DeathSound);
         }
         #endregion
     }
