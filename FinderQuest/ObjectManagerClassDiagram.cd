@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="FinderQuest.GameManager">
-    <Position X="7" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>wABBAAEAQQABAAAoIAEBiCSAMAZAgoQCAAMRFAAgEJQ=</HashCode>
-      <FileName>GameManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="FinderQuest.TriviaApiJsonObj">
     <Position X="3.5" Y="1" Width="1.5" />
     <TypeIdentifier>
@@ -31,8 +24,15 @@
   <Class Name="FinderQuest.CutsceneManager">
     <Position X="10.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAQ=</HashCode>
       <FileName>CutsceneManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinderQuest.GameManager">
+    <Position X="7" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABBAAEAQQABAAAoIAEhjCSQIAJAwgACAAMRFSAgEBQ=</HashCode>
+      <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

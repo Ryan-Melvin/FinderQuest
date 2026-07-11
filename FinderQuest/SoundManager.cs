@@ -16,6 +16,7 @@ namespace FinderQuest
         private WindowsMediaPlayer fadingPlayer;
         private Timer fadeTimer;
         private int fade = 4;
+        private int targetMusicVolume = 100;
 
         private WindowsMediaPlayer SFX = new WindowsMediaPlayer();
         #endregion
@@ -44,6 +45,7 @@ namespace FinderQuest
         public Timer FadeTimer { get => fadeTimer; set => fadeTimer = value; }
         public int Fade { get => fade; set => fade = value; }
         public WindowsMediaPlayer SFX1 { get => SFX; set => SFX = value; }
+        public int TargetMusicVolume { get => targetMusicVolume; set => targetMusicVolume = value; }
         #endregion
 
         #region methods
@@ -52,26 +54,31 @@ namespace FinderQuest
             bool completeFadeIn = false;
             bool completeFadeOut = false;
 
-            if (ActivePlayer.settings.volume < 100)
+            if (ActivePlayer.settings.volume < targetMusicVolume)
             {
-                ActivePlayer.settings.volume = Math.Min(100, ActivePlayer.settings.volume + Fade);
+                ActivePlayer.settings.volume = Math.Min(targetMusicVolume, ActivePlayer.settings.volume + Fade);
             }
             else
             {
                 completeFadeIn = true;
             }
 
-            if (FadingPlayer != null && FadingPlayer.settings.volume > 0)
+            if (FadingPlayer != null)
             {
-                FadingPlayer.settings.volume = Math.Max(0, FadingPlayer.settings.volume - Fade);
+                if (FadingPlayer.settings.volume > 0)
+                {
+                    fadingPlayer.settings.volume = Math.Max(0, FadingPlayer.settings.volume - Fade);
+                }
+                else
+                {
+                    FadingPlayer.controls.stop();
+                    FadingPlayer = null;
+                    completeFadeOut = true;
+                }
             }
             else
             {
-                if (FadingPlayer == null)
-                {
-                    FadingPlayer.controls.stop();
-                    completeFadeOut = true;
-                }
+                completeFadeOut = true;
             }
 
             if (completeFadeIn && completeFadeOut)
@@ -85,54 +92,67 @@ namespace FinderQuest
             if (soundName == "main-menu")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicMainMenu.mp3";
+                targetMusicVolume = 100;
             }
             else if (soundName == "area1")
             {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3"; ;
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3";
+                targetMusicVolume = 40;
             }
             else if (soundName == "area2")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea2.mp3";
+                targetMusicVolume = 60;
             }
             else if (soundName == "area3")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea3.mp3";
+                targetMusicVolume = 50;
             }
             else if (soundName == "area4")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea4.mp3";
+                targetMusicVolume = 60;
             }
             else if (soundName == "area5")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea5.mp3";
+                targetMusicVolume = 65;
             }
             else if (soundName == "area6")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";
+                targetMusicVolume = 100;
             }
             else if (soundName == "area7")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea7.mp3";
+                targetMusicVolume = 90;
             }
             else if (soundName == "area8-Ambient")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea8Sanctum.mp3";
+                targetMusicVolume = 40;
             }
             else if (soundName == "area8-Battle")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea8Battle.mp3";
+                targetMusicVolume = 65;
             }
             else if (soundName == "lose")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicEndingLose.mp3";
+                targetMusicVolume = 100;
             }
             else if (soundName == "win")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
+                targetMusicVolume = 100;
             }
             else if (soundName == "opening")
             {
                 fileName = Application.StartupPath + "\\Sounds\\Opening.mp3";
+                targetMusicVolume = 60;
             }
 
             if (string.IsNullOrEmpty(fileName))

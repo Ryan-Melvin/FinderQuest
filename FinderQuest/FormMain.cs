@@ -362,7 +362,7 @@ namespace FinderQuest
                 GameOver();
                 sound.PlaySound("main-menu");
                 allowReturnMainMenu = false;
-                game.Fade = 4;
+                sound.Fade = 4;
             }
             else if (e.KeyCode == Keys.Enter && allowSkipCutscene)
             {
@@ -397,20 +397,15 @@ namespace FinderQuest
             // First run
             if (game.CurrWalkArea == null)
             {
-<<<<<<< HEAD
-                game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 7);
-                game.PlaySound("area1");
-=======
                 game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 1);
                 sound.PlaySound("area1");
->>>>>>> 10685790391382df20e75ad1815e0d6dd2fdae78
 
                 // Passes specific indexes from 2D questions matrix to each Person
                 game.CurrWalkArea.AddPerson(1, "Goblin", Properties.Resources.Goblin_Idle_Left, new Size(smallNPC, smallNPC), "One little lie, and I call the whole pack. And we're hungry today...\n", (int)(100 * scaleX), this.ClientSize.Height / 2, "GoblinGreeting", "GoblinDeath", game.GetQuestion(1, 0));
                 game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(mediumNPC, mediumNPC), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "OrcGreeting", "OrcDeath", game.GetQuestion(1, 1));
                 game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(bigNPC, bigNPC), "You better answer my question correctly..\n", (int)(620 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), "OgreGreeting", "OgreDeath", game.GetQuestion(1, 2));
             }
-            else if (game.CurrWalkArea.AreaNum == 9)
+            else if (game.CurrWalkArea.AreaNum == 1)
             {
                 sound.SetSFXVolume(40);
                 game.CurrWalkArea.RemovePeople();
@@ -716,5 +711,10 @@ namespace FinderQuest
             sound.PlaySFX(game.ActivePerson.DeathSound);
         }
         #endregion
+
+        private void menuStripGame_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

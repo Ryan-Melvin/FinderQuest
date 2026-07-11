@@ -105,9 +105,9 @@ namespace FinderQuest
             this.floatingTimeLabel = label;
             this.floatingLabelFadeCounter = 0;
 
-            if (!fadeTimer.Enabled)
+            if (!uiAnimationTimer.Enabled)
             {
-                fadeTimer.Start();
+                uiAnimationTimer.Start();
             }
         }
 
@@ -153,7 +153,6 @@ namespace FinderQuest
         public List<Question> Area7Questions { get => area7Questions; private set => area7Questions = value; }
         public List<Question> Area8Questions { get => area8Questions; private set => area8Questions = value; }
         public int BossQuestionNum { get => bossQuestionNum; set => bossQuestionNum = value; }
-        public int Fade { get => fade; set => fade = value; }
 
         #endregion
 
