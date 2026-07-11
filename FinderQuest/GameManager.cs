@@ -89,50 +89,50 @@ namespace FinderQuest
 
             LoadAllBackupQuestions();
 
-            player1.settings.volume = 0;
-            player2.settings.volume = 0;
-            player1.settings.setMode("loop", true);
-            player2.settings.setMode("loop", true);
+            //player1.settings.volume = 0;
+            //player2.settings.volume = 0;
+            //player1.settings.setMode("loop", true);
+            //player2.settings.setMode("loop", true);
 
             fadeTimer = new Timer();
             fadeTimer.Interval = 30;
             fadeTimer.Tick += FadeTimer_Tick; //adds the method to fadeTimer.Tick
 
-            activePlayer = player1; //media player
+            //activePlayer = player1; //media player
             bossQuestionNum = 0;
         }
 
         private void FadeTimer_Tick(object sender, EventArgs e)
         {
-            bool completeFadeIn = false;
-            bool completeFadeOut = false;
+            //bool completeFadeIn = false;
+            //bool completeFadeOut = false;
 
-            if(activePlayer.settings.volume < 100)
-            {
-                activePlayer.settings.volume = Math.Min(100, activePlayer.settings.volume + Fade);
-            }
-            else
-            {
-                completeFadeIn = true;
-            }
+            //if(activePlayer.settings.volume < 100)
+            //{
+            //    activePlayer.settings.volume = Math.Min(100, activePlayer.settings.volume + Fade);
+            //}
+            //else
+            //{
+            //    completeFadeIn = true;
+            //}
 
-            if(fadingPlayer != null && fadingPlayer.settings.volume > 0)
-            {
-                fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - Fade);
-            }
-            else
-            {
-                if(fadingPlayer == null)
-                {
-                    fadingPlayer.controls.stop();
-                    completeFadeOut = true;
-                }
-            }
+            //if(fadingPlayer != null && fadingPlayer.settings.volume > 0)
+            //{
+            //    fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - Fade);
+            //}
+            //else
+            //{
+            //    if(fadingPlayer == null)
+            //    {
+            //        fadingPlayer.controls.stop();
+            //        completeFadeOut = true;
+            //    }
+            //}
 
-            if(completeFadeIn && completeFadeOut)
-            {
-                fadeTimer.Stop();
-            }
+            //if(completeFadeIn && completeFadeOut)
+            //{
+            //    fadeTimer.Stop();
+            //}
         }
         #endregion
 
@@ -149,7 +149,7 @@ namespace FinderQuest
         public List<Question> Area7Questions { get => area7Questions; private set => area7Questions = value; }
         public List<Question> Area8Questions { get => area8Questions; private set => area8Questions = value; }
         public int BossQuestionNum { get => bossQuestionNum; set => bossQuestionNum = value; }
-        public int Fade { get => fade; set => fade = value; }
+        //public int Fade { get => fade; set => fade = value; }
 
         #endregion
 
