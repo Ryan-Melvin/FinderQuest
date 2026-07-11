@@ -22,6 +22,10 @@ namespace FinderQuest
         private WindowsMediaPlayer fadingPlayer;
         private Timer fadeTimer;
         private int fade = 4;
+        private int targetMusicVolume = 100;
+
+        private Label floatingTimeLabel;
+        private int floatingLabelFadeCounter = 0;
 
         private WindowsMediaPlayer SFX = new WindowsMediaPlayer();
 
@@ -102,34 +106,84 @@ namespace FinderQuest
             bossQuestionNum = 0;
         }
 
+        public void RegisterFloatingLabel(Label label)
+        {
+            if (this.floatingTimeLabel != null)
+            {
+                if (this.floatingTimeLabel.Parent != null)
+                {
+                    this.floatingTimeLabel.Parent.Controls.Remove(this.floatingTimeLabel);
+                }
+                this.floatingTimeLabel.Dispose();
+            }
+
+            this.floatingTimeLabel = label;
+            this.floatingLabelFadeCounter = 0;
+
+            if (!fadeTimer.Enabled)
+            {
+                fadeTimer.Start();
+            }
+        }
+
         private void FadeTimer_Tick(object sender, EventArgs e)
         {
             bool completeFadeIn = false;
             bool completeFadeOut = false;
 
-            if(activePlayer.settings.volume < 100)
+            // Music fade-in
+            if (activePlayer.settings.volume < targetMusicVolume)
             {
-                activePlayer.settings.volume = Math.Min(100, activePlayer.settings.volume + Fade);
+                activePlayer.settings.volume = Math.Min(targetMusicVolume, activePlayer.settings.volume + Fade);
             }
             else
             {
                 completeFadeIn = true;
             }
 
-            if(fadingPlayer != null && fadingPlayer.settings.volume > 0)
+            // Previous music fade-out
+            if (fadingPlayer != null)
             {
-                fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - Fade);
-            }
-            else
-            {
-                if(fadingPlayer == null)
+                if (fadingPlayer.settings.volume > 0)
+                {
+                    fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - Fade);
+                }
+                else
                 {
                     fadingPlayer.controls.stop();
+                    fadingPlayer = null;
                     completeFadeOut = true;
                 }
             }
+            else
+            {
+                completeFadeOut = true;
+            }
 
-            if(completeFadeIn && completeFadeOut)
+            // Floating time add/subtract indicator
+            if (floatingTimeLabel != null)
+            {
+                floatingLabelFadeCounter++;
+                floatingTimeLabel.Top -= 1;
+
+                Color baseColor = floatingTimeLabel.Text.Contains("+") ? Color.LimeGreen : Color.DarkRed;
+
+                floatingTimeLabel.Invalidate();
+                floatingTimeLabel.Update();
+
+                if (floatingLabelFadeCounter >= 15)
+                {
+                    if (floatingTimeLabel.Parent != null)
+                    {
+                        floatingTimeLabel.Parent.Controls.Remove(floatingTimeLabel);
+                    }
+
+                    floatingTimeLabel.Dispose();
+                    floatingTimeLabel = null;
+                }
+            }
+
+            if (completeFadeIn && completeFadeOut && floatingTimeLabel == null)
             {
                 fadeTimer.Stop();
             }
@@ -161,7 +215,7 @@ namespace FinderQuest
 
         public Question GetQuestion(int areaNum, int questionIndex)
         {
-            int poolIndex = areaNum - 1; // Since areaNum starts at 1
+            int poolIndex = areaNum - 1;
             if (poolIndex >= 0 && poolIndex < questionPools.Length)
             {
                 var pool = questionPools[poolIndex];
@@ -280,60 +334,74 @@ namespace FinderQuest
             }
         }
 
-        public void PlaySound(string soundName) //sound player
+        public void PlaySound(string soundName) // sound player
         {
             string fileName = "";
-            if(soundName == "main-menu")
+
+            if (soundName == "main-menu")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicMainMenu.mp3";
+                targetMusicVolume = 100;
             }
-            else if(soundName == "area1")
+            else if (soundName == "area1")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3";;
+                targetMusicVolume = 40;
             }
             else if (soundName == "area2")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea2.mp3";
+                targetMusicVolume = 60;
             }
             else if (soundName == "area3")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea3.mp3";
+                targetMusicVolume = 50;
             }
             else if (soundName == "area4")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea4.mp3";
+                targetMusicVolume = 60;
             }
             else if (soundName == "area5")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea5.mp3";
+                targetMusicVolume = 65;
             }
             else if (soundName == "area6")
             {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";            
+                fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";
+                targetMusicVolume = 100;
             }
             else if (soundName == "area7")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea7.mp3";
+                targetMusicVolume = 90;
             }
             else if (soundName == "area8-Ambient")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea8Sanctum.mp3";
+                targetMusicVolume = 40;
             }
             else if (soundName == "area8-Battle")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicArea8Battle.mp3";
+                targetMusicVolume = 60;
             }
             else if (soundName == "lose")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicEndingLose.mp3";
+                targetMusicVolume = 100;
             }
             else if (soundName == "win")
             {
                 fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
+                targetMusicVolume = 100;
             }
             else if (soundName == "opening")
             {
                 fileName = Application.StartupPath + "\\Sounds\\Opening.mp3";
+                targetMusicVolume = 60;
             }
 
             if (string.IsNullOrEmpty(fileName))
@@ -341,7 +409,7 @@ namespace FinderQuest
                 return;
             }
 
-            if(activePlayer.URL == fileName)
+            if (activePlayer.URL == fileName)
             {
                 return;
             }
@@ -362,7 +430,7 @@ namespace FinderQuest
             string url = Application.StartupPath + "\\Sounds\\SoundEffects\\" + soundName + ".mp3";
 
             SFX.URL = url;
-            SFX.settings.volume = 90;
+            SFX.settings.volume = 50;
 
             SFX.controls.play();
         }

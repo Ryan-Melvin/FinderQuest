@@ -343,7 +343,7 @@ namespace FinderQuest
             // First run
             if (game.CurrWalkArea == null)
             {
-                game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 1);
+                game.CurrWalkArea = new WalkArea("The Needlewood", Properties.Resources.GoblinForest, 7);
                 game.PlaySound("area1");
 
                 // Passes specific indexes from 2D questions matrix to each Person
