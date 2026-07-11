@@ -115,6 +115,13 @@ namespace FinderQuest
         {
             MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. \n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
         }
+
+        private void skinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSkins form = new FormSkins();
+            form.Owner = this;
+            form.ShowDialog();
+        }
         #endregion
 
         #region gameplay loop controllers
@@ -960,5 +967,7 @@ namespace FinderQuest
             }
         }
         #endregion
+
+        
     }
 }

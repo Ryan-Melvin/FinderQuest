@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,20 +12,23 @@ namespace FinderQuest
     {
         #region fields
         private string name;
-        private PictureBox sprite;
+        private string displayName;
+        private Image sprite;
         private bool isUnlocked;
         private int price;
+        private string rarity;
         #endregion
 
         #region constructor
-        public Skin(string name, Image image, Point point, Size size, int price)
+        public Skin(string name, string displayName, int price, string rarity)
         {
+            var resourceManager = Properties.Resources.ResourceManager;
             this.Name = name;
-            this.Sprite = new PictureBox();
-            this.Sprite.Size = size;
-            this.Sprite.Location = point;
+            this.DisplayName = displayName;
+            this.Sprite = (Image)resourceManager.GetObject(this.Name + "_Idle_Right");
             this.IsUnlocked = false;
             this.Price = price;
+            this.Rarity = rarity;
         }
         #endregion
 
@@ -44,8 +48,8 @@ namespace FinderQuest
                 }
             }
         }
-        public PictureBox Sprite { get => sprite; set => sprite = value; }
-        public bool IsUnlocked { get => isUnlocked; private set => isUnlocked = value; }
+        public Image Sprite { get => sprite; set => sprite = value; }
+        public bool IsUnlocked { get => isUnlocked; private set => isUnlocked = value; } 
         public int Price 
         { 
             get => price;
@@ -61,13 +65,22 @@ namespace FinderQuest
                 }
             } 
         }
+        public string DisplayName { get => displayName; set => displayName = value; }
+        public string Rarity { get => rarity; set => rarity = value; }
         #endregion
 
         #region methods
-        public void BuySkin()
+        public bool BuySkin(ref int currency) //currency diganti coin/poin
         {
-
+            if (currency >= this.Price)
+            {
+                currency -= this.Price;
+                this.isUnlocked = true;
+                return true;
+            }
+            return false;
         }
+
         #endregion
     }
 }
