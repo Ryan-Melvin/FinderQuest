@@ -79,6 +79,31 @@ namespace FinderQuest
         {
             return this.panelGame;
         }
+
+        public int GetSize(string type)
+        {
+            if(type == "small")
+            {
+                return this.smallNPC;
+            } 
+            else if(type == "medium")
+            {
+                return this.mediumNPC;
+            }
+            else if(type == "big")
+            {
+                return this.bigNPC;
+            }
+            else
+            {
+                return this.bossSize;
+            }
+        }
+
+        public Size GetPlayerSize()
+        {
+            return player.Size;
+        }
         #endregion
 
         #region form lifecycle events
@@ -237,7 +262,7 @@ namespace FinderQuest
             {
                 timerGame.Start();
                 skip = new CancellationTokenSource();
-                await PlayOpeningCutscene(skip.Token);
+                await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                 StartGame();
             }
             else
@@ -301,7 +326,7 @@ namespace FinderQuest
                         {
                             timerGame.Start();
                             skip = new CancellationTokenSource();
-                            await PlayOpeningCutscene(skip.Token);
+                            await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                             StartGame();
                         }
                         else
@@ -622,13 +647,10 @@ namespace FinderQuest
                 ImageAnimator.UpdateFrames(this.BackgroundImage);
                 this.Invalidate();
             }
-            else if (inCutscene) //lose or win cutscene
+            else if (inCutscene) //opening, lose, or win cutscene
             {
                 ImageAnimator.UpdateFrames(this.BackgroundImage);
-                this.Invalidate();
-            }
-            else
-            {
+
                 if (game.CurrWalkArea != null)
                 {
                     foreach (Person person in game.CurrWalkArea.People)
@@ -642,7 +664,7 @@ namespace FinderQuest
         #endregion
 
         #region animation utilities
-        public void AnimatePlayer()
+        private void AnimatePlayer()
         {
             if (ImageAnimator.CanAnimate(player.Sprite))
             {
@@ -670,311 +692,7 @@ namespace FinderQuest
         {
             // Leave blank to prevent Windows UI flicker anomaly
         }
-        #region cutscenes
-        //private async Task PlayGoodEnding(CancellationToken skip)
-        //{
-        //    allowSkipCutscene = false;
-        //    pauseToolStripMenuItem.Enabled = false;
-        //    startToolStripMenuItem.Enabled = false;
-        //    try
-        //    {
-        //        this.inCutscene = true;
-        //        game.Fade = 8;
-        //        this.BackgroundImage = Properties.Resources.BackgroundWin;
-        //        this.game.CurrWalkArea.RemovePeople();
-        //        this.game.CurrWalkArea = null;
-        //        gameStarted = false;
-        //        panelGame.Visible = false;
 
-        //        labelCutscene.Text = "";
-        //        labelCutscene.Parent = this;
-        //        labelCutscene.BringToFront();
-        //        labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
-        //        labelCutscene.ForeColor = Color.White;
-        //        labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-        //        labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
-        //        labelCutscene.AutoSize = true;
-        //        labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
-
-        //        await AnimateText("The Oracle's ancient gaze shattered into blinding fragments...", skip);
-        //        await Task.Delay(2500, skip);
-
-        //        allowSkipCutscene = true;
-        //        labelSkip.Parent = this;
-        //        labelSkip.Text = "Press Enter to Skip";
-        //        labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-        //        labelSkip.Font = new Font("Garamond", 12);
-        //        labelSkip.ForeColor = Color.White;
-        //        labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
-        //        labelSkip.Visible = true;
-        //        labelSkip.BringToFront();
-
-        //        await AnimateText("Warm, long-forgotten light cascaded over the valleys of the realm.", skip);
-        //        await Task.Delay(4000, skip);
-
-        //        await AnimateText("A broken crown rests on the altar, its curse lifted forevermore.", skip);
-        //        await Task.Delay(4000, skip);
-                
-        //    }
-        //    catch (OperationCanceledException)
-        //    {
-
-        //    }
-        //    finally
-        //    {
-        //        allowSkipCutscene = false;
-        //        startToolStripMenuItem.Enabled = true;
-        //        labelSkip.Visible = false;
-        //        labelCutscene.Text = "";
-        //        this.BackgroundImage = Properties.Resources.WinTextGoIn;
-        //        AnimateMainMenu();
-        //        await Task.Delay(2400);
-        //        this.BackgroundImage = Properties.Resources.WinEnterToReturn;
-        //        AnimateMainMenu();
-        //        allowReturnMainMenu = true;
-        //    }
-
-        //}
-
-        //private async Task PlayBadEnding(CancellationToken skip)
-        //{
-        //    allowSkipCutscene = true;
-        //    pauseToolStripMenuItem.Enabled = false;
-        //    startToolStripMenuItem.Enabled = false;
-        //    try
-        //    {
-        //        this.inCutscene = true;
-        //        game.Fade = 8;
-        //        this.BackgroundImage = Properties.Resources.BackgroundLose;
-        //        this.game.CurrWalkArea.RemovePeople();
-        //        this.game.CurrWalkArea = null;
-        //        gameStarted = false;
-        //        panelGame.Visible = false;
-
-        //        labelCutscene.Text = "";
-        //        labelCutscene.Parent = this;
-        //        labelCutscene.BringToFront();
-        //        labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
-        //        labelCutscene.ForeColor = Color.White;
-        //        labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-        //        labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
-        //        labelCutscene.AutoSize = true;
-        //        labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
-
-        //        await AnimateText("The walls of the sanctuary crumbled...", skip);
-        //        await Task.Delay(3500, skip);
-
-        //        //allowSkipCutscene = true;
-        //        labelSkip.Parent = this;
-        //        labelSkip.Text = "Press Enter to Skip";
-        //        labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-        //        labelSkip.Font = new Font("Garamond", 12);
-        //        labelSkip.ForeColor = Color.White;
-        //        labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
-        //        labelSkip.Visible = true;
-        //        labelSkip.BringToFront();
-
-        //        await AnimateText("The hero fell to their knees as darkness swallowed the throne room.", skip);
-        //        await Task.Delay(4000, skip);
-        //    }
-        //    catch (OperationCanceledException)
-        //    {
-                
-        //    }
-        //    finally
-        //    {
-        //        allowSkipCutscene = false;
-        //        startToolStripMenuItem.Enabled = true;
-        //        labelCutscene.Text = "";
-        //        labelSkip.Visible = false;
-        //        this.BackgroundImage = Properties.Resources.GameOverTextGoIn;
-        //        AnimateMainMenu();
-        //        await Task.Delay(2400);
-        //        this.BackgroundImage = Properties.Resources.GameOverEnterToReturn;
-        //        AnimateMainMenu();
-
-        //        allowReturnMainMenu = true;
-        //    }  
-        //}
-
-        private async Task PlayOpeningCutscene(CancellationToken skip)
-        {
-            allowSkipCutscene = true;
-            startToolStripMenuItem.Enabled = false;
-            try
-            {
-                inCutscene = true; //blocks player input
-                game.Fade = 8;
-                sound.PlaySound("opening");
-                this.BackgroundImage = Properties.Resources.OnceUponATime;
-                double scaleX = (double)this.ClientSize.Width / 800.0;
-
-                labelCutscene.Text = "";
-                labelCutscene.Parent = this;
-                labelCutscene.BringToFront();
-                labelCutscene.Font = new Font("Edwardian Script ITC", 16, FontStyle.Bold);
-                labelCutscene.ForeColor = Color.White;
-                labelCutscene.BackColor = Color.Transparent;
-                labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
-                labelCutscene.AutoSize = true;
-                labelCutscene.MaximumSize = new Size(this.ClientSize.Width - 80, 0);
-
-                await AnimateText("Once Upon A Time..", skip);
-                await Task.Delay(2480, skip);
-
-                labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
-                this.BackgroundImage = Properties.Resources.Opening;
-
-                await AnimateText("There was a kingdom hidden away in the valleys.", skip);
-                await Task.Delay(1000, skip);
-
-                //allowSkipCutscene = true;
-                labelSkip.Parent = this;
-                labelSkip.Text = "Press Enter to Skip";
-                labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-                labelSkip.Font = new Font("Garamond", 12);
-                labelSkip.ForeColor = Color.White;
-                labelSkip.Location = new Point(this.ClientSize.Width / 2 - (labelSkip.Width / 2), this.ClientSize.Height - labelSkip.Height - 20);
-                labelSkip.Visible = true;
-                labelSkip.BringToFront();
-
-                await AnimateText("Where a golden crown held the realm's light in harmony.", skip);
-                await Task.Delay(1000, skip);
-
-                game.CurrWalkArea = game.CurrWalkArea = new WalkArea("The Oracle's Sanctum", Properties.Resources.throne_room, 8);
-                game.CurrWalkArea.AddPerson(19, "The Oracle", Properties.Resources.DarkApprentice_Idle_Left, new Size(bossSize, bossSize), "", this.ClientSize.Width / 2 - (bossSize / 2), this.ClientSize.Height / 2 - (bossSize - player.Size.Height - 20), "", "", game.GetQuestion(1, 1));
-
-                foreach (Person person in game.CurrWalkArea.People)
-                {
-                    AnimatePerson(person);
-                }
-
-                await AnimateText("But the Oracle betrayed the light.. ", skip, 40);
-                await Task.Delay(1420, skip);
-
-                labelSkip.Visible = false;
-
-                await AnimateText("seizing the throne room and binding the golden crown in an eternal curse.", skip, 40);
-                await Task.Delay(1420, skip);
-
-                game.CurrWalkArea.RemovePeople();
-                game.CurrWalkArea = new WalkArea("Reaper's Domain", Properties.Resources.ReaperHallway, 7);
-
-                game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Right, new Size(mediumNPC, mediumNPC), "", (int)(180 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "", "", game.GetQuestion(1, 1));
-                game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(mediumNPC, mediumNPC), "", (int)(420 * scaleX), this.ClientSize.Height / 2 - (mediumNPC - player.Size.Height), "", "", game.GetQuestion(1, 1));
-
-                foreach (Person person in game.CurrWalkArea.People)
-                {
-                    AnimatePerson(person);
-                }
-
-                await AnimateText("With the crown corrupted, ancient gates shattered under waves of howling anomalies...", skip, 40);
-                await Task.Delay(3000, skip);
-
-                game.CurrWalkArea.RemovePeople();
-                game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.AbandonedVillage, 3);
-
-                game.CurrWalkArea.AddPerson(6, "Zombie Stalker", Properties.Resources.Zombie_Idle_Right, new Size(smallNPC, smallNPC), "", (int)(160 * scaleX), this.ClientSize.Height / 2, "", "", game.GetQuestion(1, 1));
-                game.CurrWalkArea.AddPerson(7, "Zombie Spitter", Properties.Resources.ZombieVillager_Idle_Right, new Size(smallNPC, smallNPC), "", (int)(420 * scaleX), this.ClientSize.Height / 2, "", "", game.GetQuestion(1, 1));
-                game.CurrWalkArea.AddPerson(8, "Zombie Tank", Properties.Resources.Husk_Idle_Left, new Size(bigNPC, bigNPC), "", (int)(650 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), "", "", game.GetQuestion(1, 1));
-
-                foreach (Person person in game.CurrWalkArea.People)
-                {
-                    AnimatePerson(person);
-                }
-
-                await AnimateText("Spreading like a plague, monsters overran the peaceful valleys...", skip, 40);
-                await Task.Delay(3000, skip);
-
-                game.CurrWalkArea.RemovePeople();
-                game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
-
-                game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Right, new Size(bigNPC, bigNPC), "", (int)(200 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), "", "", game.GetQuestion(1, 0));
-                game.CurrWalkArea.AddPerson(5, "Moss Golem", Properties.Resources.MossGolem_Idle_Left, new Size(bigNPC, bigNPC), "", (int)(440 * scaleX), this.ClientSize.Height / 2 - (bigNPC - player.Size.Height), "", "", game.GetQuestion(1, 1));
-
-                foreach (Person person in game.CurrWalkArea.People)
-                {
-                    AnimatePerson(person);
-                }
-
-                await AnimateText("Leaving only ash, ruins, and a lone hero destined to break the curse.", skip, 40);
-                await Task.Delay(4000, skip);
-
-                game.CurrWalkArea.RemovePeople();
-                game.CurrWalkArea = null;
-
-                labelCutscene.Font = new Font("Edwardian Script ITC", 16, FontStyle.Bold);
-                labelCutscene.ForeColor = Color.White;
-                labelCutscene.BackColor = Color.Transparent;
-                this.BackgroundImage = Properties.Resources.OnceUponATime;
-                await AnimateText("Be That Hero.", skip);
-                await Task.Delay(2480, skip);
-            }
-            catch (OperationCanceledException)
-            {
-                //leave empty
-            }
-            finally
-            {
-                startToolStripMenuItem.Enabled = true;
-                labelCutscene.Text = "";
-                //remove panel allow skip cutscene
-                allowSkipCutscene = false;
-                inCutscene = false;
-                game.Fade = 4;
-            }   labelSkip.Visible = false;  
-        }
-
-        private async Task AnimateText(string text, int height = 0)
-        {
-            labelCutscene.Text = "";
-
-            foreach (char c in text)
-            {
-                labelCutscene.Text += c;
-                if (height == 0)
-                {
-                    labelCutscene.Location = new Point(this.ClientSize.Width / 2 - (labelCutscene.Width / 2), this.ClientSize.Height / 2 - (labelCutscene.Height / 2) + 15);
-                }
-                else
-                {
-                    labelCutscene.Location = new Point(this.ClientSize.Width / 2 - (labelCutscene.Width / 2), height);
-                }
-
-                await Task.Delay(40);
-            }
-        }
-
-        private async Task AnimateText(string text, CancellationToken skip, int height = 0)
-        {
-            try
-            {
-                labelCutscene.Text = "";
-
-                foreach (char c in text)
-                {
-                    labelCutscene.Text += c;
-                    if (height == 0)
-                    {
-                        labelCutscene.Location = new Point(this.ClientSize.Width / 2 - (labelCutscene.Width / 2), this.ClientSize.Height / 2 - (labelCutscene.Height / 2) + 15);
-                    }
-                    else
-                    {
-                        labelCutscene.Location = new Point(this.ClientSize.Width / 2 - (labelCutscene.Width / 2), height);
-                    }
-
-                    await Task.Delay(40, skip);
-                }
-            }
-            catch (OperationCanceledException)
-            {
-
-            }
-            
-        }
-
-        #endregion
         public void PlayDeathSFX()
         {
             sound.PlaySFX(game.ActivePerson.DeathSound);

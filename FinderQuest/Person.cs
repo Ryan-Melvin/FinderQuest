@@ -30,7 +30,6 @@ namespace FinderQuest
         #region constructors
         public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y, string greeting, string death, Question question)
         {
-            //this.Sprite = new PictureBox();
             this.PersonNum = personNum;
             this.Name = name;
             this.Sprite = image;
@@ -40,6 +39,21 @@ namespace FinderQuest
             this.Dialog = dialog;
             this.Solved = false;
             this.Question = question;
+            this.GreetingSound = greeting;
+            this.DeathSound = death;
+        }
+
+        public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y, string greeting, string death)
+        {
+            this.PersonNum = personNum;
+            this.Name = name;
+            this.Sprite = image;
+            this.Size = size;
+            this.X = x;
+            this.Y = y;
+            this.Dialog = dialog;
+            this.Solved = false;
+            this.Question = null;
             this.GreetingSound = greeting;
             this.DeathSound = death;
         }

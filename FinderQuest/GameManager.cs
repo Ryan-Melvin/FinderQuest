@@ -85,16 +85,10 @@ namespace FinderQuest
 
             LoadAllBackupQuestions();
 
-            //player1.settings.volume = 0;
-            //player2.settings.volume = 0;
-            //player1.settings.setMode("loop", true);
-            //player2.settings.setMode("loop", true);
-
             fadeTimer = new Timer();
             fadeTimer.Interval = 30;
             fadeTimer.Tick += FadeTimer_Tick; //adds the method to fadeTimer.Tick
 
-            //activePlayer = player1; //media player
             bossQuestionNum = 0;
         }
 
