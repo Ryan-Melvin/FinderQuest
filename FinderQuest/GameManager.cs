@@ -16,18 +16,9 @@ namespace FinderQuest
         private TalkArea currTalkArea;
         private Person activePerson;
 
-        private WindowsMediaPlayer player1 = new WindowsMediaPlayer();
-        private WindowsMediaPlayer player2 = new WindowsMediaPlayer();
-        private WindowsMediaPlayer activePlayer;
-        private WindowsMediaPlayer fadingPlayer;
-        private Timer fadeTimer;
-        private int fade = 4;
-        private int targetMusicVolume = 100;
-
+        private Timer uiAnimationTimer;
         private Label floatingTimeLabel;
         private int floatingLabelFadeCounter = 0;
-
-        private WindowsMediaPlayer SFX = new WindowsMediaPlayer();
 
         private List<Question> area1Questions;
         private List<Question> area2Questions;
@@ -93,16 +84,10 @@ namespace FinderQuest
 
             LoadAllBackupQuestions();
 
-            player1.settings.volume = 0;
-            player2.settings.volume = 0;
-            player1.settings.setMode("loop", true);
-            player2.settings.setMode("loop", true);
+            uiAnimationTimer = new Timer();
+            uiAnimationTimer.Interval = 30;
+            uiAnimationTimer.Tick += UiAnimationTimer_Tick; // adds the method to the property
 
-            fadeTimer = new Timer();
-            fadeTimer.Interval = 30;
-            fadeTimer.Tick += FadeTimer_Tick; //adds the method to fadeTimer.Tick
-
-            activePlayer = player1; //media player
             bossQuestionNum = 0;
         }
 
@@ -126,47 +111,12 @@ namespace FinderQuest
             }
         }
 
-        private void FadeTimer_Tick(object sender, EventArgs e)
+        private void UiAnimationTimer_Tick(object sender, EventArgs e)
         {
-            bool completeFadeIn = false;
-            bool completeFadeOut = false;
-
-            // Music fade-in
-            if (activePlayer.settings.volume < targetMusicVolume)
-            {
-                activePlayer.settings.volume = Math.Min(targetMusicVolume, activePlayer.settings.volume + Fade);
-            }
-            else
-            {
-                completeFadeIn = true;
-            }
-
-            // Previous music fade-out
-            if (fadingPlayer != null)
-            {
-                if (fadingPlayer.settings.volume > 0)
-                {
-                    fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - Fade);
-                }
-                else
-                {
-                    fadingPlayer.controls.stop();
-                    fadingPlayer = null;
-                    completeFadeOut = true;
-                }
-            }
-            else
-            {
-                completeFadeOut = true;
-            }
-
-            // Floating time add/subtract indicator
             if (floatingTimeLabel != null)
             {
                 floatingLabelFadeCounter++;
                 floatingTimeLabel.Top -= 1;
-
-                Color baseColor = floatingTimeLabel.Text.Contains("+") ? Color.LimeGreen : Color.DarkRed;
 
                 floatingTimeLabel.Invalidate();
                 floatingTimeLabel.Update();
@@ -183,9 +133,9 @@ namespace FinderQuest
                 }
             }
 
-            if (completeFadeIn && completeFadeOut && floatingTimeLabel == null)
+            if (floatingTimeLabel == null)
             {
-                fadeTimer.Stop();
+                uiAnimationTimer.Stop();
             }
         }
         #endregion
@@ -333,123 +283,6 @@ namespace FinderQuest
                 }
             }
         }
-
-        public void PlaySound(string soundName) // sound player
-        {
-            string fileName = "";
-
-            if (soundName == "main-menu")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicMainMenu.mp3";
-                targetMusicVolume = 100;
-            }
-            else if (soundName == "area1")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3";;
-                targetMusicVolume = 40;
-            }
-            else if (soundName == "area2")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea2.mp3";
-                targetMusicVolume = 60;
-            }
-            else if (soundName == "area3")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea3.mp3";
-                targetMusicVolume = 50;
-            }
-            else if (soundName == "area4")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea4.mp3";
-                targetMusicVolume = 60;
-            }
-            else if (soundName == "area5")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea5.mp3";
-                targetMusicVolume = 65;
-            }
-            else if (soundName == "area6")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";
-                targetMusicVolume = 100;
-            }
-            else if (soundName == "area7")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea7.mp3";
-                targetMusicVolume = 90;
-            }
-            else if (soundName == "area8-Ambient")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Sanctum.mp3";
-                targetMusicVolume = 40;
-            }
-            else if (soundName == "area8-Battle")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Battle.mp3";
-                targetMusicVolume = 60;
-            }
-            else if (soundName == "lose")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicEndingLose.mp3";
-                targetMusicVolume = 100;
-            }
-            else if (soundName == "win")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
-                targetMusicVolume = 100;
-            }
-            else if (soundName == "opening")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\Opening.mp3";
-                targetMusicVolume = 60;
-            }
-
-            if (string.IsNullOrEmpty(fileName))
-            {
-                return;
-            }
-
-            if (activePlayer.URL == fileName)
-            {
-                return;
-            }
-
-            fadingPlayer = activePlayer;
-
-            activePlayer = (activePlayer == player1) ? player2 : player1;
-
-            activePlayer.URL = fileName;
-            activePlayer.settings.volume = 0;
-            activePlayer.controls.play();
-
-            fadeTimer.Start();
-        }
-
-        public void PlaySFX(string soundName)
-        {
-            string url = Application.StartupPath + "\\Sounds\\SoundEffects\\" + soundName + ".mp3";
-
-            SFX.URL = url;
-            SFX.settings.volume = 50;
-
-            SFX.controls.play();
-        }
-
-        public void SetSFXVolume(int volume)
-        {
-            this.SFX.settings.volume = volume;
-        }
-
-        public void ResumeMusic()
-        {
-            this.activePlayer.controls.play();
-        }
-
-        public void PauseMusic()
-        {
-            this.activePlayer.controls.pause();
-        }
-
         #endregion
     }
 }

@@ -52,7 +52,7 @@ namespace FinderQuest
             GenerateQuestion();
             if (mainForm.game.ActivePerson is Boss)
             {
-                mainForm.game.PlaySound("area8-Battle");
+                mainForm.sound.PlaySound("area8-Battle");
             }
             labelTimerQuestion.Text = mainForm.time.DisplayData();
             timerDisplayChange.Start();
@@ -156,7 +156,7 @@ namespace FinderQuest
         {
             if (mainForm.game.ActivePerson is Boss)
             {
-                mainForm.game.PlaySound("area8-Ambient");
+                mainForm.sound.PlaySound("area8-Ambient");
             }
         }
 

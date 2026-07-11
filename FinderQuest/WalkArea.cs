@@ -39,18 +39,17 @@ namespace FinderQuest
             this.People.Add(person);
         }
 
+        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, string greet, string death)
+        {
+            Person person = new Person(num, name, sprite, size, dialog, x, y, greet, death);
+            this.People.Add(person);
+        }
+
         public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, string greet, string death, List<Question> questions)
         {
             Person person = new Boss(num, name, sprite, size, dialog, x, y, greet, death, questions);
             this.People.Add(person);
         }
-        //public void DisplayPeople(Control container)
-        //{
-        //    foreach(Person person in this.People)
-        //    {
-        //        person.DisplayPicture(container);
-        //    }
-        //}
 
         public void RemovePeople()
         {

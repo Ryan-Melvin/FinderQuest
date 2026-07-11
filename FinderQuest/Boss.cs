@@ -18,7 +18,10 @@ namespace FinderQuest
             this.Questions = questions;
         }
 
-
+        public Boss(int num, string name, Image image, Size size, string dialog, int x, int y, string greet, string death) : base(num, name, image, size, dialog, x, y, greet, death)
+        {
+            this.Questions = null;
+        }
         #endregion
 
         #region properties
