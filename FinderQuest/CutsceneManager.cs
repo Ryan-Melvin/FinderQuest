@@ -12,6 +12,12 @@ namespace FinderQuest
 {
     public class CutsceneManager
     {
+        #region fields
+        private Font cutsceneFont = new Font("Garamond", 16, FontStyle.Bold);
+        private Font skipFont = new Font("Garamond", 12);
+        private Font cursiveFont = new Font("Edwardian Script ITC", 16, FontStyle.Bold);
+
+        #endregion
         #region methods
         public async Task PlayGoodEnding(FormMain form, ToolStripMenuItem pause, ToolStripMenuItem start, Label labelCutscene, Label labelSkip, CancellationToken skip)
         {
@@ -31,7 +37,7 @@ namespace FinderQuest
                 labelCutscene.Text = "";
                 labelCutscene.Parent = form;
                 labelCutscene.BringToFront();
-                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
+                labelCutscene.Font = this.cutsceneFont;
                 labelCutscene.ForeColor = Color.White;
                 labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
                 labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
@@ -44,7 +50,7 @@ namespace FinderQuest
                 labelSkip.Parent = form;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-                labelSkip.Font = new Font("Garamond", 12);
+                labelSkip.Font = this.skipFont;
                 labelSkip.ForeColor = Color.White;
                 labelSkip.Location = new Point(form.ClientSize.Width / 2 - (labelSkip.Width / 2), form.ClientSize.Height - labelSkip.Height - 20);
                 labelSkip.Visible = true;
@@ -94,7 +100,7 @@ namespace FinderQuest
                 labelCutscene.Text = "";
                 labelCutscene.Parent = form;
                 labelCutscene.BringToFront();
-                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
+                labelCutscene.Font = this.cutsceneFont;
                 labelCutscene.ForeColor = Color.White;
                 labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
                 labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
@@ -107,7 +113,7 @@ namespace FinderQuest
                 labelSkip.Parent = form;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-                labelSkip.Font = new Font("Garamond", 12);
+                labelSkip.Font = this.skipFont;
                 labelSkip.ForeColor = Color.White;
                 labelSkip.Location = new Point(form.ClientSize.Width / 2 - (labelSkip.Width / 2), form.ClientSize.Height - labelSkip.Height - 20);
                 labelSkip.Visible = true;
@@ -151,7 +157,7 @@ namespace FinderQuest
                 labelCutscene.Text = "";
                 labelCutscene.Parent = form;
                 labelCutscene.BringToFront();
-                labelCutscene.Font = new Font("Edwardian Script ITC", 16, FontStyle.Bold);
+                labelCutscene.Font = cursiveFont;
                 labelCutscene.ForeColor = Color.White;
                 labelCutscene.BackColor = Color.Transparent;
                 labelCutscene.TextAlign = ContentAlignment.MiddleCenter;
@@ -162,7 +168,7 @@ namespace FinderQuest
                 await Task.Delay(2480, skip);
 
                 labelCutscene.BackColor = Color.FromArgb(180, 0, 0, 0);
-                labelCutscene.Font = new Font("Garamond", 16, FontStyle.Bold);
+                labelCutscene.Font = cutsceneFont;
                 form.BackgroundImage = Properties.Resources.Opening;
 
                 await AnimateText(form, labelCutscene, "There was a kingdom hidden away in the valleys.", skip);
@@ -171,7 +177,7 @@ namespace FinderQuest
                 labelSkip.Parent = form;
                 labelSkip.Text = "Press Enter to Skip";
                 labelSkip.BackColor = Color.FromArgb(120, 0, 0, 0);
-                labelSkip.Font = new Font("Garamond", 12);
+                labelSkip.Font = skipFont;
                 labelSkip.ForeColor = Color.White;
                 labelSkip.Location = new Point(form.ClientSize.Width / 2 - (labelSkip.Width / 2), form.ClientSize.Height - labelSkip.Height - 20);
                 labelSkip.Visible = true;
@@ -242,7 +248,7 @@ namespace FinderQuest
                 form.game.CurrWalkArea.RemovePeople();
                 form.game.CurrWalkArea = null;
 
-                labelCutscene.Font = new Font("Edwardian Script ITC", 16, FontStyle.Bold);
+                labelCutscene.Font = cursiveFont;
                 labelCutscene.ForeColor = Color.White;
                 labelCutscene.BackColor = Color.Transparent;
                 form.BackgroundImage = Properties.Resources.OnceUponATime;

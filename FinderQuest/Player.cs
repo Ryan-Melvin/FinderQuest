@@ -14,7 +14,6 @@ namespace FinderQuest
     {
         #region fields
         private string name;
-        //private PictureBox sprite;
         private int score;
         private Time time;
         private string currState;

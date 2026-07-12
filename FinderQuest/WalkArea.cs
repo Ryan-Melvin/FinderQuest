@@ -74,15 +74,6 @@ namespace FinderQuest
                     return true;
                 }
             }
-            //foreach(Person person in this.People)
-            //{
-            //    if (player.Sprite.Bounds.IntersectsWith(person.Sprite.Bounds))
-            //    {
-            //        touchPerson = person;
-            //        return true;
-            //    }
-            //}
-            //touchPerson = null;
             touchPerson = null;
             return false;
             
