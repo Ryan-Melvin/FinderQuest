@@ -35,11 +35,14 @@
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.skinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGame = new System.Windows.Forms.Panel();
             this.labelPlayer = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
             this.labelArea = new System.Windows.Forms.Label();
             this.panelTalkArea = new System.Windows.Forms.Panel();
+            this.panelCredits = new System.Windows.Forms.Panel();
+            this.buttonExitCredit = new System.Windows.Forms.Button();
             this.labelSkip = new System.Windows.Forms.Label();
             this.labelCutscene = new System.Windows.Forms.Label();
             this.labelTimerTalk = new System.Windows.Forms.Label();
@@ -48,26 +51,28 @@
             this.timerGame = new System.Windows.Forms.Timer(this.components);
             this.panelPaused = new System.Windows.Forms.Panel();
             this.labelPaused = new System.Windows.Forms.Label();
-            this.skinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripGame.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelTalkArea.SuspendLayout();
+            this.panelCredits.SuspendLayout();
             this.panelPaused.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripGame
             // 
             this.menuStripGame.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStripGame.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStripGame.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStripGame.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
-            this.exitToolStripMenuItem,
+            this.skinsToolStripMenuItem,
             this.helpToolStripMenuItem,
-            this.skinsToolStripMenuItem});
+            this.creditsToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.menuStripGame.Location = new System.Drawing.Point(0, 0);
             this.menuStripGame.Name = "menuStripGame";
-            this.menuStripGame.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStripGame.Size = new System.Drawing.Size(533, 24);
+            this.menuStripGame.Size = new System.Drawing.Size(800, 33);
             this.menuStripGame.TabIndex = 0;
             this.menuStripGame.Text = "menuStrip1";
             // 
@@ -77,36 +82,43 @@
             this.startToolStripMenuItem,
             this.pauseToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 22);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
             this.gameToolStripMenuItem.Text = "Game";
             // 
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.startToolStripMenuItem.Text = "Start new Game";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(238, 34);
             this.pauseToolStripMenuItem.Text = "Pause/Play";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(55, 29);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
+            // skinsToolStripMenuItem
+            // 
+            this.skinsToolStripMenuItem.Name = "skinsToolStripMenuItem";
+            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
+            this.skinsToolStripMenuItem.Text = "Skins";
+            this.skinsToolStripMenuItem.Click += new System.EventHandler(this.skinsToolStripMenuItem_Click);
             // 
             // panelGame
             // 
@@ -114,10 +126,9 @@
             this.panelGame.Controls.Add(this.labelPlayer);
             this.panelGame.Controls.Add(this.labelTimer);
             this.panelGame.Controls.Add(this.labelArea);
-            this.panelGame.Location = new System.Drawing.Point(0, 23);
-            this.panelGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelGame.Location = new System.Drawing.Point(0, 35);
             this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(533, 70);
+            this.panelGame.Size = new System.Drawing.Size(800, 108);
             this.panelGame.TabIndex = 1;
             // 
             // labelPlayer
@@ -125,10 +136,9 @@
             this.labelPlayer.AutoSize = true;
             this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this.labelPlayer.ForeColor = System.Drawing.Color.White;
-            this.labelPlayer.Location = new System.Drawing.Point(413, 14);
-            this.labelPlayer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayer.Location = new System.Drawing.Point(620, 22);
             this.labelPlayer.Name = "labelPlayer";
-            this.labelPlayer.Size = new System.Drawing.Size(69, 13);
+            this.labelPlayer.Size = new System.Drawing.Size(96, 20);
             this.labelPlayer.TabIndex = 2;
             this.labelPlayer.Text = "labelPlayer";
             // 
@@ -137,10 +147,9 @@
             this.labelTimer.AutoSize = true;
             this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTimer.ForeColor = System.Drawing.Color.Red;
-            this.labelTimer.Location = new System.Drawing.Point(225, 14);
-            this.labelTimer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTimer.Location = new System.Drawing.Point(338, 22);
             this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Size = new System.Drawing.Size(98, 25);
+            this.labelTimer.Size = new System.Drawing.Size(141, 36);
             this.labelTimer.TabIndex = 1;
             this.labelTimer.Text = "00:00:00";
             // 
@@ -150,10 +159,9 @@
             this.labelArea.BackColor = System.Drawing.Color.Black;
             this.labelArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelArea.ForeColor = System.Drawing.Color.White;
-            this.labelArea.Location = new System.Drawing.Point(21, 16);
-            this.labelArea.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArea.Location = new System.Drawing.Point(32, 25);
             this.labelArea.Name = "labelArea";
-            this.labelArea.Size = new System.Drawing.Size(77, 17);
+            this.labelArea.Size = new System.Drawing.Size(104, 25);
             this.labelArea.TabIndex = 0;
             this.labelArea.Text = "labelArea";
             // 
@@ -164,30 +172,54 @@
             this.panelTalkArea.Controls.Add(this.labelCutscene);
             this.panelTalkArea.Controls.Add(this.labelTimerTalk);
             this.panelTalkArea.Controls.Add(this.labelAreaTalk);
-            this.panelTalkArea.Location = new System.Drawing.Point(0, 23);
-            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTalkArea.Location = new System.Drawing.Point(0, 35);
             this.panelTalkArea.Name = "panelTalkArea";
-            this.panelTalkArea.Size = new System.Drawing.Size(533, 269);
+            this.panelTalkArea.Size = new System.Drawing.Size(800, 414);
             this.panelTalkArea.TabIndex = 2;
             this.panelTalkArea.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTalkArea_Paint);
+            // 
+            // panelCredits
+            // 
+            this.panelCredits.BackgroundImage = global::FinderQuest.Properties.Resources.Credits;
+            this.panelCredits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelCredits.Controls.Add(this.buttonExitCredit);
+            this.panelCredits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelCredits.Location = new System.Drawing.Point(0, 32);
+            this.panelCredits.Name = "panelCredits";
+            this.panelCredits.Size = new System.Drawing.Size(800, 414);
+            this.panelCredits.TabIndex = 6;
+            // 
+            // buttonExitCredit
+            // 
+            this.buttonExitCredit.BackColor = System.Drawing.Color.Maroon;
+            this.buttonExitCredit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.buttonExitCredit.FlatAppearance.BorderSize = 2;
+            this.buttonExitCredit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExitCredit.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExitCredit.ForeColor = System.Drawing.Color.PeachPuff;
+            this.buttonExitCredit.Location = new System.Drawing.Point(360, 270);
+            this.buttonExitCredit.Name = "buttonExitCredit";
+            this.buttonExitCredit.Size = new System.Drawing.Size(66, 39);
+            this.buttonExitCredit.TabIndex = 0;
+            this.buttonExitCredit.Text = "Close";
+            this.buttonExitCredit.UseVisualStyleBackColor = false;
+            this.buttonExitCredit.Click += new System.EventHandler(this.buttonExitCredit_Click);
             // 
             // labelSkip
             // 
             this.labelSkip.AutoSize = true;
-            this.labelSkip.Location = new System.Drawing.Point(245, 216);
-            this.labelSkip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSkip.Location = new System.Drawing.Point(368, 332);
             this.labelSkip.Name = "labelSkip";
-            this.labelSkip.Size = new System.Drawing.Size(28, 13);
+            this.labelSkip.Size = new System.Drawing.Size(40, 20);
             this.labelSkip.TabIndex = 5;
             this.labelSkip.Text = "Skip";
             // 
             // labelCutscene
             // 
             this.labelCutscene.AutoSize = true;
-            this.labelCutscene.Location = new System.Drawing.Point(187, 113);
-            this.labelCutscene.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCutscene.Location = new System.Drawing.Point(280, 174);
             this.labelCutscene.Name = "labelCutscene";
-            this.labelCutscene.Size = new System.Drawing.Size(74, 13);
+            this.labelCutscene.Size = new System.Drawing.Size(110, 20);
             this.labelCutscene.TabIndex = 4;
             this.labelCutscene.Text = "labelCutscene";
             // 
@@ -196,10 +228,9 @@
             this.labelTimerTalk.AutoSize = true;
             this.labelTimerTalk.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTimerTalk.ForeColor = System.Drawing.Color.Red;
-            this.labelTimerTalk.Location = new System.Drawing.Point(425, 228);
-            this.labelTimerTalk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTimerTalk.Location = new System.Drawing.Point(638, 351);
             this.labelTimerTalk.Name = "labelTimerTalk";
-            this.labelTimerTalk.Size = new System.Drawing.Size(98, 25);
+            this.labelTimerTalk.Size = new System.Drawing.Size(141, 36);
             this.labelTimerTalk.TabIndex = 3;
             this.labelTimerTalk.Text = "00:00:00";
             // 
@@ -208,10 +239,9 @@
             this.labelAreaTalk.AutoSize = true;
             this.labelAreaTalk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAreaTalk.ForeColor = System.Drawing.Color.White;
-            this.labelAreaTalk.Location = new System.Drawing.Point(21, 232);
-            this.labelAreaTalk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAreaTalk.Location = new System.Drawing.Point(32, 357);
             this.labelAreaTalk.Name = "labelAreaTalk";
-            this.labelAreaTalk.Size = new System.Drawing.Size(52, 17);
+            this.labelAreaTalk.Size = new System.Drawing.Size(70, 25);
             this.labelAreaTalk.TabIndex = 3;
             this.labelAreaTalk.Text = "label1";
             // 
@@ -227,37 +257,36 @@
             // panelPaused
             // 
             this.panelPaused.Controls.Add(this.labelPaused);
-            this.panelPaused.Location = new System.Drawing.Point(0, 23);
-            this.panelPaused.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPaused.Location = new System.Drawing.Point(0, 35);
             this.panelPaused.Name = "panelPaused";
-            this.panelPaused.Size = new System.Drawing.Size(533, 269);
+            this.panelPaused.Size = new System.Drawing.Size(800, 414);
             this.panelPaused.TabIndex = 5;
             this.panelPaused.Visible = false;
             // 
             // labelPaused
             // 
             this.labelPaused.AutoSize = true;
-            this.labelPaused.Location = new System.Drawing.Point(210, 129);
-            this.labelPaused.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPaused.Location = new System.Drawing.Point(315, 198);
             this.labelPaused.Name = "labelPaused";
-            this.labelPaused.Size = new System.Drawing.Size(43, 13);
+            this.labelPaused.Size = new System.Drawing.Size(63, 20);
             this.labelPaused.TabIndex = 0;
             this.labelPaused.Text = "Paused";
             // 
-            // skinsToolStripMenuItem
+            // creditsToolStripMenuItem
             // 
-            this.skinsToolStripMenuItem.Name = "skinsToolStripMenuItem";
-            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(46, 22);
-            this.skinsToolStripMenuItem.Text = "Skins";
-            this.skinsToolStripMenuItem.Click += new System.EventHandler(this.skinsToolStripMenuItem_Click);
+            this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
+            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(83, 29);
+            this.creditsToolStripMenuItem.Text = "Credits";
+            this.creditsToolStripMenuItem.Click += new System.EventHandler(this.creditsToolStripMenuItem_Click);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FinderQuest.Properties.Resources.Finder_Quest;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(800, 449);
+            this.Controls.Add(this.panelCredits);
             this.Controls.Add(this.panelTalkArea);
             this.Controls.Add(this.panelPaused);
             this.Controls.Add(this.panelGame);
@@ -265,7 +294,6 @@
             this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStripGame;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMain";
             this.Text = "Finder Quest Game";
             this.Load += new System.EventHandler(this.FormMain_Load);
@@ -278,6 +306,7 @@
             this.panelGame.PerformLayout();
             this.panelTalkArea.ResumeLayout(false);
             this.panelTalkArea.PerformLayout();
+            this.panelCredits.ResumeLayout(false);
             this.panelPaused.ResumeLayout(false);
             this.panelPaused.PerformLayout();
             this.ResumeLayout(false);
@@ -307,6 +336,9 @@
         private System.Windows.Forms.Label labelPaused;
         private System.Windows.Forms.Label labelSkip;
         private System.Windows.Forms.ToolStripMenuItem skinsToolStripMenuItem;
+        private System.Windows.Forms.Panel panelCredits;
+        private System.Windows.Forms.Button buttonExitCredit;
+        private System.Windows.Forms.ToolStripMenuItem creditsToolStripMenuItem;
     }
 }
 

@@ -174,6 +174,8 @@ namespace FinderQuest
             labelPaused.BackColor = Color.FromArgb(120, 0, 0, 0);
             labelPaused.Font = new Font("Garamond", 20, FontStyle.Bold);
             labelPaused.Location = new Point(this.ClientSize.Width / 2 - (labelPaused.Size.Width / 2), this.ClientSize.Height / 2 - (labelPaused.Size.Height));
+
+            panelCredits.Visible = false;
             #endregion
 
             // Lock the startup button 
@@ -265,6 +267,7 @@ namespace FinderQuest
             timerTime.Stop();
             panelGame.Visible = false;
             startToolStripMenuItem.Enabled = true;
+            creditsToolStripMenuItem.Enabled = true;
             gameStarted = false;
             enterTalkArea = false;
             inCutscene = false;
@@ -299,6 +302,7 @@ namespace FinderQuest
             player.IsVisible = true;
 
             pauseToolStripMenuItem.Enabled = true;
+            creditsToolStripMenuItem.Enabled = false;
             startToolStripMenuItem.Text = "Stop Game";
             gameStarted = true;
             pauseToolStripMenuItem.Text = "Pause Game";
@@ -362,6 +366,18 @@ namespace FinderQuest
             }
         }
 
+        private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCredits.Visible = true;
+            panelCredits.BringToFront();
+            startToolStripMenuItem.Enabled = false;
+        }
+
+        private void buttonExitCredit_Click(object sender, EventArgs e)
+        {
+            panelCredits.Visible = false;
+            startToolStripMenuItem.Enabled = true;
+        }
         #endregion
 
         #region player input (Keybinds)
@@ -624,8 +640,7 @@ namespace FinderQuest
                 skip = null;
             }
         }
-        #endregion
 
-        
+        #endregion
     }
 }
