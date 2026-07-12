@@ -23,6 +23,7 @@ namespace FinderQuest
 
         private FormQuestion form;
         public Time time;
+        public Time timePlayed;
         private bool paused;
         private int numOfWalkArea = 8; // 8 walk areas
 
@@ -186,7 +187,8 @@ namespace FinderQuest
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             time = new Time(0, 0, 0);
-            player = new Player("John", new Size(110, 110), time, 10, this.ClientSize.Height / 2, "DarkLord");
+            timePlayed = new Time(0, 0, 0); //timer to keep tracked of playtime
+            player = new Player("John", new Size(110, 110), timePlayed, 10, this.ClientSize.Height / 2, "DarkLord");
             player.IsVisible = false;
 
             sound.PlaySound("main-menu");
@@ -220,9 +222,11 @@ namespace FinderQuest
             if(time.Second >= 1)
             {
                 time.AddWithSecond(-1);
+                timePlayed.AddWithSecond(1); //updates playtime every second
             }
 
             labelTimer.Text = time.DisplayData();
+            labelPlayer.Text = player.DisplayData(); //updates player label every second
 
             if (enterTalkArea)
             {
@@ -519,11 +523,11 @@ namespace FinderQuest
         {
             if (gameStarted) //in game
             {
-                if (player.Sprite != null && !paused)
+                if (player.Sprite != null && !paused) //update player sprite
                 {
                     ImageAnimator.UpdateFrames(player.Sprite);
                 }
-                if (game.CurrWalkArea != null && !paused)
+                if (game.CurrWalkArea != null && !paused) //update NPC sprite
                 {
                     foreach (Person person in game.CurrWalkArea.People)
                     {
@@ -531,22 +535,22 @@ namespace FinderQuest
                     }
                 }
 
-                if (game.CurrWalkArea != null && !enterTalkArea)
+                if (game.CurrWalkArea != null && !enterTalkArea) //check collision
                 {
                     game.CurrWalkArea.CheckTouchPerson(player, out Person collisionNPC);
                     game.ActivePerson = collisionNPC;
                 }
 
-                if (game.CurrTalkArea != null)
+                if (game.CurrTalkArea != null) //updates talk area
                 {
                     panelTalkArea.Invalidate();
                 }
-                else
+                else //updates walk area
                 {
                     this.Invalidate();
                 }
 
-                if (game.CurrWalkArea.AreaNum == numOfWalkArea && game.CurrWalkArea.FinishedAllQuestions() && !enterTalkArea)
+                if (game.CurrWalkArea.AreaNum == numOfWalkArea && game.CurrWalkArea.FinishedAllQuestions() && !enterTalkArea) //check for win
                 {
                     sound.PlaySound("win");
                     skip = new CancellationTokenSource();
@@ -613,9 +617,6 @@ namespace FinderQuest
                 skip = null;
             }
         }
-
         #endregion
-
-
     }
 }
