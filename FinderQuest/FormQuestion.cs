@@ -70,6 +70,7 @@ namespace FinderQuest
             {
                 mainForm.time.AddWithSecond(30);
                 SpawnFloatingTimeIndicator("+30s", Color.LimeGreen);
+                MessageBox.Show("Your answer is correct! you get " + score + " points.");
                 mainForm.player.AddScore(score);
                 MessageBox.Show("Your answer is correct! You get " + score + " points.");
                 if (!(mainForm.game.ActivePerson is Boss))
