@@ -39,18 +39,17 @@ namespace FinderQuest
             this.People.Add(person);
         }
 
+        public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, string greet, string death)
+        {
+            Person person = new Person(num, name, sprite, size, dialog, x, y, greet, death);
+            this.People.Add(person);
+        }
+
         public void AddPerson(int num, string name, Image sprite, Size size, string dialog, int x, int y, string greet, string death, List<Question> questions)
         {
             Person person = new Boss(num, name, sprite, size, dialog, x, y, greet, death, questions);
             this.People.Add(person);
         }
-        //public void DisplayPeople(Control container)
-        //{
-        //    foreach(Person person in this.People)
-        //    {
-        //        person.DisplayPicture(container);
-        //    }
-        //}
 
         public void RemovePeople()
         {
@@ -64,26 +63,17 @@ namespace FinderQuest
         public bool CheckTouchPerson(Player player, out Person touchPerson)
         {
 
-            Rectangle playerHitbox = new Rectangle(player.X, player.Y, player.Size.Width -60, player.Size.Height-60);
+            Rectangle playerHitbox = player.PlayerHitbox;
 
             foreach(Person person in this.People)
             {
-                Rectangle personHitbox = new Rectangle(person.X, person.Y, person.Size.Width-60, person.Size.Height-60);
+                Rectangle personHitbox = person.NpcHitbox;
                 if (playerHitbox.IntersectsWith(personHitbox))
                 {
                     touchPerson = person;
                     return true;
                 }
             }
-            //foreach(Person person in this.People)
-            //{
-            //    if (player.Sprite.Bounds.IntersectsWith(person.Sprite.Bounds))
-            //    {
-            //        touchPerson = person;
-            //        return true;
-            //    }
-            //}
-            //touchPerson = null;
             touchPerson = null;
             return false;
             

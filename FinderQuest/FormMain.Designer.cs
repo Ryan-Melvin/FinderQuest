@@ -48,7 +48,10 @@
             this.timerGame = new System.Windows.Forms.Timer(this.components);
             this.panelPaused = new System.Windows.Forms.Panel();
             this.labelPaused = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.skinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> master
             this.menuStripGame.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelTalkArea.SuspendLayout();
@@ -97,7 +100,11 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+<<<<<<< HEAD
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 22);
+=======
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
+>>>>>>> master
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -115,7 +122,11 @@
             this.panelGame.Controls.Add(this.labelTimer);
             this.panelGame.Controls.Add(this.labelArea);
             this.panelGame.Location = new System.Drawing.Point(0, 23);
+<<<<<<< HEAD
             this.panelGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.panelGame.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> master
             this.panelGame.Name = "panelGame";
             this.panelGame.Size = new System.Drawing.Size(533, 70);
             this.panelGame.TabIndex = 1;
@@ -165,7 +176,11 @@
             this.panelTalkArea.Controls.Add(this.labelTimerTalk);
             this.panelTalkArea.Controls.Add(this.labelAreaTalk);
             this.panelTalkArea.Location = new System.Drawing.Point(0, 23);
+<<<<<<< HEAD
             this.panelTalkArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> master
             this.panelTalkArea.Name = "panelTalkArea";
             this.panelTalkArea.Size = new System.Drawing.Size(533, 269);
             this.panelTalkArea.TabIndex = 2;
@@ -228,7 +243,11 @@
             // 
             this.panelPaused.Controls.Add(this.labelPaused);
             this.panelPaused.Location = new System.Drawing.Point(0, 23);
+<<<<<<< HEAD
             this.panelPaused.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.panelPaused.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> master
             this.panelPaused.Name = "panelPaused";
             this.panelPaused.Size = new System.Drawing.Size(533, 269);
             this.panelPaused.TabIndex = 5;
@@ -244,6 +263,7 @@
             this.labelPaused.TabIndex = 0;
             this.labelPaused.Text = "Paused";
             // 
+<<<<<<< HEAD
             // skinsToolStripMenuItem
             // 
             this.skinsToolStripMenuItem.Name = "skinsToolStripMenuItem";
@@ -251,6 +271,8 @@
             this.skinsToolStripMenuItem.Text = "Skins";
             this.skinsToolStripMenuItem.Click += new System.EventHandler(this.skinsToolStripMenuItem_Click);
             // 
+=======
+>>>>>>> master
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +287,13 @@
             this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStripGame;
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.Margin = new System.Windows.Forms.Padding(2);
+>>>>>>> master
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Finder Quest Game";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);

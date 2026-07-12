@@ -16,14 +16,9 @@ namespace FinderQuest
         private TalkArea currTalkArea;
         private Person activePerson;
 
-        private WindowsMediaPlayer player1 = new WindowsMediaPlayer();
-        private WindowsMediaPlayer player2 = new WindowsMediaPlayer();
-        private WindowsMediaPlayer activePlayer;
-        private WindowsMediaPlayer fadingPlayer;
-        private Timer fadeTimer;
-        private int fade = 4;
-
-        private WindowsMediaPlayer SFX = new WindowsMediaPlayer();
+        private Timer uiAnimationTimer;
+        private Label floatingTimeLabel;
+        private int floatingLabelFadeCounter = 0;
 
         private List<Question> area1Questions;
         private List<Question> area2Questions;
@@ -89,49 +84,58 @@ namespace FinderQuest
 
             LoadAllBackupQuestions();
 
-            player1.settings.volume = 0;
-            player2.settings.volume = 0;
-            player1.settings.setMode("loop", true);
-            player2.settings.setMode("loop", true);
+            uiAnimationTimer = new Timer();
+            uiAnimationTimer.Interval = 30;
+            uiAnimationTimer.Tick += UiAnimationTimer_Tick; // adds the method to the property
 
-            fadeTimer = new Timer();
-            fadeTimer.Interval = 30;
-            fadeTimer.Tick += FadeTimer_Tick; //adds the method to fadeTimer.Tick
-
-            activePlayer = player1; //media player
             bossQuestionNum = 0;
         }
 
-        private void FadeTimer_Tick(object sender, EventArgs e)
+        public void RegisterFloatingLabel(Label label)
         {
-            bool completeFadeIn = false;
-            bool completeFadeOut = false;
-
-            if(activePlayer.settings.volume < 100)
+            if (this.floatingTimeLabel != null)
             {
-                activePlayer.settings.volume = Math.Min(100, activePlayer.settings.volume + Fade);
-            }
-            else
-            {
-                completeFadeIn = true;
-            }
-
-            if(fadingPlayer != null && fadingPlayer.settings.volume > 0)
-            {
-                fadingPlayer.settings.volume = Math.Max(0, fadingPlayer.settings.volume - Fade);
-            }
-            else
-            {
-                if(fadingPlayer == null)
+                if (this.floatingTimeLabel.Parent != null)
                 {
-                    fadingPlayer.controls.stop();
-                    completeFadeOut = true;
+                    this.floatingTimeLabel.Parent.Controls.Remove(this.floatingTimeLabel);
+                }
+                this.floatingTimeLabel.Dispose();
+            }
+
+            this.floatingTimeLabel = label;
+            this.floatingLabelFadeCounter = 0;
+
+            if (!uiAnimationTimer.Enabled)
+            {
+                uiAnimationTimer.Start();
+            }
+        }
+
+        private void UiAnimationTimer_Tick(object sender, EventArgs e)
+        {
+            if (floatingTimeLabel != null)
+            {
+                floatingLabelFadeCounter++;
+                floatingTimeLabel.Top -= 1;
+
+                floatingTimeLabel.Invalidate();
+                floatingTimeLabel.Update();
+
+                if (floatingLabelFadeCounter >= 15)
+                {
+                    if (floatingTimeLabel.Parent != null)
+                    {
+                        floatingTimeLabel.Parent.Controls.Remove(floatingTimeLabel);
+                    }
+
+                    floatingTimeLabel.Dispose();
+                    floatingTimeLabel = null;
                 }
             }
 
-            if(completeFadeIn && completeFadeOut)
+            if (floatingTimeLabel == null)
             {
-                fadeTimer.Stop();
+                uiAnimationTimer.Stop();
             }
         }
         #endregion
@@ -149,7 +153,6 @@ namespace FinderQuest
         public List<Question> Area7Questions { get => area7Questions; private set => area7Questions = value; }
         public List<Question> Area8Questions { get => area8Questions; private set => area8Questions = value; }
         public int BossQuestionNum { get => bossQuestionNum; set => bossQuestionNum = value; }
-        public int Fade { get => fade; set => fade = value; }
 
         #endregion
 
@@ -161,7 +164,7 @@ namespace FinderQuest
 
         public Question GetQuestion(int areaNum, int questionIndex)
         {
-            int poolIndex = areaNum - 1; // Since areaNum starts at 1
+            int poolIndex = areaNum - 1;
             if (poolIndex >= 0 && poolIndex < questionPools.Length)
             {
                 var pool = questionPools[poolIndex];
@@ -279,109 +282,6 @@ namespace FinderQuest
                 }
             }
         }
-
-        public void PlaySound(string soundName) //sound player
-        {
-            string fileName = "";
-            if(soundName == "main-menu")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicMainMenu.mp3";
-            }
-            else if(soundName == "area1")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea1.mp3";;
-            }
-            else if (soundName == "area2")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea2.mp3";
-            }
-            else if (soundName == "area3")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea3.mp3";
-            }
-            else if (soundName == "area4")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea4.mp3";
-            }
-            else if (soundName == "area5")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea5.mp3";
-            }
-            else if (soundName == "area6")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea6.mp3";            
-            }
-            else if (soundName == "area7")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea7.mp3";
-            }
-            else if (soundName == "area8-Ambient")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Sanctum.mp3";
-            }
-            else if (soundName == "area8-Battle")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicArea8Battle.mp3";
-            }
-            else if (soundName == "lose")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicEndingLose.mp3";
-            }
-            else if (soundName == "win")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\MusicEndingWin.mp3";
-            }
-            else if (soundName == "opening")
-            {
-                fileName = Application.StartupPath + "\\Sounds\\Opening.mp3";
-            }
-
-            if (string.IsNullOrEmpty(fileName))
-            {
-                return;
-            }
-
-            if(activePlayer.URL == fileName)
-            {
-                return;
-            }
-
-            fadingPlayer = activePlayer;
-
-            activePlayer = (activePlayer == player1) ? player2 : player1;
-
-            activePlayer.URL = fileName;
-            activePlayer.settings.volume = 0;
-            activePlayer.controls.play();
-
-            fadeTimer.Start();
-        }
-
-        public void PlaySFX(string soundName)
-        {
-            string url = Application.StartupPath + "\\Sounds\\SoundEffects\\" + soundName + ".mp3";
-
-            SFX.URL = url;
-            SFX.settings.volume = 90;
-
-            SFX.controls.play();
-        }
-
-        public void SetSFXVolume(int volume)
-        {
-            this.SFX.settings.volume = volume;
-        }
-
-        public void ResumeMusic()
-        {
-            this.activePlayer.controls.play();
-        }
-
-        public void PauseMusic()
-        {
-            this.activePlayer.controls.pause();
-        }
-
         #endregion
     }
 }

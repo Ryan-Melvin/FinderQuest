@@ -16,28 +16,48 @@ namespace FinderQuest
         // Reference to our main game window canvas frame interface
         private FormMain mainForm;
 
+        private void SpawnFloatingTimeIndicator(string text, Color displayColor)
+        {
+            Label indicator = new Label();
+            indicator.Text = text;
+            indicator.Font = new Font("Plus Jakarta Sans", 14, FontStyle.Bold);
+            indicator.ForeColor = displayColor;
+            indicator.BackColor = Color.FromArgb(80, 0, 0, 0);
+            indicator.AutoSize = true;
+
+            indicator.Location = new Point(
+                labelTimerQuestion.Left + (labelTimerQuestion.Width / 2) - 25,
+                labelTimerQuestion.Top - 30
+            );
+
+            this.Controls.Add(indicator);
+            indicator.BringToFront();
+
+            mainForm.game.RegisterFloatingLabel(indicator);
+        }
         public FormQuestion()
         {
             InitializeComponent();
             this.KeyPreview = true;
         }
-
         private void FormQuestion_Load(object sender, EventArgs e)
         {
+            labelTimerQuestion.BackColor = Color.FromArgb(120, 0, 0, 0);
+
             mainForm = (FormMain)this.Owner;
-            textBoxAnswer.Text = "";
             GenerateQuestion();
-            if(mainForm.game.ActivePerson is Boss)
+            if (mainForm.game.ActivePerson is Boss)
             {
-                mainForm.game.PlaySound("area8-Battle");
+                mainForm.sound.PlaySound("area8-Battle");
             }
+            labelTimerQuestion.Text = mainForm.time.DisplayData();
+            timerDisplayChange.Start();
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            // Evaluate the input string against the underlying data property
             int score = 0;
-            if(mainForm.game.ActivePerson is Boss boss)
+            if (mainForm.game.ActivePerson is Boss boss)
             {
                 score = boss.CheckAnswer(mainForm.game.BossQuestionNum, textBoxAnswer.Text);
             }
@@ -45,31 +65,40 @@ namespace FinderQuest
             {
                 score = mainForm.game.ActivePerson.CheckAnswer(textBoxAnswer.Text);
             }
-            
 
-            if (score != 0)
+            if (score > 0)
             {
+<<<<<<< Updated upstream
+                mainForm.time.AddWithSecond(30);
+                SpawnFloatingTimeIndicator("+30s", Color.LimeGreen);
+=======
                 MessageBox.Show("Your answer is correct! you get " + score + " points.");
 
+>>>>>>> Stashed changes
                 mainForm.player.AddScore(score);
-                mainForm.labelPlayer.Text = mainForm.player.DisplayData();
-                mainForm.time.AddWithSecond(30);
-                if(!(mainForm.game.ActivePerson is Boss))
+                MessageBox.Show("Your answer is correct! You get " + score + " points.");
+                if (!(mainForm.game.ActivePerson is Boss))
                 {
-                    mainForm.PlayDeathSFX();
+                    mainForm.sound.PlaySFX(mainForm.game.ActivePerson.DeathSound);
                 }
-                else if(mainForm.game.BossQuestionNum == 6)
+                else if (mainForm.game.BossQuestionNum == 6)
                 {
-                    mainForm.PlayDeathSFX();
+                    mainForm.sound.PlaySFX(mainForm.game.ActivePerson.DeathSound);
                 }
             }
             else
             {
+                if (mainForm.game.ActivePerson is Boss)
+                {
+                    mainForm.time.AddWithSecond(-30);
+                    SpawnFloatingTimeIndicator("-30s", Color.Red);
+                }
                 MessageBox.Show("Sorry, your answer is incorrect! ");
             }
-            if(mainForm.game.ActivePerson is Boss x && mainForm.game.BossQuestionNum < x.Questions.Count - 1)
+
+            if (mainForm.game.ActivePerson is Boss x && mainForm.game.BossQuestionNum < x.Questions.Count - 1)
             {
-                if(score != 0)
+                if (score > 0)
                 {
                     mainForm.game.BossQuestionNum++;
                 }
@@ -80,7 +109,7 @@ namespace FinderQuest
             {
                 textBoxAnswer.Text = "";
                 this.Close();
-                mainForm.ExitTalkArea();
+                mainForm.talkArea.ExitTalkArea(mainForm);
             }     
         }
 
@@ -116,7 +145,7 @@ namespace FinderQuest
 
         private void FormQuestion_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 buttonSubmit_Click(sender, e);
             }
@@ -124,10 +153,15 @@ namespace FinderQuest
 
         private void FormQuestion_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(mainForm.game.ActivePerson is Boss)
+            if (mainForm.game.ActivePerson is Boss)
             {
-                mainForm.game.PlaySound("area8-Ambient");
+                mainForm.sound.PlaySound("area8-Ambient");
             }
+        }
+
+        private void timerDisplayChange_Tick(object sender, EventArgs e)
+        {
+            labelTimerQuestion.Text = mainForm.time.DisplayData();
         }
     }
 }
