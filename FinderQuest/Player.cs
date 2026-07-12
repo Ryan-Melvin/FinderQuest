@@ -38,7 +38,6 @@ namespace FinderQuest
             this.SetState("idle-right");
             this.IsVisible = true;
             this.Size = size;
-
         }
         #endregion
 
@@ -81,6 +80,7 @@ namespace FinderQuest
         public Size Size { get => size; set => size = value; }
         public bool IsVisible { get => isVisible; set => isVisible = value; }
         public string Skin { get => skin; private set => skin = value; }
+        public Rectangle PlayerHitbox { get => new Rectangle(this.X, this.Y, this.Size.Width - 60, this.Size.Height - 60);}
         #endregion
 
         #region methods
@@ -95,10 +95,8 @@ namespace FinderQuest
         }
 
         public void MoveRight(int distance)
-        {
-            
-            this.X += distance;
-            
+        {   
+            this.X += distance;         
         }
 
         public void MoveLeft(int distance)

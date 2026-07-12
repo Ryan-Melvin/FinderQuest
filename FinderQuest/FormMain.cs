@@ -541,7 +541,10 @@ namespace FinderQuest
                 {
                     panelTalkArea.Invalidate();
                 }
-                this.Invalidate();
+                else
+                {
+                    this.Invalidate();
+                }
 
                 if (game.CurrWalkArea.AreaNum == numOfWalkArea && game.CurrWalkArea.FinishedAllQuestions() && !enterTalkArea)
                 {

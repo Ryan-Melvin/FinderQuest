@@ -25,6 +25,7 @@ namespace FinderQuest
         private Size size;
         private string greetingSound;
         private string deathSound;
+        private Rectangle npcHitbox;
         #endregion
 
         #region constructors
@@ -41,6 +42,7 @@ namespace FinderQuest
             this.Question = question;
             this.GreetingSound = greeting;
             this.DeathSound = death;
+            this.NpcHitbox = new Rectangle(this.X, this.Y, this.Size.Width - 60, this.Size.Height - 60);
         }
 
         public Person(int personNum, string name, Image image, Size size, string dialog, int x, int y, string greeting, string death)
@@ -90,7 +92,6 @@ namespace FinderQuest
                 }
             }
         }
-        //public PictureBox Sprite { get => Sprite1; set => Sprite1 = value; }
         public string Dialog { get => dialog; set => dialog = value; }
         public Question Question { get => question; set => question = value; }
         public bool Solved { get => solved; protected set => solved = value; }
@@ -101,6 +102,7 @@ namespace FinderQuest
         public Size Size { get => size; set => size = value; }
         public string GreetingSound { get => greetingSound; set => greetingSound = value; }
         public string DeathSound { get => deathSound; set => deathSound = value; }
+        public Rectangle NpcHitbox { get => npcHitbox; private set => npcHitbox = value; }
         #endregion
 
         #region methods
@@ -108,14 +110,6 @@ namespace FinderQuest
         {
             return "Hello.. I'm " + this.Name + ".\n" + this.Dialog + "Press 'y' to continue";
         }
-
-        //public void DisplayPicture(Control container)
-        //{
-        //    this.Sprite.Parent = container;
-        //    this.Sprite.SizeMode = PictureBoxSizeMode.StretchImage;
-        //    this.Sprite.BackColor = Color.Transparent;
-        //    this.Sprite.BringToFront();
-        //}
 
         public void DisplayDialog(Control container)
         {
