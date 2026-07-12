@@ -57,6 +57,7 @@
       <DependentUpon>FormSkins.cs</DependentUpon>
     </Compile>
     <Compile Include="CutsceneManager.cs" />
+>>>>>>> master
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
