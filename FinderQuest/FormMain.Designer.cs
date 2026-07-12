@@ -184,7 +184,7 @@
             this.panelCredits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelCredits.Controls.Add(this.buttonExitCredit);
             this.panelCredits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panelCredits.Location = new System.Drawing.Point(0, 32);
+            this.panelCredits.Location = new System.Drawing.Point(3, 32);
             this.panelCredits.Name = "panelCredits";
             this.panelCredits.Size = new System.Drawing.Size(800, 414);
             this.panelCredits.TabIndex = 6;
@@ -286,8 +286,8 @@
             this.BackgroundImage = global::FinderQuest.Properties.Resources.Finder_Quest;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 449);
-            this.Controls.Add(this.panelCredits);
             this.Controls.Add(this.panelTalkArea);
+            this.Controls.Add(this.panelCredits);
             this.Controls.Add(this.panelPaused);
             this.Controls.Add(this.panelGame);
             this.Controls.Add(this.menuStripGame);

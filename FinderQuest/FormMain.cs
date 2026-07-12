@@ -43,6 +43,7 @@ namespace FinderQuest
         private bool allowReturnMainMenu = false;
         private bool inCutscene = false;
         private bool allowSkipCutscene = false;
+        private bool inCredits = false;
         public CancellationTokenSource skip; //for signaling to the cutscene method to skip the cutscene
 
         #endregion
@@ -331,6 +332,7 @@ namespace FinderQuest
             {
                 timerGame.Start();
                 skip = new CancellationTokenSource();
+                creditsToolStripMenuItem.Enabled = false;
                 await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                 StartGame();
             }
@@ -371,12 +373,16 @@ namespace FinderQuest
             panelCredits.Visible = true;
             panelCredits.BringToFront();
             startToolStripMenuItem.Enabled = false;
+            inCredits = true; //locks enter to start
         }
 
         private void buttonExitCredit_Click(object sender, EventArgs e)
         {
             panelCredits.Visible = false;
             startToolStripMenuItem.Enabled = true;
+            panelCredits.SendToBack();
+            inCredits = false; //allows enter to start
+            this.ActiveControl = null; //allows the enter button to work again
         }
         #endregion
 
@@ -425,7 +431,7 @@ namespace FinderQuest
                         AnimatePlayer();
                     }
                 }
-                else if (e.KeyCode == Keys.Enter) //starts game
+                else if (e.KeyCode == Keys.Enter && !inCredits) //starts game
                 {
                     if (!gameStarted && !allowReturnMainMenu)
                     {
@@ -433,6 +439,7 @@ namespace FinderQuest
                         {
                             timerGame.Start();
                             skip = new CancellationTokenSource();
+                            creditsToolStripMenuItem.Enabled = false;
                             await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem,pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                             StartGame();
                         }
