@@ -56,6 +56,9 @@ namespace FinderQuest
         private void FormSkins_Load(object sender, EventArgs e)
         {
             frmMain = (FormMain)this.Owner;
+            EnableDoubleBuffering(panelShowSkin);
+            EnableDoubleBuffering(panelSkin);
+
             listSkins.AddRange(new Skin[]
             {
                 buthcer, huntress, rogue, seer, viking, ironClad, alchemist, forestHunter, valkyrie, fortuneTeller, pyromancer, tribeWarrior, wanderer, fallenAngel, silentSking, darkLord
@@ -135,8 +138,10 @@ namespace FinderQuest
                 if (skinClickArea.Contains(mousePosition))
                 {
                     selectedSkin = skins;
+                    AnimateSkin();
                     panelShowSkin.Invalidate();
                     panelSkin.Invalidate();
+
                     if (equippedSkin == skins)
                     {
                         buttonEquip.Enabled = false;
@@ -170,12 +175,13 @@ namespace FinderQuest
         {
             Graphics g = e.Graphics;
             int x = 20;
-            int y = 20;
+            int y = 15;
             int skinSize = 250;
 
             Rectangle targetRect = new Rectangle(x, y, skinSize, skinSize);
             if (selectedSkin != null)
             {
+                ImageAnimator.UpdateFrames(selectedSkin.Sprite);
                 g.DrawImage(selectedSkin.Sprite, targetRect);
                 labelSkinName.Text = selectedSkin.DisplayName;
                 labelSkinPrice.Text = selectedSkin.Price.ToString();
@@ -200,6 +206,10 @@ namespace FinderQuest
                     panelShowSkin.BackColor = Color.Gold;
                 }
             }
+            if (selectedSkin != null)
+            {
+                ImageAnimator.UpdateFrames(selectedSkin.Sprite);
+            }
         }
 
         private void buttonBuy_Click(object sender, EventArgs e)
@@ -221,6 +231,26 @@ namespace FinderQuest
             equippedSkin = selectedSkin;
             labelEquippedSkin.Text = equippedSkin.DisplayName;
             panelSkin.Invalidate();
+        }
+
+        private void AnimateSkin()
+        {
+            if (ImageAnimator.CanAnimate(selectedSkin.Sprite))
+            {
+                ImageAnimator.Animate(selectedSkin.Sprite, (s, ev) =>
+                {
+                    panelShowSkin.Invalidate();
+                });
+            }
+        }
+
+        private void EnableDoubleBuffering(Panel panel)
+        {
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, panel, new object[] { true });
         }
     }
 }
