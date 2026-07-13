@@ -76,6 +76,10 @@ namespace FinderQuest
             panelSkin.Height = totalGridHeight;
             vScrollBar1.Maximum = panelSkin.Height - this.ClientSize.Height;
 
+            labelEquipped.Visible = false; //for now since there is no default skin yet
+
+            this.MouseWheel += new MouseEventHandler(FormSkins_MouseWheel); //for scrolling
+
         }
 
         private void panelSkin_Paint(object sender, PaintEventArgs e)
@@ -125,6 +129,11 @@ namespace FinderQuest
                 if (equippedSkin == skins)
                 {
                     g.DrawRectangle(Pens.Red, x - 10, y - 10, border.Width + 20, border.Height + 20);
+                    labelEquipped.Location = new Point(x + (skinSize / 2) - (labelEquipped.Width / 2), y);
+                    if (!labelEquipped.Visible)
+                    {
+                        labelEquipped.Visible = true;
+                    }
                 }
                 count += 1;
             }
@@ -257,6 +266,37 @@ namespace FinderQuest
                 System.Reflection.BindingFlags.Instance |
                 System.Reflection.BindingFlags.NonPublic,
                 null, panel, new object[] { true });
+        }
+
+        private void FormSkins_MouseWheel(object sender, MouseEventArgs e)
+        {
+            int scrollDownAmount = 8;
+            int scrollUpAmount = 16;
+
+            if(e.Delta > 0) //scrolls up
+            {
+                if (vScrollBar1.Value - scrollUpAmount >= 0)
+                {
+                    vScrollBar1.Value -= scrollUpAmount;
+                }
+                else
+                {
+                    vScrollBar1.Value = 0;
+                }
+            }
+            else //scrolls down
+            {
+                if(vScrollBar1.Value + scrollDownAmount <= vScrollBar1.Maximum)
+                {
+                    vScrollBar1.Value += scrollDownAmount;
+                }
+                else
+                {
+                    vScrollBar1.Value = vScrollBar1.Maximum;
+                }
+            }
+
+            vScrollBar1_Scroll(vScrollBar1, new ScrollEventArgs(ScrollEventType.ThumbPosition, vScrollBar1.Value)); //updates panel position
         }
     }
 }

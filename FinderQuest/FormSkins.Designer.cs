@@ -40,6 +40,8 @@
             this.buttonBuy = new System.Windows.Forms.Button();
             this.buttonEquip = new System.Windows.Forms.Button();
             this.labelEquippedSkin = new System.Windows.Forms.Label();
+            this.labelEquipped = new System.Windows.Forms.Label();
+            this.panelSkin.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +59,7 @@
             this.panelSkin.AutoScroll = true;
             this.panelSkin.AutoScrollMinSize = new System.Drawing.Size(5, 5);
             this.panelSkin.BackColor = System.Drawing.Color.White;
+            this.panelSkin.Controls.Add(this.labelEquipped);
             this.panelSkin.Location = new System.Drawing.Point(-2, 0);
             this.panelSkin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelSkin.Name = "panelSkin";
@@ -184,6 +187,15 @@
             this.labelEquippedSkin.TabIndex = 7;
             this.labelEquippedSkin.Text = "Skin";
             // 
+            // labelEquipped
+            // 
+            this.labelEquipped.AutoSize = true;
+            this.labelEquipped.Location = new System.Drawing.Point(369, 123);
+            this.labelEquipped.Name = "labelEquipped";
+            this.labelEquipped.Size = new System.Drawing.Size(77, 20);
+            this.labelEquipped.TabIndex = 0;
+            this.labelEquipped.Text = "Equipped";
+            // 
             // FormSkins
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -202,6 +214,8 @@
             this.Name = "FormSkins";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FormSkins_Load);
+            this.panelSkin.ResumeLayout(false);
+            this.panelSkin.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -223,5 +237,6 @@
         private System.Windows.Forms.Button buttonBuy;
         private System.Windows.Forms.Button buttonEquip;
         private System.Windows.Forms.Label labelEquippedSkin;
+        private System.Windows.Forms.Label labelEquipped;
     }
 }
