@@ -63,7 +63,7 @@ namespace FinderQuest
 
             listSkins.AddRange(new Skin[]
             {
-                buthcer, huntress, rogue, seer, viking, ironClad, alchemist, forestHunter, forestRanger, valkyrie, fortuneTeller, pyromancer, tribeWarrior, wanderer, fallenAngel, silentSking, darkLord
+                buthcer, huntress, rogue, forestRanger, seer, viking, ironClad, alchemist, forestHunter, valkyrie, fortuneTeller, pyromancer, tribeWarrior, wanderer, fallenAngel, silentSking, darkLord
             });
             vScrollBar1.Maximum = panelSkin.Size.Height - 460;
             labelCurrency.Text = currency.ToString(); //currency diganti poin/coin
@@ -77,14 +77,29 @@ namespace FinderQuest
             vScrollBar1.Maximum = panelSkin.Height - this.ClientSize.Height;
 
             labelEquipped.Visible = false; //for now since there is no default skin yet
+            labelRarity.Visible = false;
 
             this.MouseWheel += new MouseEventHandler(FormSkins_MouseWheel); //for scrolling
 
+            pictureBoxPrice.Visible = false;
+            buttonEquip.Visible = false;
+            buttonBuy.Visible = false;
+            vScrollBar1.Visible = false;
         }
 
         private void panelSkin_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+
+            SolidBrush woodBrush = new SolidBrush(Color.FromArgb(120, 68, 33));
+
+            Pen commonPen = new Pen(Color.FromArgb(156, 142, 125));
+            Pen uncommonPen = new Pen(Color.FromArgb(75, 111, 68));
+            Pen rarePen = new Pen(Color.FromArgb(59, 114, 159));
+            Pen epicPen = new Pen(Color.FromArgb(130, 87, 138));
+            Pen legendaryPen = new Pen(Color.FromArgb(230, 168, 23));
+            Pen selectedPen = new Pen(Color.FromArgb(255, 243, 224));
+            Pen eqippedPen = new Pen(Color.FromArgb(46, 204, 113));
 
             int count = 0;
             foreach (Skin skins in listSkins)
@@ -96,39 +111,42 @@ namespace FinderQuest
                 int y = startY + (row * spacingY);
 
                 Rectangle border = new Rectangle(x, y, skinSize, skinSize);
+
+                g.FillRectangle(woodBrush, border);
+
                 g.DrawImage(skins.Sprite, border);
 
                 for (int box = 0; box < listSkins.Count; box++)
                 {
                     if (skins.Rarity == "common")
                     {
-                        g.DrawRectangle(Pens.Gray, x - 5, y - 5, border.Width + 10, border.Height + 10);
+                        g.DrawRectangle(commonPen, x - 5, y - 5, border.Width + 10, border.Height + 10);
                     }
                     else if (skins.Rarity == "uncommon")
                     {
-                        g.DrawRectangle(Pens.Green, x - 5, y - 5, border.Width + 10, border.Height + 10);
+                        g.DrawRectangle(uncommonPen, x - 5, y - 5, border.Width + 10, border.Height + 10);
                     }
                     else if (skins.Rarity == "rare")
                     {
-                        g.DrawRectangle(Pens.Blue, x - 5, y - 5, border.Width + 10, border.Height + 10);
+                        g.DrawRectangle(rarePen, x - 5, y - 5, border.Width + 10, border.Height + 10);
                     }
                     else if (skins.Rarity == "epic")
                     {
-                        g.DrawRectangle(Pens.Purple, x - 5, y - 5, border.Width + 10, border.Height + 10);
+                        g.DrawRectangle(epicPen, x - 5, y - 5, border.Width + 10, border.Height + 10);
                     }
                     else if (skins.Rarity == "legendary")
                     {
-                        g.DrawRectangle(Pens.Gold, x - 5, y - 5, border.Width + 10, border.Height + 10);
+                        g.DrawRectangle(legendaryPen, x - 5, y - 5, border.Width + 10, border.Height + 10);
                     }
                     panelShowSkin.Invalidate();
                 }
                 if (selectedSkin == skins)
                 {
-                    g.DrawRectangle(Pens.Lime, x - 8, y - 8, border.Width + 16, border.Height + 16);
+                    g.DrawRectangle(selectedPen, x - 8, y - 8, border.Width + 16, border.Height + 16);
                 }
                 if (equippedSkin == skins)
                 {
-                    g.DrawRectangle(Pens.Red, x - 10, y - 10, border.Width + 20, border.Height + 20);
+                    g.DrawRectangle(eqippedPen, x - 10, y - 10, border.Width + 20, border.Height + 20);
                     labelEquipped.Location = new Point(x + (skinSize / 2) - (labelEquipped.Width / 2), y);
                     if (!labelEquipped.Visible)
                     {
@@ -161,6 +179,13 @@ namespace FinderQuest
                     panelShowSkin.Invalidate();
                     panelSkin.Invalidate();
 
+                    labelRarity.Text = skins.Rarity.Substring(0, 1).ToUpper() + skins.Rarity.Substring(1);
+                    labelRarity.Location = new Point(panel1.Location.X + panel1.Width - labelRarity.Width, labelRarity.Location.Y);
+                    if (!labelRarity.Visible)
+                    {
+                        labelRarity.Visible = true;
+                    }
+
                     if (equippedSkin == skins)
                     {
                         buttonEquip.Enabled = false;
@@ -173,14 +198,16 @@ namespace FinderQuest
                     if (selectedSkin.IsUnlocked == false)
                     {
                         buttonBuy.Enabled = true;
-                        buttonEquip.Enabled = false;
+                        buttonBuy.Visible = true;
+                        buttonEquip.Visible = false;
                         labelPrice.Visible = true;
                         labelSkinPrice.Visible = true;
                     }
                     else if (selectedSkin.IsUnlocked == true)
                     {
-                        buttonBuy.Enabled = false;
+                        buttonBuy.Visible = false;
                         buttonEquip.Enabled = true;
+                        buttonEquip.Visible = true;
                         labelPrice.Visible = false;
                         labelSkinPrice.Visible = false;
                     }
@@ -204,26 +231,37 @@ namespace FinderQuest
                 g.DrawImage(selectedSkin.Sprite, targetRect);
                 labelSkinName.Text = selectedSkin.DisplayName;
                 labelSkinPrice.Text = selectedSkin.Price.ToString();
+
+                pictureBoxPrice.Parent = panel1;
+                pictureBoxPrice.Size = new Size(labelSkinPrice.Height, labelSkinPrice.Height);
+                pictureBoxPrice.Location = new Point(labelSkinPrice.Location.X + labelSkinPrice.Width + 10, labelSkinPrice.Location.Y);
+
+                if (!pictureBoxPrice.Visible)
+                {
+                    pictureBoxPrice.Visible = true;
+                }
+
                 if (selectedSkin.Rarity == "common")
                 {
-                    panelShowSkin.BackColor = Color.Gray;
+                    panelShowSkin.BackColor = Color.FromArgb(156, 142, 125);
                 }
                 else if (selectedSkin.Rarity == "uncommon")
                 {
-                    panelShowSkin.BackColor = Color.Green;
+                    panelShowSkin.BackColor = Color.FromArgb(75, 111, 68);
                 }
                 else if (selectedSkin.Rarity == "rare")
                 {
-                    panelShowSkin.BackColor = Color.Blue;
+                    panelShowSkin.BackColor = Color.FromArgb(59, 114, 159);
                 }
                 else if (selectedSkin.Rarity == "epic")
                 {
-                    panelShowSkin.BackColor = Color.Purple;
+                    panelShowSkin.BackColor = Color.FromArgb(130, 87, 138);
                 }
                 else if (selectedSkin.Rarity == "legendary")
                 {
-                    panelShowSkin.BackColor = Color.Gold;
+                    panelShowSkin.BackColor = Color.FromArgb(230, 168, 23);
                 }
+                labelRarity.ForeColor = panelShowSkin.BackColor;
             }
         }
 
@@ -234,6 +272,8 @@ namespace FinderQuest
                 buttonEquip.Enabled = true;
                 labelCurrency.Text = currency.ToString();
                 MessageBox.Show("Successfully bought " + selectedSkin.DisplayName + " for " + selectedSkin.Price);
+                buttonBuy.Visible = false;
+                buttonEquip.Visible = true;
             }
             else
             {
@@ -244,7 +284,7 @@ namespace FinderQuest
         private void buttonEquip_Click(object sender, EventArgs e)
         {
             equippedSkin = selectedSkin;
-            labelEquippedSkin.Text = equippedSkin.DisplayName;
+            //labelEquippedSkin.Text = equippedSkin.DisplayName;
             panelSkin.Invalidate();
         }
 
