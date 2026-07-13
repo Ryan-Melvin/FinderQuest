@@ -32,6 +32,7 @@ namespace FinderQuest
         Skin darkLord = new Skin("DarkLord", "Dark Lord", 2500, "legendary");
         Skin fallenAngel = new Skin("FallenAngel", "Fallen Angel", 1750, "epic");
         Skin forestHunter = new Skin("ForestHunter", "Forest Hunter", 750, "uncommon");
+        Skin forestRanger = new Skin("ForestRanger", "Forest Ranger", 500, "common");
         Skin fortuneTeller = new Skin("FortuneTeller", "Fortune Teller", 1250, "rare");
         Skin huntress = new Skin("Huntress", "Huntress", 500, "common");
         Skin ironClad = new Skin("IronClad", "Iron Clad", 750, "uncommon");
@@ -52,6 +53,7 @@ namespace FinderQuest
         int startY = 30;
 
         int currency = 5000; //temporary
+        int skinSize = 130;
 
         private void FormSkins_Load(object sender, EventArgs e)
         {
@@ -61,17 +63,25 @@ namespace FinderQuest
 
             listSkins.AddRange(new Skin[]
             {
-                buthcer, huntress, rogue, seer, viking, ironClad, alchemist, forestHunter, valkyrie, fortuneTeller, pyromancer, tribeWarrior, wanderer, fallenAngel, silentSking, darkLord
+                buthcer, huntress, rogue, seer, viking, ironClad, alchemist, forestHunter, forestRanger, valkyrie, fortuneTeller, pyromancer, tribeWarrior, wanderer, fallenAngel, silentSking, darkLord
             });
             vScrollBar1.Maximum = panelSkin.Size.Height - 460;
             labelCurrency.Text = currency.ToString(); //currency diganti poin/coin
+
+            int totalGridWidth = ((columns - 1) * spacingX) + skinSize + 2 * startX;
+            vScrollBar1.Left = totalGridWidth;
+            panelSkin.Width = totalGridWidth + vScrollBar1.Width;
+
+            int totalGridHeight = startY + ((listSkins.Count / 3) * spacingY) + skinSize + startY;
+            panelSkin.Height = totalGridHeight;
+            vScrollBar1.Maximum = panelSkin.Height - this.ClientSize.Height;
+
         }
 
         private void panelSkin_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
-            int skinSize = 130;
             int count = 0;
             foreach (Skin skins in listSkins)
             {
@@ -176,7 +186,7 @@ namespace FinderQuest
             Graphics g = e.Graphics;
             int x = 20;
             int y = 15;
-            int skinSize = 250;
+            int skinSize = panelShowSkin.Width;
 
             Rectangle targetRect = new Rectangle(x, y, skinSize, skinSize);
             if (selectedSkin != null)
@@ -205,10 +215,6 @@ namespace FinderQuest
                 {
                     panelShowSkin.BackColor = Color.Gold;
                 }
-            }
-            if (selectedSkin != null)
-            {
-                ImageAnimator.UpdateFrames(selectedSkin.Sprite);
             }
         }
 
