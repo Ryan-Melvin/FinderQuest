@@ -233,6 +233,11 @@ namespace FinderQuest
             {
                 time.AddWithSecond(-1);
                 timePlayed.AddWithSecond(1); //updates playtime every second
+            } 
+            else if(time.Minute != 0 && time.Hour == 0)
+            {
+                time.AddWithSecond(-1);
+                timePlayed.AddWithSecond(1);
             }
 
             labelTimer.Text = time.DisplayData();
@@ -308,7 +313,7 @@ namespace FinderQuest
             gameStarted = true;
             pauseToolStripMenuItem.Text = "Pause Game";
 
-            time.AddWithSecond(10);
+            time.AddWithSecond(60);
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
 
