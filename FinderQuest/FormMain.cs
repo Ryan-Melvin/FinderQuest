@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,9 +44,10 @@ namespace FinderQuest
         private bool allowReturnMainMenu = false;
         private bool inCutscene = false;
         private bool allowSkipCutscene = false;
-        private bool inCredits = false;
+        private bool blockEnterToStart = false;
         public CancellationTokenSource skip; //for signaling to the cutscene method to skip the cutscene
 
+        private int helpPage = 1;
         #endregion
 
         #region constructor
@@ -177,6 +179,7 @@ namespace FinderQuest
             labelPaused.Location = new Point(this.ClientSize.Width / 2 - (labelPaused.Size.Width / 2), this.ClientSize.Height / 2 - (labelPaused.Size.Height));
 
             panelCredits.Visible = false;
+            panelHelp.Visible = false;
             #endregion
 
             // Lock the startup button 
@@ -211,11 +214,6 @@ namespace FinderQuest
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Press arrow key to move the player. \n\nPress Enter to talk with the person. \n\nPress y key to answer the question. \n\nPress Esc to exit the talk area.", "How to Play");
         }
 
         private void skinsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -274,6 +272,8 @@ namespace FinderQuest
             panelGame.Visible = false;
             startToolStripMenuItem.Enabled = true;
             creditsToolStripMenuItem.Enabled = true;
+            skinsToolStripMenuItem.Enabled = true;
+            helpToolStripMenuItem.Enabled = true;
             gameStarted = false;
             enterTalkArea = false;
             inCutscene = false;
@@ -309,11 +309,13 @@ namespace FinderQuest
 
             pauseToolStripMenuItem.Enabled = true;
             creditsToolStripMenuItem.Enabled = false;
+            helpToolStripMenuItem.Enabled = false;
+            skinsToolStripMenuItem .Enabled = false;
             startToolStripMenuItem.Text = "Stop Game";
             gameStarted = true;
             pauseToolStripMenuItem.Text = "Pause Game";
 
-            time.AddWithSecond(60);
+            time.AddWithSecond(10);
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
 
@@ -338,6 +340,8 @@ namespace FinderQuest
                 timerGame.Start();
                 skip = new CancellationTokenSource();
                 creditsToolStripMenuItem.Enabled = false;
+                helpToolStripMenuItem.Enabled = false;
+                skinsToolStripMenuItem.Enabled = false;
                 await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                 StartGame();
             }
@@ -371,23 +375,6 @@ namespace FinderQuest
                 labelPaused.Visible = true;
                 labelPaused.BringToFront();
             }
-        }
-
-        private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            panelCredits.Visible = true;
-            panelCredits.BringToFront();
-            startToolStripMenuItem.Enabled = false;
-            inCredits = true; //locks enter to start
-        }
-
-        private void buttonExitCredit_Click(object sender, EventArgs e)
-        {
-            panelCredits.Visible = false;
-            startToolStripMenuItem.Enabled = true;
-            panelCredits.SendToBack();
-            inCredits = false; //allows enter to start
-            this.ActiveControl = null; //allows the enter button to work again
         }
         #endregion
 
@@ -436,7 +423,7 @@ namespace FinderQuest
                         AnimatePlayer();
                     }
                 }
-                else if (e.KeyCode == Keys.Enter && !inCredits) //starts game
+                else if (e.KeyCode == Keys.Enter && !blockEnterToStart) //starts game
                 {
                     if (!gameStarted && !allowReturnMainMenu)
                     {
@@ -445,6 +432,8 @@ namespace FinderQuest
                             timerGame.Start();
                             skip = new CancellationTokenSource();
                             creditsToolStripMenuItem.Enabled = false;
+                            helpToolStripMenuItem.Enabled = false;
+                            skinsToolStripMenuItem.Enabled = false;
                             await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem,pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                             StartGame();
                         }
@@ -653,6 +642,77 @@ namespace FinderQuest
             }
         }
 
+        #endregion
+
+        #region help page
+        private void openHelpPage(int page)
+        {
+            var resourcemanager = Properties.Resources.ResourceManager;
+            panelHelp.BackgroundImage = (Image)resourcemanager.GetObject($"help{page}");
+            if(page == 1)
+            {
+                panelHelpBack.Enabled = false;
+                panelHelpNext.Enabled = true;
+            } 
+            else if(page == 6)
+            {
+                panelHelpBack.Enabled = true;
+                panelHelpNext.Enabled = false;
+            }
+            else
+            {
+                panelHelpBack.Enabled = true;
+                panelHelpNext.Enabled = true;
+            }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            blockEnterToStart = true;
+            openHelpPage(helpPage);
+            panelHelp.Visible = true;
+            panelHelp.BringToFront();
+        }
+
+        private void buttonCloseHelp_Click(object sender, EventArgs e)
+        {
+            helpPage = 1;
+            panelHelp.Visible = false;
+            panelHelp.SendToBack();
+            this.ActiveControl = null;
+            blockEnterToStart = false;
+        }
+
+        private void panelHelpNext_Click(object sender, EventArgs e)
+        {
+            helpPage++;
+            openHelpPage(helpPage);
+        }
+
+        private void panelHelpBack_Click(object sender, EventArgs e)
+        {
+            helpPage--;
+            openHelpPage(helpPage);
+        }
+        #endregion
+
+        #region credits
+        private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelCredits.Visible = true;
+            panelCredits.BringToFront();
+            startToolStripMenuItem.Enabled = false;
+            blockEnterToStart = true; //locks enter to start
+        }
+
+        private void buttonExitCredit_Click(object sender, EventArgs e)
+        {
+            panelCredits.Visible = false;
+            startToolStripMenuItem.Enabled = true;
+            panelCredits.SendToBack();
+            blockEnterToStart = false; //allows enter to start
+            this.ActiveControl = null; //allows the enter button to work again
+        }
         #endregion
     }
 }

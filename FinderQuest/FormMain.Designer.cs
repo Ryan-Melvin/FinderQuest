@@ -52,11 +52,16 @@
             this.timerGame = new System.Windows.Forms.Timer(this.components);
             this.panelPaused = new System.Windows.Forms.Panel();
             this.labelPaused = new System.Windows.Forms.Label();
+            this.panelHelp = new System.Windows.Forms.Panel();
+            this.buttonCloseHelp = new System.Windows.Forms.Button();
+            this.panelHelpBack = new System.Windows.Forms.Panel();
+            this.panelHelpNext = new System.Windows.Forms.Panel();
             this.menuStripGame.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelTalkArea.SuspendLayout();
             this.panelCredits.SuspendLayout();
             this.panelPaused.SuspendLayout();
+            this.panelHelp.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripGame
@@ -72,7 +77,7 @@
             this.exitToolStripMenuItem});
             this.menuStripGame.Location = new System.Drawing.Point(0, 0);
             this.menuStripGame.Name = "menuStripGame";
-            this.menuStripGame.Size = new System.Drawing.Size(800, 36);
+            this.menuStripGame.Size = new System.Drawing.Size(800, 33);
             this.menuStripGame.TabIndex = 0;
             this.menuStripGame.Text = "menuStrip1";
             // 
@@ -82,7 +87,7 @@
             this.startToolStripMenuItem,
             this.pauseToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 32);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
             this.gameToolStripMenuItem.Text = "Game";
             // 
             // startToolStripMenuItem
@@ -102,28 +107,28 @@
             // skinsToolStripMenuItem
             // 
             this.skinsToolStripMenuItem.Name = "skinsToolStripMenuItem";
-            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(70, 32);
+            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(70, 29);
             this.skinsToolStripMenuItem.Text = "Shop";
             this.skinsToolStripMenuItem.Click += new System.EventHandler(this.skinsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 32);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // creditsToolStripMenuItem
             // 
             this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
-            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(83, 32);
+            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(83, 29);
             this.creditsToolStripMenuItem.Text = "Credits";
             this.creditsToolStripMenuItem.Click += new System.EventHandler(this.creditsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(55, 32);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(55, 29);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -279,6 +284,51 @@
             this.labelPaused.TabIndex = 0;
             this.labelPaused.Text = "Paused";
             // 
+            // panelHelp
+            // 
+            this.panelHelp.BackgroundImage = global::FinderQuest.Properties.Resources.help1;
+            this.panelHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelHelp.Controls.Add(this.buttonCloseHelp);
+            this.panelHelp.Controls.Add(this.panelHelpBack);
+            this.panelHelp.Controls.Add(this.panelHelpNext);
+            this.panelHelp.Location = new System.Drawing.Point(0, 33);
+            this.panelHelp.Name = "panelHelp";
+            this.panelHelp.Size = new System.Drawing.Size(799, 415);
+            this.panelHelp.TabIndex = 6;
+            // 
+            // buttonCloseHelp
+            // 
+            this.buttonCloseHelp.BackColor = System.Drawing.Color.Maroon;
+            this.buttonCloseHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.buttonCloseHelp.FlatAppearance.BorderSize = 2;
+            this.buttonCloseHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCloseHelp.ForeColor = System.Drawing.Color.PeachPuff;
+            this.buttonCloseHelp.Location = new System.Drawing.Point(356, 353);
+            this.buttonCloseHelp.Name = "buttonCloseHelp";
+            this.buttonCloseHelp.Size = new System.Drawing.Size(80, 31);
+            this.buttonCloseHelp.TabIndex = 2;
+            this.buttonCloseHelp.Text = "Close";
+            this.buttonCloseHelp.UseVisualStyleBackColor = false;
+            this.buttonCloseHelp.Click += new System.EventHandler(this.buttonCloseHelp_Click);
+            // 
+            // panelHelpBack
+            // 
+            this.panelHelpBack.BackColor = System.Drawing.Color.Transparent;
+            this.panelHelpBack.Location = new System.Drawing.Point(105, 190);
+            this.panelHelpBack.Name = "panelHelpBack";
+            this.panelHelpBack.Size = new System.Drawing.Size(110, 60);
+            this.panelHelpBack.TabIndex = 1;
+            this.panelHelpBack.Click += new System.EventHandler(this.panelHelpBack_Click);
+            // 
+            // panelHelpNext
+            // 
+            this.panelHelpNext.BackColor = System.Drawing.Color.Transparent;
+            this.panelHelpNext.Location = new System.Drawing.Point(584, 190);
+            this.panelHelpNext.Name = "panelHelpNext";
+            this.panelHelpNext.Size = new System.Drawing.Size(110, 60);
+            this.panelHelpNext.TabIndex = 0;
+            this.panelHelpNext.Click += new System.EventHandler(this.panelHelpNext_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -286,6 +336,7 @@
             this.BackgroundImage = global::FinderQuest.Properties.Resources.Finder_Quest;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 449);
+            this.Controls.Add(this.panelHelp);
             this.Controls.Add(this.panelTalkArea);
             this.Controls.Add(this.panelCredits);
             this.Controls.Add(this.panelPaused);
@@ -309,6 +360,7 @@
             this.panelCredits.ResumeLayout(false);
             this.panelPaused.ResumeLayout(false);
             this.panelPaused.PerformLayout();
+            this.panelHelp.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +391,10 @@
         private System.Windows.Forms.Panel panelCredits;
         private System.Windows.Forms.Button buttonExitCredit;
         private System.Windows.Forms.ToolStripMenuItem creditsToolStripMenuItem;
+        private System.Windows.Forms.Panel panelHelp;
+        private System.Windows.Forms.Button buttonCloseHelp;
+        private System.Windows.Forms.Panel panelHelpBack;
+        private System.Windows.Forms.Panel panelHelpNext;
     }
 }
 
