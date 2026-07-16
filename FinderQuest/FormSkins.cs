@@ -65,6 +65,7 @@ namespace FinderQuest
             {
                 buthcer, huntress, rogue, forestRanger, seer, viking, ironClad, alchemist, forestHunter, valkyrie, fortuneTeller, pyromancer, tribeWarrior, wanderer, fallenAngel, silentSking, darkLord
             });
+
             vScrollBar1.Maximum = panelSkin.Size.Height - 460;
             labelCurrency.Text = currency.ToString(); //currency diganti poin/coin
 
@@ -85,6 +86,8 @@ namespace FinderQuest
             buttonEquip.Visible = false;
             buttonBuy.Visible = false;
             vScrollBar1.Visible = false;
+
+            frmMain.sound.PlaySound("skin-shop");
         }
 
         private void panelSkin_Paint(object sender, PaintEventArgs e)

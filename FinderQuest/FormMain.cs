@@ -221,6 +221,9 @@ namespace FinderQuest
             FormSkins form = new FormSkins();
             form.Owner = this;
             form.ShowDialog();
+
+            //
+            sound.PlaySound("main-menu");
         }
         #endregion
 
@@ -284,6 +287,7 @@ namespace FinderQuest
             {
                 game.CurrWalkArea.RemovePeople();
             }
+
             game.CurrWalkArea = null;
             game.CurrTalkArea = null;
             this.BackgroundImage = Properties.Resources.Finder_Quest;
