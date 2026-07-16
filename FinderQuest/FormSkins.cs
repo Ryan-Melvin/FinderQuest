@@ -20,7 +20,7 @@ namespace FinderQuest
             InitializeComponent();
         }
 
-        FormMain frmMain;
+        FormMain mainForm;
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             panelSkin.Top = -e.NewValue;
@@ -57,7 +57,7 @@ namespace FinderQuest
 
         private void FormSkins_Load(object sender, EventArgs e)
         {
-            frmMain = (FormMain)this.Owner;
+            mainForm = (FormMain)this.Owner;
             EnableDoubleBuffering(panelShowSkin);
             EnableDoubleBuffering(panelSkin);
 
@@ -87,7 +87,7 @@ namespace FinderQuest
             buttonBuy.Visible = false;
             vScrollBar1.Visible = false;
 
-            frmMain.sound.PlaySound("skin-shop");
+            mainForm.sound.PlaySound("skin-shop");
         }
 
         private void panelSkin_Paint(object sender, PaintEventArgs e)

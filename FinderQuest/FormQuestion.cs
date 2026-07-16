@@ -16,6 +16,28 @@ namespace FinderQuest
         // Reference to our main game window canvas frame interface
         private FormMain mainForm;
 
+        private void GenerateQuestion()
+        {
+            if (mainForm.game.ActivePerson is Boss boss)
+            {
+                labelQuestion.Text = boss.Questions[mainForm.game.BossQuestionNum].TheQuestion;
+                int questionScore = boss.Questions[mainForm.game.BossQuestionNum].Score;
+                UpdateQuestionScoreLabel(questionScore);
+            }
+            else
+            {
+                labelQuestion.Text = mainForm.game.ActivePerson.Question.TheQuestion;
+                int questionScore = mainForm.game.ActivePerson.Question.Score;
+                UpdateQuestionScoreLabel(questionScore);
+            }
+
+            labelQuestion.AutoSize = true;
+            labelQuestion.MaximumSize = new Size(this.ClientSize.Width - 40, 0);
+            labelQuestion.Location = new Point((this.ClientSize.Width - labelQuestion.Width) / 2, 50);
+
+            textBoxAnswer.Focus();
+        }
+
         private void SpawnFloatingTimeIndicator(string text, Color displayColor)
         {
             Label indicator = new Label();
@@ -35,16 +57,51 @@ namespace FinderQuest
 
             mainForm.game.RegisterFloatingLabel(indicator);
         }
+
+        private void UpdateQuestionScoreLabel(int questionScore)
+        {
+            labelQuestionScore.Text = "Score: " + questionScore;
+
+            if (questionScore == 100)
+            {
+                labelQuestionScore.ForeColor = Color.LimeGreen;
+            }
+            else if (questionScore == 200)
+            {
+                labelQuestionScore.ForeColor = Color.AntiqueWhite;
+            }
+            else if (questionScore == 300)
+            {
+                labelQuestionScore.ForeColor = Color.Salmon;
+            }
+        }
+
         public FormQuestion()
         {
             InitializeComponent();
             this.KeyPreview = true;
         }
+
         private void FormQuestion_Load(object sender, EventArgs e)
         {
-            labelTimerQuestion.BackColor = Color.FromArgb(120, 0, 0, 0);
-
             mainForm = (FormMain)this.Owner;
+
+            this.BackgroundImage = mainForm.BackgroundImage;
+            labelAnswer.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelAnswer.ForeColor = Color.White;
+
+            labelQuestion.BackColor = Color.FromArgb(180, 0, 0, 0);
+            labelQuestion.ForeColor = Color.White;
+            buttonSubmit.BackColor = Color.FromArgb(120, 0, 0, 0);
+            buttonSubmit.ForeColor = Color.White;
+
+            labelQuestion.BorderStyle = BorderStyle.FixedSingle;
+            labelQuestion.Padding = new Padding(10, 10, 10, 10);
+            labelQuestion.Font = new Font("Plus Jakarta Sans", 16, FontStyle.Bold);
+
+            labelTimerQuestion.BackColor = Color.FromArgb(120, 0, 0, 0);
+            labelQuestionScore.BackColor = Color.FromArgb(120, 0, 0, 0);
+
             GenerateQuestion();
             if (mainForm.game.ActivePerson is Boss)
             {
@@ -106,36 +163,6 @@ namespace FinderQuest
                 this.Close();
                 mainForm.talkArea.ExitTalkArea(mainForm);
             }     
-        }
-
-        private void GenerateQuestion()
-        {
-            if (mainForm.game.ActivePerson is Boss boss)
-            {
-                labelQuestion.Text = boss.Questions[mainForm.game.BossQuestionNum].TheQuestion;
-            }
-            else
-            {
-                labelQuestion.Text = mainForm.game.ActivePerson.Question.TheQuestion;
-            }
-
-            labelQuestion.AutoSize = true;
-            labelQuestion.MaximumSize = new Size(this.ClientSize.Width - 40, 0);
-
-            this.BackgroundImage = mainForm.BackgroundImage;
-            labelAnswer.BackColor = Color.FromArgb(120, 0, 0, 0);
-            labelAnswer.ForeColor = Color.White;
-
-            labelQuestion.BackColor = Color.FromArgb(180, 0, 0, 0);
-            labelQuestion.ForeColor = Color.White;
-            buttonSubmit.BackColor = Color.FromArgb(120, 0, 0, 0);
-            buttonSubmit.ForeColor = Color.White;
-
-            labelQuestion.BorderStyle = BorderStyle.FixedSingle;
-            labelQuestion.Padding = new Padding(10, 10, 10, 10);
-            labelQuestion.Font = new Font("Plus Jakarta Sans", 16, FontStyle.Bold);
-            labelQuestion.Location = new Point((this.ClientSize.Width - labelQuestion.Width) / 2, 50);
-            textBoxAnswer.Focus();
         }
 
         private void FormQuestion_KeyDown(object sender, KeyEventArgs e)

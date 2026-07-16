@@ -193,8 +193,8 @@ namespace FinderQuest
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             time = new Time(0, 0, 0);
-            timePlayed = new Time(0, 0, 0); //timer to keep tracked of playtime
-            player = new Player("John", new Size(110, 110), timePlayed, 10, this.ClientSize.Height / 2, "DarkLord");
+            timePlayed = new Time(0, 0, 0); // timer to keep tracked of playtime
+            player = new Player(new Size(110, 110), timePlayed, 10, this.ClientSize.Height / 2, "DarkLord");
             player.IsVisible = false;
 
             sound.PlaySound("main-menu");

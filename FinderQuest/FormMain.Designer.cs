@@ -147,12 +147,12 @@
             // labelPlayer
             // 
             this.labelPlayer.AutoSize = true;
-            this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.labelPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPlayer.ForeColor = System.Drawing.Color.White;
-            this.labelPlayer.Location = new System.Drawing.Point(413, 14);
+            this.labelPlayer.Location = new System.Drawing.Point(380, 16);
             this.labelPlayer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayer.Name = "labelPlayer";
-            this.labelPlayer.Size = new System.Drawing.Size(69, 13);
+            this.labelPlayer.Size = new System.Drawing.Size(87, 16);
             this.labelPlayer.TabIndex = 2;
             this.labelPlayer.Text = "labelPlayer";
             // 
@@ -320,7 +320,7 @@
             this.buttonCloseHelp.Location = new System.Drawing.Point(237, 229);
             this.buttonCloseHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCloseHelp.Name = "buttonCloseHelp";
-            this.buttonCloseHelp.Size = new System.Drawing.Size(53, 20);
+            this.buttonCloseHelp.Size = new System.Drawing.Size(53, 26);
             this.buttonCloseHelp.TabIndex = 2;
             this.buttonCloseHelp.Text = "Close";
             this.buttonCloseHelp.UseVisualStyleBackColor = false;

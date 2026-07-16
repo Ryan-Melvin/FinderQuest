@@ -35,6 +35,7 @@
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.labelTimerQuestion = new System.Windows.Forms.Label();
             this.timerDisplayChange = new System.Windows.Forms.Timer(this.components);
+            this.labelQuestionScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelQuestion
@@ -66,7 +67,7 @@
             // 
             this.textBoxAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAnswer.Location = new System.Drawing.Point(172, 172);
-            this.textBoxAnswer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxAnswer.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxAnswer.Multiline = true;
             this.textBoxAnswer.Name = "textBoxAnswer";
             this.textBoxAnswer.Size = new System.Drawing.Size(293, 33);
@@ -78,7 +79,7 @@
             this.buttonSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSubmit.ForeColor = System.Drawing.Color.White;
             this.buttonSubmit.Location = new System.Drawing.Point(189, 225);
-            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(142, 31);
             this.buttonSubmit.TabIndex = 3;
@@ -103,6 +104,19 @@
             // 
             this.timerDisplayChange.Tick += new System.EventHandler(this.timerDisplayChange_Tick);
             // 
+            // labelQuestionScore
+            // 
+            this.labelQuestionScore.AutoSize = true;
+            this.labelQuestionScore.BackColor = System.Drawing.SystemColors.Control;
+            this.labelQuestionScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQuestionScore.ForeColor = System.Drawing.Color.Black;
+            this.labelQuestionScore.Location = new System.Drawing.Point(21, 249);
+            this.labelQuestionScore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelQuestionScore.Name = "labelQuestionScore";
+            this.labelQuestionScore.Size = new System.Drawing.Size(76, 25);
+            this.labelQuestionScore.TabIndex = 6;
+            this.labelQuestionScore.Text = "Score:";
+            // 
             // FormQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,13 +124,14 @@
             this.BackgroundImage = global::FinderQuest.Properties.Resources.QuestionBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(533, 292);
+            this.Controls.Add(this.labelQuestionScore);
             this.Controls.Add(this.labelTimerQuestion);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.textBoxAnswer);
             this.Controls.Add(this.labelAnswer);
             this.Controls.Add(this.labelQuestion);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormQuestion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solve the Question";
@@ -136,5 +151,6 @@
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Label labelTimerQuestion;
         private System.Windows.Forms.Timer timerDisplayChange;
+        private System.Windows.Forms.Label labelQuestionScore;
     }
 }

@@ -13,9 +13,8 @@ namespace FinderQuest
     public class Player
     {
         #region fields
-        private string name;
         private int score;
-        private Time time;
+        private Time timePlayed;
         private string currState;
         private int x;
         private int y;
@@ -26,13 +25,12 @@ namespace FinderQuest
         #endregion
 
         #region constructors
-        public Player(string name, Size size, Time playTime, int x, int y, string skin)
+        public Player(Size size, Time playTime, int x, int y, string skin)
         {
-            this.Name = name;
             this.Score = 0;
             this.X = x;
             this.Y = y;
-            this.Time = playTime;
+            this.Time = playTime; // pass by reference from form for updating
             this.SetSkin(skin);
             this.CurrState = "";
             this.SetState("idle-right");
@@ -42,21 +40,7 @@ namespace FinderQuest
         #endregion
 
         #region property
-        public string Name 
-        { 
-            get => this.name;
-            set
-            {
-                if(value == "")
-                {
-                    throw new Exception("Name cannot be empty.");
-                }
-                else
-                {
-                    this.name = value;
-                }
-            } 
-        }
+        
         public int Score 
         { 
             get => this.score;
@@ -72,7 +56,7 @@ namespace FinderQuest
                 }
             } 
         }
-        public Time Time { get => this.time; set => this.time = value; }
+        public Time Time { get => this.timePlayed; set => this.timePlayed = value; }
         public string CurrState { get => currState; private set => currState = value; }
         public int X { get => x; set => x = value; }
         public int Y { get => y; set => y = value; }
@@ -86,7 +70,7 @@ namespace FinderQuest
         #region methods
         public string DisplayData()
         {
-            return "Name : " + this.Name + "\nScore: " + this.Score + "\nPlay Time : " + this.Time.DisplayData();
+            return "Score: " + this.Score + "\nPlay Time: " + this.timePlayed.DisplayData();
         }
 
         public void AddScore(int amount)
