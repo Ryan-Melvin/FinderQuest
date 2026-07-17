@@ -583,6 +583,10 @@ namespace FinderQuest
                     sound.PlaySound("win");
                     skip = new CancellationTokenSource();
                     await cutscene.PlayGoodEnding(this, pauseToolStripMenuItem, startToolStripMenuItem,labelCutscene, labelSkip, skip.Token);
+
+                    FormPlayReport form = new FormPlayReport();
+                    form.Owner = this;
+                    form.ShowDialog();
                 }
             }
             else if (!inCutscene) //main menu

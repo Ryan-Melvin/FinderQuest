@@ -126,7 +126,7 @@ namespace FinderQuest
             if (score > 0)
             {
                 mainForm.time.AddWithSecond(30);
-                SpawnFloatingTimeIndicator("+30s", Color.LimeGreen);
+                SpawnFloatingTimeIndicator("+30s", Color.LawnGreen);
                 MessageBox.Show("Your answer is correct! you get " + score + " points.");
                 mainForm.player.AddScore(score);
                 if (!(mainForm.game.ActivePerson is Boss))
@@ -152,7 +152,7 @@ namespace FinderQuest
             {
                 if (score > 0)
                 {
-                    mainForm.game.BossQuestionNum++;
+                    mainForm.game.BossQuestionNum = 6;
                 }
                 this.textBoxAnswer.Text = "";
                 GenerateQuestion();

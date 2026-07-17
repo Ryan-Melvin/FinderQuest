@@ -139,7 +139,7 @@
             this.panelGame.Controls.Add(this.labelTimer);
             this.panelGame.Controls.Add(this.labelArea);
             this.panelGame.Location = new System.Drawing.Point(0, 23);
-            this.panelGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelGame.Margin = new System.Windows.Forms.Padding(2);
             this.panelGame.Name = "panelGame";
             this.panelGame.Size = new System.Drawing.Size(533, 70);
             this.panelGame.TabIndex = 1;
@@ -189,7 +189,7 @@
             this.panelTalkArea.Controls.Add(this.labelTimerTalk);
             this.panelTalkArea.Controls.Add(this.labelAreaTalk);
             this.panelTalkArea.Location = new System.Drawing.Point(0, 23);
-            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTalkArea.Margin = new System.Windows.Forms.Padding(2);
             this.panelTalkArea.Name = "panelTalkArea";
             this.panelTalkArea.Size = new System.Drawing.Size(533, 269);
             this.panelTalkArea.TabIndex = 2;
@@ -246,7 +246,7 @@
             this.panelCredits.Controls.Add(this.buttonExitCredit);
             this.panelCredits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panelCredits.Location = new System.Drawing.Point(2, 21);
-            this.panelCredits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCredits.Margin = new System.Windows.Forms.Padding(2);
             this.panelCredits.Name = "panelCredits";
             this.panelCredits.Size = new System.Drawing.Size(533, 269);
             this.panelCredits.TabIndex = 6;
@@ -260,7 +260,7 @@
             this.buttonExitCredit.Font = new System.Drawing.Font("Arial Narrow", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExitCredit.ForeColor = System.Drawing.Color.PeachPuff;
             this.buttonExitCredit.Location = new System.Drawing.Point(240, 176);
-            this.buttonExitCredit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonExitCredit.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExitCredit.Name = "buttonExitCredit";
             this.buttonExitCredit.Size = new System.Drawing.Size(44, 25);
             this.buttonExitCredit.TabIndex = 0;
@@ -281,7 +281,7 @@
             // 
             this.panelPaused.Controls.Add(this.labelPaused);
             this.panelPaused.Location = new System.Drawing.Point(0, 23);
-            this.panelPaused.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPaused.Margin = new System.Windows.Forms.Padding(2);
             this.panelPaused.Name = "panelPaused";
             this.panelPaused.Size = new System.Drawing.Size(533, 269);
             this.panelPaused.TabIndex = 5;
@@ -305,7 +305,7 @@
             this.panelHelp.Controls.Add(this.panelHelpBack);
             this.panelHelp.Controls.Add(this.panelHelpNext);
             this.panelHelp.Location = new System.Drawing.Point(0, 21);
-            this.panelHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHelp.Margin = new System.Windows.Forms.Padding(2);
             this.panelHelp.Name = "panelHelp";
             this.panelHelp.Size = new System.Drawing.Size(533, 270);
             this.panelHelp.TabIndex = 6;
@@ -318,7 +318,7 @@
             this.buttonCloseHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCloseHelp.ForeColor = System.Drawing.Color.PeachPuff;
             this.buttonCloseHelp.Location = new System.Drawing.Point(237, 229);
-            this.buttonCloseHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCloseHelp.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCloseHelp.Name = "buttonCloseHelp";
             this.buttonCloseHelp.Size = new System.Drawing.Size(53, 26);
             this.buttonCloseHelp.TabIndex = 2;
@@ -330,7 +330,7 @@
             // 
             this.panelHelpBack.BackColor = System.Drawing.Color.Transparent;
             this.panelHelpBack.Location = new System.Drawing.Point(70, 123);
-            this.panelHelpBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHelpBack.Margin = new System.Windows.Forms.Padding(2);
             this.panelHelpBack.Name = "panelHelpBack";
             this.panelHelpBack.Size = new System.Drawing.Size(73, 39);
             this.panelHelpBack.TabIndex = 1;
@@ -340,7 +340,7 @@
             // 
             this.panelHelpNext.BackColor = System.Drawing.Color.Transparent;
             this.panelHelpNext.Location = new System.Drawing.Point(389, 123);
-            this.panelHelpNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHelpNext.Margin = new System.Windows.Forms.Padding(2);
             this.panelHelpNext.Name = "panelHelpNext";
             this.panelHelpNext.Size = new System.Drawing.Size(73, 39);
             this.panelHelpNext.TabIndex = 0;
@@ -362,7 +362,7 @@
             this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStripGame;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Finder Quest Game";

@@ -200,7 +200,7 @@
             // 
             this.pictureBoxCurrency.Image = global::FinderQuest.Properties.Resources.Coin;
             this.pictureBoxCurrency.Location = new System.Drawing.Point(407, 20);
-            this.pictureBoxCurrency.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxCurrency.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxCurrency.Name = "pictureBoxCurrency";
             this.pictureBoxCurrency.Size = new System.Drawing.Size(29, 29);
             this.pictureBoxCurrency.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -211,7 +211,7 @@
             // 
             this.pictureBoxPrice.Image = global::FinderQuest.Properties.Resources.Coin;
             this.pictureBoxPrice.Location = new System.Drawing.Point(727, 366);
-            this.pictureBoxPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxPrice.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxPrice.Name = "pictureBoxPrice";
             this.pictureBoxPrice.Size = new System.Drawing.Size(29, 29);
             this.pictureBoxPrice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -223,7 +223,7 @@
             this.panelBorderLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panelBorderLeft.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panelBorderLeft.Location = new System.Drawing.Point(341, 0);
-            this.panelBorderLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBorderLeft.Margin = new System.Windows.Forms.Padding(2);
             this.panelBorderLeft.Name = "panelBorderLeft";
             this.panelBorderLeft.Size = new System.Drawing.Size(15, 463);
             this.panelBorderLeft.TabIndex = 10;
@@ -233,7 +233,7 @@
             this.panelBorderTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panelBorderTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panelBorderTop.Location = new System.Drawing.Point(356, 1);
-            this.panelBorderTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBorderTop.Margin = new System.Windows.Forms.Padding(2);
             this.panelBorderTop.Name = "panelBorderTop";
             this.panelBorderTop.Size = new System.Drawing.Size(405, 15);
             this.panelBorderTop.TabIndex = 11;
@@ -243,7 +243,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panel2.Location = new System.Drawing.Point(341, 462);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(420, 15);
             this.panel2.TabIndex = 12;
@@ -253,7 +253,7 @@
             this.panelStripe1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
             this.panelStripe1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panelStripe1.Location = new System.Drawing.Point(340, 389);
-            this.panelStripe1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelStripe1.Margin = new System.Windows.Forms.Padding(2);
             this.panelStripe1.Name = "panelStripe1";
             this.panelStripe1.Size = new System.Drawing.Size(19, 15);
             this.panelStripe1.TabIndex = 13;
@@ -263,15 +263,14 @@
             this.panelStripe2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
             this.panelStripe2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(28)))), ((int)(((byte)(12)))));
             this.panelStripe2.Location = new System.Drawing.Point(340, 81);
-            this.panelStripe2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelStripe2.Margin = new System.Windows.Forms.Padding(2);
             this.panelStripe2.Name = "panelStripe2";
             this.panelStripe2.Size = new System.Drawing.Size(19, 15);
             this.panelStripe2.TabIndex = 14;
             // 
             // FormSkins
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.ClientSize = new System.Drawing.Size(760, 478);
             this.Controls.Add(this.panelStripe2);

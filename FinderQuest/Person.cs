@@ -171,7 +171,7 @@ namespace FinderQuest
             // Check if data is broken or input is completely empty
             if (questionToCheck == null || string.IsNullOrWhiteSpace(answer))
             {
-                return 0;
+                return 1000;
             }
 
             // Sanitize both player answer and the correct answer

@@ -14,12 +14,19 @@ namespace FinderQuest
         private int finalScore;
         private int goldEarned;
 
-        public PlayReport(int score, Time timePlayed, int finalScore, int goldEarned)
+        public PlayReport(int score, Time timePlayed)
         {
             this.Score = score;
-            this.TimePlayed = timePlayed;
-            this.FinalScore = finalScore;
-            this.GoldEarned = goldEarned;
+            this.timePlayed = timePlayed;
+
+            int totalSeconds = this.timePlayed.ConvertToSecond();
+
+            double timeBonus = Math.Max(0, (300.0 - totalSeconds) / 300.0);
+
+            int tempFinalScore = (int)(score * (1.0 + timeBonus));
+            this.FinalScore = (tempFinalScore / 100) * 100; // round score to the lower hundred
+
+            this.GoldEarned = (int)(this.FinalScore * 0.25);
         }
 
         public int Score { get => score; set => score = value; }

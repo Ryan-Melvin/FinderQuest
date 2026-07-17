@@ -73,18 +73,22 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.PlayReport">
-    <Position X="1.75" Y="10.5" Width="1.5" />
+    <Position X="1.5" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAKAAAAAgAADAAAAAwAAAAAAAA=</HashCode>
       <FileName>PlayReport.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FinderQuest.PlayerAccount">
-    <Position X="5.5" Y="10.5" Width="1.5" />
+    <Position X="4.25" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAACAAAAEAAAAAAAAAQAAIAAAAAAAAAAA=</HashCode>
       <FileName>PlayerAccount.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="gameHistory" />
+      <Field Name="ownedSkins" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

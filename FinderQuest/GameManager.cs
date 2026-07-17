@@ -58,8 +58,8 @@ namespace FinderQuest
             "tags=biology&difficulties=easy,medium", // Area 3: Zombie
             "categories=arts_and_literature&difficulties=easy", // Area 4: Minotaur
             "categories=music&difficulties=easy,medium", // Area 5: Skeleton
-            "tags=mathematics", // Area 6: Necro
-            "tags=computing",  // Area 7: Reaper
+            "tags=mathematics&difficulties=medium,hard", // Area 6: Necro
+            "tags=computing&difficulties=medium,hard",  // Area 7: Reaper
             // Oracle will have one question from each areas' categories, totalling to 7
         };
         #endregion

@@ -50,6 +50,12 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Boss.cs" />
+    <Compile Include="FormPlayReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlayReport.Designer.cs">
+      <DependentUpon>FormPlayReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSkins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlayReport.aa-ER.resx">
+      <DependentUpon>FormPlayReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlayReport.resx">
+      <DependentUpon>FormPlayReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuestion.resx">
       <DependentUpon>FormQuestion.cs</DependentUpon>
