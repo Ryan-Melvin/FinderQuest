@@ -333,6 +333,16 @@ namespace FinderQuest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Finder_Quest_Loading_Screen {
+            get {
+                object obj = ResourceManager.GetObject("Finder Quest Loading Screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ForestHunter_Idle_Left {
             get {
                 object obj = ResourceManager.GetObject("ForestHunter_Idle_Left", resourceCulture);
