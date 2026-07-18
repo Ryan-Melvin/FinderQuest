@@ -28,7 +28,7 @@ namespace FinderQuest
             else if (form.game.CurrWalkArea.AreaNum == 1)
             {
                 form.sound.SetSFXVolume(40);
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
                 form.sound.PlaySound("area2");
 
@@ -38,7 +38,7 @@ namespace FinderQuest
             else if (form.game.CurrWalkArea.AreaNum == 2)
             {
                 form.sound.SetSFXVolume(90);
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.AbandonedVillage, 3);
                 form.sound.PlaySound("area3");
 
@@ -48,7 +48,7 @@ namespace FinderQuest
             }
             else if (form.game.CurrWalkArea.AreaNum == 3)
             {
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("The Minotaur's Terrace", Properties.Resources.MinotaurTerrace, 4);
                 form.sound.PlaySound("area4");
 
@@ -58,7 +58,7 @@ namespace FinderQuest
             }
             else if (form.game.CurrWalkArea.AreaNum == 4)
             {
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("The Crypt of Skeletons", Properties.Resources.Graveyard, 5);
                 form.sound.PlaySound("area5");
 
@@ -68,7 +68,7 @@ namespace FinderQuest
             }
             else if (form.game.CurrWalkArea.AreaNum == 5)
             {
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("The Necromancer Tower", Properties.Resources.CastleEntrance, 6);
                 form.sound.PlaySound("area6");
 
@@ -78,7 +78,7 @@ namespace FinderQuest
             else if (form.game.CurrWalkArea.AreaNum == 6)
             {
                 form.sound.SetSFXVolume(60);
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("Reaper's Domain", Properties.Resources.ReaperHallway, 7);
                 form.sound.PlaySound("area7");
 
@@ -88,7 +88,7 @@ namespace FinderQuest
             else if (form.game.CurrWalkArea.AreaNum == 7)
             {
                 form.sound.SetSFXVolume(90);
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("The Oracle's Sanctum", Properties.Resources.throne_room, 8);
                 form.sound.PlaySound("area8-Ambient");
 

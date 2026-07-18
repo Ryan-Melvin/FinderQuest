@@ -311,16 +311,18 @@ namespace FinderQuest
 
             if (game.CurrWalkArea != null)
             {
-                game.CurrWalkArea.RemovePeople();
+                game.CurrWalkArea.RemovePeople(this);
             }
 
             game.CurrWalkArea = null;
             game.CurrTalkArea = null;
+            ImageAnimator.StopAnimate(this.BackgroundImage, OnGameFrameChanged);
             this.BackgroundImage = Properties.Resources.Finder_Quest;
             AnimateMainMenu();
 
             game.BossQuestionNum = 0;
-            player.IsVisible = true;
+            player.IsVisible = false;
+            ImageAnimator.StopAnimate(player.Sprite, OnGameFrameChanged);
             labelPaused.Visible = false;
             panelPaused.Visible = false;
 
@@ -329,6 +331,9 @@ namespace FinderQuest
             paused = false;
 
             time.ResetTimer();
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         private void StartGame()
@@ -362,7 +367,7 @@ namespace FinderQuest
 
             if (game.CurrWalkArea != null)
             {
-                game.CurrWalkArea.RemovePeople();
+                game.CurrWalkArea.RemovePeople(this);
             }
             game.CurrWalkArea = null;
             walkArea.GenerateWalkArea(this, labelArea);
@@ -380,6 +385,7 @@ namespace FinderQuest
                 creditsToolStripMenuItem.Enabled = false;
                 helpToolStripMenuItem.Enabled = false;
                 accountToolStripMenuItem.Enabled = false;
+                ImageAnimator.StopAnimate(this.BackgroundImage, OnGameFrameChanged);
                 this.BackgroundImage = Properties.Resources.Finder_Quest_Loading_Screen;
                 AnimateMainMenu();
                 await game.InitializeAllQuestionsAsync();
@@ -388,6 +394,7 @@ namespace FinderQuest
                 timerGame.Start();
                 skip = new CancellationTokenSource();
                 await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
+                ImageAnimator.StopAnimate(this.BackgroundImage, OnGameFrameChanged);
                 StartGame();
             }
             else
@@ -444,6 +451,7 @@ namespace FinderQuest
 
                     if (player.CurrState != "walk-right")
                     {
+                        ImageAnimator.StopAnimate(player.Sprite, OnGameFrameChanged);
                         player.SetState("walk-right");
                         AnimatePlayer();
                     }
@@ -464,6 +472,7 @@ namespace FinderQuest
 
                     if (player.CurrState != "walk-left")
                     {
+                        ImageAnimator.StopAnimate(player.Sprite, OnGameFrameChanged);
                         player.SetState("walk-left");
                         AnimatePlayer();
                     }
@@ -479,6 +488,7 @@ namespace FinderQuest
                             creditsToolStripMenuItem.Enabled = false;
                             helpToolStripMenuItem.Enabled = false;
                             accountToolStripMenuItem.Enabled = false;
+                            ImageAnimator.StopAnimate(this.BackgroundImage, OnGameFrameChanged);
                             this.BackgroundImage = Properties.Resources.Finder_Quest_Loading_Screen;
                             AnimateMainMenu();
                             await game.InitializeAllQuestionsAsync();
@@ -548,11 +558,13 @@ namespace FinderQuest
             {
                 if (e.KeyCode == Keys.Right && game.CurrWalkArea != null)
                 {
+                    ImageAnimator.StopAnimate(player.Sprite, (s,ev) => { });
                     player.SetState("idle-right");
                     AnimatePlayer();
                 }
                 else if (e.KeyCode == Keys.Left && game.CurrWalkArea != null)
                 {
+                    ImageAnimator.StopAnimate(player.Sprite, OnGameFrameChanged);
                     player.SetState("idle-left");
                     AnimatePlayer();
                 }
@@ -665,11 +677,16 @@ namespace FinderQuest
         #endregion
 
         #region animation utilities
+        public void OnGameFrameChanged(object sender, EventArgs e)
+        {
+            //acts as a replacememnt ton the lambda method (so the code doesn't keep creating new ones)
+        }
+
         private void AnimatePlayer()
         {
             if (ImageAnimator.CanAnimate(player.Sprite))
             {
-                ImageAnimator.Animate(player.Sprite, (s, ev) => { });
+                ImageAnimator.Animate(player.Sprite, OnGameFrameChanged);
             }
         }
 
@@ -677,7 +694,7 @@ namespace FinderQuest
         {
             if (ImageAnimator.CanAnimate(person.Sprite))
             {
-                ImageAnimator.Animate(person.Sprite, (s, ev) => { });
+                ImageAnimator.Animate(person.Sprite, OnGameFrameChanged);
             }
         }
 
@@ -685,7 +702,7 @@ namespace FinderQuest
         {
             if (ImageAnimator.CanAnimate(this.BackgroundImage))
             {
-                ImageAnimator.Animate(this.BackgroundImage, (s, ev) => { });
+                ImageAnimator.Animate(this.BackgroundImage, OnGameFrameChanged);
             }
         }
 

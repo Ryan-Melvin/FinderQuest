@@ -380,6 +380,7 @@ namespace FinderQuest
 
                 if (skinClickArea.Contains(mousePosition))
                 {
+                    ImageAnimator.StopAnimate(selectedSkin.Sprite, OnSkinFrameChanged);
                     selectedSkin = skins;
                     AnimateSkin();
                     panelShowSkin.Invalidate();
@@ -513,10 +514,7 @@ namespace FinderQuest
         {
             if (ImageAnimator.CanAnimate(selectedSkin.Sprite))
             {
-                ImageAnimator.Animate(selectedSkin.Sprite, (s, ev) =>
-                {
-                    panelShowSkin.Invalidate();
-                });
+                ImageAnimator.Animate(selectedSkin.Sprite, OnSkinFrameChanged);
             }
         }
 
@@ -568,6 +566,11 @@ namespace FinderQuest
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void OnSkinFrameChanged(object sender, EventArgs e)
+        {
+            panelShowSkin.Invalidate();
         }
     }
 }

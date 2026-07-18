@@ -29,7 +29,7 @@ namespace FinderQuest
                 form.SetInCutscene(true);
                 form.sound.Fade = 8;
                 form.BackgroundImage = Properties.Resources.BackgroundWin;
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = null;
                 form.SetGameStarted(false);
                 form.GetGamePanel().Visible = false;
@@ -75,6 +75,7 @@ namespace FinderQuest
                 form.BackgroundImage = Properties.Resources.WinTextGoIn;
                 form.AnimateMainMenu();
                 await Task.Delay(2400);
+                ImageAnimator.StopAnimate(form.BackgroundImage, form.OnGameFrameChanged);
                 form.BackgroundImage = Properties.Resources.WinEnterToReturn;
                 form.AnimateMainMenu();
                 form.SetAllowReturnMainMenu(true);
@@ -92,7 +93,7 @@ namespace FinderQuest
                 form.SetInCutscene(true);
                 form.sound.Fade = 8;
                 form.BackgroundImage = Properties.Resources.BackgroundLose;
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = null;
                 form.SetGameStarted(false);
                 form.GetGamePanel().Visible = false;
@@ -134,6 +135,7 @@ namespace FinderQuest
                 form.BackgroundImage = Properties.Resources.GameOverTextGoIn;
                 form.AnimateMainMenu();
                 await Task.Delay(2400);
+                ImageAnimator.StopAnimate(form.BackgroundImage, form.OnGameFrameChanged);
                 form.BackgroundImage = Properties.Resources.GameOverEnterToReturn;
                 form.AnimateMainMenu();
 
@@ -202,7 +204,7 @@ namespace FinderQuest
                 await AnimateText(form, labelCutscene, "seizing the throne room and binding the golden crown in an eternal curse.", skip, 40);
                 await Task.Delay(1420, skip);
 
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("Reaper's Domain", Properties.Resources.ReaperHallway, 7);
 
                 form.game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Right, new Size(form.GetSize("medium"), form.GetSize("medium")), "", (int)(180 * scaleX), form.ClientSize.Height / 2 - (form.GetSize("medium") - form.GetPlayerSize().Height), "", "");
@@ -216,7 +218,7 @@ namespace FinderQuest
                 await AnimateText(form, labelCutscene, "With the crown corrupted, ancient gates shattered under waves of howling anomalies...", skip, 40);
                 await Task.Delay(3000, skip);
 
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("The Zombie Outpost", Properties.Resources.AbandonedVillage, 3);
 
                 form.game.CurrWalkArea.AddPerson(6, "Zombie Stalker", Properties.Resources.Zombie_Idle_Right, new Size(form.GetSize("small"), form.GetSize("small")), "", (int)(140 * scaleX), form.ClientSize.Height / 2, "", "");
@@ -231,7 +233,7 @@ namespace FinderQuest
                 await AnimateText(form, labelCutscene, "Spreading like a plague, monsters overran the peaceful valleys...", skip, 40);
                 await Task.Delay(3000, skip);
 
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = new WalkArea("Titan's Ridge", Properties.Resources.GolemLands, 2);
 
                 form.game.CurrWalkArea.AddPerson(4, "Rock Golem", Properties.Resources.RockGolem_Idle_Right, new Size(form.GetSize("big"), form.GetSize("big")), "", (int)(160 * scaleX), form.ClientSize.Height / 2 - (form.GetSize("big") - form.GetPlayerSize().Height), "", "");
@@ -245,7 +247,7 @@ namespace FinderQuest
                 await AnimateText(form, labelCutscene, "Leaving only ash, ruins, and a lone hero destined to break the curse.", skip, 40);
                 await Task.Delay(4000, skip);
 
-                form.game.CurrWalkArea.RemovePeople();
+                form.game.CurrWalkArea.RemovePeople(form);
                 form.game.CurrWalkArea = null;
 
                 labelCutscene.Font = cursiveFont;

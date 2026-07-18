@@ -51,8 +51,12 @@ namespace FinderQuest
             this.People.Add(person);
         }
 
-        public void RemovePeople()
+        public void RemovePeople(FormMain form)
         {
+            foreach (Person person in People)
+            {
+                ImageAnimator.StopAnimate(person.Sprite, form.OnGameFrameChanged);
+            }
             this.People.Clear();
         }
 
