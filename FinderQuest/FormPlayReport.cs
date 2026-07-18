@@ -69,19 +69,22 @@ namespace FinderQuest
             this.panelBack.BackColor = Color.FromArgb(150, 0, 0, 0);
 
             labelTitle.Font = new Font("Plus Jakarta Sans", 18, FontStyle.Bold);
-            labelFeedback.Font = new Font("Plus Jakarta Sans", 16, FontStyle.Italic | FontStyle.Bold);
-            labelStats.Font = new Font("Plus Jakarta Sans", 13, FontStyle.Bold);
-            labelScore.Font = new Font("Plus Jakarta Sans", 18, FontStyle.Bold);
-            labelGold.Font = new Font("Plus Jakarta Sans", 24, FontStyle.Bold);
+            labelFeedback.Font = new Font("Plus Jakarta Sans", 17, FontStyle.Italic | FontStyle.Bold);
+            //labelStats.Font = new Font("Unispace", 13, FontStyle.Bold);
+            //labelScore.Font = new Font("Unispace", 18, FontStyle.Bold);
+            //labelGold.Font = new Font("Unispace", 24, FontStyle.Bold);
 
             mainForm = (FormMain)this.Owner;
-            report = new PlayReport(mainForm.player.Score, mainForm.timePlayed);
+            report = new PlayReport(DateTime.Now, mainForm.player.Score, mainForm.timePlayed.Hour, mainForm.timePlayed.Minute, mainForm.timePlayed.Second);
+
+            mainForm.account.GoldBalance += report.GoldEarned;
+            mainForm.account.AddGameHistory(report);
 
             labelStats.Text = "Base Score : " + report.Score + "pts\n" +
-                              "Playtime   : " + report.TimePlayed.DisplayData();
+                              "Time Played : " + report.TimePlayed.DisplayData();
             EvaluateStars();
-            labelScore.Text = report.Score + "pts";
-            labelGold.Text = report.GoldEarned +"G";
+            labelScore.Text = report.FinalScore + "pts";
+            labelGold.Text = report.GoldEarned + "G";
         }
 
         private void buttonReturn_Click(object sender, EventArgs e)

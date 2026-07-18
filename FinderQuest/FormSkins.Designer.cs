@@ -79,25 +79,26 @@
             // 
             this.labelEquipped.AutoSize = true;
             this.labelEquipped.BackColor = System.Drawing.Color.Transparent;
+            this.labelEquipped.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEquipped.Location = new System.Drawing.Point(246, 80);
             this.labelEquipped.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEquipped.Name = "labelEquipped";
-            this.labelEquipped.Size = new System.Drawing.Size(52, 13);
+            this.labelEquipped.Size = new System.Drawing.Size(64, 15);
             this.labelEquipped.TabIndex = 0;
-            this.labelEquipped.Text = "Equipped";
+            this.labelEquipped.Text = "EQUIPPED";
             this.labelEquipped.Visible = false;
             // 
             // labelSkinPrice
             // 
-            this.labelSkinPrice.AutoSize = true;
             this.labelSkinPrice.BackColor = System.Drawing.Color.Transparent;
-            this.labelSkinPrice.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSkinPrice.Font = new System.Drawing.Font("Unispace", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSkinPrice.ForeColor = System.Drawing.Color.Snow;
-            this.labelSkinPrice.Location = new System.Drawing.Point(229, 312);
+            this.labelSkinPrice.Location = new System.Drawing.Point(216, 316);
             this.labelSkinPrice.Name = "labelSkinPrice";
-            this.labelSkinPrice.Size = new System.Drawing.Size(93, 28);
+            this.labelSkinPrice.Size = new System.Drawing.Size(75, 25);
             this.labelSkinPrice.TabIndex = 2;
-            this.labelSkinPrice.Text = "SkinPrice";
+            this.labelSkinPrice.Text = "5000G";
+            this.labelSkinPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelSkinName
             // 
@@ -124,13 +125,13 @@
             // 
             this.labelPrice.AutoSize = true;
             this.labelPrice.BackColor = System.Drawing.Color.Transparent;
-            this.labelPrice.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrice.Font = new System.Drawing.Font("Garamond", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrice.ForeColor = System.Drawing.Color.Snow;
-            this.labelPrice.Location = new System.Drawing.Point(167, 312);
+            this.labelPrice.Location = new System.Drawing.Point(160, 316);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(65, 28);
+            this.labelPrice.Size = new System.Drawing.Size(61, 24);
             this.labelPrice.TabIndex = 3;
-            this.labelPrice.Text = "Price: ";
+            this.labelPrice.Text = "Price:";
             // 
             // panel1
             // 
@@ -143,16 +144,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(325, 349);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // labelCurrency
             // 
             this.labelCurrency.AutoSize = true;
             this.labelCurrency.BackColor = System.Drawing.Color.Transparent;
-            this.labelCurrency.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrency.Font = new System.Drawing.Font("Unispace", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCurrency.ForeColor = System.Drawing.Color.Snow;
-            this.labelCurrency.Location = new System.Drawing.Point(445, 20);
+            this.labelCurrency.Location = new System.Drawing.Point(441, 26);
             this.labelCurrency.Name = "labelCurrency";
-            this.labelCurrency.Size = new System.Drawing.Size(86, 28);
+            this.labelCurrency.Size = new System.Drawing.Size(89, 20);
             this.labelCurrency.TabIndex = 5;
             this.labelCurrency.Text = "Currency";
             // 
@@ -161,7 +163,7 @@
             this.buttonBuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(82)))), ((int)(((byte)(45)))));
             this.buttonBuy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(133)))), ((int)(((byte)(70)))));
             this.buttonBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBuy.Location = new System.Drawing.Point(476, 417);
             this.buttonBuy.Name = "buttonBuy";
             this.buttonBuy.Size = new System.Drawing.Size(153, 36);
@@ -175,7 +177,7 @@
             this.buttonEquip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(82)))), ((int)(((byte)(45)))));
             this.buttonEquip.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(133)))), ((int)(((byte)(70)))));
             this.buttonEquip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEquip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEquip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEquip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(240)))), ((int)(((byte)(212)))));
             this.buttonEquip.Location = new System.Drawing.Point(476, 418);
             this.buttonEquip.Name = "buttonEquip";
@@ -210,13 +212,14 @@
             // pictureBoxPrice
             // 
             this.pictureBoxPrice.Image = global::FinderQuest.Properties.Resources.Coin;
-            this.pictureBoxPrice.Location = new System.Drawing.Point(727, 366);
+            this.pictureBoxPrice.Location = new System.Drawing.Point(705, 408);
             this.pictureBoxPrice.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxPrice.Name = "pictureBoxPrice";
             this.pictureBoxPrice.Size = new System.Drawing.Size(29, 29);
             this.pictureBoxPrice.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPrice.TabIndex = 9;
             this.pictureBoxPrice.TabStop = false;
+            this.pictureBoxPrice.Click += new System.EventHandler(this.pictureBoxPrice_Click);
             // 
             // panelBorderLeft
             // 

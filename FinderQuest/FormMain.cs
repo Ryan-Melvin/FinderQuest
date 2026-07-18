@@ -22,6 +22,9 @@ namespace FinderQuest
         public WalkAreaManager walkArea = new WalkAreaManager(); //Centralized walk area manager that handles all walk area logic
         public TalkAreaManager talkArea = new TalkAreaManager(); //Centralized talk area manager that handles all talk area logic
 
+        public PlayerAccount account = new PlayerAccount("Guest", 0);
+        public bool isGuestAccount = true;
+
         private FormQuestion form;
         public Time time;
         public Time timePlayed;
@@ -194,7 +197,7 @@ namespace FinderQuest
 
             time = new Time(0, 0, 0);
             timePlayed = new Time(0, 0, 0); // timer to keep tracked of playtime
-            player = new Player(new Size(110, 110), timePlayed, 10, this.ClientSize.Height / 2, "DarkLord");
+            player = new Player(new Size(110, 110), timePlayed, 10, this.ClientSize.Height / 2, account.EquippedSkin);
             player.IsVisible = false;
 
             sound.PlaySound("main-menu");
@@ -208,22 +211,11 @@ namespace FinderQuest
 
             timerGame.Start();
             AnimateMainMenu();
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void skinsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormSkins form = new FormSkins();
-            form.Owner = this;
-            form.ShowDialog();
-
-            //
-            sound.PlaySound("main-menu");
         }
         #endregion
 
@@ -275,12 +267,12 @@ namespace FinderQuest
             panelGame.Visible = false;
             startToolStripMenuItem.Enabled = true;
             creditsToolStripMenuItem.Enabled = true;
-            skinsToolStripMenuItem.Enabled = true;
+            accountToolStripMenuItem.Enabled = true;
             helpToolStripMenuItem.Enabled = true;
             gameStarted = false;
             enterTalkArea = false;
             inCutscene = false;
-            startToolStripMenuItem.Text = "Start new game";
+            startToolStripMenuItem.Text = "Start New Game";
             this.BackgroundImage = Properties.Resources.Finder_Quest;
 
             if (game.CurrWalkArea != null)
@@ -314,11 +306,18 @@ namespace FinderQuest
             pauseToolStripMenuItem.Enabled = true;
             creditsToolStripMenuItem.Enabled = false;
             helpToolStripMenuItem.Enabled = false;
-            skinsToolStripMenuItem .Enabled = false;
+            accountToolStripMenuItem.Enabled = false;
             startToolStripMenuItem.Text = "Stop Game";
             gameStarted = true;
             pauseToolStripMenuItem.Text = "Pause Game";
 
+            timePlayed.ResetTimer();
+            player.Score = 0;
+            player.SetSkin(account.EquippedSkin);
+            player.X = 10;
+            game.BossQuestionNum = 0;
+
+            time.ResetTimer();
             time.AddWithSecond(10);
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
@@ -331,7 +330,7 @@ namespace FinderQuest
                 game.CurrWalkArea.RemovePeople();
             }
             game.CurrWalkArea = null;
-            walkArea.GenerateWalkArea(this,labelArea);
+            walkArea.GenerateWalkArea(this, labelArea);
 
             this.Invalidate();
         }
@@ -341,11 +340,16 @@ namespace FinderQuest
         {
             if (!gameStarted)
             {
+                // startToolStripMenuItem.Text = "Fetching Questions...";
+                startToolStripMenuItem.Enabled = false;
+                // await game.InitializeAllQuestionsAsync();
+                startToolStripMenuItem.Enabled = true;
+
                 timerGame.Start();
                 skip = new CancellationTokenSource();
                 creditsToolStripMenuItem.Enabled = false;
                 helpToolStripMenuItem.Enabled = false;
-                skinsToolStripMenuItem.Enabled = false;
+                accountToolStripMenuItem.Enabled = false;
                 await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                 StartGame();
             }
@@ -433,12 +437,17 @@ namespace FinderQuest
                     {
                         if (startToolStripMenuItem.Enabled)
                         {
+                            startToolStripMenuItem.Text = "Fetching Questions...";
+                            startToolStripMenuItem.Enabled = false;
+                            // await game.InitializeAllQuestionsAsync();
+                            startToolStripMenuItem.Enabled = true;
+
                             timerGame.Start();
                             skip = new CancellationTokenSource();
                             creditsToolStripMenuItem.Enabled = false;
                             helpToolStripMenuItem.Enabled = false;
-                            skinsToolStripMenuItem.Enabled = false;
-                            await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem,pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
+                            accountToolStripMenuItem.Enabled = false;
+                            await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                             StartGame();
                         }
                         else
@@ -580,6 +589,9 @@ namespace FinderQuest
 
                 if (game.CurrWalkArea.AreaNum == numOfWalkArea && game.CurrWalkArea.FinishedAllQuestions() && !enterTalkArea) //check for win
                 {
+                    timerTime.Stop();
+                    gameStarted = false;
+
                     sound.PlaySound("win");
                     skip = new CancellationTokenSource();
                     await cutscene.PlayGoodEnding(this, pauseToolStripMenuItem, startToolStripMenuItem,labelCutscene, labelSkip, skip.Token);
@@ -722,5 +734,21 @@ namespace FinderQuest
             this.ActiveControl = null; //allows the enter button to work again
         }
         #endregion
+
+        private void skinsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSkins form = new FormSkins();
+            form.Owner = this;
+            form.ShowDialog();
+
+            sound.PlaySound("main-menu");
+        }
+
+        private void profileInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormProfile form = new FormProfile();
+            form.Owner = this;
+            form.ShowDialog();
+        }
     }
 }

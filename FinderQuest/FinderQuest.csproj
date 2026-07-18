@@ -50,11 +50,23 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Boss.cs" />
+    <Compile Include="FormGameHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGameHistory.Designer.cs">
+      <DependentUpon>FormGameHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlayReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPlayReport.Designer.cs">
       <DependentUpon>FormPlayReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfile.Designer.cs">
+      <DependentUpon>FormProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSkins.cs">
       <SubType>Form</SubType>
@@ -92,6 +104,9 @@
     <Compile Include="TriviaApiQuestionText.cs" />
     <Compile Include="WalkArea.cs" />
     <Compile Include="WalkAreaManager.cs" />
+    <EmbeddedResource Include="FormGameHistory.resx">
+      <DependentUpon>FormGameHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -101,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlayReport.resx">
       <DependentUpon>FormPlayReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProfile.resx">
+      <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuestion.resx">
       <DependentUpon>FormQuestion.cs</DependentUpon>

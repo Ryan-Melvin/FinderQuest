@@ -14,7 +14,6 @@ namespace FinderQuest
         private string name;
         private string displayName;
         private Image sprite;
-        private bool isUnlocked;
         private int price;
         private string rarity;
         #endregion
@@ -26,7 +25,6 @@ namespace FinderQuest
             this.Name = name;
             this.DisplayName = displayName;
             this.Sprite = (Image)resourceManager.GetObject(this.Name + "_Idle_Right");
-            this.IsUnlocked = false;
             this.Price = price;
             this.Rarity = rarity;
         }
@@ -48,8 +46,7 @@ namespace FinderQuest
                 }
             }
         }
-        public Image Sprite { get => sprite; set => sprite = value; }
-        public bool IsUnlocked { get => isUnlocked; private set => isUnlocked = value; } 
+        public Image Sprite { get => sprite; set => sprite = value; } 
         public int Price 
         { 
             get => price;
@@ -70,16 +67,6 @@ namespace FinderQuest
         #endregion
 
         #region methods
-        public bool BuySkin(ref int currency) //currency diganti coin/poin
-        {
-            if (currency >= this.Price)
-            {
-                currency -= this.Price;
-                this.isUnlocked = true;
-                return true;
-            }
-            return false;
-        }
 
         #endregion
     }

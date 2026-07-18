@@ -33,7 +33,8 @@
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.skinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profileInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +57,7 @@
             this.buttonCloseHelp = new System.Windows.Forms.Button();
             this.panelHelpBack = new System.Windows.Forms.Panel();
             this.panelHelpNext = new System.Windows.Forms.Panel();
+            this.skinsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripGame.SuspendLayout();
             this.panelGame.SuspendLayout();
             this.panelTalkArea.SuspendLayout();
@@ -70,7 +72,7 @@
             this.menuStripGame.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStripGame.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gameToolStripMenuItem,
-            this.skinsToolStripMenuItem,
+            this.accountToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.creditsToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -93,23 +95,32 @@
             // startToolStripMenuItem
             // 
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.startToolStripMenuItem.Text = "Start new Game";
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.startToolStripMenuItem.Text = "Start New Game";
             this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // pauseToolStripMenuItem
             // 
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.pauseToolStripMenuItem.Text = "Pause/Play";
             this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
-            // skinsToolStripMenuItem
+            // accountToolStripMenuItem
             // 
-            this.skinsToolStripMenuItem.Name = "skinsToolStripMenuItem";
-            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(46, 22);
-            this.skinsToolStripMenuItem.Text = "Shop";
-            this.skinsToolStripMenuItem.Click += new System.EventHandler(this.skinsToolStripMenuItem_Click);
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profileInfoToolStripMenuItem,
+            this.skinsToolStripMenuItem});
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 22);
+            this.accountToolStripMenuItem.Text = "Account";
+            // 
+            // profileInfoToolStripMenuItem
+            // 
+            this.profileInfoToolStripMenuItem.Name = "profileInfoToolStripMenuItem";
+            this.profileInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.profileInfoToolStripMenuItem.Text = "View Profile";
+            this.profileInfoToolStripMenuItem.Click += new System.EventHandler(this.profileInfoToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -346,6 +357,13 @@
             this.panelHelpNext.TabIndex = 0;
             this.panelHelpNext.Click += new System.EventHandler(this.panelHelpNext_Click);
             // 
+            // skinsToolStripMenuItem
+            // 
+            this.skinsToolStripMenuItem.Name = "skinsToolStripMenuItem";
+            this.skinsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.skinsToolStripMenuItem.Text = "Skins";
+            this.skinsToolStripMenuItem.Click += new System.EventHandler(this.skinsToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,7 +424,6 @@
         private System.Windows.Forms.Panel panelPaused;
         private System.Windows.Forms.Label labelPaused;
         private System.Windows.Forms.Label labelSkip;
-        private System.Windows.Forms.ToolStripMenuItem skinsToolStripMenuItem;
         private System.Windows.Forms.Panel panelCredits;
         private System.Windows.Forms.Button buttonExitCredit;
         private System.Windows.Forms.ToolStripMenuItem creditsToolStripMenuItem;
@@ -414,6 +431,9 @@
         private System.Windows.Forms.Button buttonCloseHelp;
         private System.Windows.Forms.Panel panelHelpBack;
         private System.Windows.Forms.Panel panelHelpNext;
+        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profileInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem skinsToolStripMenuItem;
     }
 }
 

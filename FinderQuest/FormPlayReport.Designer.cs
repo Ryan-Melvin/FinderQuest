@@ -34,11 +34,11 @@
             this.labelStars = new System.Windows.Forms.Label();
             this.labelStats = new System.Windows.Forms.Label();
             this.panelBack = new System.Windows.Forms.Panel();
-            this.pictureBoxGold = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelGold = new System.Windows.Forms.Label();
-            this.labelScore = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelScore = new System.Windows.Forms.Label();
+            this.labelGold = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBoxGold = new System.Windows.Forms.PictureBox();
             this.panelBack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGold)).BeginInit();
             this.SuspendLayout();
@@ -77,9 +77,9 @@
             this.labelFeedback.BackColor = System.Drawing.Color.Transparent;
             this.labelFeedback.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFeedback.ForeColor = System.Drawing.Color.Black;
-            this.labelFeedback.Location = new System.Drawing.Point(26, 76);
+            this.labelFeedback.Location = new System.Drawing.Point(26, 64);
             this.labelFeedback.Name = "labelFeedback";
-            this.labelFeedback.Size = new System.Drawing.Size(486, 38);
+            this.labelFeedback.Size = new System.Drawing.Size(486, 50);
             this.labelFeedback.TabIndex = 8;
             this.labelFeedback.Text = "labelFeedback";
             this.labelFeedback.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,11 +100,11 @@
             // labelStats
             // 
             this.labelStats.BackColor = System.Drawing.Color.Transparent;
-            this.labelStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStats.Font = new System.Drawing.Font("Unispace", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStats.ForeColor = System.Drawing.Color.White;
-            this.labelStats.Location = new System.Drawing.Point(94, 114);
+            this.labelStats.Location = new System.Drawing.Point(94, 122);
             this.labelStats.Name = "labelStats";
-            this.labelStats.Size = new System.Drawing.Size(335, 57);
+            this.labelStats.Size = new System.Drawing.Size(335, 49);
             this.labelStats.TabIndex = 6;
             this.labelStats.Text = "labelStats";
             this.labelStats.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -127,12 +127,62 @@
             this.panelBack.TabIndex = 12;
             this.panelBack.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBack_Paint);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gold;
+            this.label3.Location = new System.Drawing.Point(72, 249);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(193, 29);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Gold Earned:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // labelScore
+            // 
+            this.labelScore.AutoSize = true;
+            this.labelScore.BackColor = System.Drawing.Color.Transparent;
+            this.labelScore.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelScore.ForeColor = System.Drawing.Color.LightCyan;
+            this.labelScore.Location = new System.Drawing.Point(302, 188);
+            this.labelScore.Name = "labelScore";
+            this.labelScore.Size = new System.Drawing.Size(118, 29);
+            this.labelScore.TabIndex = 12;
+            this.labelScore.Text = "4000pts";
+            // 
+            // labelGold
+            // 
+            this.labelGold.AutoSize = true;
+            this.labelGold.BackColor = System.Drawing.Color.Transparent;
+            this.labelGold.Font = new System.Drawing.Font("Unispace", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGold.ForeColor = System.Drawing.Color.Gold;
+            this.labelGold.Location = new System.Drawing.Point(333, 245);
+            this.labelGold.Name = "labelGold";
+            this.labelGold.Size = new System.Drawing.Size(117, 39);
+            this.labelGold.TabIndex = 11;
+            this.labelGold.Text = "1000G";
+            this.labelGold.Click += new System.EventHandler(this.labelGold_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.LightCyan;
+            this.label1.Location = new System.Drawing.Point(115, 188);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 29);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Final Score:";
+            // 
             // pictureBoxGold
             // 
             this.pictureBoxGold.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxGold.Image = global::FinderQuest.Properties.Resources.Coin;
-            this.pictureBoxGold.Location = new System.Drawing.Point(262, 233);
+            this.pictureBoxGold.Location = new System.Drawing.Point(267, 234);
             this.pictureBoxGold.Name = "pictureBoxGold";
             this.pictureBoxGold.Size = new System.Drawing.Size(63, 59);
             this.pictureBoxGold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,56 +190,6 @@
             this.pictureBoxGold.TabStop = false;
             this.pictureBoxGold.UseWaitCursor = true;
             this.pictureBoxGold.Click += new System.EventHandler(this.pictureBoxGold_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LightCyan;
-            this.label1.Location = new System.Drawing.Point(136, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 29);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Final Score:";
-            // 
-            // labelGold
-            // 
-            this.labelGold.AutoSize = true;
-            this.labelGold.BackColor = System.Drawing.Color.Transparent;
-            this.labelGold.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGold.ForeColor = System.Drawing.Color.Gold;
-            this.labelGold.Location = new System.Drawing.Point(325, 244);
-            this.labelGold.Name = "labelGold";
-            this.labelGold.Size = new System.Drawing.Size(117, 37);
-            this.labelGold.TabIndex = 11;
-            this.labelGold.Text = "1000G";
-            this.labelGold.Click += new System.EventHandler(this.labelGold_Click);
-            // 
-            // labelScore
-            // 
-            this.labelScore.AutoSize = true;
-            this.labelScore.BackColor = System.Drawing.Color.Transparent;
-            this.labelScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelScore.ForeColor = System.Drawing.Color.LightCyan;
-            this.labelScore.Location = new System.Drawing.Point(287, 188);
-            this.labelScore.Name = "labelScore";
-            this.labelScore.Size = new System.Drawing.Size(104, 29);
-            this.labelScore.TabIndex = 12;
-            this.labelScore.Text = "4000pts";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(83, 247);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 29);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Gold Earned:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // FormPlayReport
             // 

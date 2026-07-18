@@ -29,7 +29,6 @@ namespace TimeApplication
             this.Minute = mm;
             this.Second = ss;
         }
-
         #endregion
 
         #region properties
