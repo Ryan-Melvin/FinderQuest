@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Resources;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,8 +24,7 @@ namespace FinderQuest
         public WalkAreaManager walkArea = new WalkAreaManager(); //Centralized walk area manager that handles all walk area logic
         public TalkAreaManager talkArea = new TalkAreaManager(); //Centralized talk area manager that handles all talk area logic
 
-        public PlayerAccount account = new PlayerAccount("Guest", 0);
-        public bool isGuestAccount = true;
+        public PlayerAccount account = null;
 
         private FormQuestion form;
         public Time time;
@@ -60,10 +61,40 @@ namespace FinderQuest
             this.DoubleBuffered = true;
 
             typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelTalkArea, new object[] { true });
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         #endregion
 
-        #region helper methods
+        #region save and load
+        public void SaveAccount(string saveFileName)
+        {
+            string fullPath = Path.Combine(Application.StartupPath, "Saves", saveFileName);
+
+            FileStream file = new FileStream(fullPath, FileMode.Create, FileAccess.Write);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(file, account);
+            file.Close();
+        }
+
+        public void LoadAccount(string saveFileName)
+        {
+            string fullPath = Path.Combine(Application.StartupPath, "Saves", saveFileName);
+
+            if (File.Exists(fullPath))
+            {
+                FileStream file = new FileStream(fullPath, FileMode.Open, FileAccess.Read);
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                account = (PlayerAccount)formatter.Deserialize(file);
+                account.SaveFileName = saveFileName;
+
+                file.Close();
+            }
+        }
+        #endregion
+
+        #region other helper methods
         public void SetAllowSkipCutscene(bool value)
         {
             this.allowSkipCutscene = value;
@@ -194,6 +225,11 @@ namespace FinderQuest
             this.KeyPreview = true;
             this.DoubleBuffered = true;
             this.BackgroundImage = Properties.Resources.Finder_Quest;
+
+            if (account == null)
+            {
+                account = new PlayerAccount("Guest", null);
+            }
 
             time = new Time(0, 0, 0);
             timePlayed = new Time(0, 0, 0); // timer to keep tracked of playtime
@@ -749,6 +785,8 @@ namespace FinderQuest
             FormProfile form = new FormProfile();
             form.Owner = this;
             form.ShowDialog();
+
+            sound.PlaySound("main-menu");
         }
     }
 }

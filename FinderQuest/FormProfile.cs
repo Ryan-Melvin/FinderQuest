@@ -18,15 +18,6 @@ namespace FinderQuest
         public FormMain mainForm;
         Image equippedSkinSprite;
 
-        private void EnableDoubleBuffering(Panel panel)
-        {
-            typeof(Panel).InvokeMember("DoubleBuffered",
-                System.Reflection.BindingFlags.SetProperty |
-                System.Reflection.BindingFlags.Instance |
-                System.Reflection.BindingFlags.NonPublic,
-                null, panel, new object[] { true });
-        }
-
         private void AnimateEquippedSkin()
         {
             if (equippedSkinSprite == null)
@@ -49,11 +40,20 @@ namespace FinderQuest
         public FormProfile()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                System.Reflection.BindingFlags.SetProperty |
+                System.Reflection.BindingFlags.Instance |
+                System.Reflection.BindingFlags.NonPublic,
+                null, panelProfileSkin, new object[] { true });
         }
 
         private void FormProfile_Load(object sender, EventArgs e)
         {
             mainForm = (FormMain)this.Owner;
+            mainForm.sound.PlaySound("profile");
 
             equippedSkinSprite = (Image)Properties.Resources.ResourceManager.GetObject( mainForm.account.EquippedSkin + "_Idle_Right");
 
@@ -64,7 +64,6 @@ namespace FinderQuest
             labelGoldBalance.Text = mainForm.account.GoldBalance + "G";
             labelTotalGold.Text = "Total Gold Earned: " + mainForm.account.CalculateTotalGold() + "G";
 
-            EnableDoubleBuffering(panelProfileSkin);
             AnimateEquippedSkin();
 
             panelProfileSkin.Invalidate();
@@ -102,6 +101,32 @@ namespace FinderQuest
         private void buttonViewHistory_Click(object sender, EventArgs e)
         {
             FormGameHistory form = new FormGameHistory();
+            form.Owner = this;
+            form.ShowDialog();
+        }
+
+        private void buttonNewSave_Click(object sender, EventArgs e)
+        {
+            FormDialogNewSave form = new FormDialogNewSave();
+            form.Owner = this;
+            form.ShowDialog();
+        }
+
+        private void buttonSaveProgress_Click(object sender, EventArgs e)
+        {
+            if (mainForm.account.SaveFileName == null)
+            {
+                MessageBox.Show("No account is currently loaded (Guest).");
+                return;
+            }
+
+            mainForm.SaveAccount(mainForm.account.SaveFileName);
+            MessageBox.Show("Progress saved successfully.");
+        }
+
+        private void buttonLoadProgress_Click(object sender, EventArgs e)
+        {
+            FormDialogLoadProgress form = new FormDialogLoadProgress();
             form.Owner = this;
             form.ShowDialog();
         }

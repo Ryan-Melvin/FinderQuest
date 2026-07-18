@@ -18,6 +18,8 @@ namespace FinderQuest
         public FormSkins()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         FormMain mainForm;

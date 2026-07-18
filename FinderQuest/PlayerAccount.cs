@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FinderQuest
 {
+    [Serializable]
     public class PlayerAccount
     {
         private string playerName;
@@ -12,14 +13,16 @@ namespace FinderQuest
         private List<PlayReport> gameHistory;
         private List<string> ownedSkins;
         private string equippedSkin;
+        private string saveFileName;
 
-        public PlayerAccount(string playerName, int goldBalance)
+        public PlayerAccount(string playerName, string saveFileName)
         {
             this.PlayerName = playerName;
-            this.GoldBalance = goldBalance;
+            this.GoldBalance = 0;
             this.GameHistory = new List<PlayReport>();
             this.OwnedSkins = new List<string>() { "ForestRanger" }; // default skin
             this.EquippedSkin = "ForestRanger";
+            this.SaveFileName = saveFileName;
         }
 
         public string PlayerName { get => playerName; set => playerName = value; }
@@ -27,6 +30,7 @@ namespace FinderQuest
         public List<PlayReport> GameHistory { get => gameHistory; private set => gameHistory = value; }
         public List<string> OwnedSkins { get => ownedSkins; private set => ownedSkins = value; }
         public string EquippedSkin { get => equippedSkin; set => equippedSkin = value; }
+        public string SaveFileName { get => saveFileName; set => saveFileName = value; }
 
         public void AddGameHistory(PlayReport report)
         {

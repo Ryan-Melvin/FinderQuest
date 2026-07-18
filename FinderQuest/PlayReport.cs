@@ -6,6 +6,7 @@ using TimeApplication;
 
 namespace FinderQuest
 {
+    [Serializable]
     public class PlayReport
     {
         #region fields

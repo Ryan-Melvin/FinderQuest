@@ -79,6 +79,7 @@
             this.buttonNewSave.TabIndex = 3;
             this.buttonNewSave.Text = "New Save";
             this.buttonNewSave.UseVisualStyleBackColor = false;
+            this.buttonNewSave.Click += new System.EventHandler(this.buttonNewSave_Click);
             // 
             // buttonSaveProgress
             // 
@@ -94,6 +95,7 @@
             this.buttonSaveProgress.TabIndex = 4;
             this.buttonSaveProgress.Text = "Save Progress";
             this.buttonSaveProgress.UseVisualStyleBackColor = false;
+            this.buttonSaveProgress.Click += new System.EventHandler(this.buttonSaveProgress_Click);
             // 
             // buttonLoadProgress
             // 
@@ -109,6 +111,7 @@
             this.buttonLoadProgress.TabIndex = 1;
             this.buttonLoadProgress.Text = "Load Progress";
             this.buttonLoadProgress.UseVisualStyleBackColor = false;
+            this.buttonLoadProgress.Click += new System.EventHandler(this.buttonLoadProgress_Click);
             // 
             // buttonViewHistory
             // 

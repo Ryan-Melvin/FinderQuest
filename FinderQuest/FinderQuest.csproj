@@ -50,6 +50,18 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Boss.cs" />
+    <Compile Include="FormDialogLoadProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDialogLoadProgress.Designer.cs">
+      <DependentUpon>FormDialogLoadProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDialogNewSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDialogNewSave.Designer.cs">
+      <DependentUpon>FormDialogNewSave.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGameHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +116,12 @@
     <Compile Include="TriviaApiQuestionText.cs" />
     <Compile Include="WalkArea.cs" />
     <Compile Include="WalkAreaManager.cs" />
+    <EmbeddedResource Include="FormDialogLoadProgress.resx">
+      <DependentUpon>FormDialogLoadProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDialogNewSave.resx">
+      <DependentUpon>FormDialogNewSave.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGameHistory.resx">
       <DependentUpon>FormGameHistory.cs</DependentUpon>
     </EmbeddedResource>

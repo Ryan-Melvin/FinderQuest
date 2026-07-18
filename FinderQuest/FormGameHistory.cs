@@ -15,6 +15,8 @@ namespace FinderQuest
         public FormGameHistory()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         FormProfile profileForm;

@@ -159,6 +159,11 @@ namespace FinderQuest
                 fileName = Application.StartupPath + "\\Sounds\\SkinShop.mp3";
                 targetMusicVolume = 60;
             }
+            else if (soundName == "profile")
+            {
+                fileName = Application.StartupPath + "\\Sounds\\Profile.mp3";
+                targetMusicVolume = 60;
+            }
 
             if (string.IsNullOrEmpty(fileName))
             {

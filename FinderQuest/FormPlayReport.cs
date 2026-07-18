@@ -15,6 +15,8 @@ namespace FinderQuest
         public FormPlayReport()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         FormMain mainForm;
@@ -69,7 +71,7 @@ namespace FinderQuest
             this.panelBack.BackColor = Color.FromArgb(150, 0, 0, 0);
 
             labelTitle.Font = new Font("Plus Jakarta Sans", 18, FontStyle.Bold);
-            labelFeedback.Font = new Font("Plus Jakarta Sans", 17, FontStyle.Italic | FontStyle.Bold);
+            labelFeedback.Font = new Font("Garamond", 17, FontStyle.Bold);
             //labelStats.Font = new Font("Unispace", 13, FontStyle.Bold);
             //labelScore.Font = new Font("Unispace", 18, FontStyle.Bold);
             //labelGold.Font = new Font("Unispace", 24, FontStyle.Bold);

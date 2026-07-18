@@ -41,7 +41,7 @@
             // 
             this.labelSkinsCollected.AutoSize = true;
             this.labelSkinsCollected.Font = new System.Drawing.Font("Unispace", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSkinsCollected.Location = new System.Drawing.Point(329, 74);
+            this.labelSkinsCollected.Location = new System.Drawing.Point(329, 82);
             this.labelSkinsCollected.Name = "labelSkinsCollected";
             this.labelSkinsCollected.Size = new System.Drawing.Size(116, 25);
             this.labelSkinsCollected.TabIndex = 23;
@@ -85,7 +85,7 @@
             this.comboBoxSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSort.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSort.FormattingEnabled = true;
-            this.comboBoxSort.Location = new System.Drawing.Point(288, 108);
+            this.comboBoxSort.Location = new System.Drawing.Point(288, 116);
             this.comboBoxSort.Name = "comboBoxSort";
             this.comboBoxSort.Size = new System.Drawing.Size(184, 29);
             this.comboBoxSort.TabIndex = 25;

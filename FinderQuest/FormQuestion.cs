@@ -79,6 +79,7 @@ namespace FinderQuest
         public FormQuestion()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.KeyPreview = true;
         }
 
