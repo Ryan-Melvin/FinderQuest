@@ -219,7 +219,8 @@ namespace FinderQuest
             // Lock the startup button 
             //startToolStripMenuItem.Text = "Connecting to Trivia Servers...";
             //startToolStripMenuItem.Enabled = false;
-            //pauseToolStripMenuItem.Enabled = false;
+            this.AutoScaleMode = AutoScaleMode.None;
+            pauseToolStripMenuItem.Enabled = false;
             timerTime.Interval = 1000;
 
             this.KeyPreview = true;

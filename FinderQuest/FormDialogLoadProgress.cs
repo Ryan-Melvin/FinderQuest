@@ -23,6 +23,7 @@ namespace FinderQuest
         FormProfile profileForm;
         private void FormDialogLoadProgress_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             profileForm = (FormProfile)this.Owner;
             string saveFolder = Path.Combine(Application.StartupPath, "Saves");
 

@@ -67,6 +67,7 @@ namespace FinderQuest
 
         private void FormPlayReport_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             this.BackgroundImage = Properties.Resources.Mountain;
             this.panelBack.BackColor = Color.FromArgb(150, 0, 0, 0);
 

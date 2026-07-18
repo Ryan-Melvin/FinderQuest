@@ -48,13 +48,13 @@ namespace FinderQuest
         Skin wanderer = new Skin("Wanderer", "Wanderer", 1750, "epic");
       
         int columns = 3;
-        int spacingX = 160;
-        int spacingY = 160;
+        int spacingX = 100;
+        int spacingY = 100;
         int startX = 30;
         int startY = 30;
 
         Skin selectedSkin;
-        int skinSize = 130;
+        int skinSize = 70;
         private bool canBuySelectedSkin;
         private bool canEquipSelectedSkin;
 
@@ -207,6 +207,7 @@ namespace FinderQuest
 
         private void FormSkins_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             mainForm = (FormMain)this.Owner;
             EnableDoubleBuffering(panelShowSkin);
             EnableDoubleBuffering(panelSkin);
@@ -217,6 +218,9 @@ namespace FinderQuest
             });
 
             SortSkins();
+            selectedSkin = listSkins.Find(skin => skin.Name == mainForm.player.Skin);
+            AnimateSkin();
+            UpdateActionButtons();
 
             vScrollBar1.Maximum = panelSkin.Size.Height - 460;
             labelCurrency.Text = mainForm.account.GoldBalance + "G";
@@ -230,16 +234,29 @@ namespace FinderQuest
             vScrollBar1.Maximum = panelSkin.Height - this.ClientSize.Height;
 
             labelEquipped.Visible = false;
-            labelRarity.Visible = false;
 
             this.MouseWheel += new MouseEventHandler(FormSkins_MouseWheel); //for scrolling
 
             pictureBoxPrice.Visible = false;
-            buttonEquip.Visible = false;
+            labelRarity.Visible = true;
+            labelRarity.Text = selectedSkin.Rarity.Substring(0, 1).ToUpper() + selectedSkin.Rarity.Substring(1);
             buttonBuy.Visible = false;
             vScrollBar1.Visible = false;
 
             mainForm.sound.PlaySound("skin-shop");
+
+            panelBorderBottom.Location = new Point(panelBorderTop.Location.X, this.ClientSize.Height - panelBorderBottom.Height);
+            panelBorderBottom.Size = new Size(this.ClientSize.Width - panelSkin.Width, panelBorderBottom.Height);
+            panelBorderTop.Size = panelBorderBottom.Size;
+            panelBorderLeft.Size = new Size(panelBorderLeft.Width, this.ClientSize.Height);
+
+            labelSkinPrice.Text = "Owned";
+
+            labelPrice.Visible = false;
+            labelSkinPrice.Visible = true;
+            pictureBoxPrice.Visible = false;
+
+            
         }
 
         private void panelSkin_Paint(object sender, PaintEventArgs e)
@@ -259,7 +276,7 @@ namespace FinderQuest
             SolidBrush lockedOverlay = new SolidBrush(Color.FromArgb(125, 20, 10, 10));
             SolidBrush lockedBoxBrush =new SolidBrush(Color.FromArgb(210, 45, 25, 22));
             SolidBrush lockedTextBrush = new SolidBrush(Color.FromArgb(235, 225, 210));
-            Font lockedFont = new Font("Segoe UI", 9, FontStyle.Bold);
+            Font lockedFont = new Font("Segoe UI", 5, FontStyle.Bold);
 
             int count = 0;
 
@@ -305,13 +322,13 @@ namespace FinderQuest
                 {
                     g.FillRectangle(lockedOverlay, skinBox);
 
-                    Rectangle lockedBox = new Rectangle(x, y + skinSize - 25, skinSize, 25);
+                    Rectangle lockedBox = new Rectangle(x, y + skinSize - 20, skinSize, 20);
 
                     g.FillRectangle(lockedBoxBrush, lockedBox);
 
                     SizeF textSize = g.MeasureString("LOCKED", lockedFont);
                     float lockedTextX = x + (skinSize - textSize.Width) / 2;
-                    float lockedTextY = y + skinSize - 22;
+                    float lockedTextY = y + skinSize - 17;
                     g.DrawString("LOCKED", lockedFont, lockedTextBrush, lockedTextX, lockedTextY);
                 }
 
@@ -325,7 +342,7 @@ namespace FinderQuest
                 if (mainForm.account.EquippedSkin == skin.Name)
                 {
                     g.DrawRectangle(equippedPen, x - 10, y - 10, skinBox.Width + 20, skinBox.Height + 20);
-                    labelEquipped.Location = new Point(x + (skinSize / 2) - (labelEquipped.Width / 2), y + 5);
+                    labelEquipped.Location = new Point(x + (skinSize / 2) - (labelEquipped.Width / 2), y);
 
                     labelEquipped.Visible = true;
                 }
@@ -359,7 +376,7 @@ namespace FinderQuest
                 int x = startX + (col * spacingX);
                 int y = startY + (row * spacingY);
 
-                Rectangle skinClickArea = new Rectangle(x, y, 130, 130);
+                Rectangle skinClickArea = new Rectangle(x, y, skinSize, skinSize);
 
                 if (skinClickArea.Contains(mousePosition))
                 {

@@ -22,6 +22,7 @@ namespace FinderQuest
         FormProfile profileForm;
         private void FormDialogNewSave_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             profileForm = (FormProfile)this.Owner;
         }
 

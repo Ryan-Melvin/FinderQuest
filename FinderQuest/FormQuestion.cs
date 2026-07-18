@@ -85,6 +85,7 @@ namespace FinderQuest
 
         private void FormQuestion_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             mainForm = (FormMain)this.Owner;
 
             this.BackgroundImage = mainForm.BackgroundImage;

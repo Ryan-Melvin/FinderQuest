@@ -80,6 +80,7 @@ namespace FinderQuest
 
         private void FormGameHistory_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             profileForm = (FormProfile)this.Owner;
 
             comboBoxSort.Items.Clear();

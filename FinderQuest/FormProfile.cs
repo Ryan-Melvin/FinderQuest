@@ -52,6 +52,7 @@ namespace FinderQuest
 
         private void FormProfile_Load(object sender, EventArgs e)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             mainForm = (FormMain)this.Owner;
             mainForm.sound.PlaySound("profile");
 
