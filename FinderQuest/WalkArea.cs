@@ -53,10 +53,6 @@ namespace FinderQuest
 
         public void RemovePeople()
         {
-            foreach (Person person in this.People)
-            {
-                person.Sprite.Dispose();
-            }
             this.People.Clear();
         }
 
