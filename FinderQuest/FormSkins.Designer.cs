@@ -91,7 +91,7 @@
             // labelSkinPrice
             // 
             this.labelSkinPrice.BackColor = System.Drawing.Color.Transparent;
-            this.labelSkinPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSkinPrice.Font = new System.Drawing.Font("Unispace", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSkinPrice.ForeColor = System.Drawing.Color.Snow;
             this.labelSkinPrice.Location = new System.Drawing.Point(216, 332);
             this.labelSkinPrice.Name = "labelSkinPrice";
@@ -150,11 +150,11 @@
             // 
             this.labelCurrency.AutoSize = true;
             this.labelCurrency.BackColor = System.Drawing.Color.Transparent;
-            this.labelCurrency.Font = new System.Drawing.Font("Arial Narrow", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrency.Font = new System.Drawing.Font("Unispace", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCurrency.ForeColor = System.Drawing.Color.Snow;
             this.labelCurrency.Location = new System.Drawing.Point(441, 24);
             this.labelCurrency.Name = "labelCurrency";
-            this.labelCurrency.Size = new System.Drawing.Size(91, 26);
+            this.labelCurrency.Size = new System.Drawing.Size(116, 26);
             this.labelCurrency.TabIndex = 5;
             this.labelCurrency.Text = "Currency";
             // 

@@ -49,19 +49,21 @@
             // 
             this.panelProfileSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.panelProfileSkin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelProfileSkin.Location = new System.Drawing.Point(38, 20);
+            this.panelProfileSkin.Location = new System.Drawing.Point(57, 31);
+            this.panelProfileSkin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelProfileSkin.Name = "panelProfileSkin";
-            this.panelProfileSkin.Size = new System.Drawing.Size(165, 203);
+            this.panelProfileSkin.Size = new System.Drawing.Size(246, 311);
             this.panelProfileSkin.TabIndex = 0;
             this.panelProfileSkin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelProfileSkin_Paint);
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("UD Digi Kyokasho NK", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelName.Location = new System.Drawing.Point(218, 19);
+            this.labelName.Font = new System.Drawing.Font("Plus Jakarta Sans", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(327, 9);
+            this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(113, 37);
+            this.labelName.Size = new System.Drawing.Size(175, 79);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "Guest";
             // 
@@ -73,9 +75,10 @@
             this.buttonNewSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNewSave.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonNewSave.Location = new System.Drawing.Point(38, 240);
+            this.buttonNewSave.Location = new System.Drawing.Point(57, 369);
+            this.buttonNewSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonNewSave.Name = "buttonNewSave";
-            this.buttonNewSave.Size = new System.Drawing.Size(59, 40);
+            this.buttonNewSave.Size = new System.Drawing.Size(88, 62);
             this.buttonNewSave.TabIndex = 3;
             this.buttonNewSave.Text = "New Save";
             this.buttonNewSave.UseVisualStyleBackColor = false;
@@ -89,9 +92,10 @@
             this.buttonSaveProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSaveProgress.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonSaveProgress.Location = new System.Drawing.Point(100, 240);
+            this.buttonSaveProgress.Location = new System.Drawing.Point(150, 369);
+            this.buttonSaveProgress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSaveProgress.Name = "buttonSaveProgress";
-            this.buttonSaveProgress.Size = new System.Drawing.Size(103, 40);
+            this.buttonSaveProgress.Size = new System.Drawing.Size(154, 62);
             this.buttonSaveProgress.TabIndex = 4;
             this.buttonSaveProgress.Text = "Save Progress";
             this.buttonSaveProgress.UseVisualStyleBackColor = false;
@@ -105,9 +109,10 @@
             this.buttonLoadProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLoadProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLoadProgress.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonLoadProgress.Location = new System.Drawing.Point(205, 240);
+            this.buttonLoadProgress.Location = new System.Drawing.Point(308, 369);
+            this.buttonLoadProgress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonLoadProgress.Name = "buttonLoadProgress";
-            this.buttonLoadProgress.Size = new System.Drawing.Size(100, 40);
+            this.buttonLoadProgress.Size = new System.Drawing.Size(150, 62);
             this.buttonLoadProgress.TabIndex = 1;
             this.buttonLoadProgress.Text = "Load Progress";
             this.buttonLoadProgress.UseVisualStyleBackColor = false;
@@ -121,9 +126,10 @@
             this.buttonViewHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonViewHistory.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonViewHistory.Location = new System.Drawing.Point(326, 240);
+            this.buttonViewHistory.Location = new System.Drawing.Point(489, 369);
+            this.buttonViewHistory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonViewHistory.Name = "buttonViewHistory";
-            this.buttonViewHistory.Size = new System.Drawing.Size(170, 40);
+            this.buttonViewHistory.Size = new System.Drawing.Size(255, 62);
             this.buttonViewHistory.TabIndex = 6;
             this.buttonViewHistory.Text = "View Game History";
             this.buttonViewHistory.UseVisualStyleBackColor = false;
@@ -133,9 +139,10 @@
             // 
             this.labelGamesCompleted.AutoSize = true;
             this.labelGamesCompleted.Font = new System.Drawing.Font("Unispace", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGamesCompleted.Location = new System.Drawing.Point(224, 65);
+            this.labelGamesCompleted.Location = new System.Drawing.Point(336, 100);
+            this.labelGamesCompleted.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGamesCompleted.Name = "labelGamesCompleted";
-            this.labelGamesCompleted.Size = new System.Drawing.Size(169, 19);
+            this.labelGamesCompleted.Size = new System.Drawing.Size(253, 29);
             this.labelGamesCompleted.TabIndex = 7;
             this.labelGamesCompleted.Text = "Games Completed:";
             // 
@@ -143,9 +150,10 @@
             // 
             this.labelSkinsCollected.AutoSize = true;
             this.labelSkinsCollected.Font = new System.Drawing.Font("Unispace", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSkinsCollected.Location = new System.Drawing.Point(224, 97);
+            this.labelSkinsCollected.Location = new System.Drawing.Point(336, 149);
+            this.labelSkinsCollected.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSkinsCollected.Name = "labelSkinsCollected";
-            this.labelSkinsCollected.Size = new System.Drawing.Size(179, 19);
+            this.labelSkinsCollected.Size = new System.Drawing.Size(268, 29);
             this.labelSkinsCollected.TabIndex = 8;
             this.labelSkinsCollected.Text = "Skins Collected: ";
             // 
@@ -154,9 +162,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Unispace", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Indigo;
-            this.label5.Location = new System.Drawing.Point(224, 128);
+            this.label5.Location = new System.Drawing.Point(336, 197);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 23);
+            this.label5.Size = new System.Drawing.Size(213, 35);
             this.label5.TabIndex = 9;
             this.label5.Text = "High Score:";
             // 
@@ -165,9 +174,10 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Unispace", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(224, 171);
+            this.label6.Location = new System.Drawing.Point(336, 263);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 23);
+            this.label6.Size = new System.Drawing.Size(159, 35);
             this.label6.TabIndex = 10;
             this.label6.Text = "Balance:";
             // 
@@ -177,9 +187,10 @@
             this.labelGoldBalance.BackColor = System.Drawing.Color.Transparent;
             this.labelGoldBalance.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGoldBalance.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelGoldBalance.Location = new System.Drawing.Point(359, 168);
+            this.labelGoldBalance.Location = new System.Drawing.Point(538, 258);
+            this.labelGoldBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGoldBalance.Name = "labelGoldBalance";
-            this.labelGoldBalance.Size = new System.Drawing.Size(88, 29);
+            this.labelGoldBalance.Size = new System.Drawing.Size(129, 43);
             this.labelGoldBalance.TabIndex = 13;
             this.labelGoldBalance.Text = "1000G";
             // 
@@ -189,9 +200,10 @@
             this.labelHighScore.BackColor = System.Drawing.Color.Transparent;
             this.labelHighScore.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHighScore.ForeColor = System.Drawing.Color.Indigo;
-            this.labelHighScore.Location = new System.Drawing.Point(357, 125);
+            this.labelHighScore.Location = new System.Drawing.Point(536, 192);
+            this.labelHighScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHighScore.Name = "labelHighScore";
-            this.labelHighScore.Size = new System.Drawing.Size(118, 29);
+            this.labelHighScore.Size = new System.Drawing.Size(173, 43);
             this.labelHighScore.TabIndex = 14;
             this.labelHighScore.Text = "4000pts";
             // 
@@ -201,9 +213,10 @@
             this.labelTotalGold.BackColor = System.Drawing.Color.Transparent;
             this.labelTotalGold.Font = new System.Drawing.Font("Unispace", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalGold.ForeColor = System.Drawing.Color.Maroon;
-            this.labelTotalGold.Location = new System.Drawing.Point(226, 208);
+            this.labelTotalGold.Location = new System.Drawing.Point(339, 320);
+            this.labelTotalGold.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotalGold.Name = "labelTotalGold";
-            this.labelTotalGold.Size = new System.Drawing.Size(159, 15);
+            this.labelTotalGold.Size = new System.Drawing.Size(238, 24);
             this.labelTotalGold.TabIndex = 15;
             this.labelTotalGold.Text = "Total Gold Earned: ";
             // 
@@ -212,9 +225,10 @@
             this.pictureBoxGold.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxGold.Image = global::FinderQuest.Properties.Resources.Coin;
-            this.pictureBoxGold.Location = new System.Drawing.Point(328, 165);
+            this.pictureBoxGold.Location = new System.Drawing.Point(492, 254);
+            this.pictureBoxGold.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBoxGold.Name = "pictureBoxGold";
-            this.pictureBoxGold.Size = new System.Drawing.Size(33, 32);
+            this.pictureBoxGold.Size = new System.Drawing.Size(50, 49);
             this.pictureBoxGold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxGold.TabIndex = 12;
             this.pictureBoxGold.TabStop = false;
@@ -222,10 +236,10 @@
             // 
             // FormProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.labelTotalGold);
             this.Controls.Add(this.labelHighScore);
             this.Controls.Add(this.labelGoldBalance);
@@ -240,6 +254,7 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonLoadProgress);
             this.Controls.Add(this.panelProfileSkin);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile Information";
