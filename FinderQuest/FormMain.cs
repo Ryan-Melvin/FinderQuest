@@ -217,9 +217,9 @@ namespace FinderQuest
             #endregion
 
             // Lock the startup button 
-            startToolStripMenuItem.Text = "Connecting to Trivia Servers...";
-            startToolStripMenuItem.Enabled = false;
-            pauseToolStripMenuItem.Enabled = false;
+            //startToolStripMenuItem.Text = "Connecting to Trivia Servers...";
+            //startToolStripMenuItem.Enabled = false;
+            //pauseToolStripMenuItem.Enabled = false;
             timerTime.Interval = 1000;
 
             this.KeyPreview = true;
@@ -238,10 +238,7 @@ namespace FinderQuest
 
             sound.PlaySound("main-menu");
 
-            // Wait until all 7 calls finish downloading
-            await game.InitializeAllQuestionsAsync();
-
-            // Unlock start menu
+            // Unlock start menu (obsolete now)
             startToolStripMenuItem.Text = "Start Game";
             startToolStripMenuItem.Enabled = true;
 
@@ -339,6 +336,7 @@ namespace FinderQuest
             paused = false;
             player.IsVisible = true;
 
+            startToolStripMenuItem.Enabled = true;
             pauseToolStripMenuItem.Enabled = true;
             creditsToolStripMenuItem.Enabled = false;
             helpToolStripMenuItem.Enabled = false;
@@ -354,7 +352,7 @@ namespace FinderQuest
             game.BossQuestionNum = 0;
 
             time.ResetTimer();
-            time.AddWithSecond(10);
+            time.AddWithSecond(60);
             labelTimer.Text = time.DisplayData();
             timerTime.Start();
 
@@ -376,16 +374,18 @@ namespace FinderQuest
         {
             if (!gameStarted)
             {
-                // startToolStripMenuItem.Text = "Fetching Questions...";
+                startToolStripMenuItem.Text = "Fetching Questions...";
                 startToolStripMenuItem.Enabled = false;
-                // await game.InitializeAllQuestionsAsync();
-                startToolStripMenuItem.Enabled = true;
-
-                timerGame.Start();
-                skip = new CancellationTokenSource();
                 creditsToolStripMenuItem.Enabled = false;
                 helpToolStripMenuItem.Enabled = false;
                 accountToolStripMenuItem.Enabled = false;
+                this.BackgroundImage = Properties.Resources.Finder_Quest_Loading_Screen;
+                AnimateMainMenu();
+                await game.InitializeAllQuestionsAsync();
+                startToolStripMenuItem.Text = "Stop Game";
+
+                timerGame.Start();
+                skip = new CancellationTokenSource();
                 await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                 StartGame();
             }
@@ -425,7 +425,7 @@ namespace FinderQuest
         #region player input (Keybinds)
         private async void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
-            int distance = 8;
+            int distance = 5;
 
             if (!paused && !inCutscene)
             {
@@ -475,14 +475,17 @@ namespace FinderQuest
                         {
                             startToolStripMenuItem.Text = "Fetching Questions...";
                             startToolStripMenuItem.Enabled = false;
-                            // await game.InitializeAllQuestionsAsync();
-                            startToolStripMenuItem.Enabled = true;
-
-                            timerGame.Start();
-                            skip = new CancellationTokenSource();
                             creditsToolStripMenuItem.Enabled = false;
                             helpToolStripMenuItem.Enabled = false;
                             accountToolStripMenuItem.Enabled = false;
+                            this.BackgroundImage = Properties.Resources.Finder_Quest_Loading_Screen;
+                            AnimateMainMenu();
+                            await game.InitializeAllQuestionsAsync();
+                            startToolStripMenuItem.Enabled = true;
+                            startToolStripMenuItem.Text = "Stop Game";
+
+                            timerGame.Start();
+                            skip = new CancellationTokenSource();
                             await cutscene.PlayOpeningCutscene(this, startToolStripMenuItem, pauseToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
                             StartGame();
                         }
@@ -495,7 +498,7 @@ namespace FinderQuest
                     {
                         if (game.ActivePerson.Solved)
                         {
-                            MessageBox.Show("Question Already Solved.");
+                            MessageBox.Show("Question already solved!");
                         }
                         else
                         {

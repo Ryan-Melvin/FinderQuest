@@ -153,7 +153,7 @@ namespace FinderQuest
             {
                 if (score > 0)
                 {
-                    mainForm.game.BossQuestionNum = 6;
+                    mainForm.game.BossQuestionNum += 1;
                 }
                 this.textBoxAnswer.Text = "";
                 GenerateQuestion();

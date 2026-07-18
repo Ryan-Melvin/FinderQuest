@@ -120,6 +120,13 @@ namespace FinderQuest
         public void SetSkin(string newSkin)
         {
             this.Skin = newSkin;
+
+            if (!string.IsNullOrEmpty(this.CurrState))
+            {
+                string savedState = this.CurrState;
+                this.CurrState = "";
+                this.SetState(savedState);
+            }
         }
         #endregion
 

@@ -193,6 +193,11 @@ namespace FinderQuest
             SFX1.URL = url;
             SFX1.settings.volume = 90;
 
+            if (soundName == "OracleDeath")
+            {
+                SFX1.settings.volume = 50;
+            }
+
             SFX1.controls.play();
         }
 
