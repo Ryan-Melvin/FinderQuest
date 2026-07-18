@@ -83,7 +83,6 @@
             this.textBoxSaveFile.Name = "textBoxSaveFile";
             this.textBoxSaveFile.Size = new System.Drawing.Size(118, 25);
             this.textBoxSaveFile.TabIndex = 3;
-            this.textBoxSaveFile.TextChanged += new System.EventHandler(this.textBoxSaveFileName_TextChanged);
             // 
             // label1
             // 
@@ -104,7 +103,6 @@
             this.label2.Size = new System.Drawing.Size(77, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Save File:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -115,7 +113,6 @@
             this.label3.Size = new System.Drawing.Size(39, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = ".fqs";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

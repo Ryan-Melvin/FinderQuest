@@ -82,20 +82,5 @@ namespace FinderQuest
             profileForm.Close();
             this.Close();
         }
-
-        private void textBoxSaveFileName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
