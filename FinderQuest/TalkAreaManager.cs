@@ -20,8 +20,9 @@ namespace FinderQuest
             labelTalkArea.Location = new Point(10, form.GetTalkAreaPanel().Height - labelTalkArea.Size.Height - 10);
         }
 
-        public void EnterTalkArea(FormMain form, Label labelTalkArea)
+        public void EnterTalkArea(FormMain form, Label labelTalkArea, ToolStripMenuItem pause)
         {
+            pause.Enabled = false;
             GenerateTalkArea(form, labelTalkArea);
             form.sound.PlaySFX(form.game.ActivePerson.GreetingSound);
             form.SavePeronX(form.game.ActivePerson.X);
@@ -46,8 +47,12 @@ namespace FinderQuest
             form.game.ActivePerson.DisplayDialog(form.GetTalkAreaPanel());
         }
 
-        public void ExitTalkArea(FormMain form)
+        public void ExitTalkArea(FormMain form, ToolStripMenuItem pause = null)
         {
+            if(pause != null)
+            {
+                pause.Enabled = true;
+            }
             form.player.IsVisible = true;
             form.SetEnterTalkArea(false);
 

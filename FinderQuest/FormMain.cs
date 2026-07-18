@@ -183,6 +183,11 @@ namespace FinderQuest
         {
             this.enterTalkArea = value;
         }
+
+        public ToolStripMenuItem GetPauseMenu()
+        {
+            return this.pauseToolStripMenuItem;   
+        }
         #endregion
 
         #region form lifecycle events
@@ -513,15 +518,13 @@ namespace FinderQuest
                         }
                         else
                         {
-                            talkArea.EnterTalkArea(this, labelAreaTalk);
-                            pauseToolStripMenuItem.Enabled = false;
+                            talkArea.EnterTalkArea(this, labelAreaTalk, pauseToolStripMenuItem);
                         }
                     }
                 }
                 else if (e.KeyCode == Keys.Escape && enterTalkArea)
                 {
-                    talkArea.ExitTalkArea(this);
-                    pauseToolStripMenuItem.Enabled = false;
+                    talkArea.ExitTalkArea(this, pauseToolStripMenuItem);
                 }
                 else if (e.KeyCode == Keys.Escape && pauseToolStripMenuItem.Enabled) //pause when not paused
                 {

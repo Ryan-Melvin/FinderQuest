@@ -163,7 +163,7 @@ namespace FinderQuest
             {
                 textBoxAnswer.Text = "";
                 this.Close();
-                mainForm.talkArea.ExitTalkArea(mainForm);
+                mainForm.talkArea.ExitTalkArea(mainForm, mainForm.GetPauseMenu());
             }     
         }
 
