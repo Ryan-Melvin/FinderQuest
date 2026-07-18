@@ -41,9 +41,11 @@
             // 
             this.labelSkinsCollected.AutoSize = true;
             this.labelSkinsCollected.Font = new System.Drawing.Font("Unispace", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSkinsCollected.Location = new System.Drawing.Point(329, 82);
+            this.labelSkinsCollected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
+            this.labelSkinsCollected.Location = new System.Drawing.Point(494, 126);
+            this.labelSkinsCollected.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSkinsCollected.Name = "labelSkinsCollected";
-            this.labelSkinsCollected.Size = new System.Drawing.Size(116, 25);
+            this.labelSkinsCollected.Size = new System.Drawing.Size(177, 38);
             this.labelSkinsCollected.TabIndex = 23;
             this.labelSkinsCollected.Text = "Sort By:";
             // 
@@ -51,43 +53,52 @@
             // 
             this.labelGamesCompleted.AutoSize = true;
             this.labelGamesCompleted.Font = new System.Drawing.Font("Unispace", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGamesCompleted.Location = new System.Drawing.Point(339, 170);
+            this.labelGamesCompleted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
+            this.labelGamesCompleted.Location = new System.Drawing.Point(508, 262);
+            this.labelGamesCompleted.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGamesCompleted.Name = "labelGamesCompleted";
-            this.labelGamesCompleted.Size = new System.Drawing.Size(90, 25);
+            this.labelGamesCompleted.Size = new System.Drawing.Size(137, 38);
             this.labelGamesCompleted.TabIndex = 22;
             this.labelGamesCompleted.Text = "Order:";
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("UD Digi Kyokasho NK", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelName.Location = new System.Drawing.Point(263, 27);
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
+            this.labelName.Location = new System.Drawing.Point(394, 42);
+            this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(240, 37);
+            this.labelName.Size = new System.Drawing.Size(329, 55);
             this.labelName.TabIndex = 18;
             this.labelName.Text = "Game History";
             // 
             // listBoxDisplay
             // 
-            this.listBoxDisplay.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.listBoxDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(149)))), ((int)(((byte)(138)))));
             this.listBoxDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBoxDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxDisplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.listBoxDisplay.FormattingEnabled = true;
-            this.listBoxDisplay.ItemHeight = 17;
-            this.listBoxDisplay.Location = new System.Drawing.Point(19, 27);
+            this.listBoxDisplay.ItemHeight = 28;
+            this.listBoxDisplay.Location = new System.Drawing.Point(28, 42);
+            this.listBoxDisplay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxDisplay.Name = "listBoxDisplay";
-            this.listBoxDisplay.Size = new System.Drawing.Size(222, 240);
+            this.listBoxDisplay.Size = new System.Drawing.Size(332, 366);
             this.listBoxDisplay.TabIndex = 24;
             // 
             // comboBoxSort
             // 
-            this.comboBoxSort.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(149)))), ((int)(((byte)(138)))));
             this.comboBoxSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSort.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(10)))), ((int)(((byte)(10)))));
             this.comboBoxSort.FormattingEnabled = true;
-            this.comboBoxSort.Location = new System.Drawing.Point(288, 116);
+            this.comboBoxSort.Location = new System.Drawing.Point(432, 178);
+            this.comboBoxSort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxSort.Name = "comboBoxSort";
-            this.comboBoxSort.Size = new System.Drawing.Size(184, 29);
+            this.comboBoxSort.Size = new System.Drawing.Size(274, 40);
             this.comboBoxSort.TabIndex = 25;
             this.comboBoxSort.SelectedIndexChanged += new System.EventHandler(this.comboBoxSort_SelectedIndexChanged);
             // 
@@ -95,9 +106,11 @@
             // 
             this.radioButtonAscending.AutoSize = true;
             this.radioButtonAscending.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonAscending.Location = new System.Drawing.Point(319, 203);
+            this.radioButtonAscending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
+            this.radioButtonAscending.Location = new System.Drawing.Point(478, 312);
+            this.radioButtonAscending.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radioButtonAscending.Name = "radioButtonAscending";
-            this.radioButtonAscending.Size = new System.Drawing.Size(119, 29);
+            this.radioButtonAscending.Size = new System.Drawing.Size(175, 44);
             this.radioButtonAscending.TabIndex = 26;
             this.radioButtonAscending.TabStop = true;
             this.radioButtonAscending.Text = "Ascending";
@@ -108,9 +121,11 @@
             // 
             this.radioButtonDescending.AutoSize = true;
             this.radioButtonDescending.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonDescending.Location = new System.Drawing.Point(319, 238);
+            this.radioButtonDescending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
+            this.radioButtonDescending.Location = new System.Drawing.Point(478, 366);
+            this.radioButtonDescending.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.radioButtonDescending.Name = "radioButtonDescending";
-            this.radioButtonDescending.Size = new System.Drawing.Size(130, 29);
+            this.radioButtonDescending.Size = new System.Drawing.Size(192, 44);
             this.radioButtonDescending.TabIndex = 27;
             this.radioButtonDescending.TabStop = true;
             this.radioButtonDescending.Text = "Descending";
@@ -118,10 +133,10 @@
             // 
             // FormGameHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.radioButtonDescending);
             this.Controls.Add(this.radioButtonAscending);
             this.Controls.Add(this.comboBoxSort);
@@ -129,6 +144,7 @@
             this.Controls.Add(this.labelSkinsCollected);
             this.Controls.Add(this.labelGamesCompleted);
             this.Controls.Add(this.labelName);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormGameHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game History";

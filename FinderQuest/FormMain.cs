@@ -468,9 +468,9 @@ namespace FinderQuest
                         AnimatePlayer();
                     }
                 }
-                else if (e.KeyCode == Keys.Enter && !blockEnterToStart) //starts game
+                else if (e.KeyCode == Keys.Enter && !blockEnterToStart) 
                 {
-                    if (!gameStarted && !allowReturnMainMenu)
+                    if (!gameStarted && !allowReturnMainMenu) //starts game
                     {
                         if (startToolStripMenuItem.Enabled)
                         {
@@ -504,12 +504,14 @@ namespace FinderQuest
                         else
                         {
                             talkArea.EnterTalkArea(this, labelAreaTalk);
+                            pauseToolStripMenuItem.Enabled = false;
                         }
                     }
                 }
                 else if (e.KeyCode == Keys.Escape && enterTalkArea)
                 {
                     talkArea.ExitTalkArea(this);
+                    pauseToolStripMenuItem.Enabled = false;
                 }
                 else if (e.KeyCode == Keys.Escape && pauseToolStripMenuItem.Enabled) //pause when not paused
                 {

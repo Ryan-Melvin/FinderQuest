@@ -47,7 +47,7 @@
             // 
             // panelProfileSkin
             // 
-            this.panelProfileSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.panelProfileSkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(149)))), ((int)(((byte)(138)))));
             this.panelProfileSkin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelProfileSkin.Location = new System.Drawing.Point(57, 31);
             this.panelProfileSkin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -60,6 +60,7 @@
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Plus Jakarta Sans", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
             this.labelName.Location = new System.Drawing.Point(327, 9);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
@@ -69,8 +70,8 @@
             // 
             // buttonNewSave
             // 
-            this.buttonNewSave.BackColor = System.Drawing.Color.DarkGreen;
-            this.buttonNewSave.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonNewSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(102)))), ((int)(((byte)(65)))));
+            this.buttonNewSave.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
             this.buttonNewSave.FlatAppearance.BorderSize = 2;
             this.buttonNewSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,12 +87,12 @@
             // 
             // buttonSaveProgress
             // 
-            this.buttonSaveProgress.BackColor = System.Drawing.Color.RoyalBlue;
-            this.buttonSaveProgress.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonSaveProgress.BackColor = System.Drawing.Color.Maroon;
+            this.buttonSaveProgress.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.buttonSaveProgress.FlatAppearance.BorderSize = 2;
             this.buttonSaveProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveProgress.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonSaveProgress.ForeColor = System.Drawing.Color.PeachPuff;
             this.buttonSaveProgress.Location = new System.Drawing.Point(150, 369);
             this.buttonSaveProgress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSaveProgress.Name = "buttonSaveProgress";
@@ -103,12 +104,12 @@
             // 
             // buttonLoadProgress
             // 
-            this.buttonLoadProgress.BackColor = System.Drawing.Color.RoyalBlue;
-            this.buttonLoadProgress.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonLoadProgress.BackColor = System.Drawing.Color.Maroon;
+            this.buttonLoadProgress.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.buttonLoadProgress.FlatAppearance.BorderSize = 2;
             this.buttonLoadProgress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLoadProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLoadProgress.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonLoadProgress.ForeColor = System.Drawing.Color.PeachPuff;
             this.buttonLoadProgress.Location = new System.Drawing.Point(308, 369);
             this.buttonLoadProgress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonLoadProgress.Name = "buttonLoadProgress";
@@ -120,12 +121,12 @@
             // 
             // buttonViewHistory
             // 
-            this.buttonViewHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(133)))), ((int)(((byte)(70)))));
-            this.buttonViewHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(82)))), ((int)(((byte)(45)))));
+            this.buttonViewHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(82)))), ((int)(((byte)(45)))));
+            this.buttonViewHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(133)))), ((int)(((byte)(70)))));
             this.buttonViewHistory.FlatAppearance.BorderSize = 3;
             this.buttonViewHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonViewHistory.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonViewHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(240)))), ((int)(((byte)(212)))));
             this.buttonViewHistory.Location = new System.Drawing.Point(489, 369);
             this.buttonViewHistory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonViewHistory.Name = "buttonViewHistory";
@@ -139,6 +140,7 @@
             // 
             this.labelGamesCompleted.AutoSize = true;
             this.labelGamesCompleted.Font = new System.Drawing.Font("Unispace", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGamesCompleted.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
             this.labelGamesCompleted.Location = new System.Drawing.Point(336, 100);
             this.labelGamesCompleted.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGamesCompleted.Name = "labelGamesCompleted";
@@ -150,6 +152,7 @@
             // 
             this.labelSkinsCollected.AutoSize = true;
             this.labelSkinsCollected.Font = new System.Drawing.Font("Unispace", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSkinsCollected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(194)))), ((int)(((byte)(161)))));
             this.labelSkinsCollected.Location = new System.Drawing.Point(336, 149);
             this.labelSkinsCollected.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSkinsCollected.Name = "labelSkinsCollected";
@@ -161,7 +164,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Unispace", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Indigo;
+            this.label5.ForeColor = System.Drawing.Color.MediumPurple;
             this.label5.Location = new System.Drawing.Point(336, 197);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -173,7 +176,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Unispace", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Maroon;
+            this.label6.ForeColor = System.Drawing.Color.Gold;
             this.label6.Location = new System.Drawing.Point(336, 263);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -186,8 +189,8 @@
             this.labelGoldBalance.AutoSize = true;
             this.labelGoldBalance.BackColor = System.Drawing.Color.Transparent;
             this.labelGoldBalance.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGoldBalance.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labelGoldBalance.Location = new System.Drawing.Point(538, 258);
+            this.labelGoldBalance.ForeColor = System.Drawing.Color.Gold;
+            this.labelGoldBalance.Location = new System.Drawing.Point(547, 258);
             this.labelGoldBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGoldBalance.Name = "labelGoldBalance";
             this.labelGoldBalance.Size = new System.Drawing.Size(129, 43);
@@ -199,7 +202,7 @@
             this.labelHighScore.AutoSize = true;
             this.labelHighScore.BackColor = System.Drawing.Color.Transparent;
             this.labelHighScore.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHighScore.ForeColor = System.Drawing.Color.Indigo;
+            this.labelHighScore.ForeColor = System.Drawing.Color.MediumPurple;
             this.labelHighScore.Location = new System.Drawing.Point(536, 192);
             this.labelHighScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHighScore.Name = "labelHighScore";
@@ -212,7 +215,7 @@
             this.labelTotalGold.AutoSize = true;
             this.labelTotalGold.BackColor = System.Drawing.Color.Transparent;
             this.labelTotalGold.Font = new System.Drawing.Font("Unispace", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalGold.ForeColor = System.Drawing.Color.Maroon;
+            this.labelTotalGold.ForeColor = System.Drawing.Color.Gold;
             this.labelTotalGold.Location = new System.Drawing.Point(339, 320);
             this.labelTotalGold.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotalGold.Name = "labelTotalGold";
@@ -238,7 +241,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Tan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.labelTotalGold);
             this.Controls.Add(this.labelHighScore);
