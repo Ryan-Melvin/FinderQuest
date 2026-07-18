@@ -47,9 +47,9 @@ namespace FinderQuest
             int max = 0;
             foreach (PlayReport report in this.GameHistory)
             {
-                if (report.Score > max)
+                if (report.FinalScore > max)
                 {
-                    max = report.Score;
+                    max = report.FinalScore;
                 }
             }
             return max;

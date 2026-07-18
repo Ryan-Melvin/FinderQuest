@@ -244,7 +244,7 @@ namespace FinderQuest
                     // Filter rules for filtering strict multiple choice questions
                     if (cleanQuestion.ToLower().Contains("which of the following") ||
                         cleanQuestion.ToLower().Contains("which of these")
-                        || (cleanQuestion.Length >= 120))
+                        || (cleanQuestion.Length >= 105))
                     {
                         continue;
                     }
