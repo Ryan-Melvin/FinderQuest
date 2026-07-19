@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 namespace FinderQuest
 {
-    [Serializable]
     public class Person
     {
         #region fields

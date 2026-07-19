@@ -65,9 +65,5 @@ namespace FinderQuest
         public string DisplayName { get => displayName; set => displayName = value; }
         public string Rarity { get => rarity; set => rarity = value; }
         #endregion
-
-        #region methods
-
-        #endregion
     }
 }

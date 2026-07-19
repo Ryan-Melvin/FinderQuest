@@ -5,7 +5,6 @@ using System.Text;
 
 namespace FinderQuest
 {
-    [Serializable]
     public class Question
     {
         #region fields
@@ -69,10 +68,6 @@ namespace FinderQuest
                 }
             }
         }
-        #endregion
-
-        #region methods
-
         #endregion
     }
 }

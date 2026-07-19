@@ -52,6 +52,8 @@ namespace FinderQuest
             {
                 MessageBox.Show("No save files found. Try creating a new save!");
                 buttonLoad.Enabled = false;
+                this.Close();
+                return;
             }
         }
 

@@ -62,6 +62,10 @@ namespace FinderQuest
             this.DoubleBuffered = true;
 
             typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelTalkArea, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelHelp, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelCredits, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelHelpNext, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic, null, panelHelpBack, new object[] { true });
 
             this.StartPosition = FormStartPosition.CenterScreen;
         }
@@ -448,7 +452,7 @@ namespace FinderQuest
         {
             int distance = 5;
 
-            if (!paused && !inCutscene)
+            if (!paused && !inCutscene) //in game
             {
                 if (e.KeyCode == Keys.Right && game.CurrWalkArea != null && game.CurrTalkArea == null)
                 {
@@ -588,7 +592,7 @@ namespace FinderQuest
         {
             Graphics draw = e.Graphics;
 
-            if (game.CurrWalkArea == null)
+            if (game.CurrWalkArea == null) //main menu
             {
                 draw.DrawImage(this.BackgroundImage, 0, 0, this.ClientSize.Width, this.ClientSize.Height);
             }

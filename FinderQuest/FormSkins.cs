@@ -84,9 +84,7 @@ namespace FinderQuest
 
                     bool isEquipped = skin.Name == mainForm.account.EquippedSkin;
 
-                    if (isOwned &&
-                        !isEquipped &&
-                        skin.Rarity == rarity)
+                    if (isOwned && !isEquipped && skin.Rarity == rarity)
                     {
                         sortedSkins.Add(skin);
                     }
@@ -98,8 +96,7 @@ namespace FinderQuest
             {
                 foreach (Skin skin in listSkins)
                 {
-                    bool isOwned =
-                        mainForm.account.OwnedSkins.Contains(skin.Name);
+                    bool isOwned = mainForm.account.OwnedSkins.Contains(skin.Name);
 
                     if (!isOwned && skin.Rarity == rarity)
                     {
@@ -124,14 +121,11 @@ namespace FinderQuest
                 return;
             }
 
-            bool isOwned =
-                mainForm.account.OwnedSkins.Contains(selectedSkin.Name);
+            bool isOwned = mainForm.account.OwnedSkins.Contains(selectedSkin.Name);
 
-            bool isEquipped =
-                mainForm.account.EquippedSkin == selectedSkin.Name;
+            bool isEquipped = mainForm.account.EquippedSkin == selectedSkin.Name;
 
-            bool canAfford =
-                mainForm.account.GoldBalance >= selectedSkin.Price;
+            bool canAfford = mainForm.account.GoldBalance >= selectedSkin.Price;
 
             // Keep both buttons enabled, add custom variable to enable styling
             buttonBuy.Enabled = true;

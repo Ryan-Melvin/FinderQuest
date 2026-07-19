@@ -9,7 +9,6 @@ using TimeApplication;
 
 namespace FinderQuest
 {
-    [Serializable]
     public class Player
     {
         #region fields
