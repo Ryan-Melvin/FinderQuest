@@ -177,7 +177,7 @@ namespace FinderQuest
 
         private void FormQuestion_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (mainForm.game.ActivePerson is Boss)
+            if (mainForm.game.ActivePerson is Boss && !mainForm.GetGameOverState())
             {
                 mainForm.sound.PlaySound("area8-Ambient");
             }

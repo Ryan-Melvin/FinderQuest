@@ -49,6 +49,7 @@ namespace FinderQuest
         private bool inCutscene = false;
         private bool allowSkipCutscene = false;
         private bool blockEnterToStart = false;
+        private bool gameOver = false;
         public CancellationTokenSource skip; //for signaling to the cutscene method to skip the cutscene
 
         private int helpPage = 1;
@@ -188,6 +189,11 @@ namespace FinderQuest
         {
             return this.pauseToolStripMenuItem;   
         }
+
+        public bool GetGameOverState()
+        {
+            return gameOver;
+        }
         #endregion
 
         #region form lifecycle events
@@ -282,6 +288,7 @@ namespace FinderQuest
 
             if (time.Hour == 0 && time.Minute == 0 && time.Second == 0 && gameStarted)
             {
+                gameOver = true;
                 if(this.form != null)
                 {
                     this.form.Close();
@@ -296,6 +303,7 @@ namespace FinderQuest
                 sound.PlaySFX("LoseTaunt");
                 skip = new CancellationTokenSource();
                 await cutscene.PlayBadEnding(this, pauseToolStripMenuItem, startToolStripMenuItem, labelCutscene, labelSkip, skip.Token);
+                gameOver = false;
             }
         }
 

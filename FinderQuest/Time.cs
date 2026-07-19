@@ -76,7 +76,7 @@ namespace TimeApplication
                 }
                 else
                 {
-                    throw new Exception("Second must be 0-59");
+                    second = 0;
                 }
             }
         }
