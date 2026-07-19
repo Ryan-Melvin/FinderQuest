@@ -25,7 +25,7 @@ namespace FinderQuest
                 form.game.CurrWalkArea.AddPerson(2, "Orc", Properties.Resources.Orc_Idle_Left, new Size(form.GetSize("medium"), form.GetSize("medium")), "Tick-tock, the trap is unlocked! Give us the right answer, or enjoy the drop.\n", (int)(370 * scaleX), form.ClientSize.Height / 2 - (form.GetSize("medium") - form.GetPlayerSize().Height), "OrcGreeting", "OrcDeath", form.game.GetQuestion(1, 1));
                 form.game.CurrWalkArea.AddPerson(3, "Ogre", Properties.Resources.Ogre_Idle_Left, new Size(form.GetSize("big"), form.GetSize("big")), "You better answer my question correctly..\n", (int)(620 * scaleX), form.ClientSize.Height / 2 - (form.GetSize("big") - form.GetPlayerSize().Height), "OgreGreeting", "OgreDeath", form.game.GetQuestion(1, 2));
             }
-            else if (form.game.CurrWalkArea.AreaNum == 7)
+            else if (form.game.CurrWalkArea.AreaNum == 1)
             {
                 form.sound.SetSFXVolume(40);
                 form.game.CurrWalkArea.RemovePeople(form);
@@ -85,7 +85,7 @@ namespace FinderQuest
                 form.game.CurrWalkArea.AddPerson(17, "Grim", Properties.Resources.Reaper_Idle_Left, new Size(form.GetSize("medium"), form.GetSize("medium")), "Pulse and data! Both are so easily measured and stopped. Answer me.\n", (int)(120 * scaleX), form.ClientSize.Height / 2 - (form.GetSize("medium") - form.GetPlayerSize().Height), "ReaperGreeting", "ReaperDeath", form.game.GetQuestion(7, 0));
                 form.game.CurrWalkArea.AddPerson(18, "Azrael", Properties.Resources.DeathReaper_Idle_Left, new Size(form.GetSize("medium"), form.GetSize("medium")), "I do not just kill, I keep.\n", (int)(420 * scaleX), form.ClientSize.Height / 2 - (form.GetSize("medium") - form.GetPlayerSize().Height), "ReaperGreeting", "ReaperDeath", form.game.GetQuestion(7, 1));
             }
-            else if (form.game.CurrWalkArea.AreaNum == 1)
+            else if (form.game.CurrWalkArea.AreaNum == 7)
             {
                 form.sound.SetSFXVolume(90);
                 form.game.CurrWalkArea.RemovePeople(form);
