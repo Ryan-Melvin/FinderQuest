@@ -6,7 +6,7 @@
 
 
 
-FinderQuest is a story-infused 2D desktop trivia game built in C# using Windows Forms. It combines high replayability, usingowered by dynamic API question pooling, an in-game currency and cosmetic shop, and a flicker-free GDI+ rendering engine.
+FinderQuest is a story-infused 2D desktop trivia game built in C# using Windows Forms. It combines high replayability, using dynamic API question pooling, an in-game currency and cosmetic shop, and a flicker-free GDI+ rendering engine.
 
 
 
